@@ -20,12 +20,12 @@ canvas {
   cursor: default;
     position: absolute;
     text-align: center;
-    font-size: 1.0vmax;
+    font-size: 1.4vmax;
     left: 10px;
     top: 10px;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
-    font-family: monospace;
+    font-family: Arial;
     padding: 1em;
     border-radius: 0.25em;
     border: 2px solid #FAFAD2;
@@ -75,8 +75,14 @@ canvas {
   background-position-x : 50%;
   background-position-y : 50%;
 }
-#button1 {
+#btnPlay {
   right: 10px;
   top: 10vmax;
   background-color: #aaaaaa;
+  /* opacity: 0.36; */
+  background-image: url(../images/white-play-512.png);
+  background-repeat     : no-repeat;
+  background-size       : cover;
+  background-position-x : 50%;
+  background-position-y : 50%;
 }
