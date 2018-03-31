@@ -1,4 +1,4 @@
-//Add models in scene   TESTTTTTTTTTTTTTTTTT
+//Add models in scene   Изменения на Тест!!!
 sx_43.position.set( 0, 0, 0 );
 scene.add( sx_43 );
 sx_32_vert.position.set( -510, 0, 0 );
