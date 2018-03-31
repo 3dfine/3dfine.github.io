@@ -1,4 +1,4 @@
-//Add models in scene
+//Add models in scene   TESTTTTTTTTTTTTTTTTT
 sx_43.position.set( 0, 0, 0 );
 scene.add( sx_43 );
 sx_32_vert.position.set( -510, 0, 0 );
