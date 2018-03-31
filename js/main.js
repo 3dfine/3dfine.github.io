@@ -58,7 +58,13 @@ overlayStl.addEventListener( "click" , setSteel );
 overlayGold.addEventListener( "click" , setGold );
 rotateObj.addEventListener( "click" , setRotate );
 button1.addEventListener( "click" , moveObject );
-
+btnfullscrn.addEventListener( "click" , toggleFullScreen );
+btnfullscrn.addEventListener( "click" , toggleFullScreen );
+document.addEventListener("keydown", function(e) {
+  if (e.keyCode == 13) {
+    toggleFullScreen();
+  }
+}, false);
 // overlayStl.style.left = 100 + 'px';
 
 

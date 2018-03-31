@@ -37,11 +37,11 @@ canvas {
   position: absolute;
   height: 4.0vmax;
   width: 4.0vmax;
-  color: white;
-  font-family: monospace;
+  /* color: white; */
+  /* font-family: monospace; */
   /* padding: 1em; */
-  border-radius: 0.6em;
-  border: 2px solid #FAFAD2;
+  /* border-radius: 0.6em; */
+  /* border: 2px solid #FAFAD2; */
 }
 #overlaySteel {
   right: 50%;
@@ -53,17 +53,29 @@ canvas {
   bottom: 0.2vmax;
   background-color: #ffc355;
 }
-#rotateObj {
+#btnfullscrn {
   right: 10px;
   top: 1vmax;
-  background-color: #000000;
+  /* background-color: #aaaaaa; */
+  opacity: 0.5;
+  background-image: url(../images/fullScrn.png);
+  background-repeat     : no-repeat;
+  background-size       : cover;
+  background-position-x : 50%;
+  background-position-y : 50%;
 }
-#button1 {
+#rotateObj {
   right: 10px;
   top: 5.5vmax;
-  background-color: #aaaaaa;
+  /* background-color: #000000; */
+  opacity: 0.36;
+  background-image: url(../images/rotation.png);
+  background-repeat     : no-repeat;
+  background-size       : cover;
+  background-position-x : 50%;
+  background-position-y : 50%;
 }
-#button2 {
+#button1 {
   right: 10px;
   top: 10vmax;
   background-color: #aaaaaa;
