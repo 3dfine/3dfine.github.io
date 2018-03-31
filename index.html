@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>WebGL Demo</title>
+  <link rel="icon" type="image/png" href="images/logotip_red_for_krug.png" />
+  <link rel="stylesheet" href = "css/style.css"></link>
+
+  <style>
+   .center {
+    width: 200px; /* Ширина элемента в пикселах */
+    padding: 10px; /* Поля вокруг текста */
+    margin: auto; /* Выравниваем по центру */
+    background: #fc0; /* Цвет фона */
+   }
+  </style>
+
+</head>
+<body>
+
+  <!-- <canvas id = "canvas-exemple"></canvas> -->
+
+  <div class="container">
+    <canvas id = "canvas-exemple"></canvas>
+
+    <div id="overlay">
+      <div><span id="eMail"></span></div>
+      <div><span id="angle"></span></div>
+    </div>
+
+    <div class = "colorpicker1" id="overlayGold"></div>
+    <div class = "colorpicker1" id="overlaySteel"></div>
+    <div class = "colorpicker1" id="rotateObj"></div>
+    <div class = "colorpicker1" id="button1"></div>
+    <div class = "colorpicker1" id="button2"></div>
+  </div>
+
+
+  <!-- <div class = "colorpicker1" id="overlaySteel"></div> -->
+  <!-- <div id="container" class="testt"></div> -->
+  <script id="2d-vertex-shader" type="notjs">
+  varying float mOpacity;
+  varying float viewNormal;
+  varying vec3 vReflect;
+  void main() {
+
+    mOpacity = 1.0;
+
+    vec4 worldPosition = modelMatrix * vec4( position, 1.0 );
+    vec3 I = worldPosition.xyz - cameraPosition;
+
+    vec3 worldNormal = normalize( mat3( modelMatrix[0].xyz, modelMatrix[1].xyz, modelMatrix[2].xyz ) * normal );
+
+    vReflect = reflect( I, worldNormal );
+    viewNormal = dot( I, vReflect ) / (length(I)*length(vReflect));
+
+    gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+  }
+
+  </script>
+
+  <script id="2d-fragment-shader" type="notjs">
+
+    precision mediump float;
+    varying vec3 vReflect;
+    varying float viewNormal;
+    varying float mOpacity;
+    //varying vec3 fragColor;
+    void main() {
+
+      //gl_FragColor = vec4(vReflect, viewNormal); // return redish-purple
+       gl_FragColor = vec4(0.0, 0.0, 1.0, viewNormal); // return redish-purple
+      //gl_FragColor = vec4(v_normal, 1); // return redish-purple
+      //gl_FragColor = vec4(vReflect, 1.0); // return redish-purple
+
+    }
+
+  </script>
+<script src="js/resoursces.js"></script>
+<script src="js/three.min.js"></script>
+
+<script src="js/postprocessing/EffectComposer.js"></script>
+<script src="js/postprocessing/RenderPass.js"></script>
+<script src="js/postprocessing/ShaderPass.js"></script>
+<script src="js/postprocessing/SAOPass.js"></script>
+
+<script src="js/shaders/CopyShader.js"></script>
+<script src="js/shaders/SAOShader.js"></script>
+<script src="js/shaders/DepthLimitedBlurShader.js"></script>
+<script src="js/shaders/UnpackDepthRGBAShader.js"></script>
+<script src="js/shaders/FresnelShader.js"></script>
+
+<script src="js/controls/OrbitControls.js"></script>
+<script src="js/loaders/RGBELoader.js"></script>
+<script src="js/loaders/HDRCubeTextureLoader.js"></script>
+
+<script src="js/pmrem/PMREMGenerator.js"></script>
+<script src="js/pmrem/PMREMCubeUVPacker.js"></script>
+
+<script src="js/libs/inflate.min.js"></script>
+<script src="js/loaders/FBXLoader.js"></script>
+
+<script src="js/easingFunc.js"></script>
+<script src="js/animFunctions.js"></script>
+<script src="js/SceneSetup.js"></script>
+<script src="js/loadTextures.js"></script>
+<script src="js/materials.js"></script>
+<script src="js/loadModels.js"></script>
+<script src="js/main.js"></script>
+<script src="js/finalOutput.js"></script>
+</body>
+</html>
