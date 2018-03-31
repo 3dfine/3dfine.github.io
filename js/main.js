@@ -1,4 +1,4 @@
-//Add models in scene   Изменения на Тест!!!
+//Add models in scene
 sx_43.position.set( 0, 0, 0 );
 scene.add( sx_43 );
 sx_32_vert.position.set( -510, 0, 0 );
@@ -28,7 +28,7 @@ function setSteel() {
   materials2[0] = matAluminuim;
 }
 function setRotate() {
-  controls.autoRotate = !controls.autoRotate
+  controls.autoRotate = !controls.autoRotate;
 }
 let globalTime = 0;
 let frame1 = 0;
