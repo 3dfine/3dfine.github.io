@@ -32,15 +32,15 @@ canvas {
     /* text-shadow: 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white; */
 }
 .colorpicker1 {
-    margin: 0.2vmax;
+  margin: 0.1vmax;
   cursor: pointer;
   position: absolute;
-  height: 6.0vmax;
-  width: 6.0vmax;
+  height: 4.0vmax;
+  width: 4.0vmax;
   color: white;
   font-family: monospace;
   /* padding: 1em; */
-  border-radius: 0.25em;
+  border-radius: 0.6em;
   border: 2px solid #FAFAD2;
 }
 #overlaySteel {
@@ -60,11 +60,11 @@ canvas {
 }
 #button1 {
   right: 10px;
-  top: 8vmax;
-  background-color: #00aaaa;
+  top: 5.5vmax;
+  background-color: #aaaaaa;
 }
 #button2 {
   right: 10px;
-  top: 16vmax;
-  background-color: #aaaa00;
+  top: 10vmax;
+  background-color: #aaaaaa;
 }
