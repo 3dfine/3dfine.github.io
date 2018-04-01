@@ -10,18 +10,14 @@ height =  window.innerHeight - 20;
 
 }
 
-let animate = function () {
-  requestAnimationFrame( animate );
-  // console.log('T=', globalTime );
+let animateCamera1 = animateCamera(camera, controls);
 
-  // sx_19_vert.rotateY( -0.002 );
-  // sx_32_vert.rotation.y -= 0.002;
-  // sx_43.rotation.y -= 0.002;
-  // sx_32.rotation.y -= 0.002;
-  // camera.position.z += 1.0;
+let animate = function () {
 
   animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
+  animateCamera1(CameraKeyTrck1);
 
+  requestAnimationFrame( animate );
   controls.update();
   renderer.render( scene, camera );
   // globalTime += 1;

@@ -68,8 +68,8 @@ document.addEventListener("keydown", function(e) {
 
 var matLine = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 1 } );
 var geometry = new THREE.Geometry();
-geometry.vertices.push(new THREE.Vector3( -400, 0, 0) );
-geometry.vertices.push(new THREE.Vector3( 0, 600, 0) );
+geometry.vertices.push(new THREE.Vector3( -1200, 0, 200) );
+geometry.vertices.push(new THREE.Vector3( 600, 0, 200) );
 // geometry.vertices.push(new THREE.Vector3( 10, 0, 0) );
 var line = new THREE.Line( geometry, matLine );
 scene.add( line );

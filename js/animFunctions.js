@@ -1,6 +1,26 @@
+let cameraKeyTrck0 = {
+  camLookAt: new THREE.Vector3( -250, 350, 0  ),
+  distance: 2500,
+  camAngelPlanexz: 0,
+  camAngelOz: 30,
+  autoRotSpeed: 5
+};
+let cameraPos = function (_camera, _controls, cameraKeyTrck ) {
+  let vectorCam = new THREE.Vector3( 0, 0, 0 );
+  let axis = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
+  let axisDop = new THREE.Vector3( 0, 0, 0 ); //вектор ортогональный вектору-вверх (ось Y) и радиус-вектору
+  vectorCam.subVectors( camera.position, cameraKeyTrck.camLookAt ).normalize(); //вектор от камеры до таргета - радиус-вектор
+  vectorCam.applyAxisAngle( axis, THREE.Math.degToRad( cameraKeyTrck.camAngelOz ) );
+  axisDop.crossVectors( vectorCam, axis ).normalize();  //вектор ортогональный вектору-вверх (ось Y) и радиус-вектору
+  vectorCam.applyAxisAngle( axisDop, THREE.Math.degToRad( cameraKeyTrck.camAngelPlanexz ) ).multiplyScalar( cameraKeyTrck.distance );
+  _camera.position.addVectors( cameraKeyTrck.camLookAt, vectorCam );
+  _controls.target = cameraKeyTrck.camLookAt;
+  _controls.autoRotateSpeed = cameraKeyTrck.autoRotSpeed;
+}
+
 let animateTemp = function ( objGroup, animKeyFrames, interpolation ) {
-  if( VecKeyfrTrck1.play ) {
-    if(frame1 == 0) {
+  if( VecKeyfrTrck1.play ) {  //если тру, начинаем анимацию
+    if(frame1 == 0) {         //если входим в первый раз, в первый элемент массива ключей записываем текущее положение объекта
       frame1 = 1;
       animKeyFrames.x[0] = objGroup.position.x;
       animKeyFrames.y[0] = objGroup.position.y;
@@ -30,15 +50,28 @@ let animateTemp = function ( objGroup, animKeyFrames, interpolation ) {
       globalTime = 0;
     }
   }
+}
+
+
+let CameraKeyTrck1 = {
+  duration: false,
+  times: [0, 50, 100, 110, 200, 250, 300],
+  // deltaTimes: [100, 20, 40, 60, 80, 100, 120],
+  camLookAt: new THREE.Vector3( -250, 350, 0  ),
+  distance: 1500,
+  camAngelPlanexz: 0,
+  camAngelOz: 0,
+  autoRotSpeed: 6
 };
 
-let cameraPos = function ( targetVec3, camDistance, camAngelOxz ) {
-  let vectorCam = new THREE.Vector3( 0, 0, 0 );
-  let axis = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
-  let axisDop = new THREE.Vector3( 0, 0, 0 ); //вектор ортогональный вектору-вверх (ось Y) и радиус-вектору
-  vectorCam.subVectors( camera.position, targetVec3 ).normalize(); //вектор от камеры до таргета - радиус-вектор
-  axisDop.crossVectors( vectorCam, axis ).normalize();
-  vectorCam.applyAxisAngle( axisDop, THREE.Math.degToRad( camAngelOxz ) ).multiplyScalar( camDistance );
-  camera.position.addVectors( targetVec3, vectorCam );
-  controls.target = targetVec3;
-};
+function animateCamera(_camera, _controls) {
+  let currentCount = 0;
+  return function(keyTrack) {
+
+    keyTrack.distance = 4000 + 2500 * Math.sin( currentCount/40 );
+
+    cameraPos( _camera, _controls, keyTrack );
+    console.log( currentCount );
+    currentCount++;
+  };
+}

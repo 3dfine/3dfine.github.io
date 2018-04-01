@@ -15,11 +15,11 @@ scene.fog = new THREE.Fog( scene.background, 5000, 9000 );
 //Camera and camera control
 var camera = new THREE.PerspectiveCamera(35, aspect, 100, 9000);
 var camPosition = new THREE.Vector3( -300, 400, 2000 );
-var camLookAt = new THREE.Vector3( -300, 350, 0 );
+var camLookAt = new THREE.Vector3( -250, 350, 0 );
 var controls = new THREE.OrbitControls( camera );
 var cameraDistance = 2000;
 
-var vectorCam = new THREE.Vector3( 500, 0, 1000 );
+var vectorCam = new THREE.Vector3( 0, 0, 1000 );
 // vectorCam.subVectors(camPosition, camLookAt).normalize(); //вектор от камеры до таргета - радиус-вектор
 // console.log('vectorCam', vectorCam);
 // var axis = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
@@ -31,13 +31,13 @@ var vectorCam = new THREE.Vector3( 500, 0, 1000 );
 // console.log('vectorCam', vectorCam);
 
 camera.position.addVectors(camLookAt, vectorCam);
-cameraPos(camLookAt, 6000, 25);
+cameraPos(camera, controls, cameraKeyTrck0);
 
 controls.maxPolarAngle = Math.PI * 0.55;
 controls.noZoom = false;
 controls.zoomSpeed = 0.8;
 controls.autoRotate = false; //true
-controls.autoRotateSpeed = 1.5; // 30 seconds per round when fps is 60
+// controls.autoRotateSpeed = 1.5; // 30 seconds per round when fps is 60
 controls.noRotate = false;
 controls.rotateSpeed = 0.8;
 controls.noPan = false;
