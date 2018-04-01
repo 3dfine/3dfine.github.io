@@ -7,6 +7,7 @@ height =  window.innerHeight - 20;
   camera.aspect = aspect;
   camera.updateProjectionMatrix();
   controls.rotateSpeed = width / 1920;
+
 }
 
 let animate = function () {

@@ -77,7 +77,8 @@ canvas {
 }
 #btnPlay {
   right: 10px;
-  top: 10vmax;
+  /* top: 10vmax; */
+  top: 50%;
   background-color: #aaaaaa;
   /* opacity: 0.36; */
   background-image: url(../images/white-play-512.png);

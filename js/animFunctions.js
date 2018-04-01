@@ -31,3 +31,14 @@ let animateTemp = function ( objGroup, animKeyFrames, interpolation ) {
     }
   }
 };
+
+let cameraPos = function ( targetVec3, camDistance, camAngelOxz ) {
+  let vectorCam = new THREE.Vector3( 0, 0, 0 );
+  let axis = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
+  let axisDop = new THREE.Vector3( 0, 0, 0 ); //вектор ортогональный вектору-вверх (ось Y) и радиус-вектору
+  vectorCam.subVectors( camera.position, targetVec3 ).normalize(); //вектор от камеры до таргета - радиус-вектор
+  axisDop.crossVectors( vectorCam, axis ).normalize();
+  vectorCam.applyAxisAngle( axisDop, THREE.Math.degToRad( camAngelOxz ) ).multiplyScalar( camDistance );
+  camera.position.addVectors( targetVec3, vectorCam );
+  controls.target = targetVec3;
+};

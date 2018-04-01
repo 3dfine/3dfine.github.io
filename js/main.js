@@ -66,7 +66,6 @@ document.addEventListener("keydown", function(e) {
 }, false);
 // overlayStl.style.left = 100 + 'px';
 
-
 var matLine = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 1 } );
 var geometry = new THREE.Geometry();
 geometry.vertices.push(new THREE.Vector3( -400, 0, 0) );
