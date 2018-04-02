@@ -19,8 +19,8 @@ let animate = function () {
 
   // animateCamera1(CameraKeyTrck1);
 
-  ustanovka.children[0].children[1].rotation.z += 0.1;
-  ustanovka.children[1].children[1].rotation.z += 0.1;
+  ustanovka.children[0].children[1].rotation.z -= 0.02;
+  ustanovka.children[1].children[1].rotation.z -= 0.02;
 
   controls.update();
   renderer.render( scene, camera );

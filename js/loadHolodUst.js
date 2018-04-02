@@ -18,7 +18,7 @@ let matOpora = [
   new THREE.MeshStandardMaterial({
     color : 0x020202,
     metalness: 0.9,
-    roughness: 0.4
+    roughness: 0.3
   })
 ];
 // models
