@@ -14,8 +14,8 @@ scene.fog = new THREE.Fog( scene.background, 5000, 9000 );
 
 //Camera and camera control
 var camera = new THREE.PerspectiveCamera(35, aspect, 100, 9000);
-var camPosition = new THREE.Vector3( -300, 400, 2000 );
-var camLookAt = new THREE.Vector3( -250, 350, 0 );
+var camPosition = new THREE.Vector3( 0, 1400, 2000 );
+var camLookAt = new THREE.Vector3( -0, 350, 0 );
 var controls = new THREE.OrbitControls( camera );
 var cameraDistance = 2000;
 
@@ -65,7 +65,6 @@ var canvas = document.getElementById( 'canvas-exemple' );
 // canvas.setAttribute('width', 600);
 // canvas.setAttribute('Height', 600);
 var renderer = new THREE.WebGLRenderer( { canvas: canvas, antialias: true } );
-renderer.antialias = true;
 //renderer.setClearColor(0x000000);
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setSize( width, height );
@@ -73,5 +72,5 @@ renderer.setSize( width, height );
 renderer.gammaInput = true;
 renderer.gammaOutput = true;
 renderer.toneMapping = THREE.ReinhardToneMapping;
-renderer.toneMappingExposure = 3;
+renderer.toneMappingExposure = 2;
 //document.body.appendChild( renderer.domElement );

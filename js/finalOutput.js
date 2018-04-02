@@ -17,7 +17,7 @@ let animate = function () {
 
   // animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
 
-  animateCamera1(CameraKeyTrck1);
+  // animateCamera1(CameraKeyTrck1);
 
   ustanovka.children[0].children[1].rotation.z += 0.1;
   ustanovka.children[1].children[1].rotation.z += 0.1;

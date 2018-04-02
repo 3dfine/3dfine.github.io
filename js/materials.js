@@ -6,13 +6,19 @@ vert_fonGor.anisotropy = maxAnisotropy;
 let matAluminuim = new THREE.MeshStandardMaterial({
   color: 0x555555,
   metalness:1,
-  roughness: 0.3,
+  roughness: 0.5,
   //combine: THREE.MultiplyOperation,
 });
 let matSteel = new THREE.MeshStandardMaterial({
   color: 0x28343b,    //0x28343b
   metalness: 1.0,
   roughness: 0.8 ,
+  // combine: THREE.MultiplyOperation,
+});
+let matRAL7045 = new THREE.MeshStandardMaterial({
+  color: 0x91969A,    //0x28343b
+  metalness: 0.9,
+  roughness: 0.5 ,
   // combine: THREE.MultiplyOperation,
 });
 let matSteelClear = new THREE.MeshStandardMaterial({
@@ -40,11 +46,19 @@ let matCopper = new THREE.MeshStandardMaterial({
   // combine: THREE.MultiplyOperation,
 });
 let matPlastic = new THREE.MeshStandardMaterial({
-  color: 0x000000,
+  color: 0x020202,
   metalness:0.2,
   roughness: 0.1,
   // combine: THREE.MultiplyOperation,
   // opacity: 0
+});
+let matRubber = new THREE.MeshStandardMaterial({
+  color: 0x030303,
+  metalness:0.2,
+  roughness: 0.4,
+  // combine: THREE.MultiplyOperation,
+  // opacity: 0
+  side: THREE.DoubleSide
 });
 let matPlasticBlack = new THREE.MeshLambertMaterial({
   color: 0x000000
@@ -98,6 +112,8 @@ fragmentShader: shader.fragmentShader,
 transparent: true
 } );
 
+matRAL7045.envMap = textureCube;
+matRAL7045.needsUpdate = true;
 matAluminuim.envMap = textureCube;
 matAluminuim.needsUpdate = true;
 matSteel.envMap = textureCube;
@@ -118,26 +134,19 @@ matSteelClear.needsUpdate = true;
 matPlasticWhite.envMap = textureCube;
 matPlasticWhite.needsUpdate = true;
 
-let materials = [
-matGold,     //0 matGold
-matPlasticBlack,   //1 matSteel
-matEkranGorizont,     //2 matEkran
-matGlass,     //3
-matPlastic,   //4
-matSteelClear,     //5
-new THREE.MeshBasicMaterial({
-  color : 0xff0000
-})];
-let materials2 = [
-matGold,     //0 matGold
-matPlasticBlack,   //1 matSteel
-matEkran,     //2 matEkran
-matGlass,     //3
-matPlastic,   //4
-matSteelClear,     //5
-new THREE.MeshStandardMaterial({
-  color : 0xff0000
-})];
+matStoikaGoriz[0] = matGold;
+matStoikaGoriz[1] = matPlasticBlack;
+matStoikaGoriz[2] = matEkranGorizont;
+matStoikaGoriz[3] = matGlass;
+matStoikaGoriz[4] = matPlastic;
+matStoikaGoriz[5] = matSteelClear;
+
+matStoikaVert[0] = matGold;
+matStoikaVert[1] = matPlasticBlack;
+matStoikaVert[2] = matEkran;
+matStoikaVert[3] = matGlass;
+matStoikaVert[4] = matPlastic;
+matStoikaVert[5] = matSteelClear;
 
 let matKrisha = [
 new THREE.MeshStandardMaterial({

@@ -1,14 +1,15 @@
 //Add models in scene
-// sx_43.position.set( 0, 0, 0 );
-// scene.add( sx_43 );
-// sx_32_vert.position.set( -510, 0, 0 );
-// scene.add( sx_32_vert );
-// sx_19_vert.position.set( 500, 0, 0 );
-// scene.add( sx_19_vert );
-// sx_32.position.set( -950, 0, 0 );
-// scene.add( sx_32 );
-matUstVent[0] = matPlasticWhite;
+stoikiGroup.position.x = 2600;
+// scene.add( stoikiGroup );
 
+matUstVent[0] = matRAL7045;
+matUstVent[1] = matPlastic;
+matUstVent[2] = matRubber;
+matUstVent[3] = matAluminuim;
+matUstVent2[0] = matAluminuim;
+matUstVent2[1] = matPlastic;
+matUstVent2[2] = matSteelClear;
+matUstVent2[3] = matRAL7045;
 scene.add( ustanovka );
 
 // получаем ссылки на элементы DOM
