@@ -14,7 +14,6 @@
 //   });
 // }
 
-
 var loadTextResource = function( url ) {
     var request = new XMLHttpRequest();
     request.open( 'GET', url, true );
@@ -26,9 +25,11 @@ var loadTextResource = function( url ) {
 
 var loadFBXModel = function( modelTarget, scaleImport, _material, url ) {
 loader.load( url, function( object ) {
-  var _modelTemp = object.children[0];
-  _modelTemp.scale.multiplyScalar( scaleImport );
-  _modelTemp.material = _material;
-  modelTarget.add( _modelTemp );
+    // console.log(i);
+    var _modelTemp = object.children[0];
+    _modelTemp.scale.multiplyScalar( scaleImport );
+    _modelTemp.material = _material;
+    modelTarget.add( _modelTemp );
+    modelTarget.add( _modelTemp );
 });
 }

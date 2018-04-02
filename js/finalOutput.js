@@ -13,14 +13,14 @@ height =  window.innerHeight - 20;
 let animateCamera1 = animateCamera(camera, controls);
 
 let animate = function () {
+  requestAnimationFrame( animate );
 
-  animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
+  // animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
 
   animateCamera1(CameraKeyTrck1);
 
-  requestAnimationFrame( animate );
-
-  ustanovka.children[1].rotation.z += 0.2;
+  ustanovka.children[0].children[1].rotation.z += 0.1;
+  ustanovka.children[1].children[1].rotation.z += 0.1;
 
   controls.update();
   renderer.render( scene, camera );

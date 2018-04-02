@@ -1,12 +1,13 @@
 //Add models in scene
-sx_43.position.set( 0, 0, 0 );
-scene.add( sx_43 );
-sx_32_vert.position.set( -510, 0, 0 );
-scene.add( sx_32_vert );
-sx_19_vert.position.set( 500, 0, 0 );
-scene.add( sx_19_vert );
-sx_32.position.set( -950, 0, 0 );
-scene.add( sx_32 );
+// sx_43.position.set( 0, 0, 0 );
+// scene.add( sx_43 );
+// sx_32_vert.position.set( -510, 0, 0 );
+// scene.add( sx_32_vert );
+// sx_19_vert.position.set( 500, 0, 0 );
+// scene.add( sx_19_vert );
+// sx_32.position.set( -950, 0, 0 );
+// scene.add( sx_32 );
+matUstVent[0] = matPlasticWhite;
 
 scene.add( ustanovka );
 

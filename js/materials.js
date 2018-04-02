@@ -1,72 +1,77 @@
-var matAluminuim = new THREE.MeshStandardMaterial({
+let maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
+matSteelTexture.anisotropy = maxAnisotropy;
+vert_fon.anisotropy = maxAnisotropy;
+vert_fonGor.anisotropy = maxAnisotropy;
+
+let matAluminuim = new THREE.MeshStandardMaterial({
   color: 0x555555,
   metalness:1,
   roughness: 0.3,
   //combine: THREE.MultiplyOperation,
 });
-var matSteel = new THREE.MeshStandardMaterial({
+let matSteel = new THREE.MeshStandardMaterial({
   color: 0x28343b,    //0x28343b
   metalness: 1.0,
   roughness: 0.8 ,
   // combine: THREE.MultiplyOperation,
 });
-var matSteelClear = new THREE.MeshStandardMaterial({
+let matSteelClear = new THREE.MeshStandardMaterial({
   color: 0x28343b,    //0x28343b
   metalness: 1.0,
   roughness: 0.1 ,
   // combine: THREE.MultiplyOperation,
 });
-var matGold = new THREE.MeshStandardMaterial({
+let matGold = new THREE.MeshStandardMaterial({
   color: 0xffc355,    //Gold	(1.000, 0.766, 0.336) or [255, 195, 86]
   metalness: 1,
   roughness: 0.22 ,
   // combine: THREE.MultiplyOperation,
 });
-var matSilver = new THREE.MeshStandardMaterial({
+let matSilver = new THREE.MeshStandardMaterial({
   color: 0xf8f5e9,    //Silver	(0.972, 0.960, 0.915) or [248, 245, 233]
   metalness: 1,
   roughness: 0.2 ,
   // combine: THREE.MultiplyOperation,
 });
-var matCopper = new THREE.MeshStandardMaterial({
+let matCopper = new THREE.MeshStandardMaterial({
   color: 0xe28241,
   metalness: 1.0,
   roughness: 0.5 ,
   // combine: THREE.MultiplyOperation,
 });
-var matPlastic = new THREE.MeshStandardMaterial({
+let matPlastic = new THREE.MeshStandardMaterial({
   color: 0x000000,
   metalness:0.2,
   roughness: 0.1,
   // combine: THREE.MultiplyOperation,
   // opacity: 0
 });
-var matPlasticBlack = new THREE.MeshLambertMaterial({
+let matPlasticBlack = new THREE.MeshLambertMaterial({
   color: 0x000000
 });
-var matPlasticMatte = new THREE.MeshStandardMaterial({
+let matPlasticMatte = new THREE.MeshStandardMaterial({
   color: 0x000000,
   metalness:0.2,
   roughness: 0.7,
   // combine: THREE.MultiplyOperation,
   // opacity: 0
 });
-var matPlasticWhite = new THREE.MeshStandardMaterial({
+let matPlasticWhite = new THREE.MeshStandardMaterial({
   color: 0x000000,
   metalness:0.5,
   roughness: 0.4,
   // combine: THREE.MultiplyOperation,
   // opacity: 0
 });
-var matEkran = new THREE.MeshLambertMaterial({
+let matEkran = new THREE.MeshLambertMaterial({
   //  color: 0xffffff,
   map: vert_fon
 });
-var matEkranGorizont = new THREE.MeshLambertMaterial({
+let matEkranGorizont = new THREE.MeshLambertMaterial({
   //  color: 0xffffff,
   map: vert_fonGor
 });
-var matGlass2 = new THREE.MeshStandardMaterial({
+let matGlass2 = new THREE.MeshStandardMaterial({
   color: 0x000000,
   metalness:1.0,
   roughness: 0.15,
@@ -74,18 +79,18 @@ var matGlass2 = new THREE.MeshStandardMaterial({
   //combine: THREE.MultiplyOperation,
   opacity: 1
 });
-var matGhost = new THREE.MeshPhongMaterial({
+let matGhost = new THREE.MeshPhongMaterial({
   color: 0xaaaaaa,
   transparent: true,
   //combine: THREE.MultiplyOperation,
   opacity: 0.8
 });
 
-var shader = THREE.FresnelShader;
-var uniforms = THREE.UniformsUtils.clone( shader.uniforms );
+let shader = THREE.FresnelShader;
+let uniforms = THREE.UniformsUtils.clone( shader.uniforms );
 uniforms[ "tCube" ].value = textureCube;
 
-var matGlass = new THREE.ShaderMaterial( {
+let matGlass = new THREE.ShaderMaterial( {
 uniforms: uniforms,
 // vertexShader: myVertexShader,
 vertexShader: shader.vertexShader,
@@ -113,7 +118,7 @@ matSteelClear.needsUpdate = true;
 matPlasticWhite.envMap = textureCube;
 matPlasticWhite.needsUpdate = true;
 
-var materials = [
+let materials = [
 matGold,     //0 matGold
 matPlasticBlack,   //1 matSteel
 matEkranGorizont,     //2 matEkran
@@ -123,7 +128,7 @@ matSteelClear,     //5
 new THREE.MeshBasicMaterial({
   color : 0xff0000
 })];
-var materials2 = [
+let materials2 = [
 matGold,     //0 matGold
 matPlasticBlack,   //1 matSteel
 matEkran,     //2 matEkran
@@ -134,7 +139,7 @@ new THREE.MeshStandardMaterial({
   color : 0xff0000
 })];
 
-var matKrisha = [
+let matKrisha = [
 new THREE.MeshStandardMaterial({
   color : 0x030303
 }),

@@ -1,6 +1,6 @@
 let cameraKeyTrck0 = {
   camLookAt: new THREE.Vector3( 20, 350, 0  ),  //точка, куда смотрит камера
-  distance: 2200,   //дистация до камеры
+  distance: 3000,   //дистация до камеры
   angelPlanexz: 0,
   angelOz: 30,
   autoRotSpeed: 5
