@@ -30,7 +30,7 @@ ustanovka.children[1].position.y = 128.626;
 // ustanovka.children[1].rotation.y = THREE.Math.degToRad( 45 );
 // ustanovka.children[1].rotateY( THREE.Math.degToRad( -45 ) );
 ustanovka.rotation.y = THREE.Math.degToRad( 90 );
-ustanovka.position.set( 900, 0, 500 );
+ustanovka.position.set( 900, 300, 500 );
 // ustanovka.children[0].translateY( 400 );
 // ustanovka.visible = false;
 // ustanovka.children[0].visible = false;
