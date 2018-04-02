@@ -46,6 +46,8 @@ rama1.rotation.y = THREE.Math.degToRad( -90 );
 rama2.rotation.y = THREE.Math.degToRad( -90 );
 krisha.rotation.y = THREE.Math.degToRad( -90 );
 opora.rotation.y = THREE.Math.degToRad( -90 );
+vent_nasos_ventil.rotation.y = THREE.Math.degToRad( 180 );
+vent_nasos_ventil2.rotation.y = THREE.Math.degToRad( -180 );
 
 ustVent1.add( vent_nasos_korp );
 ustVent1.add( vent_nasos_ventil );
@@ -55,9 +57,9 @@ ustVent2.add( vent_nasos_ventil2 );
 ustVent1.children[1].position.y = 128.626;
 ustVent2.children[1].position.y = 128.626;
 // ustanovka.children[1].rotateY( THREE.Math.degToRad( -45 ) );
-ustVent1.rotation.y = THREE.Math.degToRad( -90 );
+ustVent1.rotation.y = THREE.Math.degToRad( 90 );
 ustVent1.position.set( 299.444/2, 458.927/2, 0 );
-ustVent2.rotation.y = THREE.Math.degToRad( 90 );
+ustVent2.rotation.y = THREE.Math.degToRad( -90 );
 ustVent2.position.set( 299.294/2, 1011.533/2, 0 );
 
 

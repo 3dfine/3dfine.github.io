@@ -72,5 +72,5 @@ renderer.setSize( width, height );
 renderer.gammaInput = true;
 renderer.gammaOutput = true;
 renderer.toneMapping = THREE.ReinhardToneMapping;
-renderer.toneMappingExposure = 2;
+renderer.toneMappingExposure = 2.5;
 //document.body.appendChild( renderer.domElement );
