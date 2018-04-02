@@ -46,11 +46,6 @@ let VecKeyfrTrck1 = {
 
 function moveObject() {
   VecKeyfrTrck1.play = true;
-  // iq = 1;
-  // VecKeyfrTrck1.x[0] = sx_19_vert.position.x;
-  // VecKeyfrTrck1.y[0] = sx_19_vert.position.y;
-  // VecKeyfrTrck1.z[0] = sx_19_vert.position.z;
-  // globalTime = 0;
 }
 // timeElement.onclick = changeMaterial;
 var overlayStl = document.getElementById( "overlaySteel" );

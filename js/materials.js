@@ -52,9 +52,9 @@ var matPlasticMatte = new THREE.MeshStandardMaterial({
   // opacity: 0
 });
 var matPlasticWhite = new THREE.MeshStandardMaterial({
-  color: 0xffffff,
-  metalness:0.2,
-  roughness: 0.7,
+  color: 0x000000,
+  metalness:0.5,
+  roughness: 0.4,
   // combine: THREE.MultiplyOperation,
   // opacity: 0
 });
@@ -110,6 +110,8 @@ matPlastic.envMap = textureCube;
 matPlastic.needsUpdate = true;
 matSteelClear.envMap = textureCube;
 matSteelClear.needsUpdate = true;
+matPlasticWhite.envMap = textureCube;
+matPlasticWhite.needsUpdate = true;
 
 var materials = [
 matGold,     //0 matGold

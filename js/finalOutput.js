@@ -15,9 +15,13 @@ let animateCamera1 = animateCamera(camera, controls);
 let animate = function () {
 
   animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
+
   animateCamera1(CameraKeyTrck1);
 
   requestAnimationFrame( animate );
+
+  ustanovka.children[1].rotation.z += 0.2;
+
   controls.update();
   renderer.render( scene, camera );
   // globalTime += 1;
