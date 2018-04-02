@@ -112,6 +112,8 @@ fragmentShader: shader.fragmentShader,
 transparent: true
 } );
 
+matOpora[0].envMap = textureCube;
+matOpora[0].needsUpdate = true;
 matRAL7045.envMap = textureCube;
 matRAL7045.needsUpdate = true;
 matAluminuim.envMap = textureCube;
@@ -148,17 +150,15 @@ matStoikaVert[3] = matGlass;
 matStoikaVert[4] = matPlastic;
 matStoikaVert[5] = matSteelClear;
 
-let matKrisha = [
-new THREE.MeshStandardMaterial({
-  color : 0x030303
-}),
-new THREE.MeshStandardMaterial({
+matUstKrisha[0] = new THREE.MeshStandardMaterial({
+  color : 0x030303 });
+matUstKrisha[1] = new THREE.MeshStandardMaterial({
   color : 0xffff4d
-}),
-new THREE.MeshStandardMaterial({
+});
+matUstKrisha[2] = new THREE.MeshStandardMaterial({
   color : 0xbfbfbf
-}),
-];
+});
+
 
 // var myVertexShader, myFragmentShader;
 // loadTextResource('/js/myFresnel.c')

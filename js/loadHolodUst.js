@@ -9,10 +9,22 @@ let matUstVent2 = [
     color : 0xff0000
   })
 ];
-
+let matUstKrisha = [
+  new THREE.MeshStandardMaterial({
+    color : 0xff0000
+  })
+];
+let matOpora = [
+  new THREE.MeshStandardMaterial({
+    color : 0x020202,
+    metalness: 0.9,
+    roughness: 0.4
+  })
+];
 // models
 let rama1 = new THREE.Object3D();
 let rama2 = new THREE.Object3D();
+let opora = new THREE.Object3D();
 let krisha = new THREE.Object3D();
 let ustanovka = new THREE.Group();
 let ustVent1 = new THREE.Group();
@@ -24,13 +36,16 @@ let vent_nasos_ventil2 = new THREE.Object3D();
 
 loadFBXModel( rama1, 0.5, matUstVent, 'models/fbx/ustanovka/rama1.fbx' );
 loadFBXModel( rama2, 0.5, matUstVent, 'models/fbx/ustanovka/rama2.fbx' );
-loadFBXModel( krisha, 0.5, matUstVent, 'models/fbx/ustanovka/_Krisha.fbx' );
+loadFBXModel( opora, 0.5, matOpora, 'models/fbx/ustanovka/opora.fbx' );
+loadFBXModel( krisha, 0.5, matUstKrisha, 'models/fbx/ustanovka/_Krisha.fbx' );
 loadFBXModel( vent_nasos_korp, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_korp.FBX' );
 loadFBXModel( vent_nasos_ventil, 0.5, matUstVent2, 'models/fbx/ustanovka/vent_nasos_ventil.FBX' );
 loadFBXModel( vent_nasos_korp2, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_korp.FBX' );
 loadFBXModel( vent_nasos_ventil2, 0.5, matUstVent2, 'models/fbx/ustanovka/vent_nasos_ventil.FBX' );
 rama1.rotation.y = THREE.Math.degToRad( -90 );
 rama2.rotation.y = THREE.Math.degToRad( -90 );
+krisha.rotation.y = THREE.Math.degToRad( -90 );
+opora.rotation.y = THREE.Math.degToRad( -90 );
 
 ustVent1.add( vent_nasos_korp );
 ustVent1.add( vent_nasos_ventil );
@@ -50,4 +65,5 @@ ustanovka.add( ustVent1 );
 ustanovka.add( ustVent2 );
 ustanovka.add( rama1 );
 ustanovka.add( rama2 );
-// ustanovka.add( krisha );
+ustanovka.add( opora );
+ustanovka.add( krisha );
