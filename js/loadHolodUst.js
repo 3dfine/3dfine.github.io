@@ -34,9 +34,9 @@ let vent_nasos_ventil = new THREE.Object3D();
 let vent_nasos_korp2 = new THREE.Object3D();
 let vent_nasos_ventil2 = new THREE.Object3D();
 
-loadFBXModel( rama1, 0.5, matUstVent, 'models/fbx/ustanovka/rama1.fbx' );
-loadFBXModel( rama2, 0.5, matUstVent, 'models/fbx/ustanovka/rama2.fbx' );
-loadFBXModel( opora, 0.5, matOpora, 'models/fbx/ustanovka/opora.fbx' );
+loadFBXModel( rama1, 0.5, matUstVent, 'models/fbx/ustanovka/rama1.FBX' );
+loadFBXModel( rama2, 0.5, matUstVent, 'models/fbx/ustanovka/rama2.FBX' );
+loadFBXModel( opora, 0.5, matOpora, 'models/fbx/ustanovka/opora.FBX' );
 loadFBXModel( krisha, 0.5, matUstKrisha, 'models/fbx/ustanovka/_Krisha.fbx' );
 loadFBXModel( vent_nasos_korp, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_korp.FBX' );
 loadFBXModel( vent_nasos_ventil, 0.5, matUstVent2, 'models/fbx/ustanovka/vent_nasos_ventil.FBX' );
