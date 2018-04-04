@@ -50,7 +50,7 @@ let filtrKasetni2 = new THREE.Object3D();
 loadFBXModel( rama1, 0.5, matUstRama, 'models/fbx/ustanovka/rama1.FBX' );
 loadFBXModel( rama2, 0.5, matUstRama, 'models/fbx/ustanovka/rama2.FBX' );
 loadFBXModel( opora, 0.5, matOpora, 'models/fbx/ustanovka/opora.FBX' );
-loadFBXModel( krisha, 0.5, matUstKrisha, 'models/fbx/ustanovka/_Krisha.fbx' );
+loadFBXModel( krisha, 0.5, matUstKrisha, 'models/fbx/ustanovka/Krisha.FBX' );
 loadFBXModel( vent_nasos_korp, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_korp.FBX' );
 loadFBXModel( vent_nasos_ventil, 0.5, matUstVent2, 'models/fbx/ustanovka/vent_nasos_ventil.FBX' );
 loadFBXModel( vent_nasos_korp2, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_korp.FBX' );
