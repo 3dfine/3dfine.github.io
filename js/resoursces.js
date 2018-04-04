@@ -14,8 +14,8 @@
 //   });
 // }
 
-var loadTextResource = function( url ) {
-    var request = new XMLHttpRequest();
+let loadTextResource = function( url ) {
+    let request = new XMLHttpRequest();
     request.open( 'GET', url, true );
     request.send();
     request.onload = function() {
@@ -23,13 +23,27 @@ var loadTextResource = function( url ) {
   }
 }
 
-var loadFBXModel = function( modelTarget, scaleImport, _material, url ) {
+let loadFBXModel = function( modelTarget, scaleImport, _material, url ) {
 loader.load( url, function( object ) {
     // console.log(i);
-    var _modelTemp = object.children[0];
+    let _modelTemp = object.children[0];
     _modelTemp.scale.multiplyScalar( scaleImport );
     _modelTemp.material = _material;
     modelTarget.add( _modelTemp );
-    modelTarget.add( _modelTemp );
 });
 }
+
+// var loadAnimFBXModel = function( modelTarget, scaleImport, _material, url ) {
+// loader.load( url, function( object ) {
+//
+//   for(let i=0; i<object.children.length; i++) {
+//     console.log(i);
+//     animationGroup.add( object.children[i] );
+//     object.children[i].material = matUstVent;
+//   }
+//   _modelTemp.scale.multiplyScalar( scaleImport );
+//   _modelTemp.material = _material;
+//   modelTarget.add( object );
+//
+// });
+// }

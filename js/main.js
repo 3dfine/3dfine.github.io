@@ -2,6 +2,10 @@
 stoikiGroup.position.x = 2600;
 // scene.add( stoikiGroup );
 
+matUstRama[0] = matAluminuim;
+matUstRama[1] = matPlastic;
+matUstRama[2] = matRAL7045;
+
 matUstVent[0] = matRAL7045;
 matUstVent[1] = matPlastic;
 matUstVent[2] = matRubber;
@@ -46,8 +50,51 @@ let VecKeyfrTrck1 = {
   z: [0, 600, 0, -600, 0, -500, 500, -500],
 };
 
+//----------------------------------------------------------
+// model
+let clock = new THREE.Clock();
+let mixers = [];
+let loaderAnim = new THREE.FBXLoader();
+let animationGroup = new THREE.AnimationObjectGroup();
+
+loaderAnim.load( 'models/fbx/animTest.fbx', function ( object ) {
+  for(let i=0; i<object.children.length; i++) {
+    console.log(i);
+    animationGroup.add( object.children[i] );
+    object.children[i].material = matUstVent;
+  }
+  object.scale.multiplyScalar( 0.5 );
+  object.rotation.y = THREE.Math.degToRad( -90 );
+  object.position.set( 2001.566/2, 886.776/2, 393.33/2 );
+  scene.add( object );
+} );
+
+// создаём треки ключей анимации
+// позиция
+let positionKF = new THREE.VectorKeyframeTrack( '.position', [ 0, 1, 2 ], [ 0, 0, 0, 300, 0, 0, 0, 0, 0 ] );
+// вращение
+let qAxis = new THREE.Vector3( 0, 0, 1 );
+let qA = new THREE.Quaternion().setFromAxisAngle( qAxis,  0 );
+let qB = new THREE.Quaternion().setFromAxisAngle( qAxis, 1.5 * Math.PI / 1 );
+let quaternionKF = new THREE.QuaternionKeyframeTrack(
+  '.quaternion',
+  [ 0, 1, 2, 3 ],
+  [ qA.x, qA.y, qA.z, qA.w,  qB.x, qB.y, qB.z, qB.w,   qA.x, qA.y, qA.z, qA.w,   qA.x, qA.y, qA.z, qA.w ]
+  );
+// из треков ключей анимации создаем клип
+let clip = new THREE.AnimationClip( 'Action', 4, [  quaternionKF ] );
+// применяем анимационную группу к микшеру в качестве корневого объекта
+mixer = new THREE.AnimationMixer( animationGroup );
+let clipAction = mixer.clipAction( clip );
+  clipAction.play();
+clipAction.paused = true;
+// mixer.clipAction( clip ).stop();
+console.log(clipAction.paused);
+//----------------------------------------------------------
 function moveObject() {
-  VecKeyfrTrck1.play = true;
+  // VecKeyfrTrck1.play = true;
+  clipAction.paused = false;
+  clipAction.play();
 }
 // timeElement.onclick = changeMaterial;
 var overlayStl = document.getElementById( "overlaySteel" );
@@ -65,8 +112,8 @@ document.addEventListener("keydown", function(e) {
 
 var matLine = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 1 } );
 var geometry = new THREE.Geometry();
-geometry.vertices.push(new THREE.Vector3( -1200, 0, 200) );
-geometry.vertices.push(new THREE.Vector3( 600, 0, 200) );
+geometry.vertices.push(new THREE.Vector3( -600, 0, 0) );
+geometry.vertices.push(new THREE.Vector3( 600, 0, 0) );
 // geometry.vertices.push(new THREE.Vector3( 10, 0, 0) );
 var line = new THREE.Line( geometry, matLine );
 scene.add( line );
