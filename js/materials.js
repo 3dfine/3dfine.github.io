@@ -71,9 +71,9 @@ let matPlasticMatte = new THREE.MeshStandardMaterial({
   // opacity: 0
 });
 let matPlasticWhite = new THREE.MeshStandardMaterial({
-  color: 0x000000,
+  color: 0xffffff,
   metalness:0.5,
-  roughness: 0.4,
+  roughness: 0.7,
   // combine: THREE.MultiplyOperation,
   // opacity: 0
 });
