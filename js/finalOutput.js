@@ -21,8 +21,8 @@ let animate = function () {
 		mixer.update( delta * 1 );
     // console.log(clipAction.paused);
     if(clipAction.time > clipAction._clip.duration - 1) {
-       clipAction.paused = true;
-       clipAction.stop();
+       // clipAction.paused = true;
+       // clipAction.stop();
        // console.log(clipAction.time);
     }
 	}
@@ -33,8 +33,8 @@ let animate = function () {
 
   // animateCamera1(CameraKeyTrck1);
 
-  ustanovka.children[0].children[1].rotation.z += 0.02;
-  ustanovka.children[1].children[1].rotation.z += 0.02;
+  ustanovka.children[0].children[1].rotation.z += 0.06;
+  ustanovka.children[1].children[1].rotation.z += 0.06;
 
   controls.update();
   renderer.render( scene, camera );

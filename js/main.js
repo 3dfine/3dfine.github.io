@@ -57,7 +57,7 @@ let mixers = [];
 let loaderAnim = new THREE.FBXLoader();
 let animationGroup = new THREE.AnimationObjectGroup();
 
-loaderAnim.load( 'models/fbx/animTest.fbx', function ( object ) {
+loaderAnim.load( 'models/fbx/animTest.FBX', function ( object ) {
   for(let i=0; i<object.children.length; i++) {
     console.log(i);
     animationGroup.add( object.children[i] );
