@@ -54,10 +54,10 @@ hemiLight.position.set( 0, 0, 0 );
 scene.add( hemiLight );
 //scene.add( new THREE.AmbientLight( 0xffffff ) );
 //PointLight( color : Integer, intensity : Float, distance : Number, decay : Float )
-var light = new THREE.PointLight( 0xffffff, 0.3, 20000, 2 );
+var light = new THREE.PointLight( 0xffffff, 0.9, 20000, 1 );
 light.position.set( 500, 600, 1000 );
 scene.add( light );
-var light2 = new THREE.PointLight( 0xffffff, 0.3, 20000, 2 );
+var light2 = new THREE.PointLight( 0xffffff, 0.9, 20000, 1 );
 light2.position.set( -500, 800, -1000 );
 scene.add( light2 );
 

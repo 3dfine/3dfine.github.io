@@ -2,7 +2,7 @@
 stoikiGroup.position.x = 2600;
 // scene.add( stoikiGroup );
 
-matUstRama[0] = matAluminuim;
+matUstRama[0] = matSteel;
 matUstRama[1] = matPlastic;
 matUstRama[2] = matRAL7045;
 
@@ -53,45 +53,26 @@ let VecKeyfrTrck1 = {
 };
 
 //----------------------------------------------------------
-// model
-let clock = new THREE.Clock();
-let mixers = [];
-let loaderAnim = new THREE.FBXLoader();
-let animationGroup = new THREE.AnimationObjectGroup();
-
-loaderAnim.load( 'models/fbx/animTest.FBX', function ( object ) {
-  for(let i=0; i<object.children.length; i++) {
-    console.log(i);
-    animationGroup.add( object.children[i] );
-    object.children[i].material = matUstVent;
-  }
-  object.scale.multiplyScalar( 0.5 );
-  object.rotation.y = THREE.Math.degToRad( -90 );
-  object.position.set( 2001.566/2, 886.776/2, 393.33/2 );
-  scene.add( object );
-} );
-
 // создаём треки ключей анимации
 // позиция
 let positionKF = new THREE.VectorKeyframeTrack( '.position', [ 0, 1, 2 ], [ 0, 0, 0, 300, 0, 0, 0, 0, 0 ] );
 // вращение
-let qAxis = new THREE.Vector3( 0, 0, 1 );
-let qA = new THREE.Quaternion().setFromAxisAngle( qAxis,  0 );
-let qB = new THREE.Quaternion().setFromAxisAngle( qAxis, 1.5 * Math.PI / 1 );
+let qAxis = new THREE.Vector3( 1, 0, 0 );
+let qA = new THREE.Quaternion().setFromAxisAngle( qAxis, 0 );
+let qB = new THREE.Quaternion().setFromAxisAngle( qAxis, Math.PI  );
+let qC = new THREE.Quaternion().setFromAxisAngle( qAxis, -Math.PI  );
 let quaternionKF = new THREE.QuaternionKeyframeTrack(
   '.quaternion',
-  [ 0, 1, 2, 3 ],
-  [ qA.x, qA.y, qA.z, qA.w,  qB.x, qB.y, qB.z, qB.w,   qA.x, qA.y, qA.z, qA.w,   qA.x, qA.y, qA.z, qA.w ]
+  [ 0, 0.7, 0.701, 1.4 ],
+  [ qA.x, qA.y, qA.z, qA.w,  qB.x, qB.y, qB.z, qB.w,  qC.x, qC.y, qC.z, qC.w,  qA.x, qA.y, qA.z, qA.w ]
   );
 // из треков ключей анимации создаем клип
-let clip = new THREE.AnimationClip( 'Action', 4, [  quaternionKF ] );
+let clip = new THREE.AnimationClip( 'Action', 1.4, [  quaternionKF ] );
 // применяем анимационную группу к микшеру в качестве корневого объекта
-mixer = new THREE.AnimationMixer( animationGroup );
+let mixer = new THREE.AnimationMixer( animGrpLopasti );
 let clipAction = mixer.clipAction( clip );
-  clipAction.play();
+clipAction.play();
 clipAction.paused = true;
-// mixer.clipAction( clip ).stop();
-console.log(clipAction.paused);
 //----------------------------------------------------------
 function moveObject() {
   // VecKeyfrTrck1.play = true;

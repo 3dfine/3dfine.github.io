@@ -6,7 +6,7 @@ vert_fonGor.anisotropy = maxAnisotropy;
 let matAluminuim = new THREE.MeshStandardMaterial({
   color: 0x555555,
   metalness:1,
-  roughness: 0.5,
+  roughness: 0.8,
   //combine: THREE.MultiplyOperation,
 });
 let matSteel = new THREE.MeshStandardMaterial({

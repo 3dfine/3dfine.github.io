@@ -3,7 +3,7 @@ let cameraKeyTrck0 = {
   distance: 3000,   //дистация до камеры
   angelPlanexz: 20,
   angelOz: 0,
-  autoRotSpeed: 5
+  autoRotSpeed: 1
 };
 let cameraPos = function (_camera, _controls, cameraKeyTrck ) {
   let vectorCam = new THREE.Vector3( 0, 0, 0 );
