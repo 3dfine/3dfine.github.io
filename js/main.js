@@ -75,9 +75,29 @@ clipAction.play();
 clipAction.paused = true;
 //----------------------------------------------------------
 function moveObject() {
-  // VecKeyfrTrck1.play = true;
-  clipAction.paused = false;
-  clipAction.play();
+
+  if(vent_nasos_ventil.rotSpeed == 0)
+    vent_nasos_ventil.rotSpeed = 0.1;
+    else
+    vent_nasos_ventil.rotSpeed = 0;
+  if(vent_nasos_ventil2.rotSpeed == 0)
+    vent_nasos_ventil2.rotSpeed = 0.1;
+    else
+    vent_nasos_ventil2.rotSpeed = 0;
+
+  for(let i=0; i<zaslonka2.children[0].children.length; i++) {
+    if(zaslonka2.children[0].children[i].rotation.z == 0)
+      zaslonka2.children[0].children[i].rotation.z = THREE.Math.degToRad( -90 );
+      else
+      zaslonka2.children[0].children[i].rotation.z = THREE.Math.degToRad( 0 );
+  }
+  for(let i=0; i<zaslonka1.children[0].children.length; i++) {
+    if(zaslonka1.children[0].children[i].rotation.z == 0)
+      zaslonka1.children[0].children[i].rotation.z = THREE.Math.degToRad( -90 );
+      else
+      zaslonka1.children[0].children[i].rotation.z = THREE.Math.degToRad( 0 );
+  }
+
 }
 // timeElement.onclick = changeMaterial;
 var overlayStl = document.getElementById( "overlaySteel" );
@@ -95,8 +115,8 @@ document.addEventListener("keydown", function(e) {
 
 var matLine = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 1 } );
 var geometry = new THREE.Geometry();
-geometry.vertices.push(new THREE.Vector3( -600, 0, 0) );
-geometry.vertices.push(new THREE.Vector3( 600, 0, 0) );
+geometry.vertices.push(new THREE.Vector3( -100, 0, 0) );
+geometry.vertices.push(new THREE.Vector3( 100, 0, 0) );
 // geometry.vertices.push(new THREE.Vector3( 10, 0, 0) );
 var line = new THREE.Line( geometry, matLine );
 scene.add( line );

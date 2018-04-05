@@ -39,10 +39,13 @@ let ventilatorOutSide_korp = new THREE.Object3D();
 loadFBXModel( ventilatorOutSide_korp, 0.5, matUstVent, 'models/fbx/ustanovka/ventilatorOutSide_korp.FBX' );
 
 let animGrpLopasti = new THREE.AnimationObjectGroup();
-let poss1 = new THREE.Vector3( 219.752/2, 1266.646/2, 2160.0/2 );
-let rotat1 = new THREE.Vector3( 0, 90, 0 );
+// let poss1 = new THREE.Vector3( 219.752/2, 1266.646/2, 2160.0/2 );
+// let rotat1 = new THREE.Vector3( 0, 90, 0 );
 let ventilatorOutSide_lopasti = new THREE.Object3D();
-loadAnimFBXModel(animGrpLopasti, ventilatorOutSide_lopasti, poss1, rotat1, 0.5, matUstRama, 'models/fbx/ustanovka/ventilatorOutSide_lopasti.FBX' );
+// loadAnimFBXModel(animGrpLopasti, ventilatorOutSide_lopasti, poss1, rotat1, 0.5, matUstRama, 'models/fbx/ustanovka/ventilatorOutSide_lopasti.FBX' );
+loadFBXModel(ventilatorOutSide_lopasti, 0.5, matUstRama, 'models/fbx/ustanovka/ventilatorOutSide_lopasti.FBX' );
+ventilatorOutSide_lopasti.position.set( 219.752/2, 1266.646/2, 2160.0/2 );
+ventilatorOutSide_lopasti.rotation.y = THREE.Math.degToRad( 90 );
 
 let zaslonka1_Rama = new THREE.Object3D();
 loadFBXModel( zaslonka1_Rama, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka1_Rama.FBX' );
@@ -50,20 +53,21 @@ let zaslonka2_Rama = new THREE.Object3D();
 loadFBXModel( zaslonka2_Rama, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka2_Rama.FBX' );
 // zaslonka1_Rama.position.set( 0/2, 461.535/2, -1150.785/2 );
 
-let animZaslonka1 = new THREE.AnimationObjectGroup();
-let poss2 = new THREE.Vector3(0/2, 176.679/2, 0/2 );
-let rotat2 = new THREE.Vector3( 0, 0, 0 );
 let zaslonka1 = new THREE.Object3D();
-loadAnimFBXModel( animZaslonka1, zaslonka1, poss2, rotat2, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka1Close.FBX' );
+loadFBXModel( zaslonka1, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka1Close.FBX' );
+zaslonka1.position.set( 0/2, 176.679/2, 0/2 );
+
 let zaslonka2 = new THREE.Object3D();
-loadAnimFBXModel( animZaslonka1, zaslonka2, poss2, rotat2, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka2Close.FBX' );
-zaslonka2.position.set( 0/2, -176.629/2, 0/2);
+loadFBXModel( zaslonka2, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka2Close.FBX' );
+zaslonka2.position.set( 0/2, 0/2, 0/2);
 zaslonka2.rotation.y = THREE.Math.degToRad( -90 );
 
 ustVent1.add( vent_nasos_korp );
 ustVent1.add( vent_nasos_ventil );
+vent_nasos_ventil.rotSpeed = 0.0;
 ustVent2.add( vent_nasos_korp2 );
 ustVent2.add( vent_nasos_ventil2 );
+vent_nasos_ventil2.rotSpeed = 0.0;
 zaslonkaSborka1.add( zaslonka1_Rama );
 zaslonkaSborka1.add( zaslonka1 );
 zaslonkaSborka1.position.set( 393.977/2, 710.824/2, -2001.979/2);
@@ -95,7 +99,7 @@ ustanovka.add( ustVent2 );
 ustanovka.add( rama1 );
 ustanovka.add( rama2 );
 ustanovka.add( opora );
-// ustanovka.add( krisha );
+ustanovka.add( krisha );
 ustanovka.add( zaslonkaSborka1 );
 ustanovka.add( zaslonkaSborka2 );
 ustanovka.add( rekuperator );

@@ -126,7 +126,7 @@ matSteel.roughnessMap.repeat.set( 2, 1 );
 matSteel.bumpMap = matSteelTexture;
 matSteel.bumpMap.wrapS = THREE.RepeatWrapping;
 matSteel.bumpMap.repeat.set( 2, 1 );
-matSteel.bumpScale = 0.5;
+matSteel.bumpScale = 0.2;
 matGold.envMap = textureCube;
 matGold.needsUpdate = true;
 matPlastic.envMap = textureCube;

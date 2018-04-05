@@ -1,9 +1,9 @@
 let cameraKeyTrck0 = {
-  camLookAt: new THREE.Vector3( 0, 1000, 0  ),  //точка, куда смотрит камера
+  camLookAt: new THREE.Vector3( 0, 0, 0  ),  //точка, куда смотрит камера
   distance: 3000,   //дистация до камеры
-  angelPlanexz: 20,
+  angelPlanexz: -9,
   angelOz: 0,
-  autoRotSpeed: 1
+  autoRotSpeed: 3
 };
 let cameraPos = function (_camera, _controls, cameraKeyTrck ) {
   let vectorCam = new THREE.Vector3( 0, 0, 0 );

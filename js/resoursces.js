@@ -25,28 +25,19 @@ let loadTextResource = function( url ) {
 
 let loadFBXModel = function( modelTarget, scaleImport, _material, url ) {
 loader.load( url, function( object ) {
-    let _modelTemp = new THREE.Object3D();;
-    // console.log(modelTarget.name, object);
     for(let i=0; i<object.children.length; i++) {
-      // console.log(i);
     object.children[i].material = _material;
-    modelTarget.add( object.children[i] );
     }
-    // let _modelTemp = object.children[0];
-    modelTarget.scale.multiplyScalar( scaleImport );
-    // _modelTemp.material = _material;
-    // scene.add( object );
+    object.scale.multiplyScalar( scaleImport );
+    modelTarget.add( object );
 });
 }
 
 var loadAnimFBXModel = function( animationGroup, modelTarget, position, rotation, scaleImport, _material, url ) {
 loader.load( url, function( object ) {
-
     for(let i=0; i<object.children.length; i++) {
-      // console.log(i);
       animationGroup.add( object.children[i] );
       object.children[i].material = _material;
-      // modelTarget.add( object.children[i] );
     }
     object.scale.multiplyScalar( scaleImport );
     object.rotation.x = THREE.Math.degToRad( rotation.x );
@@ -54,7 +45,7 @@ loader.load( url, function( object ) {
     object.rotation.z = THREE.Math.degToRad( rotation.z );
     object.position.set( position.x, position.y, position.z );
     modelTarget.add( object );
-    modelTarget = object;
+    // modelTarget = object;
     // scene.add( object );
 });
 }

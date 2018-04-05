@@ -31,10 +31,15 @@ let animate = function () {
   // animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
 
   // animateCamera1(CameraKeyTrck1);
+  if(vent_nasos_ventil2.rotSpeed !=0 ) {
+    vent_nasos_ventil.rotation.z += vent_nasos_ventil.rotSpeed;
+    vent_nasos_ventil2.rotation.z += vent_nasos_ventil2.rotSpeed;
 
-  ustanovka.children[0].children[1].rotation.z += 0.06;
-  ustanovka.children[1].children[1].rotation.z += 0.06;
-
+    ventilatorOutSide_lopasti.children[0].children[0].rotation.x += vent_nasos_ventil2.rotSpeed;
+    ventilatorOutSide_lopasti.children[0].children[1].rotation.x += vent_nasos_ventil2.rotSpeed;
+    ventilatorOutSide_lopasti.children[0].children[2].rotation.x -= vent_nasos_ventil2.rotSpeed;
+    ventilatorOutSide_lopasti.children[0].children[3].rotation.x -= vent_nasos_ventil2.rotSpeed;
+  }
   controls.update();
   renderer.render( scene, camera );
   // globalTime += 1;
