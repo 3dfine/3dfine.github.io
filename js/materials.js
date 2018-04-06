@@ -10,21 +10,30 @@ let matAluminuim = new THREE.MeshStandardMaterial({
   //combine: THREE.MultiplyOperation,
 });
 let matSteel = new THREE.MeshStandardMaterial({
-  color: 0x28343b,    //0x28343b
-  metalness: 0.9,
-  roughness: 0.8 ,
-  // combine: THREE.MultiplyOperation,
+  color: 0xaaaaaa,    //0x9698a0
+  metalness: 0.75,
+  roughness: 0.9
 });
+matSteel.envMap = textureCube;
+matSteel.needsUpdate = true;
+// matSteel.map = matSteelTexture;
+matSteel.roughnessMap = matSteelTexture;
+matSteel.roughnessMap.wrapS = THREE.RepeatWrapping;
+matSteel.roughnessMap.repeat.set( 2, 1 );
+// matSteel.bumpMap = matSteelTexture;
+// matSteel.bumpMap.wrapS = THREE.RepeatWrapping;
+// matSteel.bumpMap.repeat.set( 2, 1 );
+// matSteel.bumpScale = 0.2;
 let matRAL7045 = new THREE.MeshStandardMaterial({
-  color: 0x91969A,    //0x28343b
+  color: 0x0032da,    //0x28343b
   metalness: 0.5,
-  roughness: 0.5 ,
+  roughness: 0.3 ,
   // combine: THREE.MultiplyOperation,
 });
 let matSteelClear = new THREE.MeshStandardMaterial({
   color: 0x28343b,    //0x28343b
   metalness: 0.9,
-  roughness: 0.1 ,
+  roughness: 0.4 ,
   // combine: THREE.MultiplyOperation,
 });
 let matGold = new THREE.MeshStandardMaterial({
@@ -115,15 +124,7 @@ matRAL7045.envMap = textureCube;
 matRAL7045.needsUpdate = true;
 matAluminuim.envMap = textureCube;
 matAluminuim.needsUpdate = true;
-matSteel.envMap = textureCube;
-matSteel.needsUpdate = true;
-matSteel.roughnessMap = matSteelTexture;
-matSteel.roughnessMap.wrapS = THREE.RepeatWrapping;
-matSteel.roughnessMap.repeat.set( 2, 1 );
-matSteel.bumpMap = matSteelTexture;
-matSteel.bumpMap.wrapS = THREE.RepeatWrapping;
-matSteel.bumpMap.repeat.set( 2, 1 );
-matSteel.bumpScale = 0.2;
+
 matGold.envMap = textureCube;
 matGold.needsUpdate = true;
 matPlastic.envMap = textureCube;

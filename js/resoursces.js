@@ -36,7 +36,7 @@ loader.load( url, function( object ) {
     modelTarget.receiveShadow = true;
     object.scale.multiplyScalar( scaleImport );
     modelTarget.add( object );
-    console.log(object);
+    // console.log(object);
 });
 }
 

@@ -1,8 +1,10 @@
 let loader = new THREE.FBXLoader();
 let matUstRama = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
+let matLopasti = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 let matUstVent = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 let matUstVent2 = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 let matUstKrisha = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
+
 let matOpora = [ new THREE.MeshStandardMaterial({ color : 0x020202, metalness: 0.9, roughness: 0.4 }) ];
 // models
 let ustanovka = new THREE.Group();
@@ -45,27 +47,22 @@ let filtrKasetni2 = new THREE.Object3D();
 loadFBXModel( filtrKasetni2, 0.5, matUstVent, 'models/fbx/ustanovka/filtrKasetni.FBX' );
 let ventilatorOutSide_korp = new THREE.Object3D();
 loadFBXModel( ventilatorOutSide_korp, 0.5, matUstVent, 'models/fbx/ustanovka/ventilatorOutSide_korp.FBX' );
-
-let animGrpLopasti = new THREE.AnimationObjectGroup();
-// let poss1 = new THREE.Vector3( 219.752/2, 1266.646/2, 2160.0/2 );
-// let rotat1 = new THREE.Vector3( 0, 90, 0 );
 let ventilatorOutSide_lopasti = new THREE.Object3D();
-// loadAnimFBXModel(animGrpLopasti, ventilatorOutSide_lopasti, poss1, rotat1, 0.5, matUstRama, 'models/fbx/ustanovka/ventilatorOutSide_lopasti.FBX' );
-loadFBXModel(ventilatorOutSide_lopasti, 0.5, matUstRama, 'models/fbx/ustanovka/ventilatorOutSide_lopasti.FBX' );
+loadFBXModel(ventilatorOutSide_lopasti, 0.5, matLopasti, 'models/fbx/ustanovka/ventilatorOutSide_lopasti.FBX' );
 ventilatorOutSide_lopasti.position.set( 219.752/2, 1266.646/2, 2160.0/2 );
 ventilatorOutSide_lopasti.rotation.y = THREE.Math.degToRad( 90 );
 
 let zaslonka1_Rama = new THREE.Object3D();
-loadFBXModel( zaslonka1_Rama, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka1_Rama.FBX' );
+loadFBXModel( zaslonka1_Rama, 0.5, matUstRama, 'models/fbx/ustanovka/Zaslonka1_Rama.FBX' );
 let zaslonka2_Rama = new THREE.Object3D();
-loadFBXModel( zaslonka2_Rama, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka2_Rama.FBX' );
+loadFBXModel( zaslonka2_Rama, 0.5, matUstRama, 'models/fbx/ustanovka/Zaslonka2_Rama.FBX' );
 // zaslonka1_Rama.position.set( 0/2, 461.535/2, -1150.785/2 );
 let zaslonka1 = new THREE.Object3D();
-loadFBXModel( zaslonka1, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka1Close.FBX' );
+loadFBXModel( zaslonka1, 0.5, matUstRama, 'models/fbx/ustanovka/Zaslonka1Close.FBX' );
 zaslonka1.position.set( 0/2, 176.679/2, 0/2 );
 
 let zaslonka2 = new THREE.Object3D();
-loadFBXModel( zaslonka2, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka2Close.FBX' );
+loadFBXModel( zaslonka2, 0.5, matUstRama, 'models/fbx/ustanovka/Zaslonka2Close.FBX' );
 zaslonka2.position.set( 0/2, 0/2, 0/2);
 zaslonka2.rotation.y = THREE.Math.degToRad( -90 );
 

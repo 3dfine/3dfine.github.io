@@ -4,7 +4,11 @@ stoikiGroup.position.x = 2600;
 //
 matUstRama[0] = matSteel;
 matUstRama[1] = matPlastic;
-matUstRama[2] = matRAL7045;
+matUstRama[2] = matSteelClear;
+matUstRama[3] = matRAL7045;
+
+matLopasti[0] = matPlastic;
+matLopasti[1] = matPlastic;
 
 matUstVent[0] = matRAL7045;
 matUstVent[1] = matPlastic;
@@ -55,26 +59,28 @@ let VecKeyfrTrck1 = {
 //----------------------------------------------------------
 // создаём треки ключей анимации
 // позиция
-let positionKF = new THREE.VectorKeyframeTrack( '.position', [ 0, 1, 2 ], [ 0, 0, 0, 300, 0, 0, 0, 0, 0 ] );
-// вращение
-let qAxis = new THREE.Vector3( 1, 0, 0 );
-let qA = new THREE.Quaternion().setFromAxisAngle( qAxis, 0 );
-let qB = new THREE.Quaternion().setFromAxisAngle( qAxis, Math.PI  );
-let qC = new THREE.Quaternion().setFromAxisAngle( qAxis, -Math.PI  );
-let quaternionKF = new THREE.QuaternionKeyframeTrack(
-  '.quaternion',
-  [ 0, 0.7, 0.701, 1.4 ],
-  [ qA.x, qA.y, qA.z, qA.w,  qB.x, qB.y, qB.z, qB.w,  qC.x, qC.y, qC.z, qC.w,  qA.x, qA.y, qA.z, qA.w ]
-  );
-// из треков ключей анимации создаем клип
-let clip = new THREE.AnimationClip( 'Action', 1.4, [  quaternionKF ] );
-// применяем анимационную группу к микшеру в качестве корневого объекта
-let mixer = new THREE.AnimationMixer( animGrpLopasti );
-let clipAction = mixer.clipAction( clip );
-clipAction.play();
-clipAction.paused = true;
+// let positionKF = new THREE.VectorKeyframeTrack( '.position', [ 0, 1, 2 ], [ 0, 0, 0, 300, 0, 0, 0, 0, 0 ] );
+// // вращение
+// let qAxis = new THREE.Vector3( 1, 0, 0 );
+// let qA = new THREE.Quaternion().setFromAxisAngle( qAxis, 0 );
+// let qB = new THREE.Quaternion().setFromAxisAngle( qAxis, Math.PI  );
+// let qC = new THREE.Quaternion().setFromAxisAngle( qAxis, -Math.PI  );
+// let quaternionKF = new THREE.QuaternionKeyframeTrack(
+//   '.quaternion',
+//   [ 0, 0.7, 0.701, 1.4 ],
+//   [ qA.x, qA.y, qA.z, qA.w,  qB.x, qB.y, qB.z, qB.w,  qC.x, qC.y, qC.z, qC.w,  qA.x, qA.y, qA.z, qA.w ]
+//   );
+// // из треков ключей анимации создаем клип
+// let clip = new THREE.AnimationClip( 'Action', 1.4, [  quaternionKF ] );
+// // применяем анимационную группу к микшеру в качестве корневого объекта
+// let mixer = new THREE.AnimationMixer( animGrpLopasti );
+// let clipAction = mixer.clipAction( clip );
+// clipAction.play();
+// clipAction.paused = true;
 //----------------------------------------------------------
 function moveObject() {
+
+  // rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
 
   if(vent_nasos_ventil.rotSpeed == 0)
     vent_nasos_ventil.rotSpeed = 0.1;

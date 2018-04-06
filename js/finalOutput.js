@@ -7,25 +7,14 @@ function onWindowResize( event ) {
   camera.aspect = aspect;
   camera.updateProjectionMatrix();
   controls.rotateSpeed = width / 1920;
+
+  composer.setSize( width, height );
 }
 
 let animateCamera1 = animateCamera(camera, controls);
 let clock = new THREE.Clock();
 let animate = function () {
   requestAnimationFrame( animate );
-
-	let delta = clock.getDelta();
-	if ( mixer && !clipAction.paused) {
-		mixer.update( delta * 2.0 );
-    // console.log(clipAction.paused);
-    // if(clipAction.time > clipAction._clip.duration - 1) {
-       // clipAction.paused = true;
-       // clipAction.stop();
-       // console.log(clipAction.time);
-    // }
-	}
-    // console.log(clipAction.paused);
-
 
   // console.log(clipAction.time);
   // animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
@@ -43,6 +32,7 @@ let animate = function () {
 
   controls.update();
   renderer.render( scene, camera );
+
   // globalTime += 1;
 };
 animate();

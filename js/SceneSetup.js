@@ -45,7 +45,7 @@ controls.keyPanSpeed = 5.0;	// pixels moved per arrow key push
 // controls.minDistance = 100;
 // controls.maxDistance = 9000;
 
-dirLight = new THREE.DirectionalLight( 0xffffff, 2 );
+dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
 dirLight.position.set( 2, 1.5, 1.4 );
 dirLight.position.multiplyScalar( 1000 );
 var helper = new THREE.DirectionalLightHelper( dirLight, 500 );
@@ -64,7 +64,7 @@ dirLight.shadow.camera.far = 8000;     // default
 dirLight.shadow.bias = -0.0001;
 
 //HemisphereLight( skyColor : Integer, groundColor : Integer, intensity : Float )
-hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.1 );
+hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.9 );
 hemiLight.color.setHSL( 0.6, 1, 0.6 );
 hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
 hemiLight.position.set( 0, 10, 0 );
@@ -95,10 +95,10 @@ renderer.setSize( width, height );
 //document.body.appendChild( renderer.domElement );
 renderer.gammaInput = true;
 renderer.gammaOutput = true;
-renderer.toneMapping = THREE.ReinhardToneMapping;
-renderer.toneMappingExposure = 2.5;
+// renderer.toneMapping = THREE.ReinhardToneMapping;
+// renderer.toneMappingExposure = 2.0;
 
-renderer.shadowMap.enabled = true;
+// renderer.shadowMap.enabled = true;
 // renderer.shadowMap.type = THREE.BasicShadowMap;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
+// renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
 //document.body.appendChild( renderer.domElement );
