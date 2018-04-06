@@ -5,25 +5,25 @@ vert_fonGor.anisotropy = maxAnisotropy;
 
 let matAluminuim = new THREE.MeshStandardMaterial({
   color: 0x555555,
-  metalness:1,
+  metalness: 0.6,
   roughness: 0.8,
   //combine: THREE.MultiplyOperation,
 });
 let matSteel = new THREE.MeshStandardMaterial({
   color: 0x28343b,    //0x28343b
-  metalness: 1.0,
+  metalness: 0.9,
   roughness: 0.8 ,
   // combine: THREE.MultiplyOperation,
 });
 let matRAL7045 = new THREE.MeshStandardMaterial({
   color: 0x91969A,    //0x28343b
-  metalness: 0.9,
+  metalness: 0.5,
   roughness: 0.5 ,
   // combine: THREE.MultiplyOperation,
 });
 let matSteelClear = new THREE.MeshStandardMaterial({
   color: 0x28343b,    //0x28343b
-  metalness: 1.0,
+  metalness: 0.9,
   roughness: 0.1 ,
   // combine: THREE.MultiplyOperation,
 });
@@ -49,19 +49,16 @@ let matPlastic = new THREE.MeshStandardMaterial({
   color: 0x020202,
   metalness:0.2,
   roughness: 0.1,
-  // combine: THREE.MultiplyOperation,
-  // opacity: 0
+  side: THREE.DoubleSide
 });
 let matRubber = new THREE.MeshStandardMaterial({
   color: 0x030303,
   metalness:0.2,
   roughness: 0.4,
-  // combine: THREE.MultiplyOperation,
-  // opacity: 0
   side: THREE.DoubleSide
 });
 let matPlasticBlack = new THREE.MeshLambertMaterial({
-  color: 0x000000
+  color: 0x000000,
 });
 let matPlasticMatte = new THREE.MeshStandardMaterial({
   color: 0x000000,
@@ -158,7 +155,9 @@ matUstKrisha[1] = new THREE.MeshStandardMaterial({
 matUstKrisha[2] = new THREE.MeshStandardMaterial({
   color : 0xbfbfbf
 });
-
+matUstKrisha[3] = new THREE.MeshStandardMaterial({
+  color : 0xbfbfbf
+});
 
 // var myVertexShader, myFragmentShader;
 // loadTextResource('/js/myFresnel.c')

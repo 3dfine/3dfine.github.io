@@ -35,11 +35,12 @@ let animate = function () {
     vent_nasos_ventil.rotation.z += vent_nasos_ventil.rotSpeed;
     vent_nasos_ventil2.rotation.z += vent_nasos_ventil2.rotSpeed;
 
-    ventilatorOutSide_lopasti.children[0].children[0].rotation.x += vent_nasos_ventil2.rotSpeed;
-    ventilatorOutSide_lopasti.children[0].children[1].rotation.x += vent_nasos_ventil2.rotSpeed;
-    ventilatorOutSide_lopasti.children[0].children[2].rotation.x -= vent_nasos_ventil2.rotSpeed;
-    ventilatorOutSide_lopasti.children[0].children[3].rotation.x -= vent_nasos_ventil2.rotSpeed;
+    ventilatorOutSide_lopasti.children[0].children[0].rotation.x += 0.1;
+    ventilatorOutSide_lopasti.children[0].children[1].rotation.x += 0.12;
+    ventilatorOutSide_lopasti.children[0].children[2].rotation.x -= 0.11;
+    ventilatorOutSide_lopasti.children[0].children[3].rotation.x -= 0.13;
   }
+
   controls.update();
   renderer.render( scene, camera );
   // globalTime += 1;

@@ -45,20 +45,44 @@ controls.keyPanSpeed = 5.0;	// pixels moved per arrow key push
 // controls.minDistance = 100;
 // controls.maxDistance = 9000;
 
-var light;
+dirLight = new THREE.DirectionalLight( 0xffffff, 2 );
+dirLight.position.set( 2, 1.5, 1.4 );
+dirLight.position.multiplyScalar( 1000 );
+var helper = new THREE.DirectionalLightHelper( dirLight, 500 );
+scene.add( helper )
+scene.add( dirLight );
+dirLight.castShadow = true;
+dirLight.shadow.mapSize.width = 2048;
+dirLight.shadow.mapSize.height = 2048;
+var d = 1000;
+dirLight.shadow.camera.left = -d;
+dirLight.shadow.camera.right = d;
+dirLight.shadow.camera.top = d;
+dirLight.shadow.camera.bottom = -d;
+dirLight.shadow.camera.near = 100;    // default
+dirLight.shadow.camera.far = 8000;     // default
+dirLight.shadow.bias = -0.0001;
+
 //HemisphereLight( skyColor : Integer, groundColor : Integer, intensity : Float )
-hemiLight = new THREE.HemisphereLight( 0xffffff, 0x000000, 0.2 );
+hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.1 );
 hemiLight.color.setHSL( 0.6, 1, 0.6 );
 hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
-hemiLight.position.set( 0, 0, 0 );
+hemiLight.position.set( 0, 10, 0 );
 scene.add( hemiLight );
+hemiLightHelper = new THREE.HemisphereLightHelper( hemiLight, 100 );
+scene.add( hemiLightHelper );
 //scene.add( new THREE.AmbientLight( 0xffffff ) );
 //PointLight( color : Integer, intensity : Float, distance : Number, decay : Float )
-var light = new THREE.PointLight( 0xffffff, 0.9, 20000, 1 );
-light.position.set( 500, 600, 1000 );
-scene.add( light );
-var light2 = new THREE.PointLight( 0xffffff, 0.9, 20000, 1 );
-light2.position.set( -500, 800, -1000 );
+var light = new THREE.PointLight( 0xffffff, 1.4, 20000, 1 );
+light.position.set( 1500, 1600, 1000 );
+var sphereSize = 100;
+var pointLightHelper = new THREE.PointLightHelper( light, sphereSize );
+// scene.add( pointLightHelper );
+// scene.add( light );
+var light2 = new THREE.PointLight( 0xffffff, 0.4, 20000, 1 );
+light2.position.set( -1500, 1800, -1000 );
+var pointLightHelper2 = new THREE.PointLightHelper( light2, sphereSize );
+scene.add( pointLightHelper2 );
 scene.add( light2 );
 
 var canvas = document.getElementById( 'canvas-exemple' );
@@ -73,4 +97,8 @@ renderer.gammaInput = true;
 renderer.gammaOutput = true;
 renderer.toneMapping = THREE.ReinhardToneMapping;
 renderer.toneMappingExposure = 2.5;
+
+renderer.shadowMap.enabled = true;
+// renderer.shadowMap.type = THREE.BasicShadowMap;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
 //document.body.appendChild( renderer.domElement );

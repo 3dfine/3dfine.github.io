@@ -27,9 +27,16 @@ let loadFBXModel = function( modelTarget, scaleImport, _material, url ) {
 loader.load( url, function( object ) {
     for(let i=0; i<object.children.length; i++) {
     object.children[i].material = _material;
+    object.children[i].castShadow = true;
+    object.children[i].receiveShadow = true;
     }
+    object.castShadow = true;
+    object.receiveShadow = true;
+    modelTarget.castShadow = true;
+    modelTarget.receiveShadow = true;
     object.scale.multiplyScalar( scaleImport );
     modelTarget.add( object );
+    console.log(object);
 });
 }
 
@@ -38,6 +45,7 @@ loader.load( url, function( object ) {
     for(let i=0; i<object.children.length; i++) {
       animationGroup.add( object.children[i] );
       object.children[i].material = _material;
+
     }
     object.scale.multiplyScalar( scaleImport );
     object.rotation.x = THREE.Math.degToRad( rotation.x );

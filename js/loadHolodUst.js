@@ -13,14 +13,14 @@ let zaslonkaSborka2 = new THREE.Group();
 let rekuperator = new THREE.Group();
 let ventilatorOutSide = new THREE.Group();
 
-let rama1 = new THREE.Object3D();
-loadFBXModel( rama1, 0.5, matUstRama, 'models/fbx/ustanovka/rama1.FBX' );
-let rama2 = new THREE.Object3D();
-loadFBXModel( rama2, 0.5, matUstRama, 'models/fbx/ustanovka/rama2.FBX' );
-let opora = new THREE.Object3D();
-loadFBXModel( opora, 0.5, matOpora, 'models/fbx/ustanovka/opora.FBX' );
+let rama = new THREE.Object3D();
+loadFBXModel( rama, 0.5, matUstRama, 'models/fbx/ustanovka/rama.FBX' );
+rama.castShadow = true;
+rama.receiveShadow = true;
+
 let krisha = new THREE.Object3D();
 loadFBXModel( krisha, 0.5, matUstKrisha, 'models/fbx/ustanovka/Krisha.FBX' );
+// krisha.children[0].children[1].visible = false;
 let vent_nasos_korp = new THREE.Object3D();
 loadFBXModel( vent_nasos_korp, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_korp.FBX' );
 let vent_nasos_ventil = new THREE.Object3D();
@@ -29,8 +29,16 @@ let vent_nasos_korp2 = new THREE.Object3D();
 loadFBXModel( vent_nasos_korp2, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_korp.FBX' );
 let vent_nasos_ventil2 = new THREE.Object3D();
 loadFBXModel( vent_nasos_ventil2, 0.5, matUstVent2, 'models/fbx/ustanovka/vent_nasos_ventil.FBX' );
+
 let rekuperatorKorp = new THREE.Object3D();
 loadFBXModel( rekuperatorKorp, 0.5, matUstVent2, 'models/fbx/ustanovka/rekuperatorKorp.FBX' );
+let rekuperatorZaslon1 = new THREE.Object3D();
+loadFBXModel( rekuperatorZaslon1, 0.5, matUstVent2, 'models/fbx/ustanovka/rekuperatorZaslon1.FBX' );
+let rekuperatorZaslon2 = new THREE.Object3D();
+loadFBXModel( rekuperatorZaslon2, 0.5, matUstVent2, 'models/fbx/ustanovka/rekuperatorZaslon1.FBX' );
+let rekuperatorZaslon3 = new THREE.Object3D();
+loadFBXModel( rekuperatorZaslon3, 0.5, matUstVent2, 'models/fbx/ustanovka/rekuperatorZaslon3.FBX' );
+
 let filtrKasetni1 = new THREE.Object3D();
 loadFBXModel( filtrKasetni1, 0.5, matUstVent, 'models/fbx/ustanovka/filtrKasetni.FBX' );
 let filtrKasetni2 = new THREE.Object3D();
@@ -52,7 +60,6 @@ loadFBXModel( zaslonka1_Rama, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka1_R
 let zaslonka2_Rama = new THREE.Object3D();
 loadFBXModel( zaslonka2_Rama, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka2_Rama.FBX' );
 // zaslonka1_Rama.position.set( 0/2, 461.535/2, -1150.785/2 );
-
 let zaslonka1 = new THREE.Object3D();
 loadFBXModel( zaslonka1, 0.5, matUstVent, 'models/fbx/ustanovka/Zaslonka1Close.FBX' );
 zaslonka1.position.set( 0/2, 176.679/2, 0/2 );
@@ -78,8 +85,18 @@ zaslonkaSborka2.position.set( 0/2, 1264.692/2, -2195.049/2);
 // zaslonkaSborka.children[1].position.set( 0/2, 171.564/2, 219.614/2 );
 ventilatorOutSide.add( ventilatorOutSide_korp );
 ventilatorOutSide.add( ventilatorOutSide_lopasti );
-rekuperatorKorp.position.set( 0/2, 461.535/2, -1150.785/2 );
+//Рекуператор
 rekuperator.add( rekuperatorKorp );
+rekuperatorZaslon1.position.set( -269.554/2, 950.514/2, 112.29/2);
+rekuperatorZaslon1.rotation.x = THREE.Math.degToRad( -45 );
+rekuperator.add( rekuperatorZaslon1 );
+rekuperatorZaslon2.position.set( -269.554/2, 950.514/2, -112.29/2);
+rekuperatorZaslon2.rotation.x = THREE.Math.degToRad( 45 );
+rekuperator.add( rekuperatorZaslon2 );
+rekuperatorZaslon3.position.set( 179.746/2, 950.514/2, -112.29/2);
+rekuperatorZaslon3.rotation.x = THREE.Math.degToRad( 45 );
+rekuperator.add( rekuperatorZaslon3 );
+rekuperator.position.set( 0/2, 461.535/2, -1150.785/2 );
 
 ustVent1.children[1].position.y = 128.626;
 ustVent2.children[1].position.y = 128.626;
@@ -96,9 +113,7 @@ filtrKasetni2.position.set( 0/2, 1264.329/2, -2139.475/2);
 
 ustanovka.add( ustVent1 );
 ustanovka.add( ustVent2 );
-ustanovka.add( rama1 );
-ustanovka.add( rama2 );
-ustanovka.add( opora );
+ustanovka.add( rama );
 ustanovka.add( krisha );
 ustanovka.add( zaslonkaSborka1 );
 ustanovka.add( zaslonkaSborka2 );

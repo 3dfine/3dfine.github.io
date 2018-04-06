@@ -1,7 +1,7 @@
 //Add models in scene
 stoikiGroup.position.x = 2600;
 // scene.add( stoikiGroup );
-
+//
 matUstRama[0] = matSteel;
 matUstRama[1] = matPlastic;
 matUstRama[2] = matRAL7045;
@@ -97,7 +97,24 @@ function moveObject() {
       else
       zaslonka1.children[0].children[i].rotation.z = THREE.Math.degToRad( 0 );
   }
-
+  for(let i=0; i<rekuperatorZaslon1.children[0].children.length; i++) {
+    if(rekuperatorZaslon1.children[0].children[i].rotation.x == 0)
+      rekuperatorZaslon1.children[0].children[i].rotation.x = THREE.Math.degToRad( -90 );
+      else
+      rekuperatorZaslon1.children[0].children[i].rotation.x = THREE.Math.degToRad( 0 );
+  }
+  for(let i=0; i<rekuperatorZaslon2.children[0].children.length; i++) {
+    if(rekuperatorZaslon2.children[0].children[i].rotation.x == 0)
+      rekuperatorZaslon2.children[0].children[i].rotation.x = THREE.Math.degToRad( -90 );
+      else
+      rekuperatorZaslon2.children[0].children[i].rotation.x = THREE.Math.degToRad( 0 );
+  }
+  for(let i=0; i<rekuperatorZaslon3.children[0].children.length; i++) {
+    if(rekuperatorZaslon3.children[0].children[i].rotation.x == 0)
+      rekuperatorZaslon3.children[0].children[i].rotation.x = THREE.Math.degToRad( -90 );
+      else
+      rekuperatorZaslon3.children[0].children[i].rotation.x = THREE.Math.degToRad( 0 );
+  }
 }
 // timeElement.onclick = changeMaterial;
 var overlayStl = document.getElementById( "overlaySteel" );
