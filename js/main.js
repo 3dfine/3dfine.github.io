@@ -103,7 +103,32 @@ let VecKeyfrTrck1 = {
 // clipAction.play();
 // clipAction.paused = true;
 //----------------------------------------------------------
+function compareName(a,b) {
+  if (a.name < b.name)
+    return -1;
+  if (a.name > b.name)
+    return 1;
+  return 0;
+}
 function moveObject() {
+  potok1.children[0].children.sort(compareName);
+  console.log(potok1.children[0].children.length);
+  console.log(potok1.children[0].children);
+
+  for(let i=0; i<potok1.children[0].children.length; i++) {
+    if(i < 75 )
+      potok1.children[0].children[i].material = matPotokRed;
+    if(i > 74 && i < 75 + 16 )
+      potok1.children[0].children[i].material = matPotokPink;
+    if(i > 90 && i < 91 + 20 )
+      potok1.children[0].children[i].material = matPotokDarkBlue;
+    if(i > 110 && i < 111 + 19 )
+      potok1.children[0].children[i].material = matPotokBlue;
+    if(i > 129 && i < 130 + 44 )
+      potok1.children[0].children[i].material = matPotokPink;
+    if(i > 173 )
+      potok1.children[0].children[i].material = matPotokRed;
+  }
 
   rama.children[0].children[0].visible = !rama.children[0].children[0].visible;
   barashki.children[0].visible = !barashki.children[0].visible;

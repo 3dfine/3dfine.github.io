@@ -17,14 +17,7 @@ let matBarashki = [new THREE.MeshPhongMaterial( {
   normalMap: textureLoader.load( 'textures/barashka.png' ),
   normalScale: new THREE.Vector2( 1.0, 1.0 )
 } ) ];
-let matPotok1 = new THREE.MeshPhongMaterial( {
-  color: 0xff0000,
-  specular: 0x222222,
-  shininess: 35,
-  transparent: true,
-  opacity: 0.4,
-  side: THREE.DoubleSide
-} );
+let matPotokDef = new THREE.MeshPhongMaterial( { color: 0xff0000 });
 
 let matOpora = [ new THREE.MeshStandardMaterial({ color : 0x020202, metalness: 0.9, roughness: 0.4 }) ];
 // models
@@ -37,8 +30,9 @@ let rekuperator = new THREE.Group();
 let ventilatorOutSide = new THREE.Group();
 
 let potok1 = new THREE.Object3D();
-loadFBXModel( potok1, 0.5, matPotok1, 'models/fbx/ustanovka/potok1.FBX' );
+loadFBXModel( potok1, 0.5, matPotokDef, 'models/fbx/ustanovka/potok1.FBX' );
 potok1.rotation.y = THREE.Math.degToRad( -90 );
+
 
 let rama = new THREE.Object3D();
 loadFBXModel( rama, 0.5, matUstRama, 'models/fbx/ustanovka/rama.FBX' );

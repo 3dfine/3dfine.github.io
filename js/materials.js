@@ -177,6 +177,40 @@ matUstKrisha[3] = new THREE.MeshStandardMaterial({
   color : 0xbfbfbf
 });
 
+
+let matPotokRed = new THREE.MeshPhongMaterial( {
+  color: 0xff0000,
+  specular: 0x222222,
+  shininess: 35,
+  transparent: true,
+  opacity: 0.4,
+  side: THREE.DoubleSide
+} );
+let matPotokPink = new THREE.MeshPhongMaterial( {
+  color: 0xF77FBE,
+  specular: 0x222222,
+  shininess: 35,
+  transparent: true,
+  opacity: 0.4,
+  side: THREE.DoubleSide
+} );
+let matPotokDarkBlue = new THREE.MeshPhongMaterial( {
+  color: 0x0000ff,
+  specular: 0x222222,
+  shininess: 35,
+  transparent: true,
+  opacity: 0.4,
+  side: THREE.DoubleSide
+} );
+let matPotokBlue = new THREE.MeshPhongMaterial( {
+  color: 0x3c9eff,
+  specular: 0x222222,
+  shininess: 35,
+  transparent: true,
+  opacity: 0.4,
+  side: THREE.DoubleSide
+} );
+
 // var myVertexShader, myFragmentShader;
 // loadTextResource('/js/myFresnel.c')
 // .then(function(result) {
