@@ -45,6 +45,8 @@ matUstVent2[2] = matSteelClear;
 matUstVent2[3] = matRAL7045;
 scene.add( ustanovka );
 
+scene.add(potok1);
+
 // получаем ссылки на элементы DOM
 var eMailElement = document.getElementById("eMail");
 // создаём текстовые узлы, чтобы сэкономить немного браузерного времени

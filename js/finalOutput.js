@@ -11,9 +11,10 @@ function onWindowResize( event ) {
 
 let animateCamera1 = animateCamera(camera, controls);
 let clock = new THREE.Clock();
+let tick = 0;
 let animate = function () {
   requestAnimationFrame( animate );
-
+tick++;
   // console.log(clipAction.time);
   // animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
 
@@ -26,6 +27,11 @@ let animate = function () {
     ventilatorOutSide_lopasti.children[0].children[1].rotation.x += 0.12;
     ventilatorOutSide_lopasti.children[0].children[2].rotation.x -= 0.11;
     ventilatorOutSide_lopasti.children[0].children[3].rotation.x -= 0.13;
+    for(let i=0; i<potok1.children[0].children.length; i++) {
+      potok1.children[0].children[i].scale.x = potok1.children[0].children[i].scale.y = potok1.children[0].children[i].scale.z = 1.0 - 0.15 * (Math.sin(i/1 - tick / 2) + 1.0);
+
+    }
+
   }
 
   controls.update();

@@ -94,16 +94,12 @@ let matPlasticBlack = new THREE.MeshLambertMaterial({
 let matPlasticMatte = new THREE.MeshStandardMaterial({
   color: 0x000000,
   metalness:0.2,
-  roughness: 0.7,
-  // combine: THREE.MultiplyOperation,
-  // opacity: 0
+  roughness: 0.7
 });
 let matPlasticWhite = new THREE.MeshStandardMaterial({
   color: 0xffffff,
   metalness:0.5,
-  roughness: 0.7,
-  // combine: THREE.MultiplyOperation,
-  // opacity: 0
+  roughness: 0.7
 });
 let matEkran = new THREE.MeshLambertMaterial({
   //  color: 0xffffff,
@@ -118,7 +114,6 @@ let matGlass2 = new THREE.MeshStandardMaterial({
   metalness:1.0,
   roughness: 0.15,
   transparent: true,
-  //combine: THREE.MultiplyOperation,
   opacity: 1
 });
 let matGhost = new THREE.MeshPhongMaterial({
