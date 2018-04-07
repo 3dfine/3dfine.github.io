@@ -25,17 +25,39 @@ matSteel.roughnessMap.repeat.set( 2, 1 );
 // matSteel.bumpMap.repeat.set( 2, 1 );
 // matSteel.bumpScale = 0.2;
 let matRAL7045 = new THREE.MeshStandardMaterial({
-  color: 0x0032da,    //0x28343b
+  color: 0x28343b,    //0x28343b
   metalness: 0.5,
   roughness: 0.3 ,
   // combine: THREE.MultiplyOperation,
 });
+let matBlueGloss = new THREE.MeshStandardMaterial({
+  color: 0x0032da,    //0x28343b
+  metalness: 0.5,
+  roughness: 0.3
+});
+matBlueGloss.envMap = textureCube;
+matBlueGloss.needsUpdate = true;
+console.log(matBlueGloss);
 let matSteelClear = new THREE.MeshStandardMaterial({
   color: 0x28343b,    //0x28343b
-  metalness: 0.9,
-  roughness: 0.4 ,
-  // combine: THREE.MultiplyOperation,
+  metalness: 0.7,
+  roughness: 0.8
 });
+let stainlessGunMetal = new THREE.MeshStandardMaterial({
+  color: 0xaaaaaa,    //0x28343b
+  metalness: 0.8,
+  roughness: 0.66
+});
+stainlessGunMetal.envMap = textureCube;
+stainlessGunMetal.needsUpdate = true;
+stainlessGunMetal.map = StainlessGunMetal_albedo;
+stainlessGunMetal.map.wrapS = THREE.RepeatWrapping;
+stainlessGunMetal.map.wrapT = THREE.RepeatWrapping;
+stainlessGunMetal.map.repeat.set( 1, 1 );
+stainlessGunMetal.roughnessMap = StainlessGunMetal_roughness;
+stainlessGunMetal.roughnessMap.wrapS = THREE.RepeatWrapping;
+stainlessGunMetal.roughnessMap.wrapT = THREE.RepeatWrapping;
+stainlessGunMetal.roughnessMap.repeat.set( 1, 1 );
 let matGold = new THREE.MeshStandardMaterial({
   color: 0xffc355,    //Gold	(1.000, 0.766, 0.336) or [255, 195, 86]
   metalness: 1,

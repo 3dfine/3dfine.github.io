@@ -1,9 +1,17 @@
 let textureLoader = new THREE.TextureLoader();
+let textureLoader2 = new THREE.TextureLoader();
 let matSteelTexture, vert_fon, vert_fonGor;
+let filtr1_hight, filtr2_hight;
+let StainlessGunMetal_albedo, StainlessGunMetal_roughness;
+let onepix;
+onepix = textureLoader.load( 'textures/Onepix.jpg' );
+StainlessGunMetal_albedo = textureLoader2.load( 'textures/metals/StainlessGunMetal_albedo.png' );
+StainlessGunMetal_roughness = textureLoader2.load( 'textures/metals/StainlessGunMetal_roughness.png' );
 matSteelTexture = textureLoader.load( 'textures/metals/SteelNerg.jpg' );
 vert_fon = textureLoader.load( 'textures/fon/surface-screen.jpg' );
 vert_fonGor = textureLoader.load( 'textures/fon/surface-screen_TV.jpg' );
-
+filtr1_hight = textureLoader.load( 'textures/filtr1_hight.jpg' );
+filtr2_hight = textureLoader.load( 'textures/filtr2_hight.jpg' );
 
 //cubemap
 // var textureCube = new THREE.CubeTextureLoader()

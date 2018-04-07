@@ -7,8 +7,6 @@ function onWindowResize( event ) {
   camera.aspect = aspect;
   camera.updateProjectionMatrix();
   controls.rotateSpeed = width / 1920;
-
-  composer.setSize( width, height );
 }
 
 let animateCamera1 = animateCamera(camera, controls);

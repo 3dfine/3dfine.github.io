@@ -33,7 +33,7 @@ var vectorCam = new THREE.Vector3( 0, 0, 1000 );
 camera.position.addVectors(camLookAt, vectorCam);
 cameraPos(camera, controls, cameraKeyTrck0);
 
-controls.maxPolarAngle = Math.PI * 0.55;
+controls.maxPolarAngle = Math.PI * 0.75;
 controls.noZoom = false;
 controls.zoomSpeed = 0.8;
 controls.autoRotate = false; //true
@@ -48,8 +48,8 @@ controls.keyPanSpeed = 5.0;	// pixels moved per arrow key push
 dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
 dirLight.position.set( 2, 1.5, 1.4 );
 dirLight.position.multiplyScalar( 1000 );
-var helper = new THREE.DirectionalLightHelper( dirLight, 500 );
-scene.add( helper )
+// var helper = new THREE.DirectionalLightHelper( dirLight, 500 );
+// scene.add( helper );
 scene.add( dirLight );
 dirLight.castShadow = true;
 dirLight.shadow.mapSize.width = 2048;
@@ -69,8 +69,8 @@ hemiLight.color.setHSL( 0.6, 1, 0.6 );
 hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
 hemiLight.position.set( 0, 10, 0 );
 scene.add( hemiLight );
-hemiLightHelper = new THREE.HemisphereLightHelper( hemiLight, 100 );
-scene.add( hemiLightHelper );
+// hemiLightHelper = new THREE.HemisphereLightHelper( hemiLight, 100 );
+// scene.add( hemiLightHelper );
 //scene.add( new THREE.AmbientLight( 0xffffff ) );
 //PointLight( color : Integer, intensity : Float, distance : Number, decay : Float )
 var light = new THREE.PointLight( 0xffffff, 1.4, 20000, 1 );
@@ -81,8 +81,8 @@ var pointLightHelper = new THREE.PointLightHelper( light, sphereSize );
 // scene.add( light );
 var light2 = new THREE.PointLight( 0xffffff, 0.4, 20000, 1 );
 light2.position.set( -1500, 1800, -1000 );
-var pointLightHelper2 = new THREE.PointLightHelper( light2, sphereSize );
-scene.add( pointLightHelper2 );
+// var pointLightHelper2 = new THREE.PointLightHelper( light2, sphereSize );
+// scene.add( pointLightHelper2 );
 scene.add( light2 );
 
 var canvas = document.getElementById( 'canvas-exemple' );

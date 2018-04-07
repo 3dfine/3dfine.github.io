@@ -4,11 +4,34 @@ stoikiGroup.position.x = 2600;
 //
 matUstRama[0] = matSteel;
 matUstRama[1] = matPlastic;
-matUstRama[2] = matSteelClear;
-matUstRama[3] = matRAL7045;
+matUstRama[2] = stainlessGunMetal;
+matUstRama[3] = matBlueGloss;
+matUstRama[4] = matPlasticWhite;
 
 matLopasti[0] = matPlastic;
 matLopasti[1] = matPlastic;
+
+matFiltrKorman[0] = matRAL7045;
+matFiltrKorman[1] = matSteel;
+matFiltrKorman[2] = matSteelClear;
+matFiltrKorman[3] = new THREE.MeshLambertMaterial({
+  map: filtr2_hight
+});
+matFiltrKorman[3].map.wrapS = THREE.RepeatWrapping;
+
+matFiltrKorman[4] = new THREE.MeshLambertMaterial({
+  map: filtr1_hight
+});
+
+matRekuperator[0] = matSteel;
+matRekuperator[1] = matPlastic;
+matRekuperator[2] = stainlessGunMetal;
+matRekuperator[3] = stainlessGunMetal;
+
+matPauk[0] = matSteel;
+matPauk[1] = matPlastic;
+matPauk[2] = stainlessGunMetal;
+matPauk[3] = stainlessGunMetal;
 
 matUstVent[0] = matRAL7045;
 matUstVent[1] = matPlastic;
@@ -80,7 +103,8 @@ let VecKeyfrTrck1 = {
 //----------------------------------------------------------
 function moveObject() {
 
-  // rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
+  rama.children[0].children[0].visible = !rama.children[0].children[0].visible;
+  barashki.children[0].visible = !barashki.children[0].visible;
 
   if(vent_nasos_ventil.rotSpeed == 0)
     vent_nasos_ventil.rotSpeed = 0.1;
