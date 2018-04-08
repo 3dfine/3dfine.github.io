@@ -71,6 +71,9 @@ let ventilatorOutSide_lopasti = new THREE.Object3D();
 loadFBXModel(ventilatorOutSide_lopasti, 0.5, matLopasti, 'models/fbx/ustanovka/ventilatorOutSide_lopasti.FBX' );
 ventilatorOutSide_lopasti.position.set( 219.752/2, 1266.646/2, 2160.0/2 );
 ventilatorOutSide_lopasti.rotation.y = THREE.Math.degToRad( 90 );
+let kompressoLOW = new THREE.Object3D();
+loadFBXModel( kompressoLOW, 0.5, matUstVent, 'models/fbx/ustanovka/kompressoLOW.FBX' );
+
 
 let zaslonka1_Rama = new THREE.Object3D();
 loadFBXModel( zaslonka1_Rama, 0.5, matUstRama, 'models/fbx/ustanovka/Zaslonka1_Rama.FBX' );
@@ -83,6 +86,14 @@ zaslonka1.position.set( 0/2, 176.679/2, 0/2 );
 
 let pauk = new THREE.Object3D();
 loadFBXModel( pauk, 0.5, matPauk, 'models/fbx/ustanovka/paukLow1.FBX' );
+
+
+let nagretSoplya = new THREE.Object3D();
+loadFBXModel( nagretSoplya, 0.5, matPauk, 'models/fbx/ustanovka/nagretSoplya.FBX' );
+let diffuzorKorp = new THREE.Object3D();
+loadFBXModel( diffuzorKorp, 0.5, matPauk, 'models/fbx/ustanovka/diffuzorKorp.FBX' );
+let diffuzorLopasti = new THREE.Object3D();
+loadFBXModel( diffuzorLopasti, 0.5, matPauk, 'models/fbx/ustanovka/diffuzorLopasti.FBX' );
 
 let zaslonka2 = new THREE.Object3D();
 loadFBXModel( zaslonka2, 0.5, matUstRama, 'models/fbx/ustanovka/Zaslonka2Close.FBX' );
@@ -135,14 +146,18 @@ ustanovka.add( ustVent1 );
 ustanovka.add( ustVent2 );
 ustanovka.add( rama );
 ustanovka.add( barashki );
-// ustanovka.add( krisha );
+ustanovka.add( krisha );
 ustanovka.add( zaslonkaSborka1 );
 ustanovka.add( zaslonkaSborka2 );
 ustanovka.add( rekuperator );
 ustanovka.add( filtrKorman1 );
 ustanovka.add( filtrKorman2 );
 ustanovka.add( ventilatorOutSide );
+ustanovka.add( kompressoLOW );
 ustanovka.add( pauk );
+ustanovka.add( diffuzorKorp );
+ustanovka.add( diffuzorLopasti );
+ustanovka.add( nagretSoplya );
 ustanovka.rotation.y = THREE.Math.degToRad( -90 );
 // console.log( 'ustanovka', ustanovka.children );
 // console.log( 'ventilatorOutSide', ventilatorOutSide.children );

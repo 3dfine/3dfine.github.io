@@ -2,6 +2,7 @@
 stoikiGroup.position.x = 2600;
 // scene.add( stoikiGroup );
 //
+
 matUstRama[0] = matSteel;
 matUstRama[1] = matPlastic;
 matUstRama[2] = stainlessGunMetal;
@@ -111,9 +112,13 @@ function compareName(a,b) {
   return 0;
 }
 function moveObject() {
+  diffuzorKorp.children[0].children[0].material = matPlasticWhite;
+  console.log(diffuzorKorp);
   potok1.children[0].children.sort(compareName);
-  console.log(potok1.children[0].children.length);
-  console.log(potok1.children[0].children);
+
+  for(let i=0; i<diffuzorLopasti.children[0].children.length; i++) {
+    diffuzorLopasti.children[0].children[i].rotation.x = THREE.Math.degToRad( 30 );;
+  }
 
   for(let i=0; i<potok1.children[0].children.length; i++) {
     if(i < 75 )
@@ -130,7 +135,7 @@ function moveObject() {
       potok1.children[0].children[i].material = matPotokRed;
   }
 
-  rama.children[0].children[0].visible = !rama.children[0].children[0].visible;
+  rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
   barashki.children[0].visible = !barashki.children[0].visible;
 
   if(vent_nasos_ventil.rotSpeed == 0)

@@ -46,7 +46,8 @@ let matSteelClear = new THREE.MeshStandardMaterial({
 let stainlessGunMetal = new THREE.MeshStandardMaterial({
   color: 0xaaaaaa,    //0x28343b
   metalness: 0.8,
-  roughness: 0.66
+  roughness: 0.66,
+    side: THREE.DoubleSide
 });
 stainlessGunMetal.envMap = textureCube;
 stainlessGunMetal.needsUpdate = true;
@@ -97,10 +98,15 @@ let matPlasticMatte = new THREE.MeshStandardMaterial({
   roughness: 0.7
 });
 let matPlasticWhite = new THREE.MeshStandardMaterial({
-  color: 0xffffff,
+  color: 0xaaaaaa,
   metalness:0.5,
-  roughness: 0.7
+  roughness: 0.5,
+  envMap: textureCube,
+  needsUpdate: true,
+  side: THREE.DoubleSide
 });
+// matPlasticWhite.envMap = textureCube;
+// matPlasticWhite.needsUpdate = true;
 let matEkran = new THREE.MeshLambertMaterial({
   //  color: 0xffffff,
   map: vert_fon
