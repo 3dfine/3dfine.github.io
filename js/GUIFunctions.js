@@ -1,3 +1,6 @@
+let blockLoad = document.getElementById("loading"); // Получаем основной блок
+let blockLoadProgress = document.getElementById("blockloading_progress");
+
 function toggleFullScreen() {
   if (!document.fullscreenElement &&    // alternative standard method
       !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods

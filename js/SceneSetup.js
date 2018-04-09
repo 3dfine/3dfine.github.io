@@ -51,18 +51,6 @@ dirLight.position.multiplyScalar( 1000 );
 // var helper = new THREE.DirectionalLightHelper( dirLight, 500 );
 // scene.add( helper );
 scene.add( dirLight );
-dirLight.castShadow = true;
-dirLight.shadow.mapSize.width = 2048;
-dirLight.shadow.mapSize.height = 2048;
-var d = 1000;
-dirLight.shadow.camera.left = -d;
-dirLight.shadow.camera.right = d;
-dirLight.shadow.camera.top = d;
-dirLight.shadow.camera.bottom = -d;
-dirLight.shadow.camera.near = 100;    // default
-dirLight.shadow.camera.far = 8000;     // default
-dirLight.shadow.bias = -0.0001;
-
 //HemisphereLight( skyColor : Integer, groundColor : Integer, intensity : Float )
 hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.9 );
 hemiLight.color.setHSL( 0.6, 1, 0.6 );
@@ -103,3 +91,4 @@ renderer.sortObjects = true;
 // renderer.shadowMap.type = THREE.BasicShadowMap;
 // renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
 //document.body.appendChild( renderer.domElement );
+renderer.render( scene, camera );

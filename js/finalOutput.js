@@ -8,7 +8,9 @@ function onWindowResize( event ) {
   camera.updateProjectionMatrix();
   controls.rotateSpeed = width / 1920;
 }
-
+window.onload = function () {
+  matHolodSetup();
+}
 
 let animateCamera1 = animateCamera(camera, controls);
 let clock = new THREE.Clock();
@@ -35,15 +37,20 @@ let animate = function () {
     }
   }
 
-  if( globalLoad > 25 ) {
+  if( globalLoad > 35 ) {
     rekuperatorKorp.children[0].children[1].material = matSteel;
     rekuperatorKorp.children[0].children[2].material = matSteel;
     // rekuperatorKorp.children[0].children[3].material = matSteel;
     // console.log( rekuperatorKorp )
+    blockLoad.style.display='none';
     controls.update();
     renderer.render( scene, camera );
   }
-  else { console.log( globalLoad ); }
+  else {
+    // console.log( globalLoad );
+    blockLoadProgress.style.width = 31 * globalLoad / 36+ 'vmax';
 
+  }
+    console.log( globalLoad );
 };
 animate();

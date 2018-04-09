@@ -17,9 +17,12 @@ eMailElement.appendChild(eMailNode);
 // задаём значения узлов
 eMailNode.nodeValue = '3dfine@mail.ru';   // 2 десятичных знака
 
+
+let block = document.getElementById("block_resize"); // Получаем основной блок
 function setGold() {
-  materials[0] = matGold;
-  materials2[0] = matGold;
+  // materials[0] = matGold;
+  // materials2[0] = matGold;
+  block.style.width = 90 + 'px';
 }
 function setSteel() {
   materials[0] = matAluminuim;
@@ -84,17 +87,17 @@ function moveObject() {
   }
 
   for(let i=0; i<potok1.children[0].children.length; i++) {
-    if(i < 75 )
+    if(i < 81 )
       potok1.children[0].children[i].material = matPotokRed;
-    if(i > 74 && i < 75 + 16 )
+    if(i > 80 && i < 81 + 21 )
       potok1.children[0].children[i].material = matPotokPink;
-    if(i > 90 && i < 91 + 20 )
+    if(i > 101 && i < 101 + 26 )
       potok1.children[0].children[i].material = matPotokDarkBlue;
-    if(i > 110 && i < 111 + 19 )
+    if(i > 126 && i < 126 + 19 )
       potok1.children[0].children[i].material = matPotokBlue;
-    if(i > 129 && i < 131 + 44 )
+    if(i > 145 && i < 145 + 46 )
       potok1.children[0].children[i].material = matPotokPink;
-    if(i > 174 )
+    if(i > 190 )
       potok1.children[0].children[i].material = matPotokRed;
   }
 
@@ -131,18 +134,18 @@ function moveObject() {
       else
       zaslonka1.children[0].children[i].rotation.z = THREE.Math.degToRad( 0 );
   }
-  for(let i=0; i<rekuperatorZaslon1.children[0].children.length; i++) {
-    if(rekuperatorZaslon1.children[0].children[i].rotation.x == 0)
-      rekuperatorZaslon1.children[0].children[i].rotation.x = THREE.Math.degToRad( -90 );
-      else
-      rekuperatorZaslon1.children[0].children[i].rotation.x = THREE.Math.degToRad( 0 );
-  }
-  for(let i=0; i<rekuperatorZaslon2.children[0].children.length; i++) {
-    if(rekuperatorZaslon2.children[0].children[i].rotation.x == 0)
-      rekuperatorZaslon2.children[0].children[i].rotation.x = THREE.Math.degToRad( -90 );
-      else
-      rekuperatorZaslon2.children[0].children[i].rotation.x = THREE.Math.degToRad( 0 );
-  }
+  // for(let i=0; i<rekuperatorZaslon1.children[0].children.length; i++) {
+  //   if(rekuperatorZaslon1.children[0].children[i].rotation.x == 0)
+  //     rekuperatorZaslon1.children[0].children[i].rotation.x = THREE.Math.degToRad( -90 );
+  //     else
+  //     rekuperatorZaslon1.children[0].children[i].rotation.x = THREE.Math.degToRad( 0 );
+  // }
+  // for(let i=0; i<rekuperatorZaslon2.children[0].children.length; i++) {
+  //   if(rekuperatorZaslon2.children[0].children[i].rotation.x == 0)
+  //     rekuperatorZaslon2.children[0].children[i].rotation.x = THREE.Math.degToRad( -90 );
+  //     else
+  //     rekuperatorZaslon2.children[0].children[i].rotation.x = THREE.Math.degToRad( 0 );
+  // }
   for(let i=0; i<rekuperatorZaslon3.children[0].children.length; i++) {
     if(rekuperatorZaslon3.children[0].children[i].rotation.x == 0)
       rekuperatorZaslon3.children[0].children[i].rotation.x = THREE.Math.degToRad( -90 );

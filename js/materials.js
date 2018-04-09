@@ -2,22 +2,20 @@
 // matSteelTexture.anisotropy = maxAnisotropy;
 // vert_fon.anisotropy = maxAnisotropy;
 // vert_fonGor.anisotropy = maxAnisotropy;
-
 let matAluminuim = new THREE.MeshStandardMaterial({
   color: 0x333333,
   metalness: 0.8,
   roughness: 0.3,
-  envMap: textureCube,
+  // envMap: textureCube,
   needsUpdate: true
 });
 let matSteel = new THREE.MeshStandardMaterial({
   color: 0xaaaaaa,    //0x9698a0
   metalness: 0.75,
   roughness: 0.6,
-  envMap: textureCube,
+  // envMap: textureCube,
   needsUpdate: true,
-  // map: matSteelTexture,
-  roughnessMap: matSteelTexture
+  // roughnessMap: matSteelTexture
 });
 // matSteel.envMap = textureCube;
 // matSteel.needsUpdate = true;
@@ -40,15 +38,13 @@ let matBlueGloss = new THREE.MeshStandardMaterial({
   metalness: 0.5,
   roughness: 0.3
 });
-matBlueGloss.envMap = textureCube;
-matBlueGloss.needsUpdate = true;
+
 let matBlueGlossDark = new THREE.MeshStandardMaterial({
   color: 0x0000ff,    //0x28343b
   metalness: 0.2,
   roughness: 0.2
 });
-matBlueGlossDark.envMap = textureCube;
-matBlueGlossDark.needsUpdate = true;
+
 let matSteelClear = new THREE.MeshStandardMaterial({
   color: 0x28343b,    //0x28343b
   metalness: 0.7,
@@ -58,12 +54,13 @@ let stainlessGunMetal = new THREE.MeshStandardMaterial({
   color: 0xaaaaaa,    //0x28343b
   metalness: 0.9,
   roughness: 0.6,
-  envMap: textureCube,
+  // envMap: textureCube,
   needsUpdate: true,
-  map: StainlessGunMetal_albedo,
-  roughnessMap: StainlessGunMetal_roughness,
+  // map: StainlessGunMetal_albedo,
+  // roughnessMap: StainlessGunMetal_roughness,
   side: THREE.DoubleSide
 });
+
 // stainlessGunMetal.envMap = textureCube;
 // stainlessGunMetal.needsUpdate = true;
 // stainlessGunMetal.map = StainlessGunMetal_albedo;
@@ -90,10 +87,10 @@ let matCopper = new THREE.MeshStandardMaterial({
   color: 0xeffffff,
   metalness: 0.9,
   roughness: 1.0 ,
-  envMap: textureCube,
+  // envMap: textureCube,
   needsUpdate: true,
-  map: RepolishedCopper_albedo,
-  roughnessMap: RepolishedCopper_roughness,
+  // map: RepolishedCopper_albedo,
+  // roughnessMap: RepolishedCopper_roughness,
 });
 let matPlastic = new THREE.MeshStandardMaterial({
   color: 0x020202,
@@ -127,19 +124,17 @@ let matPlasticWhite = new THREE.MeshStandardMaterial({
   color: 0xaaaaaa,
   metalness:0.5,
   roughness: 0.5,
-  envMap: textureCube,
+  // envMap: textureCube,
   needsUpdate: true,
   side: THREE.DoubleSide
 });
-// matPlasticWhite.envMap = textureCube;
-// matPlasticWhite.needsUpdate = true;
 let matEkran = new THREE.MeshLambertMaterial({
   //  color: 0xffffff,
-  map: vert_fon
+  // map: vert_fon
 });
 let matEkranGorizont = new THREE.MeshLambertMaterial({
   //  color: 0xffffff,
-  map: vert_fonGor
+  // map: vert_fonGor
 });
 let matGlass2 = new THREE.MeshStandardMaterial({
   color: 0x000000,
@@ -181,17 +176,17 @@ transparent: true
 } );
 
 
-matRAL7045.envMap = textureCube;
-matRAL7045.needsUpdate = true;
-
-matGold.envMap = textureCube;
-matGold.needsUpdate = true;
-matPlastic.envMap = textureCube;
-matPlastic.needsUpdate = true;
-matSteelClear.envMap = textureCube;
-matSteelClear.needsUpdate = true;
-matPlasticWhite.envMap = textureCube;
-matPlasticWhite.needsUpdate = true;
+// matRAL7045.envMap = textureCube;
+// matRAL7045.needsUpdate = true;
+//
+// matGold.envMap = textureCube;
+// matGold.needsUpdate = true;
+// matPlastic.envMap = textureCube;
+// matPlastic.needsUpdate = true;
+// matSteelClear.envMap = textureCube;
+// matSteelClear.needsUpdate = true;
+// matPlasticWhite.envMap = textureCube;
+// matPlasticWhite.needsUpdate = true;
 
 let matStoikaVert = [
   new THREE.MeshStandardMaterial({

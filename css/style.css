@@ -1,10 +1,13 @@
 body {
   /* margin: 10px; */
   overflow: hidden;
+  background-color: #ffffff;
+
 }
 canvas {
   position: absolute;
   /* background: radial-gradient(ellipse at center,  rgba(43,45,48,1) 0%,rgba(0,0,0,1) 100%); */
+  background-color: #ffffff;
   width: 100%;
   height: 100%;
   top: 0;
@@ -15,7 +18,8 @@ canvas {
         margin: 0;
     }
 .container {
-    position: relative;
+  background-color: #ffffff;
+  position: relative;
 }
 #overlay {
   cursor: default;
@@ -81,7 +85,7 @@ canvas {
   right: 10.0vmax;
   /* background-color: #000000; */
   opacity: 0.36;
-  background-image: url(../images/rotation.png);
+  background-image: url(../images/videocam-outline.png);
   background-repeat     : no-repeat;
   background-size       : cover;
   background-position-x : 50%;
@@ -98,4 +102,34 @@ canvas {
   background-size       : cover;
   background-position-x : 50%;
   background-position-y : 50%;
+}
+
+#loading {
+  color:green;
+  position: absolute;
+  top: 50%;
+  left: 35vmax;
+  height: 37px;
+  width: 31vmax;
+}
+#blockloading {
+  position: absolute;
+  border: 1px solid #000000;
+  height: 14px;
+  width: 30.25vmax;
+}
+#blockloading_progress {
+  background-color: #ff0000;
+  bottom: 0;
+  height: 12px;
+  margin: 1px;
+  position: absolute;
+  width: 0px;
+}
+.content {
+  color:black;  
+}
+#center {
+  text-align: center;
+  color: white;
 }

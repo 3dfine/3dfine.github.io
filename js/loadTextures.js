@@ -1,36 +1,61 @@
 let textureLoader = new THREE.TextureLoader();
-let textureLoader2 = new THREE.TextureLoader();
-let matSteelTexture, vert_fon, vert_fonGor;
-let filtr1_hight, filtr2_hight;
-let StainlessGunMetal_albedo, StainlessGunMetal_roughness;
-let onepix;
-onepix = textureLoader.load( 'textures/Onepix.jpg' );
-StainlessGunMetal_albedo = textureLoader2.load( 'textures/metals/StainlessGunMetal_albedo.png' );
-StainlessGunMetal_albedo.wrapS = THREE.RepeatWrapping;
-StainlessGunMetal_albedo.wrapT = THREE.RepeatWrapping;
-StainlessGunMetal_albedo.repeat.set( 1, 1 );
-StainlessGunMetal_roughness = textureLoader2.load( 'textures/metals/StainlessGunMetal_roughness.png' );
-StainlessGunMetal_roughness.wrapS = THREE.RepeatWrapping;
-StainlessGunMetal_roughness.wrapT = THREE.RepeatWrapping;
-StainlessGunMetal_roughness.repeat.set( 1, 1 );
-RepolishedCopper_albedo = textureLoader2.load( 'textures/metals/RepolishedCopper_albedo.jpg' );
-RepolishedCopper_albedo.wrapS = THREE.RepeatWrapping;
-RepolishedCopper_albedo.wrapT = THREE.RepeatWrapping;
-RepolishedCopper_albedo.repeat.set( 1, 1 );
-RepolishedCopper_roughness = textureLoader2.load( 'textures/metals/RepolishedCopper_roughness.jpg' );
-RepolishedCopper_roughness.wrapS = THREE.RepeatWrapping;
-RepolishedCopper_roughness.wrapT = THREE.RepeatWrapping;
-RepolishedCopper_roughness.repeat.set( 1, 1 );
 
-matSteelTexture = textureLoader.load( 'textures/metals/SteelNerg.jpg' );
-matSteelTexture.wrapS = THREE.RepeatWrapping;
-matSteelTexture.wrapT = THREE.RepeatWrapping;
-matSteelTexture.repeat.set( 1, 1 );
+let onepix = textureLoader.load( 'textures/Onepix.jpg' );
+// loadTexture(StainlessGunMetal_albedo, 'textures/metals/StainlessGunMetal_albedo.png');
+// loadTexture(StainlessGunMetal_roughness, 'textures/metals/StainlessGunMetal_roughness.png');
+// StainlessGunMetal_albedo = textureLoader.load( 'textures/metals/StainlessGunMetal_albedo.png' );
+// StainlessGunMetal_albedo.wrapS = THREE.RepeatWrapping;
+// StainlessGunMetal_albedo.wrapT = THREE.RepeatWrapping;
+// StainlessGunMetal_albedo.repeat.set( 1, 1 );
+//
+let StainlessGunMetal_albedo = textureLoader.load( 'textures/metals/StainlessGunMetal_albedo.png', function ( texture ) {
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set( 1, 1 );
+  globalLoad++;
+} );
+let StainlessGunMetal_roughness = textureLoader.load( 'textures/metals/StainlessGunMetal_roughness.png', function ( texture ) {
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set( 1, 1 );
+  globalLoad++;
+} );
 
-vert_fon = textureLoader.load( 'textures/fon/surface-screen.jpg' );
-vert_fonGor = textureLoader.load( 'textures/fon/surface-screen_TV.jpg' );
-filtr1_hight = textureLoader.load( 'textures/filtr1_hight.jpg' );
-filtr2_hight = textureLoader.load( 'textures/filtr2_hight.jpg' );
+let RepolishedCopper_albedo = textureLoader.load( 'textures/metals/RepolishedCopper_albedo.jpg', function ( texture ) {
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set( 1, 1 );
+  globalLoad++;
+} );
+let RepolishedCopper_roughness = textureLoader.load( 'textures/metals/RepolishedCopper_roughness.jpg', function ( texture ) {
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set( 1, 1 );
+  globalLoad++;
+} );
+
+let matSteelTexture = textureLoader.load( 'textures/metals/SteelNerg.jpg', function ( texture ) {
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set( 1, 1 );
+  globalLoad++;
+} );
+
+//let  vert_fon = textureLoader.load( 'textures/fon/surface-screen.jpg' );
+//let  vert_fonGor = textureLoader.load( 'textures/fon/surface-screen_TV.jpg' );
+
+let filtr1_hight = textureLoader.load( 'textures/filtr1_hight.jpg', function ( texture ) {
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set( 1, 1 );
+  globalLoad++;
+} );
+let filtr2_hight = textureLoader.load( 'textures/filtr2_hight.jpg', function ( texture ) {
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set( 1, 1 );
+  globalLoad++;
+} );
 
 //cubemap
 // var textureCube = new THREE.CubeTextureLoader()
