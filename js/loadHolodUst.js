@@ -1,5 +1,3 @@
-let loader = new THREE.FBXLoader();
-
 let ustanovka = new THREE.Group();
 let ustVent1 = new THREE.Group();
 let ustVent2 = new THREE.Group();
@@ -27,14 +25,15 @@ loadFBXModel( krisha, 0.5, matUstKrisha, 'models/fbx/ustanovka/Krisha.FBX' );
 let vent_nasos_korp = new THREE.Object3D();
 loadFBXModel( vent_nasos_korp, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_korp.FBX' );
 let vent_nasos_ventil = new THREE.Object3D();
-loadFBXModel( vent_nasos_ventil, 0.5, matUstVent2, 'models/fbx/ustanovka/vent_nasos_ventil.FBX' );
+loadFBXModel( vent_nasos_ventil, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_ventil.FBX' );
 let vent_nasos_korp2 = new THREE.Object3D();
 loadFBXModel( vent_nasos_korp2, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_korp.FBX' );
 let vent_nasos_ventil2 = new THREE.Object3D();
-loadFBXModel( vent_nasos_ventil2, 0.5, matUstVent2, 'models/fbx/ustanovka/vent_nasos_ventil.FBX' );
+loadFBXModel( vent_nasos_ventil2, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_ventil.FBX' );
 
 let rekuperatorKorp = new THREE.Object3D();
 loadFBXModel( rekuperatorKorp, 0.5, matRekuperator, 'models/fbx/ustanovka/rekuperatorKorp.FBX' );
+
 let rekuperatorZaslon1 = new THREE.Object3D();
 loadFBXModel( rekuperatorZaslon1, 0.5, matUstVent2, 'models/fbx/ustanovka/rekuperatorZaslon1.FBX' );
 let rekuperatorZaslon2 = new THREE.Object3D();
@@ -53,7 +52,7 @@ loadFBXModel(ventilatorOutSide_lopasti, 0.5, matLopasti, 'models/fbx/ustanovka/v
 ventilatorOutSide_lopasti.position.set( 219.752/2, 1266.646/2, 2160.0/2 );
 ventilatorOutSide_lopasti.rotation.y = THREE.Math.degToRad( 90 );
 let kompressoLOW = new THREE.Object3D();
-loadFBXModel( kompressoLOW, 0.5, matUstVent, 'models/fbx/ustanovka/kompressoLOW.FBX' );
+loadFBXModel( kompressoLOW, 0.5, matKompressor, 'models/fbx/ustanovka/kompressoLOW.FBX' );
 
 let zaslonka1_Rama = new THREE.Object3D();
 loadFBXModel( zaslonka1_Rama, 0.5, matUstRama, 'models/fbx/ustanovka/Zaslonka1_Rama.FBX' );
@@ -69,7 +68,7 @@ loadFBXModel( pauk, 0.5, matPauk, 'models/fbx/ustanovka/paukLow1.FBX' );
 
 
 let nagretSoplya = new THREE.Object3D();
-loadFBXModel( nagretSoplya, 0.5, matPauk, 'models/fbx/ustanovka/nagretSoplya.FBX' );
+loadFBXModel( nagretSoplya, 0.5, matKompressor, 'models/fbx/ustanovka/nagretSoplya.FBX' );
 let diffuzorKorp = new THREE.Object3D();
 loadFBXModel( diffuzorKorp, 0.5, matPlasticWhite, 'models/fbx/ustanovka/diffuzorKorp.FBX' );
 let diffuzorLopasti = new THREE.Object3D();

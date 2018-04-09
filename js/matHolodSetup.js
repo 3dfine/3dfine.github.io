@@ -6,6 +6,7 @@ let matRekuperator = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 let matPauk = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 let matUstVent = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 let matUstVent2 = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
+let matKompressor = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 
 // let matBarashki = [ new THREE.MeshStandardMaterial( { color : 0x000000 } ) ];
 let matBarashki = [new THREE.MeshPhongMaterial( {
@@ -25,6 +26,14 @@ matUstRama[2] = stainlessGunMetal;
 matUstRama[3] = matBlueGloss;
 matUstRama[4] = matPlasticWhite;
 
+matKompressor[1-1] = stainlessGunMetal;
+matKompressor[2-1] = matDarkDoubleSide;
+matKompressor[3-1] = matPlastic;
+matKompressor[4-1] = matCopper;
+matKompressor[5-1] = matBlueGlossDark;
+matKompressor[6-1] = matPlasticWhite;
+matKompressor[7-1] = matRubber;
+
 matLopasti[0] = matPlastic;
 matLopasti[1] = matPlastic;
 
@@ -40,26 +49,23 @@ matFiltrKorman[4] = new THREE.MeshLambertMaterial({
   map: filtr1_hight
 });
 
-matRekuperator[0] = matSteel;
+matRekuperator[0] = matDarkDoubleSide;
 matRekuperator[1] = matPlastic;
-matRekuperator[2] = stainlessGunMetal;
+matRekuperator[2] = matAluminuim;
 matRekuperator[3] = stainlessGunMetal;
 
-matPauk[0] = matSteel;
-matPauk[1] = matPlastic;
-matPauk[2] = stainlessGunMetal;
-matPauk[3] = stainlessGunMetal;
+matPauk[1-1] = stainlessGunMetal;
+matPauk[2-1] = matYellowDoubleSide;
+matPauk[3-1] = matCopper;
+matPauk[4-1] = stainlessGunMetal;
+matPauk[5-1] = matDarkDoubleSide;
 
-matUstVent[0] = matRAL7045;
-matUstVent[1] = matPlastic;
-matUstVent[2] = matRubber;
-matUstVent[3] = matAluminuim;
-matUstVent[4] = matPlasticWhite;
-matUstVent[5] = matPlasticWhite;
-matUstVent2[0] = matAluminuim;
-matUstVent2[1] = matPlastic;
-matUstVent2[2] = matSteelClear;
-matUstVent2[3] = matRAL7045;
+matUstVent[1-1] = matAluminuim; //matRAL7045
+matUstVent[2-1] = stainlessGunMetal;
+matUstVent[3-1] = matPlastic;
+matUstVent[4-1] = matRAL7045;
+matUstVent[5-1] = matRubber;
+matUstVent[6-1] = matPlasticWhite;
 
 let matUstKrisha = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 matUstKrisha[0] = new THREE.MeshStandardMaterial({

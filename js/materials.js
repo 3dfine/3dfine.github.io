@@ -4,22 +4,27 @@
 // vert_fonGor.anisotropy = maxAnisotropy;
 
 let matAluminuim = new THREE.MeshStandardMaterial({
-  color: 0x555555,
-  metalness: 0.6,
-  roughness: 0.8,
-  //combine: THREE.MultiplyOperation,
+  color: 0x333333,
+  metalness: 0.8,
+  roughness: 0.3,
+  envMap: textureCube,
+  needsUpdate: true
 });
 let matSteel = new THREE.MeshStandardMaterial({
   color: 0xaaaaaa,    //0x9698a0
   metalness: 0.75,
-  roughness: 0.9
+  roughness: 0.6,
+  envMap: textureCube,
+  needsUpdate: true,
+  // map: matSteelTexture,
+  roughnessMap: matSteelTexture
 });
-matSteel.envMap = textureCube;
-matSteel.needsUpdate = true;
-// matSteel.map = matSteelTexture;
-matSteel.roughnessMap = matSteelTexture;
-matSteel.roughnessMap.wrapS = THREE.RepeatWrapping;
-matSteel.roughnessMap.repeat.set( 2, 1 );
+// matSteel.envMap = textureCube;
+// matSteel.needsUpdate = true;
+// // matSteel.map = matSteelTexture;
+// matSteel.roughnessMap = matSteelTexture;
+// matSteel.roughnessMap.wrapS = THREE.RepeatWrapping;
+// matSteel.roughnessMap.repeat.set( 2, 1 );
 // matSteel.bumpMap = matSteelTexture;
 // matSteel.bumpMap.wrapS = THREE.RepeatWrapping;
 // matSteel.bumpMap.repeat.set( 2, 1 );
@@ -37,7 +42,13 @@ let matBlueGloss = new THREE.MeshStandardMaterial({
 });
 matBlueGloss.envMap = textureCube;
 matBlueGloss.needsUpdate = true;
-console.log(matBlueGloss);
+let matBlueGlossDark = new THREE.MeshStandardMaterial({
+  color: 0x0000ff,    //0x28343b
+  metalness: 0.2,
+  roughness: 0.2
+});
+matBlueGlossDark.envMap = textureCube;
+matBlueGlossDark.needsUpdate = true;
 let matSteelClear = new THREE.MeshStandardMaterial({
   color: 0x28343b,    //0x28343b
   metalness: 0.7,
@@ -45,23 +56,27 @@ let matSteelClear = new THREE.MeshStandardMaterial({
 });
 let stainlessGunMetal = new THREE.MeshStandardMaterial({
   color: 0xaaaaaa,    //0x28343b
-  metalness: 0.8,
-  roughness: 0.66,
-    side: THREE.DoubleSide
+  metalness: 0.9,
+  roughness: 0.6,
+  envMap: textureCube,
+  needsUpdate: true,
+  map: StainlessGunMetal_albedo,
+  roughnessMap: StainlessGunMetal_roughness,
+  side: THREE.DoubleSide
 });
-stainlessGunMetal.envMap = textureCube;
-stainlessGunMetal.needsUpdate = true;
-stainlessGunMetal.map = StainlessGunMetal_albedo;
-stainlessGunMetal.map.wrapS = THREE.RepeatWrapping;
-stainlessGunMetal.map.wrapT = THREE.RepeatWrapping;
-stainlessGunMetal.map.repeat.set( 1, 1 );
-stainlessGunMetal.roughnessMap = StainlessGunMetal_roughness;
-stainlessGunMetal.roughnessMap.wrapS = THREE.RepeatWrapping;
-stainlessGunMetal.roughnessMap.wrapT = THREE.RepeatWrapping;
-stainlessGunMetal.roughnessMap.repeat.set( 1, 1 );
+// stainlessGunMetal.envMap = textureCube;
+// stainlessGunMetal.needsUpdate = true;
+// stainlessGunMetal.map = StainlessGunMetal_albedo;
+// stainlessGunMetal.map.wrapS = THREE.RepeatWrapping;
+// stainlessGunMetal.map.wrapT = THREE.RepeatWrapping;
+// stainlessGunMetal.map.repeat.set( 1, 1 );
+// stainlessGunMetal.roughnessMap = StainlessGunMetal_roughness;
+// stainlessGunMetal.roughnessMap.wrapS = THREE.RepeatWrapping;
+// stainlessGunMetal.roughnessMap.wrapT = THREE.RepeatWrapping;
+// stainlessGunMetal.roughnessMap.repeat.set( 1, 1 );
 let matGold = new THREE.MeshStandardMaterial({
   color: 0xffc355,    //Gold	(1.000, 0.766, 0.336) or [255, 195, 86]
-  metalness: 1,
+  metalness: 0.9,
   roughness: 0.22 ,
   // combine: THREE.MultiplyOperation,
 });
@@ -72,10 +87,13 @@ let matSilver = new THREE.MeshStandardMaterial({
   // combine: THREE.MultiplyOperation,
 });
 let matCopper = new THREE.MeshStandardMaterial({
-  color: 0xe28241,
-  metalness: 1.0,
-  roughness: 0.5 ,
-  // combine: THREE.MultiplyOperation,
+  color: 0xeffffff,
+  metalness: 0.9,
+  roughness: 1.0 ,
+  envMap: textureCube,
+  needsUpdate: true,
+  map: RepolishedCopper_albedo,
+  roughnessMap: RepolishedCopper_roughness,
 });
 let matPlastic = new THREE.MeshStandardMaterial({
   color: 0x020202,
@@ -90,7 +108,15 @@ let matRubber = new THREE.MeshStandardMaterial({
   side: THREE.DoubleSide
 });
 let matPlasticBlack = new THREE.MeshLambertMaterial({
-  color: 0x000000,
+  color: 0x000000
+});
+let matDarkDoubleSide = new THREE.MeshLambertMaterial({
+  color: 0x222222,
+  side: THREE.DoubleSide
+});
+let matYellowDoubleSide = new THREE.MeshLambertMaterial({
+  color: 0x93936c,
+  side: THREE.DoubleSide
 });
 let matPlasticMatte = new THREE.MeshStandardMaterial({
   color: 0x000000,
@@ -127,6 +153,7 @@ let matGhost = new THREE.MeshPhongMaterial({
   needsUpdate: true,
   // side: THREE.DoubleSide,
   transparent: true,
+  wireframe: true,
   //combine: THREE.MultiplyOperation,
   opacity: 0.4
 });
@@ -156,8 +183,6 @@ transparent: true
 
 matRAL7045.envMap = textureCube;
 matRAL7045.needsUpdate = true;
-matAluminuim.envMap = textureCube;
-matAluminuim.needsUpdate = true;
 
 matGold.envMap = textureCube;
 matGold.needsUpdate = true;

@@ -23,6 +23,8 @@ let loadTextResource = function( url ) {
   }
 }
 
+let globalLoad = 0;
+let loader = new THREE.FBXLoader();
 let loadFBXModel = function( modelTarget, scaleImport, _material, url ) {
 loader.load( url, function( object ) {
     for(let i=0; i<object.children.length; i++) {
@@ -30,12 +32,9 @@ loader.load( url, function( object ) {
     object.children[i].castShadow = true;
     object.children[i].receiveShadow = true;
     }
-    object.castShadow = true;
-    object.receiveShadow = true;
-    modelTarget.castShadow = true;
-    modelTarget.receiveShadow = true;
     object.scale.multiplyScalar( scaleImport );
     modelTarget.add( object );
+    globalLoad++;
     // console.log(object);
 });
 }

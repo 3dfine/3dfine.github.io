@@ -6,8 +6,27 @@ let StainlessGunMetal_albedo, StainlessGunMetal_roughness;
 let onepix;
 onepix = textureLoader.load( 'textures/Onepix.jpg' );
 StainlessGunMetal_albedo = textureLoader2.load( 'textures/metals/StainlessGunMetal_albedo.png' );
+StainlessGunMetal_albedo.wrapS = THREE.RepeatWrapping;
+StainlessGunMetal_albedo.wrapT = THREE.RepeatWrapping;
+StainlessGunMetal_albedo.repeat.set( 1, 1 );
 StainlessGunMetal_roughness = textureLoader2.load( 'textures/metals/StainlessGunMetal_roughness.png' );
+StainlessGunMetal_roughness.wrapS = THREE.RepeatWrapping;
+StainlessGunMetal_roughness.wrapT = THREE.RepeatWrapping;
+StainlessGunMetal_roughness.repeat.set( 1, 1 );
+RepolishedCopper_albedo = textureLoader2.load( 'textures/metals/RepolishedCopper_albedo.jpg' );
+RepolishedCopper_albedo.wrapS = THREE.RepeatWrapping;
+RepolishedCopper_albedo.wrapT = THREE.RepeatWrapping;
+RepolishedCopper_albedo.repeat.set( 1, 1 );
+RepolishedCopper_roughness = textureLoader2.load( 'textures/metals/RepolishedCopper_roughness.jpg' );
+RepolishedCopper_roughness.wrapS = THREE.RepeatWrapping;
+RepolishedCopper_roughness.wrapT = THREE.RepeatWrapping;
+RepolishedCopper_roughness.repeat.set( 1, 1 );
+
 matSteelTexture = textureLoader.load( 'textures/metals/SteelNerg.jpg' );
+matSteelTexture.wrapS = THREE.RepeatWrapping;
+matSteelTexture.wrapT = THREE.RepeatWrapping;
+matSteelTexture.repeat.set( 1, 1 );
+
 vert_fon = textureLoader.load( 'textures/fon/surface-screen.jpg' );
 vert_fonGor = textureLoader.load( 'textures/fon/surface-screen_TV.jpg' );
 filtr1_hight = textureLoader.load( 'textures/filtr1_hight.jpg' );

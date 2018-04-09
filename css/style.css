@@ -55,8 +55,8 @@ canvas {
   background-color: #ffc355;
 }
 #btnfullscrn {
-  right: 10px;
-  top: 1vmax;
+  top: 10px;
+  right: 1vmax;
   /* background-color: #aaaaaa; */
   opacity: 0.5;
   background-image: url(../images/fullScrn.png);
@@ -66,8 +66,19 @@ canvas {
   background-position-y : 50%;
 }
 #rotateObj {
-  right: 10px;
-  top: 5.5vmax;
+  top: 10px;
+  right: 5.5vmax;
+  /* background-color: #000000; */
+  opacity: 0.36;
+  background-image: url(../images/rotation.png);
+  background-repeat     : no-repeat;
+  background-size       : cover;
+  background-position-x : 50%;
+  background-position-y : 50%;
+}
+#cameraReset {
+  top: 10px;
+  right: 10.0vmax;
   /* background-color: #000000; */
   opacity: 0.36;
   background-image: url(../images/rotation.png);

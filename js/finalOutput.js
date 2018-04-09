@@ -15,8 +15,7 @@ let clock = new THREE.Clock();
 let tick = 0;
 let animate = function () {
   requestAnimationFrame( animate );
-  tick += 0.15;
-  // console.log(clipAction.time);
+  tick += 0.05;
   // animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
 
   // animateCamera1(CameraKeyTrck1);
@@ -31,16 +30,20 @@ let animate = function () {
 
     if(potok1.visible) {
       for(let i=0; i<potok1.children[0].children.length; i++) {
-        potok1.children[0].children[i].scale.y = potok1.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - tick*0.8) + 1.0);
+        potok1.children[0].children[i].scale.y = potok1.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - tick) + 1.0);
       }
     }
   }
 
+  if( globalLoad > 25 ) {
+    rekuperatorKorp.children[0].children[1].material = matSteel;
+    rekuperatorKorp.children[0].children[2].material = matSteel;
+    // rekuperatorKorp.children[0].children[3].material = matSteel;
+    // console.log( rekuperatorKorp )
+    controls.update();
+    renderer.render( scene, camera );
+  }
+  else { console.log( globalLoad ); }
 
-
-  controls.update();
-  renderer.render( scene, camera );
-
-  // globalTime += 1;
 };
 animate();

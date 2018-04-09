@@ -28,6 +28,9 @@ function setSteel() {
 function setRotate() {
   controls.autoRotate = !controls.autoRotate;
 }
+function setCamera() {
+  cameraPos(camera, controls, cameraKeyTrck0);
+}
 let globalTime = 0;
 let frame1 = 0;
 let VecKeyfrTrck1 = {
@@ -74,6 +77,7 @@ function compareName(a,b) {
 function moveObject() {
 
   potok1.children[0].children.sort(compareName);
+  rekuperatorKorp.children[0].children.sort(compareName);
 
   for(let i=0; i<diffuzorLopasti.children[0].children.length; i++) {
     diffuzorLopasti.children[0].children[i].rotation.x = THREE.Math.degToRad( 30 );;
@@ -93,15 +97,17 @@ function moveObject() {
     if(i > 174 )
       potok1.children[0].children[i].material = matPotokRed;
   }
-  
+
   potok1.visible = !potok1.visible;
   rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
   barashki.children[0].visible = !barashki.children[0].visible;
   if(rama.children[0].children[1].visible) {
       rama.children[0].children[0].material = matUstRama;
+      filtrKorman1.children[0].children[0].material = matUstRama;
   }
   else {
       rama.children[0].children[0].material = matGhost;
+      filtrKorman1.children[0].children[0].material = matGhost;
   }
 
   if(vent_nasos_ventil.rotSpeed == 0)
@@ -151,6 +157,7 @@ overlayGold.addEventListener( "click" , setGold );
 rotateObj.addEventListener( "click" , setRotate );
 btnPlay.addEventListener( "click" , moveObject );
 btnfullscrn.addEventListener( "click" , toggleFullScreen );
+cameraReset.addEventListener( "click" , setCamera );
 document.addEventListener("keydown", function(e) {
   if (e.keyCode == 13) {
     toggleFullScreen();
