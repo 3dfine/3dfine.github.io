@@ -6,16 +6,13 @@ let matAluminuim = new THREE.MeshStandardMaterial({
   color: 0x333333,
   metalness: 0.8,
   roughness: 0.3,
-  // envMap: textureCube,
   needsUpdate: true
 });
 let matSteel = new THREE.MeshStandardMaterial({
   color: 0xaaaaaa,    //0x9698a0
   metalness: 0.75,
   roughness: 0.6,
-  // envMap: textureCube,
-  needsUpdate: true,
-  // roughnessMap: matSteelTexture
+  needsUpdate: true
 });
 // matSteel.envMap = textureCube;
 // matSteel.needsUpdate = true;
@@ -30,8 +27,7 @@ let matSteel = new THREE.MeshStandardMaterial({
 let matRAL7045 = new THREE.MeshStandardMaterial({
   color: 0x28343b,    //0x28343b
   metalness: 0.5,
-  roughness: 0.3 ,
-  // combine: THREE.MultiplyOperation,
+  roughness: 0.3
 });
 let matBlueGloss = new THREE.MeshStandardMaterial({
   color: 0x0032da,    //0x28343b

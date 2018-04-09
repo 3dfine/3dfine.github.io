@@ -71,6 +71,9 @@ let matHolodSetup =  function() {
   console.log('hello!');
 
   matAluminuim.envMap = textureCube;
+  matRAL7045.envMap = textureCube;
+  matBlueGlossDark.envMap = textureCube;
+  matPlastic.envMap = textureCube;
 
   stainlessGunMetal.envMap = textureCube;
   stainlessGunMetal.map = StainlessGunMetal_albedo;

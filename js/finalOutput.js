@@ -38,6 +38,8 @@ let animate = function () {
   }
 
   if( globalLoad > 35 ) {
+
+
     rekuperatorKorp.children[0].children[1].material = matSteel;
     rekuperatorKorp.children[0].children[2].material = matSteel;
     // rekuperatorKorp.children[0].children[3].material = matSteel;
@@ -47,10 +49,9 @@ let animate = function () {
     renderer.render( scene, camera );
   }
   else {
-    // console.log( globalLoad );
+    console.log( globalLoad );
     blockLoadProgress.style.width = 31 * globalLoad / 36+ 'vmax';
 
   }
-    console.log( globalLoad );
 };
 animate();

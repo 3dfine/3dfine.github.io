@@ -108,7 +108,7 @@ canvas {
   color:green;
   position: absolute;
   top: 50%;
-  left: 35vmax;
+  left: 34vmax;
   height: 37px;
   width: 31vmax;
 }
@@ -127,7 +127,8 @@ canvas {
   width: 0px;
 }
 .content {
-  color:black;  
+  color:black;
+  font-family: 'Montserrat', sans-serif;
 }
 #center {
   text-align: center;
