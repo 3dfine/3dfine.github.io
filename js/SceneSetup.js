@@ -95,6 +95,7 @@ renderer.setSize( width, height );
 //document.body.appendChild( renderer.domElement );
 renderer.gammaInput = true;
 renderer.gammaOutput = true;
+renderer.sortObjects = true;
 // renderer.toneMapping = THREE.ReinhardToneMapping;
 // renderer.toneMappingExposure = 2.0;
 

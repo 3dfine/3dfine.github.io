@@ -3,47 +3,7 @@ stoikiGroup.position.x = 2600;
 // scene.add( stoikiGroup );
 //
 
-matUstRama[0] = matSteel;
-matUstRama[1] = matPlastic;
-matUstRama[2] = stainlessGunMetal;
-matUstRama[3] = matBlueGloss;
-matUstRama[4] = matPlasticWhite;
 
-matLopasti[0] = matPlastic;
-matLopasti[1] = matPlastic;
-
-matFiltrKorman[0] = matRAL7045;
-matFiltrKorman[1] = matSteel;
-matFiltrKorman[2] = matSteelClear;
-matFiltrKorman[3] = new THREE.MeshLambertMaterial({
-  map: filtr2_hight
-});
-matFiltrKorman[3].map.wrapS = THREE.RepeatWrapping;
-
-matFiltrKorman[4] = new THREE.MeshLambertMaterial({
-  map: filtr1_hight
-});
-
-matRekuperator[0] = matSteel;
-matRekuperator[1] = matPlastic;
-matRekuperator[2] = stainlessGunMetal;
-matRekuperator[3] = stainlessGunMetal;
-
-matPauk[0] = matSteel;
-matPauk[1] = matPlastic;
-matPauk[2] = stainlessGunMetal;
-matPauk[3] = stainlessGunMetal;
-
-matUstVent[0] = matRAL7045;
-matUstVent[1] = matPlastic;
-matUstVent[2] = matRubber;
-matUstVent[3] = matAluminuim;
-matUstVent[4] = matPlasticWhite;
-matUstVent[5] = matPlasticWhite;
-matUstVent2[0] = matAluminuim;
-matUstVent2[1] = matPlastic;
-matUstVent2[2] = matSteelClear;
-matUstVent2[3] = matRAL7045;
 scene.add( ustanovka );
 
 scene.add(potok1);
@@ -112,8 +72,7 @@ function compareName(a,b) {
   return 0;
 }
 function moveObject() {
-  diffuzorKorp.children[0].children[0].material = matPlasticWhite;
-  console.log(diffuzorKorp);
+
   potok1.children[0].children.sort(compareName);
 
   for(let i=0; i<diffuzorLopasti.children[0].children.length; i++) {
@@ -129,14 +88,21 @@ function moveObject() {
       potok1.children[0].children[i].material = matPotokDarkBlue;
     if(i > 110 && i < 111 + 19 )
       potok1.children[0].children[i].material = matPotokBlue;
-    if(i > 129 && i < 130 + 44 )
+    if(i > 129 && i < 131 + 44 )
       potok1.children[0].children[i].material = matPotokPink;
-    if(i > 173 )
+    if(i > 174 )
       potok1.children[0].children[i].material = matPotokRed;
   }
-
+  
+  potok1.visible = !potok1.visible;
   rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
   barashki.children[0].visible = !barashki.children[0].visible;
+  if(rama.children[0].children[1].visible) {
+      rama.children[0].children[0].material = matUstRama;
+  }
+  else {
+      rama.children[0].children[0].material = matGhost;
+  }
 
   if(vent_nasos_ventil.rotSpeed == 0)
     vent_nasos_ventil.rotSpeed = 0.1;

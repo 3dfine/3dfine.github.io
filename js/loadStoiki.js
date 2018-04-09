@@ -6,16 +6,6 @@ let sx_19_vert = new THREE.Object3D();
 
 let stoikiGroup = new THREE.Group();
 
-let matStoikaVert = [
-  new THREE.MeshStandardMaterial({
-    color : 0xff0000
-  })
-];
-let matStoikaGoriz = [
-  new THREE.MeshStandardMaterial({
-    color : 0x00ff00
-  })
-];
 // loadFBXModel(modelTarget, scaleImport, _material, url)
 loadFBXModel( sx_43, 0.5, matStoikaGoriz, 'models/fbx/SX_43_LOW.fbx' );
 loadFBXModel( sx_32, 0.5, matStoikaGoriz, 'models/fbx/SX_32_low.fbx' );
@@ -33,6 +23,5 @@ stoikiGroup.add(sx_19_vert);
 stoikiGroup.add(sx_32);
 
 // SphereGeometry(radius : Float, widthSegments : Integer, heightSegments : Integer, phiStart : Float, phiLength : Float, thetaStart : Float, thetaLength : Float);
-// var geometry = new THREE.SphereGeometry( 500, 32, 32 );
-// mesh = new THREE.Mesh( geometry, matSteelClear );
-// scene.add( mesh );
+// let geometry24 = new THREE.SphereGeometry( 500, 32, 32 );
+// let sphereG = new THREE.Mesh( geometry24, matSteelClear );

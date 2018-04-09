@@ -1,26 +1,5 @@
 let loader = new THREE.FBXLoader();
-let matUstRama = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
-let matLopasti = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
-let matFiltrKorman = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
-let matRekuperator = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
-let matPauk = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
-let matUstVent = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
-let matUstVent2 = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
-let matUstKrisha = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
-// let matBarashki = [ new THREE.MeshStandardMaterial( { color : 0x000000 } ) ];
-let matBarashki = [new THREE.MeshPhongMaterial( {
-  color: 0x000000,
-  specular: 0x222222,
-  shininess: 35,
-  // map: textureLoader.load( "models/json/leeperrysmith/Map-COL.jpg" ),
-  // specularMap: textureLoader.load( "models/json/leeperrysmith/Map-SPEC.jpg" ),
-  normalMap: textureLoader.load( 'textures/barashka.png' ),
-  normalScale: new THREE.Vector2( 1.0, 1.0 )
-} ) ];
-let matPotokDef = new THREE.MeshPhongMaterial( { color: 0xff0000 });
 
-let matOpora = [ new THREE.MeshStandardMaterial({ color : 0x020202, metalness: 0.9, roughness: 0.4 }) ];
-// models
 let ustanovka = new THREE.Group();
 let ustVent1 = new THREE.Group();
 let ustVent2 = new THREE.Group();
@@ -32,16 +11,18 @@ let ventilatorOutSide = new THREE.Group();
 let potok1 = new THREE.Object3D();
 loadFBXModel( potok1, 0.5, matPotokDef, 'models/fbx/ustanovka/potok1.FBX' );
 potok1.rotation.y = THREE.Math.degToRad( -90 );
-
+potok1.visible = false;
 
 let rama = new THREE.Object3D();
 loadFBXModel( rama, 0.5, matUstRama, 'models/fbx/ustanovka/rama.FBX' );
+// loadFBXModel( rama, 0.5, matGhost, 'models/fbx/ustanovka/rama.FBX' );
 
 let barashki = new THREE.Object3D();
 loadFBXModel( barashki, 0.5, matBarashki, 'models/fbx/ustanovka/barashkiLow.FBX' );
 
 let krisha = new THREE.Object3D();
 loadFBXModel( krisha, 0.5, matUstKrisha, 'models/fbx/ustanovka/Krisha.FBX' );
+// loadFBXModel( krisha, 0.5, matGhost, 'models/fbx/ustanovka/Krisha.FBX' );
 // krisha.children[0].children[1].visible = false;
 let vent_nasos_korp = new THREE.Object3D();
 loadFBXModel( vent_nasos_korp, 0.5, matUstVent, 'models/fbx/ustanovka/vent_nasos_korp.FBX' );
@@ -74,7 +55,6 @@ ventilatorOutSide_lopasti.rotation.y = THREE.Math.degToRad( 90 );
 let kompressoLOW = new THREE.Object3D();
 loadFBXModel( kompressoLOW, 0.5, matUstVent, 'models/fbx/ustanovka/kompressoLOW.FBX' );
 
-
 let zaslonka1_Rama = new THREE.Object3D();
 loadFBXModel( zaslonka1_Rama, 0.5, matUstRama, 'models/fbx/ustanovka/Zaslonka1_Rama.FBX' );
 let zaslonka2_Rama = new THREE.Object3D();
@@ -91,7 +71,7 @@ loadFBXModel( pauk, 0.5, matPauk, 'models/fbx/ustanovka/paukLow1.FBX' );
 let nagretSoplya = new THREE.Object3D();
 loadFBXModel( nagretSoplya, 0.5, matPauk, 'models/fbx/ustanovka/nagretSoplya.FBX' );
 let diffuzorKorp = new THREE.Object3D();
-loadFBXModel( diffuzorKorp, 0.5, matPauk, 'models/fbx/ustanovka/diffuzorKorp.FBX' );
+loadFBXModel( diffuzorKorp, 0.5, matPlasticWhite, 'models/fbx/ustanovka/diffuzorKorp.FBX' );
 let diffuzorLopasti = new THREE.Object3D();
 loadFBXModel( diffuzorLopasti, 0.5, matPauk, 'models/fbx/ustanovka/diffuzorLopasti.FBX' );
 

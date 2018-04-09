@@ -1,7 +1,7 @@
-let maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
-matSteelTexture.anisotropy = maxAnisotropy;
-vert_fon.anisotropy = maxAnisotropy;
-vert_fonGor.anisotropy = maxAnisotropy;
+// let maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
+// matSteelTexture.anisotropy = maxAnisotropy;
+// vert_fon.anisotropy = maxAnisotropy;
+// vert_fonGor.anisotropy = maxAnisotropy;
 
 let matAluminuim = new THREE.MeshStandardMaterial({
   color: 0x555555,
@@ -124,25 +124,36 @@ let matGlass2 = new THREE.MeshStandardMaterial({
 });
 let matGhost = new THREE.MeshPhongMaterial({
   color: 0xaaaaaa,
+  needsUpdate: true,
+  // side: THREE.DoubleSide,
   transparent: true,
   //combine: THREE.MultiplyOperation,
-  opacity: 0.8
+  opacity: 0.4
 });
-
 let shader = THREE.FresnelShader;
 let uniforms = THREE.UniformsUtils.clone( shader.uniforms );
 uniforms[ "tCube" ].value = textureCube;
-
 let matGlass = new THREE.ShaderMaterial( {
 uniforms: uniforms,
-// vertexShader: myVertexShader,
 vertexShader: shader.vertexShader,
 fragmentShader: shader.fragmentShader,
 transparent: true
 } );
+// let shader2 = THREE.GhostShader;
+// let matGhost = new THREE.ShaderMaterial( {
+// uniforms: uniforms,
+// vertexShader: shader2.vertexShader,
+// fragmentShader: shader2.fragmentShader,
+// needsUpdate: true,
+// transparent: true
+// } );
+let matGhos2t = new THREE.ShaderMaterial( {
+vertexShader: document.getElementById( '2d-vertex-shader' ).textContent,
+fragmentShader: document.getElementById( '2d-fragment-shader' ).textContent,
+transparent: true
+} );
 
-matOpora[0].envMap = textureCube;
-matOpora[0].needsUpdate = true;
+
 matRAL7045.envMap = textureCube;
 matRAL7045.needsUpdate = true;
 matAluminuim.envMap = textureCube;
@@ -157,6 +168,16 @@ matSteelClear.needsUpdate = true;
 matPlasticWhite.envMap = textureCube;
 matPlasticWhite.needsUpdate = true;
 
+let matStoikaVert = [
+  new THREE.MeshStandardMaterial({
+    color : 0xff0000
+  })
+];
+let matStoikaGoriz = [
+  new THREE.MeshStandardMaterial({
+    color : 0x00ff00
+  })
+];
 matStoikaGoriz[0] = matGold;
 matStoikaGoriz[1] = matPlasticBlack;
 matStoikaGoriz[2] = matEkranGorizont;
@@ -171,51 +192,7 @@ matStoikaVert[3] = matGlass;
 matStoikaVert[4] = matPlastic;
 matStoikaVert[5] = matSteelClear;
 
-matUstKrisha[0] = new THREE.MeshStandardMaterial({
-  color : 0x030303 });
-matUstKrisha[1] = new THREE.MeshStandardMaterial({
-  color : 0xffff4d
-});
-matUstKrisha[2] = new THREE.MeshStandardMaterial({
-  color : 0xbfbfbf
-});
-matUstKrisha[3] = new THREE.MeshStandardMaterial({
-  color : 0xbfbfbf
-});
 
-
-let matPotokRed = new THREE.MeshPhongMaterial( {
-  color: 0xff0000,
-  specular: 0x222222,
-  shininess: 35,
-  transparent: true,
-  opacity: 0.4,
-  side: THREE.DoubleSide
-} );
-let matPotokPink = new THREE.MeshPhongMaterial( {
-  color: 0xF77FBE,
-  specular: 0x222222,
-  shininess: 35,
-  transparent: true,
-  opacity: 0.4,
-  side: THREE.DoubleSide
-} );
-let matPotokDarkBlue = new THREE.MeshPhongMaterial( {
-  color: 0x0000ff,
-  specular: 0x222222,
-  shininess: 35,
-  transparent: true,
-  opacity: 0.4,
-  side: THREE.DoubleSide
-} );
-let matPotokBlue = new THREE.MeshPhongMaterial( {
-  color: 0x3c9eff,
-  specular: 0x222222,
-  shininess: 35,
-  transparent: true,
-  opacity: 0.4,
-  side: THREE.DoubleSide
-} );
 
 // var myVertexShader, myFragmentShader;
 // loadTextResource('/js/myFresnel.c')
