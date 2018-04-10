@@ -20,17 +20,8 @@ var controls = new THREE.OrbitControls( camera );
 var cameraDistance = 2000;
 
 var vectorCam = new THREE.Vector3( 0, 0, 1000 );
-// vectorCam.subVectors(camPosition, camLookAt).normalize(); //вектор от камеры до таргета - радиус-вектор
-// console.log('vectorCam', vectorCam);
-// var axis = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
-// var axisDop = new THREE.Vector3( 0, 0, 0 ); //вектор ортогональный вектору-вверх (ось Y) и радиус-вектору
-// axisDop.crossVectors(vectorCam, axis);
-// var angle = THREE.Math.degToRad( 0 );
-// console.log('axisDop', axisDop);
-// vectorCam.applyAxisAngle( axisDop, angle ).normalize().multiplyScalar(cameraDistance);
-// console.log('vectorCam', vectorCam);
 
-camera.position.addVectors(camLookAt, vectorCam);
+// camera.position.addVectors(camLookAt, vectorCam);
 cameraPos(camera, controls, cameraKeyTrck0);
 
 controls.maxPolarAngle = Math.PI * 0.75;

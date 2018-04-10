@@ -22,11 +22,13 @@ let block = document.getElementById("block_resize"); // Получаем осн�
 function setGold() {
   // materials[0] = matGold;
   // materials2[0] = matGold;
-  block.style.width = 90 + 'px';
+  // block.style.width = 90 + 'px';
 }
 function setSteel() {
-  materials[0] = matAluminuim;
-  materials2[0] = matAluminuim;
+  rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
+  barashki.children[0].visible = !barashki.children[0].visible;
+  // materials[0] = matAluminuim;
+  // materials2[0] = matAluminuim;
 }
 function setRotate() {
   controls.autoRotate = !controls.autoRotate;

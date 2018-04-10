@@ -20,7 +20,7 @@ let animate = function () {
   tick += 0.05;
   // animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
 
-  // animateCamera1(CameraKeyTrck1);
+  animateCamera1(CameraKeyTrck1);
   if(vent_nasos_ventil2.rotSpeed !=0 ) {
     vent_nasos_ventil.rotation.z += vent_nasos_ventil.rotSpeed;
     vent_nasos_ventil2.rotation.z += vent_nasos_ventil2.rotSpeed;

@@ -1,20 +1,21 @@
 let cameraKeyTrck0 = {
-  camLookAt: new THREE.Vector3( 0,-150, 0  ),  //точка, куда смотрит камера
-  distance: 3500,   //дистация до камеры
-  angelPlanexz: -22,
+  camLookAt: new THREE.Vector3( 0, -150, 0  ),  //точка, куда смотрит камера
+  distance: 4000,   //дистация до камеры
+  angelPlaneXZ: 0,
   angelOz: 0,
   autoRotSpeed: 3
 };
 let cameraPos = function (_camera, _controls, cameraKeyTrck ) {
-  let vectorCam = new THREE.Vector3( 0, 0, 0 );
-  let axis = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
-  let axisDop = new THREE.Vector3( 0, 0, 0 ); //вектор ортогональный вектору-вверх (ось Y) и радиус-вектору
-  vectorCam.subVectors( _camera.position, cameraKeyTrck.camLookAt ).normalize(); //вектор от камеры до таргета - радиус-вектор
-  vectorCam.applyAxisAngle( axis, THREE.Math.degToRad( cameraKeyTrck.angelOz ) );
-  axisDop.crossVectors( vectorCam, axis ).normalize();  //вектор ортогональный вектору-вверх (ось Y) и радиус-вектору
-  vectorCam.applyAxisAngle( axisDop, THREE.Math.degToRad( cameraKeyTrck.angelPlanexz ) ).multiplyScalar( cameraKeyTrck.distance );
-  _camera.position.addVectors( cameraKeyTrck.camLookAt, vectorCam );
+  let vectorCam = new THREE.Vector3( 0, 0, 1 );
+  let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
+  let axisX = new THREE.Vector3( 1, 0, 0 );
+
+  vectorCam.applyAxisAngle( axisX, THREE.Math.degToRad( cameraKeyTrck.angelPlaneXZ ) ).normalize();
+  vectorCam.applyAxisAngle( axisY, THREE.Math.degToRad( cameraKeyTrck.angelOz ) ).normalize();
+  _camera.position.addVectors( cameraKeyTrck.camLookAt, vectorCam.multiplyScalar( cameraKeyTrck.distance ) );
+  _camera.camLookAt = cameraKeyTrck.camLookAt;
   _controls.target = cameraKeyTrck.camLookAt;
+
   _controls.autoRotateSpeed = cameraKeyTrck.autoRotSpeed;
 }
 
@@ -56,16 +57,18 @@ let CameraKeyTrck1 = {
   duration: false,
   times: [0, 50, 100, 110, 200, 250, 300],
   // deltaTimes: [100, 20, 40, 60, 80, 100, 120],
-  camLookAt: new THREE.Vector3( -250, 350, 0  ),
+  camLookAt: new THREE.Vector3( 0, 0, 0  ),
   distance: 2500,
-  angelPlanexz: 0,
+  angelPlaneXZ: 0,
   angelOz: 0,
   autoRotSpeed: 90
 };
 function animateCamera(_camera, _controls) {
   let currentCount = 0;
   return function(keyTrack) {
-    keyTrack.distance = 4000 + 2500 * Math.sin( currentCount/40 );
+    keyTrack.angelOz += THREE.Math.degToRad( 32 );
+    keyTrack.angelPlaneXZ = 16.0 * (Math.sin( currentCount/40.0 ) + 0);
+    keyTrack.distance = 4000.0 + 1000.0 * (Math.sin( currentCount/40.0 ) + 1.0);
     cameraPos( _camera, _controls, keyTrack );
     // console.log( currentCount );
     currentCount++;

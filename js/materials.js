@@ -31,7 +31,7 @@ let matRAL7045 = new THREE.MeshStandardMaterial({
 });
 let matBlueGloss = new THREE.MeshStandardMaterial({
   color: 0x0032da,    //0x28343b
-  metalness: 0.5,
+  metalness: 0.6,
   roughness: 0.3
 });
 
