@@ -20,7 +20,8 @@ let animate = function () {
   tick += 0.05;
   // animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
 
-  animateCamera1(CameraKeyTrck1);
+  // animateCamera1(CameraKeyTrck1);
+
   if(vent_nasos_ventil2.rotSpeed !=0 ) {
     vent_nasos_ventil.rotation.z += vent_nasos_ventil.rotSpeed;
     vent_nasos_ventil2.rotation.z += vent_nasos_ventil2.rotSpeed;
@@ -38,8 +39,6 @@ let animate = function () {
   }
 
   if( globalLoad > 35 ) {
-
-
     rekuperatorKorp.children[0].children[1].material = matSteel;
     rekuperatorKorp.children[0].children[2].material = matSteel;
     // rekuperatorKorp.children[0].children[3].material = matSteel;
@@ -51,7 +50,8 @@ let animate = function () {
   else {
     console.log( globalLoad );
     blockLoadProgress.style.width = 31 * globalLoad / 36+ 'vmax';
-
   }
+
+  console.log("x=%.2d y=%.2d z=%.2d", controls.target.x, controls.target.y, controls.target.z,);
 };
 animate();

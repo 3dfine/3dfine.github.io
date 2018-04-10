@@ -117,11 +117,9 @@ let matPlasticMatte = new THREE.MeshStandardMaterial({
   roughness: 0.7
 });
 let matPlasticWhite = new THREE.MeshStandardMaterial({
-  color: 0xaaaaaa,
-  metalness:0.5,
+  color: 0xffffff,
+  metalness: 0.2,
   roughness: 0.5,
-  // envMap: textureCube,
-  needsUpdate: true,
   side: THREE.DoubleSide
 });
 let matEkran = new THREE.MeshLambertMaterial({

@@ -9,13 +9,13 @@ scene.add( ustanovka );
 scene.add(potok1);
 
 // получаем ссылки на элементы DOM
-var eMailElement = document.getElementById("eMail");
+var param1Element = document.getElementById("param1");
 // создаём текстовые узлы, чтобы сэкономить немного браузерного времени
-var eMailNode = document.createTextNode("");
+var param1Node = document.createTextNode("");
 // добавляем текстовые узлы в нужные места
-eMailElement.appendChild(eMailNode);
+param1Element.appendChild(param1Node);
 // задаём значения узлов
-eMailNode.nodeValue = '3dfine@mail.ru';   // 2 десятичных знака
+param1Node.nodeValue = '3dfine@mail.ru';   // 2 десятичных знака
 
 
 let block = document.getElementById("block_resize"); // Получаем основной блок
@@ -34,7 +34,7 @@ function setRotate() {
   controls.autoRotate = !controls.autoRotate;
 }
 function setCamera() {
-  cameraPos(camera, controls, cameraKeyTrck0);
+  globalCameraPos(cameraKeyTrck0);
 }
 let globalTime = 0;
 let frame1 = 0;

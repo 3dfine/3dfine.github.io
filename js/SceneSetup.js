@@ -1,27 +1,27 @@
-var width = 640;
-var height = 640;
-var aspect = 1.0;
+let width = 640;
+let height = 640;
+let aspect = 1.0;
 width = window.innerWidth - 20;
 // height =  0.97 * window.innerHeight;
 height =  window.innerHeight - 20;
 aspect = width/height;
 
-var scene = new THREE.Scene();
+let scene = new THREE.Scene();
 // scene.background = new THREE.Color(0x0c151b);
 scene.background = new THREE.Color( 0xffffff );
 // Fog( color : Integer, near : Float, far : Float )
 scene.fog = new THREE.Fog( scene.background, 5000, 9000 );
 
 //Camera and camera control
-var camera = new THREE.PerspectiveCamera(35, aspect, 100, 9000);
-var camPosition = new THREE.Vector3( 0, 1400, 2000 );
-var camLookAt = new THREE.Vector3( -0, 350, 0 );
-var controls = new THREE.OrbitControls( camera );
-var cameraDistance = 2000;
-
-var vectorCam = new THREE.Vector3( 0, 0, 1000 );
-
-// camera.position.addVectors(camLookAt, vectorCam);
+let camera = new THREE.PerspectiveCamera(35, aspect, 100, 9000);
+let controls = new THREE.OrbitControls( camera );
+let cameraKeyTrck0 = {
+  camLookAt: new THREE.Vector3( -35, -160, 17 ),  //точка, куда смотрит камера
+  distance: 4000,   //дистация до камеры
+  angelPlaneXZ: -20,
+  angelOz: -40,
+  autoRotSpeed: 3
+};
 cameraPos(camera, controls, cameraKeyTrck0);
 
 controls.maxPolarAngle = Math.PI * 0.75;

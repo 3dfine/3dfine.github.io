@@ -74,7 +74,11 @@ let matHolodSetup =  function() {
   matRAL7045.envMap = textureCube;
   matBlueGlossDark.envMap = textureCube;
   matBlueGloss.envMap = textureCube;
+  matBlueGloss.needsUpdate = true;
   matPlastic.envMap = textureCube;
+  matPlastic.needsUpdate = true;  
+  matPlasticWhite.envMap = textureCube;
+  matPlasticWhite.needsUpdate = true;
 
   stainlessGunMetal.envMap = textureCube;
   stainlessGunMetal.map = StainlessGunMetal_albedo;
