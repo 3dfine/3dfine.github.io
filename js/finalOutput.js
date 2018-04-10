@@ -9,7 +9,9 @@ function onWindowResize( event ) {
   controls.rotateSpeed = width / 1920;
 }
 window.onload = function () {
+  blockLoad.style.display='none';
   matHolodSetup();
+  btnPlay.style.display='block';
 }
 
 let animateCamera1 = animateCamera(camera, controls);
@@ -17,7 +19,7 @@ let clock = new THREE.Clock();
 let tick = 0;
 let animate = function () {
   requestAnimationFrame( animate );
-  tick += 0.05;
+  tick += 0.075;
   // animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
 
   // animateCamera1(CameraKeyTrck1);
@@ -39,11 +41,8 @@ let animate = function () {
   }
 
   if( globalLoad > 35 ) {
-    rekuperatorKorp.children[0].children[1].material = matSteel;
-    rekuperatorKorp.children[0].children[2].material = matSteel;
-    // rekuperatorKorp.children[0].children[3].material = matSteel;
-    // console.log( rekuperatorKorp )
-    blockLoad.style.display='none';
+    // blockLoad.style.display='none';
+    // btnPlay.style.display='block';
     controls.update();
     renderer.render( scene, camera );
   }

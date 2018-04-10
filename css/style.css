@@ -58,7 +58,7 @@ canvas {
   background-color: #ffc355;
 }
 #btnfullscrn {
-  top: 10px;
+  bottom: 10px;
   right: 1vmax;
   /* background-color: #aaaaaa; */
   opacity: 0.5;
@@ -69,7 +69,7 @@ canvas {
   background-position-y : 50%;
 }
 #rotateObj {
-  top: 10px;
+  bottom: 10px;
   right: 5.5vmax;
   /* background-color: #000000; */
   opacity: 0.36;
@@ -80,7 +80,7 @@ canvas {
   background-position-y : 50%;
 }
 #cameraReset {
-  top: 10px;
+  bottom: 10px;
   right: 10.0vmax;
   /* background-color: #000000; */
   opacity: 0.36;
@@ -91,9 +91,8 @@ canvas {
   background-position-y : 50%;
 }
 #btnPlay {
-  right: 10px;
-  /* top: 10vmax; */
-  top: 50%;
+  bottom: 10px;
+  right: 20.0vmax;
   background-color: #aaaaaa;
   /* opacity: 0.36; */
   background-image: url(../images/white-play-512.png);
@@ -101,6 +100,7 @@ canvas {
   background-size       : cover;
   background-position-x : 50%;
   background-position-y : 50%;
+  display: none;
 }
 
 #loading {

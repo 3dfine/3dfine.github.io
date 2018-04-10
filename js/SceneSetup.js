@@ -16,11 +16,11 @@ scene.fog = new THREE.Fog( scene.background, 5000, 9000 );
 let camera = new THREE.PerspectiveCamera(35, aspect, 100, 9000);
 let controls = new THREE.OrbitControls( camera );
 let cameraKeyTrck0 = {
-  camLookAt: new THREE.Vector3( -35, -160, 17 ),  //точка, куда смотрит камера
+  camLookAt: new THREE.Vector3( -164, -80, 0 ),  //точка, куда смотрит камера
   distance: 4000,   //дистация до камеры
-  angelPlaneXZ: -20,
+  angelPlaneXZ: -0,
   angelOz: -40,
-  autoRotSpeed: 3
+  autoRotSpeed: -3
 };
 cameraPos(camera, controls, cameraKeyTrck0);
 
