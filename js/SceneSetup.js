@@ -18,7 +18,7 @@ let controls = new THREE.OrbitControls( camera );
 let cameraPosSetupDef = {
   camLookAt: new THREE.Vector3( -164, -80, 0 ),  //точка, куда смотрит камера
   distance: 4500,   //дистация до камеры
-  angelPlaneXZ: -30,
+  angelPlaneXZ: -25,
   angelOy: -40,
   autoRotSpeed: -3
 };

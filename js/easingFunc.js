@@ -14,8 +14,14 @@ let easeInCirc = function (t) {
   if (t >= 1) return t;
   return -1 * (Math.sqrt(1 - t * t) - 1);
 }
+let easeOutCubic = function (t) {
+  return (--t)*t*t+1;
+}
 let easeOutCirc = function (t) {
   return 1 * Math.sqrt(1 - (t = t - 1) * t);
+}
+let easeOutQuint = function (t) {
+  return 1+(--t)*t*t*t*t;
 }
 let easeOutElastic = function (t) {
   let s = 1.70158;

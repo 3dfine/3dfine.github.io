@@ -1,0 +1,15 @@
+@keyframes shadow {
+from {text-shadow: 0 0 3px black;}
+50% {text-shadow: 0 0 30px black;}
+to {text-shadow: 0 0 3px black;}
+}
+
+@keyframes moveIn {
+from {left: -50%;}
+to { left: 0%; }
+}
+
+@keyframes moveOut {
+from {left: 0%;}
+to { left: -50%; }
+}

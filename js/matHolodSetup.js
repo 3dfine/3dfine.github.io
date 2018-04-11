@@ -22,12 +22,12 @@ let matPotokDef = new THREE.MeshPhongMaterial( { color: 0xff0000, transparent: t
 
 let matUstKrisha = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 matUstKrisha[0] = new THREE.MeshStandardMaterial({
-  color : 0x030303 });
-matUstKrisha[1] = new THREE.MeshStandardMaterial({
-  color : 0xffff4d
+  color : 0x111111 });
+matUstKrisha[1] = new THREE.MeshPhongMaterial({
+  color : 0xFDD835
 });
-matUstKrisha[2] = new THREE.MeshStandardMaterial({
-  color : 0xbfbfbf
+matUstKrisha[2] = new THREE.MeshPhongMaterial({
+  color : 0x90A4AE
 });
 matUstKrisha[3] = new THREE.MeshStandardMaterial({
   color : 0xbfbfbf
@@ -76,7 +76,7 @@ let matHolodSetup =  function() {
   matBlueGloss.envMap = textureCube;
   matBlueGloss.needsUpdate = true;
   matPlastic.envMap = textureCube;
-  matPlastic.needsUpdate = true;  
+  matPlastic.needsUpdate = true;
   matPlasticWhite.envMap = textureCube;
   matPlasticWhite.needsUpdate = true;
 

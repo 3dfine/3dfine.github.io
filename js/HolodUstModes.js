@@ -22,6 +22,7 @@ function holodUstMode_1() {
       potok1.children[0].children[i].material = matPotokRed;
   }
 
+
   potok1.visible = !potok1.visible;
   rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
   barashki.children[0].visible = !barashki.children[0].visible;

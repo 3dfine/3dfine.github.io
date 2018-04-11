@@ -35,6 +35,12 @@ function setSteel() {
 }
 function setRotate() {
   controls.autoRotate = !controls.autoRotate;
+  if(controls.autoRotate) {
+      textblock1.style.display = 'block';
+  }
+  else {
+      textblock1.style.display = 'none';
+  }
 }
 function setCamera() {
   globalCameraPos(cameraPosSetupDef);
@@ -84,7 +90,6 @@ function compareName(a,b) {
 }
 function moveObject() {
 holodUstMode_1();
-
 }
 // timeElement.onclick = changeMaterial;
 

@@ -65,7 +65,7 @@ let CameraKeyTrck1 = {
   deltaTimes: [20, 20, 20, 20, 20, 20, 20],
   pause: [20, 20, 20, 50, 20, 20, 1],
   camLookAtx: [-1000, 800, -900, 600, -800, 1000, 0],
-  camLookAty: [100, -80, 90, -60, 80, -100, -200],
+  camLookAty: [100, -80, 90, -60, 80, -100, -100],
   camLookAtz: [-100, 80, -90, 60, -80, 100, 0],
   distance: [4000, 2000, 3000, 6000, 3000, 5000, 4000],
   angelPlaneXZ: [10, -33, 12, 0, -45, 76, 1],
@@ -98,7 +98,7 @@ function animateCamera() {
       if(localTime < deltaT + 1) {
         let sigma;
         if(deltaT > 0) {
-          sigma = easeInQuint(localTime / deltaT, 6);
+          sigma = easeOutCubic(localTime / deltaT);
         } else {
           console.log('Некорректное deltaT в animateCamera()');
           sigma = 1;

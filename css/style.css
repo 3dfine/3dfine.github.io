@@ -14,6 +14,9 @@ canvas {
   left: 0;
 }
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: default;
   position: absolute;
   text-align: justify ;
@@ -30,9 +33,9 @@ canvas {
   width: 100%;
   /* height: 40px; */
 }
-.header div {
+/* .header div {
   display: inline-block;
-}
+} */
 .header p {
     margin: 0;
 }
@@ -43,18 +46,22 @@ canvas {
   margin: 0;
 }
 #header2 {
-  float: right;
-  right: 5px;
   padding: 5px;
   font-size: 20px;
   margin: 0;
 }
-.textblock1 {
+#header3 {
+  text-align: center ;
+  padding: 5px;
+  font-size: 50px;
+  margin: 0;
+}
+#textblock1 {
   cursor: default;
   position: absolute;
   text-align: justify ;
   font-size: 15px;
-  left: 0.2vmax;
+  left: 0%;
   top: 95px;
   background-color: rgba(186, 23, 14, 0.7);
   color: white;
@@ -64,7 +71,9 @@ canvas {
   /* text-shadow: 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white; */
   /* height: 4.0vmax; */
   width: 30.0vmax;
+  display: none;
 }
+
 #canvas-exemple {
   position: relative;
         margin: 0;
