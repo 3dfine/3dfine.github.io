@@ -1,4 +1,3 @@
-
 let cameraPos = function (_camera, _controls, cameraKeyTrck ) {
   let vectorCam = new THREE.Vector3( 0, 0, 1 );
   let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
@@ -11,17 +10,18 @@ let cameraPos = function (_camera, _controls, cameraKeyTrck ) {
   _controls.target.z = cameraKeyTrck.camLookAt.z;
   _controls.autoRotateSpeed = cameraKeyTrck.autoRotSpeed;
 }
-let globalCameraPos = function (cameraKeyTrck ) {
+let globalCameraPos = function (cameraPosSetup ) {
   let vectorCam = new THREE.Vector3( 0, 0, 1 );
   let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
   let axisX = new THREE.Vector3( 1, 0, 0 );
-  vectorCam.applyAxisAngle( axisX, THREE.Math.degToRad( cameraKeyTrck.angelPlaneXZ ) ).normalize();
-  vectorCam.applyAxisAngle( axisY, THREE.Math.degToRad( cameraKeyTrck.angelOz ) ).normalize();
-  camera.position.addVectors( cameraKeyTrck.camLookAt, vectorCam.multiplyScalar( cameraKeyTrck.distance ) );
-  controls.target.x = cameraKeyTrck.camLookAt.x;
-  controls.target.y = cameraKeyTrck.camLookAt.y;
-  controls.target.z = cameraKeyTrck.camLookAt.z;
-  controls.autoRotateSpeed = cameraKeyTrck.autoRotSpeed;
+  vectorCam.applyAxisAngle( axisX, THREE.Math.degToRad( cameraPosSetup.angelPlaneXZ ) ).normalize();
+  vectorCam.applyAxisAngle( axisY, THREE.Math.degToRad( cameraPosSetup.angelOy ) ).normalize();
+  camera.position.addVectors( cameraPosSetup.camLookAt, vectorCam.multiplyScalar( cameraPosSetup.distance ) );
+  controls.target.x = cameraPosSetup.camLookAt.x;
+  controls.target.y = cameraPosSetup.camLookAt.y;
+  controls.target.z = cameraPosSetup.camLookAt.z;
+  controls.autoRotateSpeed = cameraPosSetup.autoRotSpeed;
+  // console.log(cameraPosGlobal);
 }
 
 let animateTemp = function ( objGroup, animKeyFrames, interpolation ) {
@@ -59,25 +59,73 @@ let animateTemp = function ( objGroup, animKeyFrames, interpolation ) {
 }
 
 let CameraKeyTrck1 = {
-  duration: false,
-  times: [0, 50, 100, 110, 200, 250, 300],
-  // deltaTimes: [100, 20, 40, 60, 80, 100, 120],
-  camLookAt: new THREE.Vector3( 0, 0, 0  ),
-  distance: 4000,
-  angelPlaneXZ: 0,
-  angelOz: 0,
-  autoRotSpeed: 90
+  playOn: false,
+  loop: false,
+  times:      [0, 50, 100, 160, 200, 250, 300],
+  deltaTimes: [20, 20, 20, 20, 20, 20, 20],
+  pause: [20, 20, 20, 50, 20, 20, 1],
+  camLookAtx: [-1000, 800, -900, 600, -800, 1000, 0],
+  camLookAty: [100, -80, 90, -60, 80, -100, -200],
+  camLookAtz: [-100, 80, -90, 60, -80, 100, 0],
+  distance: [4000, 2000, 3000, 6000, 3000, 5000, 4000],
+  angelPlaneXZ: [10, -33, 12, 0, -45, 76, 1],
+  angelOy: [10, -33, 12, 0, -45, 76, 1],
+  autoRotSpeed: [3]
 };
-function animateCamera(_camera, _controls) {
-  let currentCount = 0;
+function animateCamera() {
+  let currentKey = 0;
+  let localTime = 0;
+  let cameraPosSetup = { camLookAt: new THREE.Vector3( 0, 0, 0 ), distance: 0, angelPlaneXZ: 0, angelOy: 0, autoRotSpeed: 0 };
   return function(keyTrack) {
-    // keyTrack.angelOz += THREE.Math.degToRad( 32 );
-    // keyTrack.angelPlaneXZ = 16.0 * (Math.sin( currentCount/40.0 ) + 0);
-    // keyTrack.distance = 4000.0 + 1000.0 * (Math.sin( currentCount/40.0 ) + 1.0);
-    keyTrack.camLookAt.x = 0.0 + 1000.0 * (Math.sin( currentCount/40.0 ) + 0.0);
-    cameraPos( _camera, _controls, keyTrack );
-
-    console.log( camera.position );
-    currentCount++;
-  };
+    if(keyTrack.playOn) {
+      controls.autoRotate = false;
+      //если входим в первый раз, записываем в нулевой индекс текущее положение камеры, для плавного перехода
+      if((currentKey == 0) && (localTime == 0)) {
+        let vectorCam = new THREE.Vector3( 0, 0, 0 );
+        let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
+        let axisX = new THREE.Vector3( 1, 0, 0 );
+        keyTrack.camLookAtx[0] = controls.target.x;
+        keyTrack.camLookAty[0] = controls.target.y;
+        keyTrack.camLookAtz[0] = controls.target.z;
+        keyTrack.distance[0] = camera.position.distanceTo(controls.target);
+        vectorCam.subVectors(camera.position, controls.target);
+        keyTrack.angelPlaneXZ[0] = THREE.Math.radToDeg(vectorCam.angleTo(axisY)) - 90;
+        vectorCam.y = 0;
+        keyTrack.angelOy[0] = 90 - THREE.Math.radToDeg(vectorCam.angleTo(axisX));
+        keyTrack.autoRotSpeed[0] = controls.autoRotSpeed;
+      }
+      let deltaT = keyTrack.times[currentKey + 1] - keyTrack.times[currentKey];
+      if(localTime < deltaT + 1) {
+        let sigma;
+        if(deltaT > 0) {
+          sigma = easeInQuint(localTime / deltaT, 6);
+        } else {
+          console.log('Некорректное deltaT в animateCamera()');
+          sigma = 1;
+        }
+        cameraPosSetup.camLookAt.x = keyTrack.camLookAtx[currentKey] + (keyTrack.camLookAtx[currentKey + 1] - keyTrack.camLookAtx[currentKey]) * sigma;
+        cameraPosSetup.camLookAt.y = keyTrack.camLookAty[currentKey] + (keyTrack.camLookAty[currentKey + 1] - keyTrack.camLookAty[currentKey]) * sigma;
+        cameraPosSetup.camLookAt.z = keyTrack.camLookAtz[currentKey] + (keyTrack.camLookAtz[currentKey + 1] - keyTrack.camLookAtz[currentKey]) * sigma;
+        cameraPosSetup.distance = keyTrack.distance[currentKey] + (keyTrack.distance[currentKey + 1] - keyTrack.distance[currentKey]) * sigma;
+        cameraPosSetup.angelOy = keyTrack.angelOy[currentKey] + (keyTrack.angelOy[currentKey + 1] - keyTrack.angelOy[currentKey]) * sigma;
+        cameraPosSetup.angelPlaneXZ = keyTrack.angelPlaneXZ[currentKey] + (keyTrack.angelPlaneXZ[currentKey + 1] - keyTrack.angelPlaneXZ[currentKey]) * sigma;
+        cameraPosSetup.autoRotSpeed = keyTrack.autoRotSpeed[0];
+        // console.log(currentKey, localTime);
+        globalCameraPos( cameraPosSetup );
+      }
+      localTime++;
+      if(localTime > deltaT + keyTrack.pause[currentKey] ) {
+        localTime = 0;
+        currentKey++;
+        if(currentKey > keyTrack.times.length - 2) {
+          if(!keyTrack.loop) keyTrack.playOn = false;
+          currentKey = 0;
+          console.log(cameraPosSetup);
+        }
+      }
+      // cameraPosSetup.autoRotSpeed = keyTrack.autoRotSpeed[0];
+      // // console.log(currentKey, localTime);
+      // globalCameraPos( cameraPosSetup );
+    }
+  }
 }

@@ -9,20 +9,20 @@ function onWindowResize( event ) {
   controls.rotateSpeed = width / 1920;
 }
 window.onload = function () {
-  blockLoad.style.display='none';
   matHolodSetup();
   btnPlay.style.display='block';
+  btnfullscrn.style.display='block';
+  rotateObj.style.display='block';
+  cameraReset.style.display='block';
 }
 
-let animateCamera1 = animateCamera(camera, controls);
+let animateCamera1 = animateCamera();
 let clock = new THREE.Clock();
 let tick = 0;
 let animate = function () {
   requestAnimationFrame( animate );
   tick += 0.075;
   // animateTemp(sx_19_vert, VecKeyfrTrck1, 6); //анимация
-
-  // animateCamera1(CameraKeyTrck1);
 
   if(vent_nasos_ventil2.rotSpeed !=0 ) {
     vent_nasos_ventil.rotation.z += vent_nasos_ventil.rotSpeed;
@@ -41,16 +41,16 @@ let animate = function () {
   }
 
   if( globalLoad > 35 ) {
-    // blockLoad.style.display='none';
-    // btnPlay.style.display='block';
+    blockLoad.style.display='none';
+    animateCamera1(CameraKeyTrck1);
     controls.update();
     renderer.render( scene, camera );
   }
   else {
-    console.log( globalLoad );
+    // console.log( globalLoad );
     blockLoadProgress.style.width = 31 * globalLoad / 36+ 'vmax';
   }
 
-  console.log("x=%.2d y=%.2d z=%.2d", controls.target.x, controls.target.y, controls.target.z,);
+  // console.log("x=%.2d y=%.2d z=%.2d", controls.target.x, controls.target.y, controls.target.z,);
 };
 animate();

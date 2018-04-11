@@ -23,6 +23,7 @@ function setGold() {
   // materials[0] = matGold;
   // materials2[0] = matGold;
   // block.style.width = 90 + 'px';
+  CameraKeyTrck1.playOn = true;
 }
 function setSteel() {
   if(!potok1.visible) {
@@ -36,7 +37,7 @@ function setRotate() {
   controls.autoRotate = !controls.autoRotate;
 }
 function setCamera() {
-  globalCameraPos(cameraKeyTrck0);
+  globalCameraPos(cameraPosSetupDef);
 }
 let globalTime = 0;
 let frame1 = 0;
@@ -86,9 +87,9 @@ holodUstMode_1();
 
 }
 // timeElement.onclick = changeMaterial;
-var overlayStl = document.getElementById( "overlaySteel" );
-overlayStl.addEventListener( "click" , setSteel );
-overlayGold.addEventListener( "click" , setGold );
+
+btnbrony.addEventListener( "click" , setSteel );
+btnhide.addEventListener( "click" , setGold );
 rotateObj.addEventListener( "click" , setRotate );
 btnPlay.addEventListener( "click" , moveObject );
 btnfullscrn.addEventListener( "click" , toggleFullScreen );

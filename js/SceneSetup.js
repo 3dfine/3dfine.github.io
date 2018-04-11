@@ -15,19 +15,19 @@ scene.fog = new THREE.Fog( scene.background, 5000, 9000 );
 //Camera and camera control
 let camera = new THREE.PerspectiveCamera(35, aspect, 100, 9000);
 let controls = new THREE.OrbitControls( camera );
-let cameraKeyTrck0 = {
+let cameraPosSetupDef = {
   camLookAt: new THREE.Vector3( -164, -80, 0 ),  //точка, куда смотрит камера
-  distance: 4000,   //дистация до камеры
-  angelPlaneXZ: -0,
-  angelOz: -40,
+  distance: 4500,   //дистация до камеры
+  angelPlaneXZ: -30,
+  angelOy: -40,
   autoRotSpeed: -3
 };
-cameraPos(camera, controls, cameraKeyTrck0);
+globalCameraPos(cameraPosSetupDef);
 
 controls.maxPolarAngle = Math.PI * 0.75;
 controls.noZoom = false;
 controls.zoomSpeed = 0.8;
-controls.autoRotate = false; //true
+controls.autoRotate = true; //true
 // controls.autoRotateSpeed = 1.5; // 30 seconds per round when fps is 60
 controls.noRotate = false;
 controls.rotateSpeed = 0.8;
