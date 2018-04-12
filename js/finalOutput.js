@@ -39,12 +39,9 @@ let animate = function () {
       }
     }
   }
-
   if( globalLoad > 35 ) {
     blockLoad.style.display='none';
-    animateCamera1(CameraKeyTrck1);
-    animateCamera1(CameraKeyTrckDefPos);
-    animateCamera1(CameraKeyTrckFrontPos);     
+    animateCamera1(CameraKeyTrck);
     controls.update();
     renderer.render( scene, camera );
   }

@@ -60,6 +60,7 @@ let animateTemp = function ( objGroup, animKeyFrames, interpolation ) {
 let CameraKeyTrckDefPos = {
   playOn: false,
   loop: false,
+  timeScale: 1,
   times:      [0, 40],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
   pause: [0, 0],
@@ -74,6 +75,7 @@ let CameraKeyTrckDefPos = {
 let CameraKeyTrckFrontPos = {
   playOn: false,
   loop: false,
+  timeScale: 1,
   times:      [0, 40],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
   pause: [0, 0],
@@ -85,18 +87,34 @@ let CameraKeyTrckFrontPos = {
   angelOy: [0, 0],
   autoRotSpeed: [3]
 };
+let CameraKeyTrckAllPos = {
+  playOn: false,
+  loop: true,
+  timeScale: 0.6,
+  times:      [0, 50, 100, 150, 200, 250, 300, 350],
+  // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
+  pause: [60, 60, 60, 60,60,60,60,60],
+  camLookAtx: [0, 0, 0, 0,0,0,0,-164],
+  camLookAty: [0, -100, -100, -100, -100, +50, -100, -80],
+  camLookAtz: [0, 0, 0, 0, 0, 0, 0, 0],
+  distance: [0, 4000, 4500, 4000, 4000, 4000, 4000, 4500],
+  angelPlaneXZ: [0, 0, 0,  40, -40, 0, 0, -25],
+  angelOy:      [0, 0, -90, 0,  0, 90, 180, 320],
+  autoRotSpeed: [3]
+};
 let CameraKeyTrck1 = {
   playOn: false,
-  loop: false,
-  times:      [0, 50, 100, 160, 200, 250, 300],
+  loop: true,
+  timeScale: 1,
+  times:      [0, 50, 100, 160, 200, 250, 300, 350, 400, 450, 500, 550],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
-  pause: [20, 20, 20, 50, 20, 20, 1],
-  camLookAtx: [0, 800, -900, 600, -800, 1000, 0],
-  camLookAty: [0, -80, 90, -60, 80, -100, -100],
-  camLookAtz: [0, 80, -90, 60, -80, 100, 0],
-  distance: [0, 2000, 3000, 6000, 3000, 5000, 4000],
-  angelPlaneXZ: [0, -33, 12, 0, -45, 76, 1],
-  angelOy: [0, -33, 12, 0, -45, 76, 1],
+  pause: [20, 20, 20, 50, 20, 20, 20, 20,20, 20, 20, 20,20],
+  camLookAtx:   [0, -1186, -1238, -444, -339,   -128,  241,   769,  869, 777,    -689, -711],
+  camLookAty:   [0, 474,    524,   648,   398,    507,  586,  611,  611, 345,    -745, -1122],
+  camLookAtz:   [0, -141,   95,    72,    113,     182,  138, 81,   81,  138,    54,   241],
+  distance:     [0, 1426,   1433,  807,   807,    1120, 1433, 1070, 1070,908,      871,  605],
+  angelPlaneXZ: [0, 0,      0,      0,     0,      0,   -39,  0,    0,   0,    -36, 45],
+  angelOy:      [0, -41,    50,    -22,   -22,     0,    10,  49,   49,  37,     37,  10],
   autoRotSpeed: [3]
 };
 function animateCamera() {
@@ -104,6 +122,10 @@ function animateCamera() {
   let localTime = 0;
   let cameraPosSetup = { camLookAt: new THREE.Vector3( 0, 0, 0 ), distance: 0, angelPlaneXZ: 0, angelOy: 0, autoRotSpeed: 0 };
   return function(keyTrack) {
+    if(!keyTrack.playOn) {
+      currentKey = 0;
+      localTime = 0;
+    }
     if(keyTrack.playOn) {
       controls.autoRotate = false;
       //если входим в первый раз, записываем в нулевой индекс текущее положение камеры, для плавного перехода
@@ -121,7 +143,7 @@ function animateCamera() {
         keyTrack.angelOy[0] = 90 - THREE.Math.radToDeg(vectorCam.angleTo(axisX));
         keyTrack.autoRotSpeed[0] = controls.autoRotateSpeed;
       }
-      let deltaT = keyTrack.times[currentKey + 1] - keyTrack.times[currentKey];
+      let deltaT = (keyTrack.times[currentKey + 1] - keyTrack.times[currentKey]) * keyTrack.timeScale;
       if(localTime < deltaT + 1) {
         let sigma;
         if(deltaT > 0) {
@@ -150,4 +172,40 @@ function animateCamera() {
       }
     }
   }
+}
+let CameraKeyTrck = {
+  playOn: false,
+  loop: false,
+  timeScale: 1,
+  times:      [0, 40],
+  // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
+  pause: [0, 0],
+  camLookAtx: [0, -164],
+  camLookAty: [0, -80],
+  camLookAtz: [0, 0],
+  distance: [0, 4500],
+  angelPlaneXZ: [0, -25],
+  angelOy: [0, -40],
+  autoRotSpeed: [3]
+};
+
+function showCameraParam() {
+  let vectorCam = new THREE.Vector3( 0, 0, 0 );
+  let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
+  let axisX = new THREE.Vector3( 1, 0, 0 );
+  let camLookAtx = controls.target.x;
+  let camLookAty = controls.target.y;
+  let camLookAtz = controls.target.z;
+  let distance = camera.position.distanceTo(controls.target);
+  vectorCam.subVectors(camera.position, controls.target);
+  let angelPlaneXZ = THREE.Math.radToDeg(vectorCam.angleTo(axisY)) - 90;
+  vectorCam.y = 0;
+  let angelOy = 90 - THREE.Math.radToDeg(vectorCam.angleTo(axisX));
+
+  console.log( 'x=%d y=%d z=%d', controls.target.x, controls.target.y, controls.target.z);
+  console.log( 'dist=%d', distance);
+  console.log( 'angelPlaneXZ=%d', angelPlaneXZ);
+  console.log( 'angelOy=%d', angelOy);
+  console.log( '----------------------------');
+
 }

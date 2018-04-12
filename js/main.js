@@ -20,15 +20,23 @@ param1Node.nodeValue = '3dfine@mail.ru';   // 2 десятичных знака
 
 let block = document.getElementById("block_resize"); // Получаем основной блок
 function setGold() {
-  // materials[0] = matGold;
-  // materials2[0] = matGold;
-  // block.style.width = 90 + 'px';
-  CameraKeyTrck1.playOn = true;
+  if(CameraKeyTrck.loop && CameraKeyTrck.playOn) {
+    CameraKeyTrck.playOn = false;
+  }
+  else {
+    CameraKeyTrck = CameraKeyTrckAllPos;
+    CameraKeyTrck.playOn = true;
+  }
 }
 function setSteel() {
   if(!potok1.visible) {
     rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
+    rama.children[0].children[0].visible = !rama.children[0].children[0].visible;
     barashki.children[0].visible = !barashki.children[0].visible;
+  }
+  if(!rama.children[0].children[1].visible) {
+    CameraKeyTrck = CameraKeyTrck1;
+    CameraKeyTrck.playOn = true;
   }
   // materials[0] = matAluminuim;
   // materials2[0] = matAluminuim;
@@ -36,14 +44,19 @@ function setSteel() {
 function setRotate() {
   controls.autoRotate = !controls.autoRotate;
   if(controls.autoRotate) {
-      textblock1.style.display = 'block';
+      // textblock1.style.display = 'block';
+      // $("#textblock1").text( $("#text11").eq(0).text() );
+      $("#textblock1").html( $("#text11").eq(0).html() );
+      $("#textblock1").fadeIn(500);
   }
   else {
-      textblock1.style.display = 'none';
+      // textblock1.style.display = 'none';
+      $("#textblock1").fadeOut(500);
   }
 }
 function setCamera() {
-  CameraKeyTrckDefPos.playOn = true;
+  CameraKeyTrck = CameraKeyTrckDefPos;
+  CameraKeyTrck.playOn = true;
 }
 let globalTime = 0;
 let frame1 = 0;
@@ -89,7 +102,8 @@ function compareName(a,b) {
   return 0;
 }
 function moveObject() {
-  CameraKeyTrckFrontPos.playOn = true;
+  CameraKeyTrck = CameraKeyTrckFrontPos;
+  CameraKeyTrck.playOn = true;
   setTimeout(holodUstMode_1, 700);
   // holodUstMode_1();
 }
@@ -101,6 +115,7 @@ rotateObj.addEventListener( "click" , setRotate );
 btnPlay.addEventListener( "click" , moveObject );
 btnfullscrn.addEventListener( "click" , toggleFullScreen );
 cameraReset.addEventListener( "click" , setCamera );
+btnTemp.addEventListener( "click" , showCameraParam );
 document.addEventListener("keydown", function(e) {
   if (e.keyCode == 13) {
     toggleFullScreen();

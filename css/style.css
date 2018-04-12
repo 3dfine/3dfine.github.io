@@ -190,7 +190,18 @@ canvas {
   background-position-y : 50%;
   display: none;
 }
-
+#btnTemp {
+  bottom: 10px;
+  right: 25.0vmax;
+  background-color: #ff0000;
+  /* opacity: 0.36; */
+  /* background-image: url(../images/info_icon.png); */
+  background-repeat     : no-repeat;
+  background-size       : cover;
+  background-position-x : 50%;
+  background-position-y : 50%;
+  /* display: none; */
+}
 #loading {
   color:green;
   position: absolute;
