@@ -57,19 +57,46 @@ let animateTemp = function ( objGroup, animKeyFrames, interpolation ) {
     }
   }
 }
-
+let CameraKeyTrckDefPos = {
+  playOn: false,
+  loop: false,
+  times:      [0, 40],
+  // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
+  pause: [0, 0],
+  camLookAtx: [0, -164],
+  camLookAty: [0, -80],
+  camLookAtz: [0, 0],
+  distance: [0, 4500],
+  angelPlaneXZ: [0, -25],
+  angelOy: [0, -40],
+  autoRotSpeed: [3]
+};
+let CameraKeyTrckFrontPos = {
+  playOn: false,
+  loop: false,
+  times:      [0, 40],
+  // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
+  pause: [0, 0],
+  camLookAtx: [0, 0],
+  camLookAty: [0, -100],
+  camLookAtz: [0, 0],
+  distance: [0, 4000],
+  angelPlaneXZ: [0, 0],
+  angelOy: [0, 0],
+  autoRotSpeed: [3]
+};
 let CameraKeyTrck1 = {
   playOn: false,
   loop: false,
   times:      [0, 50, 100, 160, 200, 250, 300],
-  deltaTimes: [20, 20, 20, 20, 20, 20, 20],
+  // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
   pause: [20, 20, 20, 50, 20, 20, 1],
-  camLookAtx: [-1000, 800, -900, 600, -800, 1000, 0],
-  camLookAty: [100, -80, 90, -60, 80, -100, -100],
-  camLookAtz: [-100, 80, -90, 60, -80, 100, 0],
-  distance: [4000, 2000, 3000, 6000, 3000, 5000, 4000],
-  angelPlaneXZ: [10, -33, 12, 0, -45, 76, 1],
-  angelOy: [10, -33, 12, 0, -45, 76, 1],
+  camLookAtx: [0, 800, -900, 600, -800, 1000, 0],
+  camLookAty: [0, -80, 90, -60, 80, -100, -100],
+  camLookAtz: [0, 80, -90, 60, -80, 100, 0],
+  distance: [0, 2000, 3000, 6000, 3000, 5000, 4000],
+  angelPlaneXZ: [0, -33, 12, 0, -45, 76, 1],
+  angelOy: [0, -33, 12, 0, -45, 76, 1],
   autoRotSpeed: [3]
 };
 function animateCamera() {
@@ -92,7 +119,7 @@ function animateCamera() {
         keyTrack.angelPlaneXZ[0] = THREE.Math.radToDeg(vectorCam.angleTo(axisY)) - 90;
         vectorCam.y = 0;
         keyTrack.angelOy[0] = 90 - THREE.Math.radToDeg(vectorCam.angleTo(axisX));
-        keyTrack.autoRotSpeed[0] = controls.autoRotSpeed;
+        keyTrack.autoRotSpeed[0] = controls.autoRotateSpeed;
       }
       let deltaT = keyTrack.times[currentKey + 1] - keyTrack.times[currentKey];
       if(localTime < deltaT + 1) {
@@ -110,7 +137,6 @@ function animateCamera() {
         cameraPosSetup.angelOy = keyTrack.angelOy[currentKey] + (keyTrack.angelOy[currentKey + 1] - keyTrack.angelOy[currentKey]) * sigma;
         cameraPosSetup.angelPlaneXZ = keyTrack.angelPlaneXZ[currentKey] + (keyTrack.angelPlaneXZ[currentKey + 1] - keyTrack.angelPlaneXZ[currentKey]) * sigma;
         cameraPosSetup.autoRotSpeed = keyTrack.autoRotSpeed[0];
-        // console.log(currentKey, localTime);
         globalCameraPos( cameraPosSetup );
       }
       localTime++;
@@ -120,12 +146,8 @@ function animateCamera() {
         if(currentKey > keyTrack.times.length - 2) {
           if(!keyTrack.loop) keyTrack.playOn = false;
           currentKey = 0;
-          console.log(cameraPosSetup);
         }
       }
-      // cameraPosSetup.autoRotSpeed = keyTrack.autoRotSpeed[0];
-      // // console.log(currentKey, localTime);
-      // globalCameraPos( cameraPosSetup );
     }
   }
 }

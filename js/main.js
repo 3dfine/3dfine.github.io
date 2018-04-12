@@ -43,7 +43,7 @@ function setRotate() {
   }
 }
 function setCamera() {
-  globalCameraPos(cameraPosSetupDef);
+  CameraKeyTrckDefPos.playOn = true;
 }
 let globalTime = 0;
 let frame1 = 0;
@@ -89,7 +89,9 @@ function compareName(a,b) {
   return 0;
 }
 function moveObject() {
-holodUstMode_1();
+  CameraKeyTrckFrontPos.playOn = true;
+  setTimeout(holodUstMode_1, 700);
+  // holodUstMode_1();
 }
 // timeElement.onclick = changeMaterial;
 
