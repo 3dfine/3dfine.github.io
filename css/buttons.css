@@ -1,4 +1,8 @@
 .buttonA {
+  background-repeat     : no-repeat;
+  background-size       : cover;
+  background-position-x : 50%;
+  background-position-y : 50%;
   margin-left: 0.5vmax;
   margin-right: 0.5vmax;
   cursor: pointer;
@@ -8,8 +12,12 @@
   /* color: white; */
   /* font-family: monospace; */
   /* padding: 1em; */
-  border-radius: 0.6em;
-  border: 2px solid #111111;
+  border-radius: 0.3em;
+  border: 1px solid #111111;
+  opacity: 0.3;
+}
+.buttonA:hover {
+    opacity: 0.8;
 }
 #controlPanel {
   width: 100%;
@@ -21,109 +29,35 @@
   align-items: center;
   display: none;
 }
+#btnSelectObject {
+  background-image: url(../images/select.png);
+}
 #btnShow1LevellInfo {
-  /* right: 50%; */
-  /* bottom: 0.2vmax; */
-  background-color: #28343b;
+  background-image: url(../images/info_icon.png);
 }
 #btnShow2LevellInfo {
-  /* left: 50%; */
-  /* bottom: 0.2vmax; */
-  background-color: #ffc355;
+  background-image: url(../images/search-512.png);
 }
 #btnShowHowItWork {
-  /* bottom: 10px; */
-  /* left:  50%; */
-  /* background-color: #aaaaaa; */
-  opacity: 0.5;
   background-image: url(../images/howItWork.png);
-  background-repeat     : no-repeat;
-  background-size       : cover;
-  background-position-x : 50%;
-  background-position-y : 50%;
-  /* display: none; */
 }
 #btnShowHideBronya {
-  /* bottom: 10px; */
-  /* right:  50%; */
-  /* background-color: #aaaaaa; */
-  opacity: 0.5;
   background-image: url(../images/bronya.png);
-  background-repeat     : no-repeat;
-  background-size       : cover;
-  background-position-x : 50%;
-  background-position-y : 50%;
-  /* display: none; */
 }
 #btnFullscrn {
-  /* bottom: 10px; */
-  /* right: 1vmax; */
-  /* background-color: #aaaaaa; */
-  opacity: 0.5;
   background-image: url(../images/fullScrn.png);
-  background-repeat     : no-repeat;
-  background-size       : cover;
-  background-position-x : 50%;
-  background-position-y : 50%;
-  /* display: none; */
 }
 #btnRotateCamera {
-  /* bottom: 10px; */
-  /* right: 5.5vmax; */
-  /* background-color: #000000; */
-  opacity: 0.36;
   background-image: url(../images/rotation.png);
-  background-repeat     : no-repeat;
-  background-size       : cover;
-  background-position-x : 50%;
-  background-position-y : 50%;
-  /* display: none; */
 }
 #btnResetCemera {
-  /* bottom: 10px; */
-  /* right: 10.0vmax; */
-  /* background-color: #000000; */
-  opacity: 0.36;
   background-image: url(../images/videocam-outline.png);
-  background-repeat     : no-repeat;
-  background-size       : cover;
-  background-position-x : 50%;
-  background-position-y : 50%;
-    /* display: none; */
 }
-#btnPlay {
-  /* bottom: 10px; */
-  /* right: 20.0vmax; */
-  /* background-color: #aaaaaa; */
-  /* opacity: 0.36; */
-  background-image: url(../images/play.png);
-  background-repeat     : no-repeat;
-  background-size       : cover;
-  background-position-x : 50%;
-  background-position-y : 50%;
-  /* display: none; */
-}
+
 #btnStopAnim {
-  /* bottom: 10px; */
-  /* right: 20.0vmax; */
-  /* background-color: #aaaaaa; */
-  /* opacity: 0.36; */
   background-image: url(../images/stop.png);
-  background-repeat     : no-repeat;
-  background-size       : cover;
-  background-position-x : 50%;
-  background-position-y : 50%;
-  /* display: none; */
 }
 #btnTemp {
-  /* bottom: 10px; */
-  /* right: 25.0vmax; */
   background-color: #ff0000;
-  /* opacity: 0.36; */
-  /* background-image: url(../images/info_icon.png); */
-  background-repeat     : no-repeat;
-  background-size       : cover;
-  background-position-x : 50%;
-  background-position-y : 50%;
-  /* display: none; */
+  display: none;
 }

@@ -3,6 +3,7 @@
 // let geometry24 = new THREE.SphereGeometry( 500, 32, 32 );
 // let sphereG = new THREE.Mesh( geometry24, matSteelClear );
 // scene.add(sphereG);
+let selectedObjectMode = false;
 
 stoikiGroup.position.x = 2600;
 // scene.add( stoikiGroup );
@@ -20,14 +21,24 @@ param1Element.appendChild(param1Node);
 param1Node.nodeValue = '3dfine@mail.ru';   // 2 десятичных знака
 let block = document.getElementById("block_resize"); // Получаем основной блок
 
+function selectObject() {
+  selectedObjectMode = !selectedObjectMode;
+  if(selectedObjectMode) {
+    btnSelectObject.style.opacity = 1.0;
+  } else {
+    btnSelectObject.style.opacity = 0.3;
+  }
+}
 function showGeneralInfo() {
   rama.children[0].children[0].material = matUstRama;
   controls.autoRotate = false;
   startCameraAnim(CameraKeyTrckAllPos);
+
+  $("#textblock1").html( $("#text11").eq(0).html() );
+  $("#textblock1").fadeIn(500).delay(3000).fadeOut(500);
 }
 function showDetailInfo() {
   controls.autoRotate = false;
-  rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
   barashki.children[0].visible = false;
   rama.children[0].children[0].material = matGhost;
   rama.children[0].children[1].visible = false;
@@ -61,18 +72,13 @@ function showDetailInfo() {
   // materials[0] = matAluminuim;
   // materials2[0] = matAluminuim;
 }
+btnRotateCamera.style.opacity = 1.0;
 function setRotate() {
-  // controls.autoRotate = true;
   controls.autoRotate = !controls.autoRotate;
   if(controls.autoRotate) {
-      // textblock1.style.display = 'block';
-      // $("#textblock1").text( $("#text11").eq(0).text() );
-      $("#textblock1").html( $("#text11").eq(0).html() );
-      $("#textblock1").fadeIn(500);
-  }
-  else {
-      // textblock1.style.display = 'none';
-      $("#textblock1").fadeOut(500);
+    btnRotateCamera.style.opacity = 1.0;
+  } else {
+    btnRotateCamera.style.opacity = 0.3;
   }
 }
 function setCamera() {
@@ -83,12 +89,13 @@ function startCameraAnim(keyFrTrack) {
   if(!CameraKeyTrck.playOn) {
     CameraKeyTrck = keyFrTrack;
     CameraKeyTrck.playOn = true;
-    console.log('Anim start');
   }
 }
 function stopCameraAnim() {
+  if(CameraKeyTrck.playOn) {
     CameraKeyTrck.playOn = false;
     console.log('Anim stop');
+  }
 }
 
 let globalTime = 0;
@@ -135,7 +142,7 @@ function compareName(a,b) {
   return 0;
 }
 function showHowItWork() {
-  
+
   startCameraAnim(CameraKeyTrckFrontPos);
   setTimeout(holodUstMode_1, 400);
   // holodUstMode_1();
@@ -145,13 +152,13 @@ function showHideBronya() {
   barashki.children[0].visible = !barashki.children[0].visible;
 }
 
+btnSelectObject.addEventListener( "click" , selectObject );
 btnShow2LevellInfo.addEventListener( "click" , showDetailInfo );
 btnShow1LevellInfo.addEventListener( "click" , showGeneralInfo );
 btnShowHideBronya.addEventListener( "click" , showHideBronya );
 btnRotateCamera.addEventListener( "click" , setRotate );
 btnShowHowItWork.addEventListener( "click" , showHowItWork );
 btnResetCemera.addEventListener( "click" , setCamera );
-btnTemp.addEventListener( "click" , showCameraParam );
 btnStopAnim.addEventListener( "click" , stopCameraAnim );
 //во весь экран
 btnFullscrn.addEventListener( "click" , toggleFullScreen );

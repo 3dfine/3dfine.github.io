@@ -10,7 +10,6 @@ function onWindowResize( event ) {
 }
 
 //---------------------Выбор объектов-------------------
-
 let mouseDownState = true;  //если нажата кнопка выбора объекта не происходит
 renderer.domElement.addEventListener( 'mousedown', function () {mouseDownState = false;}, false );
 renderer.domElement.addEventListener( 'mouseup', function () {mouseDownState = true;}, false );
@@ -21,25 +20,27 @@ let selectedObject = {
 let raycaster = new THREE.Raycaster();
 renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
 function onDocumentMouseMove( event ) {
-  let mouse = new THREE.Vector2();
-	let intersects;
-	event.preventDefault();
-	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-	raycaster.setFromCamera( mouse, camera );
-  intersects = raycaster.intersectObjects( [ scene ], true );
-  if( (intersects.length > 0) && mouseDownState ) {
-    if( intersects[ 0 ].object.material != matGhost ) {
-      selectedObject.object.material = selectedObject.material;
-      selectedObject.object = intersects[ 0 ].object;
-      selectedObject.material = intersects[ 0 ].object.material;
-      intersects[ 0 ].object.material = matGhost;
-      // console.log( intersects );
-    }
-  } else {
-    if( intersects ) {
-      selectedObject.object.material = selectedObject.material;
-      intersects = null;
+  if(selectedObjectMode) {
+    let mouse = new THREE.Vector2();
+  	let intersects;
+  	event.preventDefault();
+  	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+  	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+  	raycaster.setFromCamera( mouse, camera );
+    intersects = raycaster.intersectObjects( [ scene ], true );
+    if( (intersects.length > 0) && mouseDownState ) {
+      if( intersects[ 0 ].object.material != matGhost ) {
+        selectedObject.object.material = selectedObject.material;
+        selectedObject.object = intersects[ 0 ].object;
+        selectedObject.material = intersects[ 0 ].object.material;
+        intersects[ 0 ].object.material = matGhost;
+        // console.log( intersects );
+      }
+    } else {
+      if( intersects ) {
+        selectedObject.object.material = selectedObject.material;
+        intersects = null;
+      }
     }
   }
 }
@@ -53,7 +54,7 @@ window.onload = function () {
 
   $("#controlPanel").css("display", "flex")
     .hide()
-    .delay(1000)
+    .delay(2000)
     .fadeIn(600);
 }
 
@@ -74,15 +75,15 @@ let animate = function () {
     ventilatorOutSide_lopasti.children[0].children[2].rotation.x -= 0.11;
     ventilatorOutSide_lopasti.children[0].children[3].rotation.x -= 0.13;
 
-    if(potok1.visible) {
-      for(let i=0; i<potok1.children[0].children.length; i++) {
+    if( potok1.visible ) {
+      for( let i=0; i<potok1.children[0].children.length; i++ ) {
         potok1.children[0].children[i].scale.y = potok1.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - tick) + 1.0);
       }
     }
   }
   if( globalLoad > 35 ) {
     blockLoad.style.display='none';
-    animateCamera1(CameraKeyTrck);
+    animateCamera1( CameraKeyTrck );
     controls.update();
     renderer.render( scene, camera );
   }

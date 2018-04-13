@@ -23,8 +23,6 @@ let cameraPosSetupDef = {
   autoRotSpeed: -3
 };
 globalCameraPos(cameraPosSetupDef);
-console.log( controls.autoRotate  );
-
 controls.maxPolarAngle = Math.PI * 0.75;
 controls.noZoom = false;
 controls.zoomSpeed = 0.8;

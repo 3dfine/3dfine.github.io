@@ -108,7 +108,7 @@ let CameraKeyTrck1 = {
   timeScale: 1,
   times:      [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
-  pause: [320, 320, 320, 320, 320, 320, 320, 320,320, 320, 320, 320, 320],
+  pause: [120, 120, 120, 120, 120, 120, 120, 120,120, 120, 120, 120, 120],
   camLookAtx:   [0, -1186, -1238, -444, -339,   -128,  241,   847,  869, 777,    -689, -711,     0],
   camLookAty:   [0, 474,    524,   648,   398,    507,  586,  632,  611, 345,    -745, -1122,   -100],
   camLookAtz:   [0, -141,   95,    72,    113,     182,  138, 15,   81,  138,    54,   241,      0],
@@ -131,6 +131,7 @@ function animateCamera() {
       // controls.autoRotate = false;
       //если входим в первый раз, записываем в нулевой индекс текущее положение камеры, для плавного перехода
       if((currentKey == 0) && (localTime == 0)) {
+        console.log('%cAnim begin...', 'color: green;');
         let vectorCam = new THREE.Vector3( 0, 0, 0 );
         let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
         let axisX = new THREE.Vector3( 1, 0, 0 );
@@ -169,6 +170,7 @@ function animateCamera() {
         if(currentKey > keyTrack.times.length - 2) {
           if(!keyTrack.loop) {
             keyTrack.playOn = false;
+            console.log('%c...anim complete', 'color: red;');
             // console.log(CameraKeyTrck.playOn);
           }
           currentKey = 0;
@@ -192,7 +194,7 @@ let CameraKeyTrck = {
   angelOy: [0, -40],
   autoRotSpeed: [3]
 };
-
+//-------------------------------Расчёт и вывод параметров камеры-----------------------------
 function showCameraParam() {
   let vectorCam = new THREE.Vector3( 0, 0, 0 );
   let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
@@ -211,5 +213,5 @@ function showCameraParam() {
   console.log( 'angelPlaneXZ=%d', angelPlaneXZ);
   console.log( 'angelOy=%d', angelOy);
   console.log( '----------------------------');
-
 }
+btnTemp.addEventListener( "click" , showCameraParam );

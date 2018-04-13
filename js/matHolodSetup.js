@@ -70,8 +70,6 @@ let matPotokBlue = new THREE.MeshPhongMaterial( {
 
 
 let matHolodSetup =  function() {
-  console.log('hello!');
-
   matAluminuim.envMap = textureCube;
   matRAL7045.envMap = textureCube;
   matBlueGlossDark.envMap = textureCube;
@@ -141,5 +139,5 @@ let matHolodSetup =  function() {
   matUstVent[5-1] = matRubber;
   matUstVent[6-1] = matPlasticWhite;
 
-
+  console.log('3dfine@mail.ru');
 }
