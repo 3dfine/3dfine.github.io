@@ -12,21 +12,49 @@
   /* color: white; */
   /* font-family: monospace; */
   /* padding: 1em; */
-  border-radius: 0.3em;
-  border: 1px solid #111111;
+  /* border-radius: 0.3em;
+  border: 1px solid #111111; */
   opacity: 0.3;
 }
 .buttonA:hover {
-    opacity: 0.8;
+  opacity: 0.6;
+}
+#cameraControl {
+  width: 100%;
+  position: absolute;
+  top: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:row;
+          flex-direction:row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: none;
 }
 #controlPanel {
   width: 100%;
   position: absolute;
   bottom: 0.2vmax;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction:row;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:row;
+          flex-direction:row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: none;
 }
 #btnSelectObject {

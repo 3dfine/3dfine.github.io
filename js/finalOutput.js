@@ -56,6 +56,10 @@ window.onload = function () {
     .hide()
     .delay(2000)
     .fadeIn(600);
+  $("#cameraControl").css("display", "flex")
+    .hide()
+    .delay(2000)
+    .fadeIn(600);
 }
 
 let animateCamera1 = animateCamera();
