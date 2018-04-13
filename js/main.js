@@ -26,7 +26,7 @@ function selectObject() {
   if(selectedObjectMode) {
     btnSelectObject.style.opacity = 1.0;
   } else {
-    btnSelectObject.style.opacity = 0.3;
+    btnSelectObject.style.removeProperty( 'opacity');
   }
 }
 function showGeneralInfo() {
@@ -78,7 +78,7 @@ function setRotate() {
   if(controls.autoRotate) {
     btnRotateCamera.style.opacity = 1.0;
   } else {
-    btnRotateCamera.style.opacity = 0.3;
+    btnRotateCamera.style.removeProperty( 'opacity');
   }
 }
 function setCamera() {

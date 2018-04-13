@@ -89,7 +89,7 @@ let animate = function () {
   }
   else {
     // console.log( globalLoad );
-    blockLoadProgress.style.width = 31 * globalLoad / 36 + 'vmax';
+    blockLoadProgress.style.width = 50 * ( globalLoad + 0.9 ) / 36 + 'vmax';
   }
   // console.log("x=%.2d y=%.2d z=%.2d", controls.target.x, controls.target.y, controls.target.z,);
 };

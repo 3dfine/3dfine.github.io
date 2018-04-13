@@ -64,7 +64,7 @@ let CameraKeyTrckDefPos = {
   times:      [0, 60],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
   pause: [0, 0],
-  camLookAtx: [0, -164],
+  camLookAtx: [0, -25],
   camLookAty: [0, -80],
   camLookAtz: [0, 0],
   distance: [0, 4500],

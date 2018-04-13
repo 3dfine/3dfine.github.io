@@ -32,6 +32,9 @@
 #btnSelectObject {
   background-image: url(../images/select.png);
 }
+#btnSelectObject:hover {
+  opacity: 0.8;
+}
 #btnShow1LevellInfo {
   background-image: url(../images/info_icon.png);
 }
