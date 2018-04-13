@@ -16,13 +16,14 @@ scene.fog = new THREE.Fog( scene.background, 5000, 9000 );
 let camera = new THREE.PerspectiveCamera(35, aspect, 100, 9000);
 let controls = new THREE.OrbitControls( camera );
 let cameraPosSetupDef = {
-  camLookAt: new THREE.Vector3( -164, -80, 0 ),  //точка, куда смотрит камера
-  distance: 4500,   //дистация до камеры
-  angelPlaneXZ: -25,
-  angelOy: -40,
+  camLookAt: new THREE.Vector3( 0, 0, 0 ),  //точка, куда смотрит камера
+  distance: 10000,   //дистация до камеры
+  angelPlaneXZ: 0,
+  angelOy: 0,
   autoRotSpeed: -3
 };
 globalCameraPos(cameraPosSetupDef);
+console.log( controls.autoRotate  );
 
 controls.maxPolarAngle = Math.PI * 0.75;
 controls.noZoom = false;

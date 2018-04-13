@@ -1,11 +1,13 @@
 //Add models in scene
+// SphereGeometry(radius : Float, widthSegments : Integer, heightSegments : Integer, phiStart : Float, phiLength : Float, thetaStart : Float, thetaLength : Float);
+// let geometry24 = new THREE.SphereGeometry( 500, 32, 32 );
+// let sphereG = new THREE.Mesh( geometry24, matSteelClear );
+// scene.add(sphereG);
+
 stoikiGroup.position.x = 2600;
 // scene.add( stoikiGroup );
-//
-
 
 scene.add( ustanovka );
-
 scene.add(potok1);
 
 // получаем ссылки на элементы DOM
@@ -16,32 +18,51 @@ var param1Node = document.createTextNode("");
 param1Element.appendChild(param1Node);
 // задаём значения узлов
 param1Node.nodeValue = '3dfine@mail.ru';   // 2 десятичных знака
-
-
 let block = document.getElementById("block_resize"); // Получаем основной блок
-function setGold() {
-  if(CameraKeyTrck.loop && CameraKeyTrck.playOn) {
-    CameraKeyTrck.playOn = false;
-  }
-  else {
-    CameraKeyTrck = CameraKeyTrckAllPos;
-    CameraKeyTrck.playOn = true;
-  }
+
+function showGeneralInfo() {
+  rama.children[0].children[0].material = matUstRama;
+  controls.autoRotate = false;
+  startCameraAnim(CameraKeyTrckAllPos);
 }
-function setSteel() {
-  if(!potok1.visible) {
-    rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
-    rama.children[0].children[0].visible = !rama.children[0].children[0].visible;
-    barashki.children[0].visible = !barashki.children[0].visible;
-  }
-  if(!rama.children[0].children[1].visible) {
-    CameraKeyTrck = CameraKeyTrck1;
-    CameraKeyTrck.playOn = true;
-  }
+function showDetailInfo() {
+  controls.autoRotate = false;
+  rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
+  barashki.children[0].visible = false;
+  rama.children[0].children[0].material = matGhost;
+  rama.children[0].children[1].visible = false;
+  startCameraAnim(CameraKeyTrck1);
+  // let textPlayList1 = [ "#ust1_component1",
+  //                       "#ust1_component3",
+  //                       "#ust1_component4",
+  //                       "#ust1_component5",
+  //                       "#ust1_component6",
+  //                       "#ust1_component7",
+  //                       "#ust1_component8",
+  //                       "#ust1_component9",
+  //                       "#ust1_component10",
+  //                       "#ust1_component11",
+  //                       "#ust1_component12"
+  //
+  // ];
+  // let delayShowText = 1200;
+ //  $("#ust1_component1").delay(delayShowText).delay(CameraKeyTrck.times[1]*100/6).fadeIn(600).delay(CameraKeyTrck.pause[2]*100/6 - 600 - delayShowText).fadeOut(200);
+ //  $("#ust1_component3").delay(delayShowText).delay((CameraKeyTrck.times[2] + CameraKeyTrck.pause[2])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[3]*100/6 - 600 - delayShowText).fadeOut(200);
+ //  $("#ust1_component4").delay(delayShowText).delay((CameraKeyTrck.times[3] + 2*CameraKeyTrck.pause[3])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[4]*100/6 - 600 - delayShowText).fadeOut(200);
+ //  $("#ust1_component5").delay(delayShowText).delay((CameraKeyTrck.times[4] + 3*CameraKeyTrck.pause[4])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[5]*100/6 - 600 - delayShowText).fadeOut(200);
+ //  $("#ust1_component6").delay(delayShowText).delay((CameraKeyTrck.times[5] + 4*CameraKeyTrck.pause[5])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[6]*100/6 - 600 - delayShowText).fadeOut(200);
+ //  $("#ust1_component7").delay(delayShowText).delay((CameraKeyTrck.times[6] + 5*CameraKeyTrck.pause[6])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[7]*100/6 - 600 - delayShowText).fadeOut(200);
+ //  $("#ust1_component8").delay(delayShowText).delay((CameraKeyTrck.times[7] + 6*CameraKeyTrck.pause[7])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[8]*100/6 - 600 - delayShowText).fadeOut(200);
+ //  $("#ust1_component9").delay(delayShowText).delay((CameraKeyTrck.times[8] + 7*CameraKeyTrck.pause[8])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[9]*100/6 - 600 - delayShowText).fadeOut(200);
+ // $("#ust1_component10").delay(delayShowText).delay((CameraKeyTrck.times[9] + 8*CameraKeyTrck.pause[9])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[10]*100/6 - 600 - delayShowText).fadeOut(200);
+ // $("#ust1_component11").delay(delayShowText).delay((CameraKeyTrck.times[10] + 9*CameraKeyTrck.pause[10])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[11]*100/6 - 600 - delayShowText).fadeOut(200);
+ // $("#ust1_component12").delay(delayShowText).delay((CameraKeyTrck.times[11] + 10*CameraKeyTrck.pause[11])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[12]*100/6 - 600 - delayShowText).fadeOut(200);
+
   // materials[0] = matAluminuim;
   // materials2[0] = matAluminuim;
 }
 function setRotate() {
+  // controls.autoRotate = true;
   controls.autoRotate = !controls.autoRotate;
   if(controls.autoRotate) {
       // textblock1.style.display = 'block';
@@ -55,9 +76,21 @@ function setRotate() {
   }
 }
 function setCamera() {
-  CameraKeyTrck = CameraKeyTrckDefPos;
-  CameraKeyTrck.playOn = true;
+  rama.children[0].children[0].material = matUstRama;
+  startCameraAnim(CameraKeyTrckDefPos);
 }
+function startCameraAnim(keyFrTrack) {
+  if(!CameraKeyTrck.playOn) {
+    CameraKeyTrck = keyFrTrack;
+    CameraKeyTrck.playOn = true;
+    console.log('Anim start');
+  }
+}
+function stopCameraAnim() {
+    CameraKeyTrck.playOn = false;
+    console.log('Anim stop');
+}
+
 let globalTime = 0;
 let frame1 = 0;
 let VecKeyfrTrck1 = {
@@ -101,21 +134,27 @@ function compareName(a,b) {
     return 1;
   return 0;
 }
-function moveObject() {
-  CameraKeyTrck = CameraKeyTrckFrontPos;
-  CameraKeyTrck.playOn = true;
-  setTimeout(holodUstMode_1, 700);
+function showHowItWork() {
+  
+  startCameraAnim(CameraKeyTrckFrontPos);
+  setTimeout(holodUstMode_1, 400);
   // holodUstMode_1();
 }
-// timeElement.onclick = changeMaterial;
+function showHideBronya() {
+  rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
+  barashki.children[0].visible = !barashki.children[0].visible;
+}
 
-btnbrony.addEventListener( "click" , setSteel );
-btnhide.addEventListener( "click" , setGold );
-rotateObj.addEventListener( "click" , setRotate );
-btnPlay.addEventListener( "click" , moveObject );
-btnfullscrn.addEventListener( "click" , toggleFullScreen );
-cameraReset.addEventListener( "click" , setCamera );
+btnShow2LevellInfo.addEventListener( "click" , showDetailInfo );
+btnShow1LevellInfo.addEventListener( "click" , showGeneralInfo );
+btnShowHideBronya.addEventListener( "click" , showHideBronya );
+btnRotateCamera.addEventListener( "click" , setRotate );
+btnShowHowItWork.addEventListener( "click" , showHowItWork );
+btnResetCemera.addEventListener( "click" , setCamera );
 btnTemp.addEventListener( "click" , showCameraParam );
+btnStopAnim.addEventListener( "click" , stopCameraAnim );
+//во весь экран
+btnFullscrn.addEventListener( "click" , toggleFullScreen );
 document.addEventListener("keydown", function(e) {
   if (e.keyCode == 13) {
     toggleFullScreen();

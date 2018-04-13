@@ -16,6 +16,7 @@
   <link rel="icon" type="image/png" href="images/logotip_red_for_krug.png" />
   <link rel="stylesheet" href = "css/anims.css"></link>
   <link rel="stylesheet" href = "css/style.css"></link>
+  <link rel="stylesheet" href = "css/buttons.css"></link>
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 <body>
@@ -39,18 +40,21 @@
       <div><span id="param2"></span></div>
     </div>
 
-
-    <div class = "colorpicker1" id="btnhide"></div>
-    <div class = "colorpicker1" id="btnbrony"></div>
-    <div class = "colorpicker1" title="Вращать" id="rotateObj"></div>
-    <div class = "colorpicker1" title="Запустить" id="btnPlay"></div>
-    <div class = "colorpicker1" title="Во весь экран" id="btnfullscrn"></div>
-    <div class = "colorpicker1" title="Сбросить камеру" id="cameraReset"></div>
-    <div class = "colorpicker1" id="btnTemp"></div>    
-    <div id = "text11" style = "display: none">
+  <div class = "cntrlPanel" id="controlPanel">
+    <div class = "buttonA" title="Не нажимай эту кнопку!" id="btnTemp"></div>
+    <div class = "buttonA" title="Показать общую информацию" id="btnShow1LevellInfo"></div>
+    <div class = "buttonA" title="Показать подробную информацию" id="btnShow2LevellInfo"></div>
+    <div class = "buttonA" title="Как это работает" id="btnShowHowItWork"></div>
+    <div class = "buttonA" title="Скрыть/отобразить броню" id="btnShowHideBronya"></div>
+    <div class = "buttonA" title="Остановить анимацию" id="btnStopAnim"></div>
+    <div class = "buttonA" title="Вращать камеру" id="btnRotateCamera"></div>
+    <div class = "buttonA" title="Сбросить камеру" id="btnResetCemera"></div>
+    <div class = "buttonA" title="Во весь экран" id="btnFullscrn"></div>
+  </div>
+    <section style = "display: none">
       <p>Современная экономичная климатическая установка.</p>
       <p>Эргономичный дизайн вписывается в пространства с высокими эстетическими требованиями.</p>
-      <p>Надёжная и эффективная работа обеспечивает соответвующий уровень комфорта в помещениях.</p>
+      <p id = "text11">Надёжная и эффективная работа обеспечивает соответвующий уровень комфорта в помещениях.</p>
       <p>Предназначено для обеспечения поддержания в помещении необходимой температуры воздуха.</p>
       <p>Применяется для кондиционирования помещений, имеющих большую площадь, или же состоящих из нескольких комнат, соединенных общей вентиляционной системой.</p>
       <p>Установить оборудование можно как на крыше, так и на специальных рамных конструкциях.</p>
@@ -59,7 +63,20 @@
       <p>Наиболее целесообразна установка на одно - и двухэтажных зданиях, имеющих большую площадь внутренних помещений.</p>
       <p>Помогает сэкономить на покупке дополнительного отопительного оборудования.</p>
       <p>Несомненным преимуществом является надежность и простота в эксплуатации, а также то, что они не портят дизайн своим внешним видом.</p>
-    </div>
+    </section>
+
+      <div class = "testtt" id = "ust1_component1">Осевые вентиляторы конденсатора и воздушный конденсатор</div>
+      <div class = "testtt" id = "ust1_component3">Компрессорный блок</div>
+      <div class = "testtt" id = "ust1_component4">Воздушый фильтр вытяжного воздуха</div>
+      <div class = "testtt" id = "ust1_component5">Фреоновый испаритель с каплеуловителем</div>
+      <div class = "testtt" id = "ust1_component6">Приточный и вытяжной вентиляторы с ЕС-двигателем</div>
+      <div class = "testtt" id = "ust1_component7">Пластинчатый рекуператор</div>
+      <div class = "testtt" id = "ust1_component8">Воздушный фильтр приточного воздуха</div>
+      <div class = "testtt" id = "ust1_component9">Воздухозаборный клапан</div>
+      <div class = "testtt" id = "ust1_component10">Клапан выбросного воздуха</div>
+      <div class = "testtt" id = "ust1_component11">Водяной нагреватель</div>
+      <div class = "testtt" id = "ust1_component12">Регулируемый воздухораспределитель</div>
+
     <div id = "textblock1">
     </div>
 

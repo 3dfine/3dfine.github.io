@@ -61,7 +61,7 @@ let CameraKeyTrckDefPos = {
   playOn: false,
   loop: false,
   timeScale: 1,
-  times:      [0, 40],
+  times:      [0, 60],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
   pause: [0, 0],
   camLookAtx: [0, -164],
@@ -70,7 +70,7 @@ let CameraKeyTrckDefPos = {
   distance: [0, 4500],
   angelPlaneXZ: [0, -25],
   angelOy: [0, -40],
-  autoRotSpeed: [3]
+  autoRotSpeed: [-3]
 };
 let CameraKeyTrckFrontPos = {
   playOn: false,
@@ -85,11 +85,11 @@ let CameraKeyTrckFrontPos = {
   distance: [0, 4000],
   angelPlaneXZ: [0, 0],
   angelOy: [0, 0],
-  autoRotSpeed: [3]
+  autoRotSpeed: [-3]
 };
 let CameraKeyTrckAllPos = {
   playOn: false,
-  loop: true,
+  loop: false,
   timeScale: 0.6,
   times:      [0, 50, 100, 150, 200, 250, 300, 350],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
@@ -100,22 +100,22 @@ let CameraKeyTrckAllPos = {
   distance: [0, 4000, 4500, 4000, 4000, 4000, 4000, 4500],
   angelPlaneXZ: [0, 0, 0,  40, -40, 0, 0, -25],
   angelOy:      [0, 0, -90, 0,  0, 90, 180, 320],
-  autoRotSpeed: [3]
+  autoRotSpeed: [-3]
 };
 let CameraKeyTrck1 = {
   playOn: false,
-  loop: true,
+  loop: false,
   timeScale: 1,
-  times:      [0, 50, 100, 160, 200, 250, 300, 350, 400, 450, 500, 550],
+  times:      [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
-  pause: [20, 20, 20, 50, 20, 20, 20, 20,20, 20, 20, 20,20],
-  camLookAtx:   [0, -1186, -1238, -444, -339,   -128,  241,   769,  869, 777,    -689, -711],
-  camLookAty:   [0, 474,    524,   648,   398,    507,  586,  611,  611, 345,    -745, -1122],
-  camLookAtz:   [0, -141,   95,    72,    113,     182,  138, 81,   81,  138,    54,   241],
-  distance:     [0, 1426,   1433,  807,   807,    1120, 1433, 1070, 1070,908,      871,  605],
-  angelPlaneXZ: [0, 0,      0,      0,     0,      0,   -39,  0,    0,   0,    -36, 45],
-  angelOy:      [0, -41,    50,    -22,   -22,     0,    10,  49,   49,  37,     37,  10],
-  autoRotSpeed: [3]
+  pause: [320, 320, 320, 320, 320, 320, 320, 320,320, 320, 320, 320, 320],
+  camLookAtx:   [0, -1186, -1238, -444, -339,   -128,  241,   847,  869, 777,    -689, -711,     0],
+  camLookAty:   [0, 474,    524,   648,   398,    507,  586,  632,  611, 345,    -745, -1122,   -100],
+  camLookAtz:   [0, -141,   95,    72,    113,     182,  138, 15,   81,  138,    54,   241,      0],
+  distance:     [0, 1426,   1433,  807,   807,    1120, 1433, 908, 1070,908,      871,  605,    4000],
+  angelPlaneXZ: [0, 0,      0,      0,     0,      0,   -39,  -36,    0,   0,    -36, 45,        0],
+  angelOy:      [0, -41,    50,    -22,   -22,     0,    10,  -7,   49,  37,     37,  10,        0],
+  autoRotSpeed: [-3]
 };
 function animateCamera() {
   let currentKey = 0;
@@ -125,9 +125,10 @@ function animateCamera() {
     if(!keyTrack.playOn) {
       currentKey = 0;
       localTime = 0;
+      return;
     }
     if(keyTrack.playOn) {
-      controls.autoRotate = false;
+      // controls.autoRotate = false;
       //если входим в первый раз, записываем в нулевой индекс текущее положение камеры, для плавного перехода
       if((currentKey == 0) && (localTime == 0)) {
         let vectorCam = new THREE.Vector3( 0, 0, 0 );
@@ -166,7 +167,10 @@ function animateCamera() {
         localTime = 0;
         currentKey++;
         if(currentKey > keyTrack.times.length - 2) {
-          if(!keyTrack.loop) keyTrack.playOn = false;
+          if(!keyTrack.loop) {
+            keyTrack.playOn = false;
+            // console.log(CameraKeyTrck.playOn);
+          }
           currentKey = 0;
         }
       }

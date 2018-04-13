@@ -8,12 +8,53 @@ function onWindowResize( event ) {
   camera.updateProjectionMatrix();
   controls.rotateSpeed = width / 1920;
 }
+
+//---------------------Выбор объектов-------------------
+
+let mouseDownState = true;  //если нажата кнопка выбора объекта не происходит
+renderer.domElement.addEventListener( 'mousedown', function () {mouseDownState = false;}, false );
+renderer.domElement.addEventListener( 'mouseup', function () {mouseDownState = true;}, false );
+let selectedObject = {
+  object: new THREE.Object3D( ),
+  material: new THREE.MeshPhongMaterial(),
+}
+let raycaster = new THREE.Raycaster();
+renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
+function onDocumentMouseMove( event ) {
+  let mouse = new THREE.Vector2();
+	let intersects;
+	event.preventDefault();
+	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+	raycaster.setFromCamera( mouse, camera );
+  intersects = raycaster.intersectObjects( [ scene ], true );
+  if( (intersects.length > 0) && mouseDownState ) {
+    if( intersects[ 0 ].object.material != matGhost ) {
+      selectedObject.object.material = selectedObject.material;
+      selectedObject.object = intersects[ 0 ].object;
+      selectedObject.material = intersects[ 0 ].object.material;
+      intersects[ 0 ].object.material = matGhost;
+      // console.log( intersects );
+    }
+  } else {
+    if( intersects ) {
+      selectedObject.object.material = selectedObject.material;
+      intersects = null;
+    }
+  }
+}
+//------------------------------------------------------------
+
 window.onload = function () {
   matHolodSetup();
-  btnPlay.style.display='block';
-  btnfullscrn.style.display='block';
-  rotateObj.style.display='block';
-  cameraReset.style.display='block';
+
+  startCameraAnim(CameraKeyTrckDefPos);
+  controls.autoRotate = true;
+
+  $("#controlPanel").css("display", "flex")
+    .hide()
+    .delay(1000)
+    .fadeIn(600);
 }
 
 let animateCamera1 = animateCamera();
@@ -49,7 +90,6 @@ let animate = function () {
     // console.log( globalLoad );
     blockLoadProgress.style.width = 31 * globalLoad / 36 + 'vmax';
   }
-
   // console.log("x=%.2d y=%.2d z=%.2d", controls.target.x, controls.target.y, controls.target.z,);
 };
 animate();

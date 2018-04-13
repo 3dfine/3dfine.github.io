@@ -21,7 +21,3 @@ stoikiGroup.add(sx_43);
 stoikiGroup.add(sx_32_vert);
 stoikiGroup.add(sx_19_vert);
 stoikiGroup.add(sx_32);
-
-// SphereGeometry(radius : Float, widthSegments : Integer, heightSegments : Integer, phiStart : Float, phiLength : Float, thetaStart : Float, thetaLength : Float);
-// let geometry24 = new THREE.SphereGeometry( 500, 32, 32 );
-// let sphereG = new THREE.Mesh( geometry24, matSteelClear );

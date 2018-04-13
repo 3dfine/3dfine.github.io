@@ -8,6 +8,8 @@ let matUstVent = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 let matUstVent2 = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 let matKompressor = [ new THREE.MeshStandardMaterial( { color : 0xffffff } ) ];
 
+// matUstRama.name = 'matUstRama777';
+
 // let matBarashki = [ new THREE.MeshStandardMaterial( { color : 0x000000 } ) ];
 let matBarashki = [new THREE.MeshPhongMaterial( {
   color: 0x000000,

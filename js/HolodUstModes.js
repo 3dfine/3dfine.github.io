@@ -22,15 +22,16 @@ function holodUstMode_1() {
       potok1.children[0].children[i].material = matPotokRed;
   }
 
-
   potok1.visible = !potok1.visible;
-  rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
-  barashki.children[0].visible = !barashki.children[0].visible;
-  if(rama.children[0].children[1].visible) {
-      rama.children[0].children[0].material = matUstRama;
+  if(potok1.visible) {
+    rama.children[0].children[1].visible = false;
+    barashki.children[0].visible  = false;
+    rama.children[0].children[0].material = matGhost;
   }
   else {
-      rama.children[0].children[0].material = matGhost;
+    rama.children[0].children[1].visible = true;
+    barashki.children[0].visible  = true;
+    rama.children[0].children[0].material = matUstRama;
   }
   if(vent_nasos_ventil.rotSpeed == 0)
     vent_nasos_ventil.rotSpeed = 0.1;
