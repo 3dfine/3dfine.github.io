@@ -56,7 +56,7 @@ let CameraKeyTrckFrontPos = {
 };
 let CameraKeyTrckAllPos = {
   playOn: false,
-  loop: false,
+  loop: true,
   timeScale: 0.6,
   times:      [0, 50, 100, 150, 200, 250, 300, 350],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
