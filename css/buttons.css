@@ -64,7 +64,7 @@
   opacity: 0.8;
 }
 #btnShow1LevellInfo {
-  background-image: url(../images/info_icon.png);
+  background-image: url(../images/info_outline_48px.svg);
 }
 #btnShow2LevellInfo {
   background-image: url(../images/search-512.png);
@@ -76,19 +76,18 @@
   background-image: url(../images/bronya.png);
 }
 #btnFullscrn {
-  background-image: url(../images/fullScrn.png);
+  background-image: url(../images/fullscreen_48px.svg);
 }
 #btnRotateCamera {
   background-image: url(../images/rotation.png);
 }
 #btnResetCemera {
-  background-image: url(../images/videocam-outline.png);
+  background-image: url(../images/videocam_48px.svg);
 }
-
 #btnStopAnim {
   background-image: url(../images/stop.png);
 }
 #btnTemp {
   background-color: #ff0000;
-  display: none;
+  /* display: none; */
 }

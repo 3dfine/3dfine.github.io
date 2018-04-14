@@ -134,7 +134,7 @@ function animateCamera() {
         console.log('%cAnim begin...', 'color: green;');
         let vectorCam = new THREE.Vector3( 0, 0, 0 );
         let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
-        let axisX = new THREE.Vector3( 1, 0, 0 );
+        let axisZ = new THREE.Vector3( 0, 0, 1 );
         keyTrack.camLookAtx[0] = controls.target.x;
         keyTrack.camLookAty[0] = controls.target.y;
         keyTrack.camLookAtz[0] = controls.target.z;
@@ -142,7 +142,12 @@ function animateCamera() {
         vectorCam.subVectors(camera.position, controls.target);
         keyTrack.angelPlaneXZ[0] = THREE.Math.radToDeg(vectorCam.angleTo(axisY)) - 90;
         vectorCam.y = 0;
-        keyTrack.angelOy[0] = 90 - THREE.Math.radToDeg(vectorCam.angleTo(axisX));
+        if(camera.position.x > 0) {
+          keyTrack.angelOy[0] = THREE.Math.radToDeg(vectorCam.angleTo(axisZ));
+        } else {
+          keyTrack.angelOy[0] = THREE.Math.radToDeg(vectorCam.angleTo(axisZ));
+        }
+
         keyTrack.autoRotSpeed[0] = controls.autoRotateSpeed;
       }
       let deltaT = (keyTrack.times[currentKey + 1] - keyTrack.times[currentKey]) * keyTrack.timeScale;
@@ -198,7 +203,8 @@ let CameraKeyTrck = {
 function showCameraParam() {
   let vectorCam = new THREE.Vector3( 0, 0, 0 );
   let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
-  let axisX = new THREE.Vector3( 1, 0, 0 );
+  let axisZ = new THREE.Vector3( 0, 0, 1 );
+  let angelOy = 0;
   let camLookAtx = controls.target.x;
   let camLookAty = controls.target.y;
   let camLookAtz = controls.target.z;
@@ -206,8 +212,12 @@ function showCameraParam() {
   vectorCam.subVectors(camera.position, controls.target);
   let angelPlaneXZ = THREE.Math.radToDeg(vectorCam.angleTo(axisY)) - 90;
   vectorCam.y = 0;
-  let angelOy = 90 - THREE.Math.radToDeg(vectorCam.angleTo(axisX));
-
+  if(camera.position.x > 0) {
+    angelOy = THREE.Math.radToDeg(vectorCam.angleTo(axisZ));
+  } else {
+    angelOy = THREE.Math.radToDeg(vectorCam.angleTo(axisZ));
+  }
+  console.log( 'Cx=%d Cy=%d Cz=%d', camera.position.x, camera.position.y, camera.position.z);
   console.log( 'x=%d y=%d z=%d', controls.target.x, controls.target.y, controls.target.z);
   console.log( 'dist=%d', distance);
   console.log( 'angelPlaneXZ=%d', angelPlaneXZ);
