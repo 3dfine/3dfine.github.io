@@ -31,56 +31,43 @@ function selectObject() {
 }
 function showGeneralInfo() {
   rama.children[0].children[0].material = matUstRama;
-  controls.autoRotate = false;
+  offRotate();
   startCameraAnim(CameraKeyTrckAllPos);
 
   $("#textblock1").html( $("#text11").eq(0).html() );
   $("#textblock1").fadeIn(500).delay(3000).fadeOut(500);
 }
 function showDetailInfo() {
-  controls.autoRotate = false;
+  offRotate();
   barashki.children[0].visible = false;
   rama.children[0].children[0].material = matGhost;
   rama.children[0].children[1].visible = false;
   startCameraAnim(CameraKeyTrck1);
-  // let textPlayList1 = [ "#ust1_component1",
-  //                       "#ust1_component3",
-  //                       "#ust1_component4",
-  //                       "#ust1_component5",
-  //                       "#ust1_component6",
-  //                       "#ust1_component7",
-  //                       "#ust1_component8",
-  //                       "#ust1_component9",
-  //                       "#ust1_component10",
-  //                       "#ust1_component11",
-  //                       "#ust1_component12"
-  //
-  // ];
-  // let delayShowText = 1200;
- //  $("#ust1_component1").delay(delayShowText).delay(CameraKeyTrck.times[1]*100/6).fadeIn(600).delay(CameraKeyTrck.pause[2]*100/6 - 600 - delayShowText).fadeOut(200);
- //  $("#ust1_component3").delay(delayShowText).delay((CameraKeyTrck.times[2] + CameraKeyTrck.pause[2])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[3]*100/6 - 600 - delayShowText).fadeOut(200);
- //  $("#ust1_component4").delay(delayShowText).delay((CameraKeyTrck.times[3] + 2*CameraKeyTrck.pause[3])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[4]*100/6 - 600 - delayShowText).fadeOut(200);
- //  $("#ust1_component5").delay(delayShowText).delay((CameraKeyTrck.times[4] + 3*CameraKeyTrck.pause[4])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[5]*100/6 - 600 - delayShowText).fadeOut(200);
- //  $("#ust1_component6").delay(delayShowText).delay((CameraKeyTrck.times[5] + 4*CameraKeyTrck.pause[5])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[6]*100/6 - 600 - delayShowText).fadeOut(200);
- //  $("#ust1_component7").delay(delayShowText).delay((CameraKeyTrck.times[6] + 5*CameraKeyTrck.pause[6])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[7]*100/6 - 600 - delayShowText).fadeOut(200);
- //  $("#ust1_component8").delay(delayShowText).delay((CameraKeyTrck.times[7] + 6*CameraKeyTrck.pause[7])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[8]*100/6 - 600 - delayShowText).fadeOut(200);
- //  $("#ust1_component9").delay(delayShowText).delay((CameraKeyTrck.times[8] + 7*CameraKeyTrck.pause[8])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[9]*100/6 - 600 - delayShowText).fadeOut(200);
- // $("#ust1_component10").delay(delayShowText).delay((CameraKeyTrck.times[9] + 8*CameraKeyTrck.pause[9])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[10]*100/6 - 600 - delayShowText).fadeOut(200);
- // $("#ust1_component11").delay(delayShowText).delay((CameraKeyTrck.times[10] + 9*CameraKeyTrck.pause[10])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[11]*100/6 - 600 - delayShowText).fadeOut(200);
- // $("#ust1_component12").delay(delayShowText).delay((CameraKeyTrck.times[11] + 10*CameraKeyTrck.pause[11])*100/6).fadeIn(600).delay(CameraKeyTrck.pause[12]*100/6 - 600 - delayShowText).fadeOut(200);
-
-  // materials[0] = matAluminuim;
-  // materials2[0] = matAluminuim;
+  if(vent_nasos_ventil.rotSpeed == 0)
+    vent_nasos_ventil.rotSpeed = 0.1;
+    else
+    vent_nasos_ventil.rotSpeed = 0;
+  if(vent_nasos_ventil2.rotSpeed == 0)
+    vent_nasos_ventil2.rotSpeed = 0.1;
+    else
+    vent_nasos_ventil2.rotSpeed = 0;
 }
 btnRotateCamera.style.opacity = 1.0;
-function setRotate() {
+function toggleRotate() {
   controls.autoRotate = !controls.autoRotate;
   if(controls.autoRotate) {
     btnRotateCamera.style.opacity = 1.0;
   } else {
+    //убираем свойство 'opacity' кнопки, чтобы востановить возможность изменения прозрачности при наведене мыши
     btnRotateCamera.style.removeProperty( 'opacity');
   }
 }
+function offRotate() {
+  controls.autoRotate = false;
+  //убираем свойство 'opacity' кнопки, чтобы востановить возможность изменения прозрачности при наведене мыши
+  btnRotateCamera.style.removeProperty( 'opacity');
+}
+
 function setCamera() {
   rama.children[0].children[0].material = matUstRama;
   startCameraAnim(CameraKeyTrckDefPos);
@@ -97,20 +84,6 @@ function stopCameraAnim() {
     console.log('Anim stop');
   }
 }
-
-let globalTime = 0;
-let frame1 = 0;
-let VecKeyfrTrck1 = {
-  duration: false,
-  times: [0, 50, 100, 110, 200, 250, 300],
-  // deltaTimes: [100, 20, 40, 60, 80, 100, 120],
-  deltaTimes: [0, 40, 20, 40, 20],
-  x: [0, 600, 0, -600, 0, -600, 600 , -600],
-  // x: [0, 0, 0, 0, 0, 0 , 0],
-  y: [0, 600, 0, -600, 0, -500, 500, -500],
-  // y: [0, 0, 0, 0, 0, 0, 0],
-  z: [0, 600, 0, -600, 0, -500, 500, -500],
-};
 
 //----------------------------------------------------------
 // создаём треки ключей анимации
@@ -142,7 +115,7 @@ function compareName(a,b) {
   return 0;
 }
 function showHowItWork() {
-
+  offRotate();
   startCameraAnim(CameraKeyTrckFrontPos);
   setTimeout(holodUstMode_1, 400);
   // holodUstMode_1();
@@ -156,7 +129,7 @@ btnSelectObject.addEventListener( "click" , selectObject );
 btnShow2LevellInfo.addEventListener( "click" , showDetailInfo );
 btnShow1LevellInfo.addEventListener( "click" , showGeneralInfo );
 btnShowHideBronya.addEventListener( "click" , showHideBronya );
-btnRotateCamera.addEventListener( "click" , setRotate );
+btnRotateCamera.addEventListener( "click" , toggleRotate );
 btnShowHowItWork.addEventListener( "click" , showHowItWork );
 btnResetCemera.addEventListener( "click" , setCamera );
 btnStopAnim.addEventListener( "click" , stopCameraAnim );

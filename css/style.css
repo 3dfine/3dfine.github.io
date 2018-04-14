@@ -62,24 +62,10 @@ canvas {
   font-size: 45px;
   margin: 0;
 }
+/* #textblock1 {
+
+} */
 #textblock1 {
-  cursor: default;
-  position: absolute;
-  text-align: justify ;
-  font-size: 15px;
-  left: 0%;
-  top: 95px;
-  background-color: rgba(186, 23, 14, 0.7);
-  color: white;
-  padding: 0.4vmax;
-  /* border-radius: 0.25em; */
-  /* border: 1px solid #FAFAD2; */
-  /* text-shadow: 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white; */
-  /* height: 4.0vmax; */
-  width: 30.0vmax;
-  display: none;
-}
-.testtt {
   cursor: default;
   position: absolute;
   text-align: right ;
@@ -88,13 +74,16 @@ canvas {
   top: 30%;
   background-color: #BF360C;
   color: white;
-  padding: 0.4vmax;
-  /* border-radius: 0.25em; */
+  padding: 0.7vmax;
+  padding-right:1.0vmax;
+  border-radius: 0.25em;
   /* border: 1px solid #FAFAD2; */
   /* text-shadow: 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white; */
-  /* height: 4.0vmax; */
   width: 35.0vmax;
   display: none;
+}
+.hiddenP {
+    display: none;
 }
 
 #canvas-exemple {
@@ -150,4 +139,12 @@ canvas {
 #center {
   text-align: center;
   color: white;
+}
+#copyRight {
+  opacity: 0.6;
+  display: none;
+  position: absolute;
+  font-size:1.7vmin;
+  bottom: 0.1vmax;
+  right: 0.1vmax
 }
