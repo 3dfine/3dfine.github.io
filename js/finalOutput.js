@@ -50,7 +50,7 @@ window.onload = function () {
   matHolodSetup();
 
   startCameraAnim(CameraKeyTrckDefPos);
-  controls.autoRotate = true;
+  controls.autoRotate = false;
 
   $("#controlPanel").css("display", "flex")
     .hide()

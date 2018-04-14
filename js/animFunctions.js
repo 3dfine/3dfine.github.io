@@ -31,12 +31,12 @@ let CameraKeyTrckDefPos = {
   times:      [0, 60],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
   pause: [0, 0],
-  camLookAtx: [0, -25],
-  camLookAty: [0, -80],
+  camLookAtx: [0, -25], //-25
+  camLookAty: [0, -80], //-80
   camLookAtz: [0, 0],
   distance: [0, 4500],
-  angelPlaneXZ: [0, -25],
-  angelOy: [0, -40],
+  angelPlaneXZ: [0, -20],
+  angelOy: [0, 320],
   autoRotSpeed: [-3]
 };
 let CameraKeyTrckFrontPos = {
@@ -56,17 +56,27 @@ let CameraKeyTrckFrontPos = {
 };
 let CameraKeyTrckAllPos = {
   playOn: false,
-  loop: true,
-  timeScale: 0.6,
+  loop: false,
+  timeScale: 1,
   times:      [0, 50, 100, 150, 200, 250, 300, 350],
   // deltaTimes: [20, 20, 20, 20, 20, 20, 20],
-  pause: [60, 60, 60, 60,60,60,60,60],
-  camLookAtx: [0, 0, 0, 0,0,0,0,-164],
-  camLookAty: [0, -100, -100, -100, -100, +50, -100, -80],
+  pause: [240, 240, 240, 240,240,240,240,240],
+  camLookAtx: [0, 0, 0, 0,0,0,0,-25],
+  camLookAty: [0, -100, -100, -200, -100, +50, -100, -80],
   camLookAtz: [0, 0, 0, 0, 0, 0, 0, 0],
   distance: [0, 4000, 4500, 4000, 4000, 4000, 4000, 4500],
-  angelPlaneXZ: [0, 0, 0,  40, -40, 0, 0, -25],
+  angelPlaneXZ: [0, 0, 0,  40, -40, 0, 0, -20],
   angelOy:      [0, 0, -90, 0,  0, 90, 180, 320],
+  divID: '#textblock1',  //ID блока, куда выводится информация
+  divLeft:[45, 6, 45, 45, 58, 15, 50],
+  divTop:[55, 55, 60, 60, 60, 55, 60],
+  textIDResource: [ "#ust1_1LevellInfo1",
+                    "#ust1_1LevellInfo2",
+                    "#ust1_1LevellInfo3",
+                    "#ust1_1LevellInfo4",
+                    "#ust1_1LevellInfo5",
+                    "#ust1_1LevellInfo6",
+                    "#ust1_1LevellInfo7"],
   autoRotSpeed: [-3]
 };
 let CameraKeyTrck1 = {
@@ -84,6 +94,8 @@ let CameraKeyTrck1 = {
   angelOy:      [0, -41,    50,    -22,   -22,     0,    10,  -7,   49,  37,     37,  10,        0],
   autoRotSpeed: [-3],
   divID: '#textblock1',  //ID блока, куда выводится информация
+  divLeft:[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+  divTop:[30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
   textIDResource: [ "#ust1_component1",
                     "#ust1_component3",
                     "#ust1_component4",
@@ -94,10 +106,26 @@ let CameraKeyTrck1 = {
                     "#ust1_component9",
                     "#ust1_component10",
                     "#ust1_component11",
-                    "#ust1_component12"
-  ]
+                    "#ust1_component12"  ]
 
 };
+function calcOYangel(vectorCamera) {
+  let axisX = new THREE.Vector3( -1, 0, 0 );
+  vectorCamera.y = 0;
+  if( (vectorCamera.x > 0 ) && (vectorCamera.z > 0) ) {
+    return THREE.Math.radToDeg(vectorCamera.angleTo(axisX)) - 90;
+  }
+  if( (vectorCamera.x > 0 ) && (vectorCamera.z < 0) ) {
+    return 90 + 90 - (THREE.Math.radToDeg(vectorCamera.angleTo(axisX)) - 90);
+  }
+  if( (vectorCamera.x < 0 ) && (vectorCamera.z < 0) ) {
+    return 180 - (THREE.Math.radToDeg(vectorCamera.angleTo(axisX)) - 90);
+  }
+  if( (vectorCamera.x < 0 ) && (vectorCamera.z > 0) ) {
+    return 270 + 90 + (THREE.Math.radToDeg(vectorCamera.angleTo(axisX)) - 90);
+  }
+  return 0;
+}
 function animateCamera() {
   let currentKey = 0;
   let localTime = 0;
@@ -119,22 +147,26 @@ function animateCamera() {
         console.log('%cAnim begin...', 'color: green;');
         let vectorCam = new THREE.Vector3( 0, 0, 0 );
         let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
-        let axisZ = new THREE.Vector3( 0, 0, 1 );
+        let axisZ = new THREE.Vector3( -1, 0, 0 );
         keyTrack.camLookAtx[0] = controls.target.x;
         keyTrack.camLookAty[0] = controls.target.y;
         keyTrack.camLookAtz[0] = controls.target.z;
         keyTrack.distance[0] = camera.position.distanceTo(controls.target);
         vectorCam.subVectors(camera.position, controls.target);
         keyTrack.angelPlaneXZ[0] = THREE.Math.radToDeg(vectorCam.angleTo(axisY)) - 90;
-        vectorCam.y = 0;
-        if(camera.position.x > 0) {
-          keyTrack.angelOy[0] = THREE.Math.radToDeg(vectorCam.angleTo(axisZ));
-        } else {
-          keyTrack.angelOy[0] = THREE.Math.radToDeg(vectorCam.angleTo(axisZ));
-        }
+        keyTrack.angelOy[0] = calcOYangel(vectorCam);
         keyTrack.autoRotSpeed[0] = controls.autoRotateSpeed;
 //--Вывод текстовой информации в диве
         if(keyTrack.textIDResource != null ) {
+          $(keyTrack.divID).css('top', function(index, value) {
+          let newTop = keyTrack.divTop[ 0 ] + "%";
+          return newTop;
+          });
+          $(keyTrack.divID).css('left', function(index, value) {
+          let newTop = keyTrack.divLeft[ 0 ] + "%";
+          return newTop;
+          });
+
           $(keyTrack.divID).hide().empty();
           $(keyTrack.divID).text( $( keyTrack.textIDResource[ currentKey ] ).text() );
           $(keyTrack.divID).delay(delayShowText).fadeIn(600).delay(keyTrack.pause[currentKey]*100/6 - delayShowText - 000).fadeOut(300);
@@ -164,11 +196,20 @@ function animateCamera() {
 
         localTime = 0;
         console.log(currentKey);
+        $(keyTrack.divID).hide().empty();
         currentKey++;
         deltaT = (keyTrack.times[currentKey + 1] - keyTrack.times[currentKey]) * keyTrack.timeScale;
 //--Вывод текстовой информации в диве
         if(keyTrack.textIDResource != null ) {
-          $(keyTrack.divID).hide().empty();
+          $(keyTrack.divID).css('top', function(index, value) {
+            let newTop = keyTrack.divTop[ currentKey ] + "%";
+            return newTop;
+          });
+          $(keyTrack.divID).css('left', function(index, value) {
+            let newTop = keyTrack.divLeft[ currentKey ] + "%";
+            return newTop;
+          });
+          // $(keyTrack.divID).hide().empty();
           $(keyTrack.divID).html( $( keyTrack.textIDResource[ currentKey ] ).html() );
           $(keyTrack.divID).delay(delayShowText).fadeIn(600).delay(keyTrack.pause[currentKey] *100/6 - delayShowText - 000).fadeOut(300);
         }
@@ -176,12 +217,13 @@ function animateCamera() {
         if(currentKey > keyTrack.times.length - 2) {
           if(!keyTrack.loop) {
             keyTrack.playOn = false;
-
-            if(keyTrack.divID) $(keyTrack.divID).hide().empty();
-            console.log('%c...anim complete', 'color: red;');
+            // if(keyTrack.divID) $(keyTrack.divID).hide().empty();
+            // console.log('%c...anim complete', 'color: red;');
             // console.log(CameraKeyTrck.playOn);
           }
           currentKey = 0;
+          console.log('%c...anim complete', 'color: red;');
+          localTime = 0;
           if(keyTrack.divID) $(keyTrack.divID).hide().empty();
         }
       }
@@ -207,7 +249,7 @@ let CameraKeyTrck = {
 function showCameraParam() {
   let vectorCam = new THREE.Vector3( 0, 0, 0 );
   let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
-  let axisZ = new THREE.Vector3( 0, 0, 1 );
+  let axisZ = new THREE.Vector3( -1, 0, 0 );
   let angelOy = 0;
   let camLookAtx = controls.target.x;
   let camLookAty = controls.target.y;
@@ -215,12 +257,8 @@ function showCameraParam() {
   let distance = camera.position.distanceTo(controls.target);
   vectorCam.subVectors(camera.position, controls.target);
   let angelPlaneXZ = THREE.Math.radToDeg(vectorCam.angleTo(axisY)) - 90;
-  vectorCam.y = 0;
-  if(camera.position.x > 0) {
-    angelOy = THREE.Math.radToDeg(vectorCam.angleTo(axisZ));
-  } else {
-    angelOy = THREE.Math.radToDeg(vectorCam.angleTo(axisZ));
-  }
+  angelOy = calcOYangel(vectorCam);
+
   console.log( 'CamX=%d CamY=%d CamZ=%d', camera.position.x, camera.position.y, camera.position.z);
   console.log( 'TarX=%d TarY=%d TarZ=%d', controls.target.x, controls.target.y, controls.target.z);
   console.log( 'dist=%d', distance);

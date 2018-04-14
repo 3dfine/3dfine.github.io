@@ -33,24 +33,15 @@ function showGeneralInfo() {
   rama.children[0].children[0].material = matUstRama;
   offRotate();
   startCameraAnim(CameraKeyTrckAllPos);
-
-  $("#textblock1").html( $("#text11").eq(0).html() );
-  $("#textblock1").fadeIn(500).delay(3000).fadeOut(500);
 }
 function showDetailInfo() {
   offRotate();
   barashki.children[0].visible = false;
   rama.children[0].children[0].material = matGhost;
   rama.children[0].children[1].visible = false;
+  vent_nasos_ventil.rotSpeed = 0.1;
+  vent_nasos_ventil2.rotSpeed = 0.1;
   startCameraAnim(CameraKeyTrck1);
-  if(vent_nasos_ventil.rotSpeed == 0)
-    vent_nasos_ventil.rotSpeed = 0.1;
-    else
-    vent_nasos_ventil.rotSpeed = 0;
-  if(vent_nasos_ventil2.rotSpeed == 0)
-    vent_nasos_ventil2.rotSpeed = 0.1;
-    else
-    vent_nasos_ventil2.rotSpeed = 0;
 }
 btnRotateCamera.style.opacity = 1.0;
 function toggleRotate() {
