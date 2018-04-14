@@ -1,7 +1,7 @@
 window.addEventListener( 'resize', onWindowResize, false );
 function onWindowResize( event ) {
-  width = window.innerWidth - 20;
-  height =  window.innerHeight - 20;
+  width = window.innerWidth - 00;
+  height =  window.innerHeight - 00;
   aspect = width/height;
   renderer.setSize( width, height );
   camera.aspect = aspect;

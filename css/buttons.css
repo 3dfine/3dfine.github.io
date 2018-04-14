@@ -41,7 +41,8 @@
 #controlPanel {
   width: 100%;
   position: absolute;
-  bottom: 0.2vmax;
+  bottom: 1.0vmax;
+  /* margin-bottom: 0.5vmax; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -1,5 +1,5 @@
 body {
-  /* margin: 10px; */
+  margin: 0px;
   overflow: hidden;
   background-color: #ffffff;
   font-family: 'Montserrat', sans-serif;
@@ -145,6 +145,6 @@ canvas {
   display: none;
   position: absolute;
   font-size:1.7vmin;
-  bottom: 0.1vmax;
-  right: 0.1vmax
+  bottom: 1.1vmax;
+  right: 1.4vmax
 }

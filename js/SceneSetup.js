@@ -1,9 +1,9 @@
 let width = 640;
 let height = 640;
 let aspect = 1.0;
-width = window.innerWidth - 20;
+width = window.innerWidth - 00;
 // height =  0.97 * window.innerHeight;
-height =  window.innerHeight - 20;
+height =  window.innerHeight - 00;
 aspect = width/height;
 
 let scene = new THREE.Scene();
