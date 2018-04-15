@@ -81,10 +81,10 @@ zaslonka2.rotation.y = THREE.Math.degToRad( -90 );
 
 ustVent1.add( vent_nasos_korp );
 ustVent1.add( vent_nasos_ventil );
-vent_nasos_ventil.rotSpeed = 0.0;
+ustVent1.rotSpeed = 0.0;   //пользовательское свойтво!!!
 ustVent2.add( vent_nasos_korp2 );
 ustVent2.add( vent_nasos_ventil2 );
-vent_nasos_ventil2.rotSpeed = 0.0;
+ustVent2.rotSpeed = 0.0;  //пользовательское свойтво!!!
 zaslonkaSborka1.add( zaslonka1_Rama );
 zaslonkaSborka1.add( zaslonka1 );
 zaslonkaSborka1.position.set( 393.977/2, 710.824/2, -2001.979/2);
@@ -95,6 +95,7 @@ zaslonkaSborka2.position.set( 0/2, 1264.692/2, -2195.049/2);
 // zaslonkaSborka.children[1].position.set( 0/2, 171.564/2, 219.614/2 );
 ventilatorOutSide.add( ventilatorOutSide_korp );
 ventilatorOutSide.add( ventilatorOutSide_lopasti );
+ventilatorOutSide.rotSpeed = 0.0; //пользовательское свойтво!!!
 //Рекуператор
 rekuperator.add( rekuperatorKorp );
 rekuperatorZaslon1.position.set( -269.554/2, 950.514/2, 112.29/2);

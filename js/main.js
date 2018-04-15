@@ -1,47 +1,19 @@
-//Add models in scene
-// SphereGeometry(radius : Float, widthSegments : Integer, heightSegments : Integer, phiStart : Float, phiLength : Float, thetaStart : Float, thetaLength : Float);
-// let geometry24 = new THREE.SphereGeometry( 500, 32, 32 );
-// let sphereG = new THREE.Mesh( geometry24, matSteelClear );
-// scene.add(sphereG);
-let selectedObjectMode = false;
-
-stoikiGroup.position.x = 2600;
+// stoikiGroup.position.x = 2600;
 // scene.add( stoikiGroup );
-
 scene.add( ustanovka );
-scene.add(potok1);
+scene.add( potok1 );
 
-// получаем ссылки на элементы DOM
-var param1Element = document.getElementById("param1");
-// создаём текстовые узлы, чтобы сэкономить немного браузерного времени
-var param1Node = document.createTextNode("");
-// добавляем текстовые узлы в нужные места
-param1Element.appendChild(param1Node);
-// задаём значения узлов
-param1Node.nodeValue = '3dfine@mail.ru';   // 2 десятичных знака
-let block = document.getElementById("block_resize"); // Получаем основной блок
-
-function selectObject() {
-  selectedObjectMode = !selectedObjectMode;
-  if(selectedObjectMode) {
-    btnSelectObject.style.opacity = 1.0;
-  } else {
-    btnSelectObject.style.removeProperty( 'opacity');
-  }
+function compareName(a,b) {
+  if (a.name < b.name)
+    return -1;
+  if (a.name > b.name)
+    return 1;
+  return 0;
 }
-function showGeneralInfo() {
+
+function setCamera() {
   rama.children[0].children[0].material = matUstRama;
-  offRotate();
-  startCameraAnim(CameraKeyTrckAllPos);
-}
-function showDetailInfo() {
-  offRotate();
-  barashki.children[0].visible = false;
-  rama.children[0].children[0].material = matGhost;
-  rama.children[0].children[1].visible = false;
-  vent_nasos_ventil.rotSpeed = 0.1;
-  vent_nasos_ventil2.rotSpeed = 0.1;
-  startCameraAnim(CameraKeyTrck1);
+  startCameraAnim(CameraKeyTrckDefPos);
 }
 btnRotateCamera.style.opacity = 1.0;
 function toggleRotate() {
@@ -53,28 +25,106 @@ function toggleRotate() {
     btnRotateCamera.style.removeProperty( 'opacity');
   }
 }
-function offRotate() {
+function offCameraRotate() {
   controls.autoRotate = false;
   //убираем свойство 'opacity' кнопки, чтобы востановить возможность изменения прозрачности при наведене мыши
   btnRotateCamera.style.removeProperty( 'opacity');
 }
-
-function setCamera() {
-  rama.children[0].children[0].material = matUstRama;
-  startCameraAnim(CameraKeyTrckDefPos);
+function stopCameraAnim() {
+  offCameraRotate();
+  CameraKeyTrck.playOn = false;
+  console.log('Anim stop');
+  plyRed.style.display = "none";
+  potok1.visible = false;
 }
 function startCameraAnim(keyFrTrack) {
   if(!CameraKeyTrck.playOn) {
     CameraKeyTrck = keyFrTrack;
     CameraKeyTrck.playOn = true;
+    return true;
+    }
+}
+let selectedObjectMode = false;
+function selectObject() {
+  selectedObjectMode = !selectedObjectMode;
+  if( selectedObjectMode ) {
+    rama.children[0].children[1].visible = false;
+    btnSelectObject.style.opacity = 1.0;
+  } else {
+    rama.children[0].children[1].visible = true;
+    btnSelectObject.style.removeProperty( 'opacity');
   }
 }
-function stopCameraAnim() {
-  if(CameraKeyTrck.playOn) {
-    CameraKeyTrck.playOn = false;
-    console.log('Anim stop');
+function showGeneralInfo() {
+  if( startCameraAnim( CameraKeyTrckAllPos ) ) {
+    //показ красного треуголька - ознаачет, что воспроизводится анимация
+    let coord = btnShow1LevellInfo.getBoundingClientRect();
+    plyRed.style.left = ( coord.x + coord.width / 2 ) + "px";
+    plyRed.style.top = ( coord.y + 0 * coord.height / 2 ) + "px";
+    plyRed.style.display = "block";
+
+    if(!potok1.visible) { //если показывается режим работы - поток виден, материал рамы не меняем
+      rama.children[0].children[0].material = matUstRama;
+    }
   }
 }
+function showDetailInfo() {
+  if( startCameraAnim( CameraKeyTrck1 ) ) {
+    //показ красного треуголька - ознаачет, что воспроизводится анимация
+    let coord = btnShow2LevellInfo.getBoundingClientRect();
+    plyRed.style.left = ( coord.x + coord.width / 2 ) + "px";
+    plyRed.style.top = ( coord.y + 0 * coord.height / 2 ) + "px";
+    plyRed.style.display = "block";
+
+    barashki.children[0].visible = false;
+    rama.children[0].children[0].material = matGhost;
+    rama.children[0].children[1].visible = false;
+    vent_nasos_ventil.rotSpeed = 0.1;
+    vent_nasos_ventil2.rotSpeed = 0.1;
+  }
+}
+function showHowItWork() {
+  offCameraRotate();
+  startCameraAnim(CameraKeyTrckFrontPos);
+  setTimeout(holodUst1Mode_1, 400);
+  // holodUstMode_1();
+}
+function showHideBronya() {
+  // rama.children[0].children[0].material = matUstRama;
+  rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
+  barashki.children[0].visible = !barashki.children[0].visible;
+}
+
+btnSelectObject.addEventListener( "click" , selectObject );
+btnShow2LevellInfo.addEventListener( "click" , showDetailInfo );
+btnShow1LevellInfo.addEventListener( "click" , showGeneralInfo );
+btnShowHideBronya.addEventListener( "click" , showHideBronya );
+btnRotateCamera.addEventListener( "click" , toggleRotate );
+btnShowHowItWork.addEventListener( "click" , showHowItWork );
+btnResetCemera.addEventListener( "click" , setCamera );
+btnStopAnim.addEventListener( "click" , stopCameraAnim );
+//во весь экран
+btnFullscrn.addEventListener( "click" , toggleFullScreen );
+document.addEventListener("keydown", function(e) {
+  if (e.keyCode == 13) {
+    toggleFullScreen();
+  }
+}, false);
+// overlayStl.style.left = 100 + 'px';
+
+//Add models in scene
+// SphereGeometry(radius : Float, widthSegments : Integer, heightSegments : Integer, phiStart : Float, phiLength : Float, thetaStart : Float, thetaLength : Float);
+// let geometry24 = new THREE.SphereGeometry( 500, 32, 32 );
+// let sphereG = new THREE.Mesh( geometry24, matSteelClear );
+// scene.add(sphereG);
+
+// var matLine = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 1 } );
+// var geometry = new THREE.Geometry();
+// geometry.vertices.push(new THREE.Vector3( -100, 0, 0) );
+// geometry.vertices.push(new THREE.Vector3( 100, 0, 0) );
+// // geometry.vertices.push(new THREE.Vector3( 10, 0, 0) );
+// var line = new THREE.Line( geometry, matLine );
+// scene.add( line );
 
 //----------------------------------------------------------
 // создаём треки ключей анимации
@@ -98,45 +148,3 @@ function stopCameraAnim() {
 // clipAction.play();
 // clipAction.paused = true;
 //----------------------------------------------------------
-function compareName(a,b) {
-  if (a.name < b.name)
-    return -1;
-  if (a.name > b.name)
-    return 1;
-  return 0;
-}
-function showHowItWork() {
-  offRotate();
-  startCameraAnim(CameraKeyTrckFrontPos);
-  setTimeout(holodUstMode_1, 400);
-  // holodUstMode_1();
-}
-function showHideBronya() {
-  rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
-  barashki.children[0].visible = !barashki.children[0].visible;
-}
-
-btnSelectObject.addEventListener( "click" , selectObject );
-btnShow2LevellInfo.addEventListener( "click" , showDetailInfo );
-btnShow1LevellInfo.addEventListener( "click" , showGeneralInfo );
-btnShowHideBronya.addEventListener( "click" , showHideBronya );
-btnRotateCamera.addEventListener( "click" , toggleRotate );
-btnShowHowItWork.addEventListener( "click" , showHowItWork );
-btnResetCemera.addEventListener( "click" , setCamera );
-btnStopAnim.addEventListener( "click" , stopCameraAnim );
-//во весь экран
-btnFullscrn.addEventListener( "click" , toggleFullScreen );
-document.addEventListener("keydown", function(e) {
-  if (e.keyCode == 13) {
-    toggleFullScreen();
-  }
-}, false);
-// overlayStl.style.left = 100 + 'px';
-
-var matLine = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 1 } );
-var geometry = new THREE.Geometry();
-geometry.vertices.push(new THREE.Vector3( -100, 0, 0) );
-geometry.vertices.push(new THREE.Vector3( 100, 0, 0) );
-// geometry.vertices.push(new THREE.Vector3( 10, 0, 0) );
-var line = new THREE.Line( geometry, matLine );
-scene.add( line );

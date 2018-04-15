@@ -26,7 +26,7 @@ globalCameraPos(cameraPosSetupDef);
 controls.maxPolarAngle = Math.PI * 0.75;
 controls.noZoom = false;
 controls.zoomSpeed = 0.8;
-controls.autoRotate = true; //true
+controls.autoRotate = false; //true
 // controls.autoRotateSpeed = 1.5; // 30 seconds per round when fps is 60
 controls.noRotate = false;
 controls.rotateSpeed = 0.8;

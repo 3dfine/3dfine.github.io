@@ -90,5 +90,19 @@
 }
 #btnTemp {
   background-color: #ff0000;
+  /* display: none; */
+}
+#plyRed {
+  background-repeat     : no-repeat;
+  background-size       : cover;
+  background-position-x : 50%;
+  background-position-y : 50%;
+  height: 2.0vmax;
+  width: 2.0vmax;
+  background-image: url(../images/playRed.png);
+  position: absolute;
+  top: 75px;
+  left: 75px;
+  opacity: 0.8;
   display: none;
 }
