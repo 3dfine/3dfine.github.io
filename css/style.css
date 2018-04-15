@@ -148,3 +148,20 @@ canvas {
   bottom: 1.1vmax;
   right: 1.4vmax
 }
+
+#help1 {
+  background-image: url(../images/help.svg);
+  background-repeat     : no-repeat;
+  background-size       : cover;
+  background-position-x : 50%;
+  background-position-y : 50%;
+  height: 30vmax;
+  width: 30vmax;
+
+  opacity: 0.8;
+  display: none;
+  position: absolute;
+
+  top: 20vmin;
+  left: 35vmax
+}

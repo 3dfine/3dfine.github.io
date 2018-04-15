@@ -62,6 +62,11 @@ window.onload = function () {
     .hide()
     .delay(4000)
     .fadeIn(600);
+  $("#help1")
+    .delay(3000)
+    .fadeIn(600)
+    .delay(5000)
+    .fadeOut(600);
 }
 
 let animateCamera1 = animateCamera();
