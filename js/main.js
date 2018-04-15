@@ -25,6 +25,10 @@ function toggleRotate() {
     btnRotateCamera.style.removeProperty( 'opacity');
   }
 }
+function onCameraRotate() {
+  controls.autoRotate = true;
+  btnRotateCamera.style.opacity = 1.0;
+}
 function offCameraRotate() {
   controls.autoRotate = false;
   //убираем свойство 'opacity' кнопки, чтобы востановить возможность изменения прозрачности при наведене мыши
@@ -39,6 +43,7 @@ function stopCameraAnim() {
 }
 function startCameraAnim(keyFrTrack) {
   if(!CameraKeyTrck.playOn) {
+    offCameraRotate();
     CameraKeyTrck = keyFrTrack;
     CameraKeyTrck.playOn = true;
     return true;
@@ -59,7 +64,7 @@ function showGeneralInfo() {
   if( startCameraAnim( CameraKeyTrckAllPos ) ) {
     //показ красного треуголька - ознаачет, что воспроизводится анимация
     let coord = btnShow1LevellInfo.getBoundingClientRect();
-    plyRed.style.left = ( coord.x + coord.width / 2 ) + "px";
+    plyRed.style.left = ( coord.x + 1 * coord.width / 2 ) + "px";
     plyRed.style.top = ( coord.y + 0 * coord.height / 2 ) + "px";
     plyRed.style.display = "block";
 
@@ -72,7 +77,7 @@ function showDetailInfo() {
   if( startCameraAnim( CameraKeyTrck1 ) ) {
     //показ красного треуголька - ознаачет, что воспроизводится анимация
     let coord = btnShow2LevellInfo.getBoundingClientRect();
-    plyRed.style.left = ( coord.x + coord.width / 2 ) + "px";
+    plyRed.style.left = ( coord.x + 1 * coord.width / 2 ) + "px";
     plyRed.style.top = ( coord.y + 0 * coord.height / 2 ) + "px";
     plyRed.style.display = "block";
 

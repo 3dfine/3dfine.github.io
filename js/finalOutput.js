@@ -49,7 +49,7 @@ function onDocumentMouseMove( event ) {
 window.onload = function () {
   matHolodSetup();
   startCameraAnim(CameraKeyTrckDefPos);
-  controls.autoRotate = true;
+  onCameraRotate();
   $("#controlPanel").css("display", "flex")
     .hide()
     .delay(2000)

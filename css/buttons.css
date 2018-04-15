@@ -12,11 +12,26 @@
   /* color: white; */
   /* font-family: monospace; */
   /* padding: 1em; */
-  /* border-radius: 0.3em;
-  border: 1px solid #111111; */
+  /* border-radius: 0.3em;*/
+  /* border: 1px solid #111111; */
   opacity: 0.3;
 }
 .buttonA:hover {
+  opacity: 0.6;
+}
+.buttonB {
+  background-repeat     : no-repeat;
+  background-size       : cover;
+  background-position-x : 50%;
+  background-position-y : 50%;
+  margin-left: 0.2vmax;
+  margin-right: 0.2vmax;
+  cursor: pointer;
+  height: 3.0vmax;
+  width: 3.0vmax;
+  opacity: 0.3;
+}
+.buttonB:hover {
   opacity: 0.6;
 }
 #cameraControl {
@@ -90,17 +105,19 @@
 }
 #btnTemp {
   background-color: #ff0000;
-  /* display: none; */
+  display: none;
 }
 #plyRed {
+  position: absolute;
+  background-image: url(../images/playRed.png);
   background-repeat     : no-repeat;
   background-size       : cover;
   background-position-x : 50%;
   background-position-y : 50%;
+  /* margin-left: 0.5vmax;
+  margin-right: 0.5vmax; */
   height: 2.0vmax;
   width: 2.0vmax;
-  background-image: url(../images/playRed.png);
-  position: absolute;
   top: 75px;
   left: 75px;
   opacity: 0.8;

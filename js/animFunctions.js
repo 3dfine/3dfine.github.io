@@ -1,15 +1,3 @@
-let cameraPos = function (_camera, _controls, cameraKeyTrck ) {
-  let vectorCam = new THREE.Vector3( 0, 0, 1 );
-  let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
-  let axisX = new THREE.Vector3( 1, 0, 0 );
-  vectorCam.applyAxisAngle( axisX, THREE.Math.degToRad( cameraKeyTrck.angelPlaneXZ ) ).normalize();
-  vectorCam.applyAxisAngle( axisY, THREE.Math.degToRad( cameraKeyTrck.angelOz ) ).normalize();
-  _camera.position.addVectors( cameraKeyTrck.camLookAt, vectorCam.multiplyScalar( cameraKeyTrck.distance ) );
-  _controls.target.x = cameraKeyTrck.camLookAt.x;
-  _controls.target.y = cameraKeyTrck.camLookAt.y;
-  _controls.target.z = cameraKeyTrck.camLookAt.z;
-  _controls.autoRotateSpeed = cameraKeyTrck.autoRotSpeed;
-}
 let globalCameraPos = function (cameraPosSetup ) {
   let vectorCam = new THREE.Vector3( 0, 0, 1 );
   let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y
@@ -146,6 +134,7 @@ function animateCamera() {
       currentKey = 0;
       localTime = 0;
       if(keyTrack.divID) $(keyTrack.divID).hide().empty();
+      plyRed.style.display = "none";
       return;
     }
     if(keyTrack.playOn) {
@@ -235,6 +224,7 @@ function animateCamera() {
           console.log('%c...anim complete', 'color: red;');
           localTime = 0;
           if(keyTrack.divID) $(keyTrack.divID).hide().empty();
+          plyRed.style.display = "none";
         }
       }
     }

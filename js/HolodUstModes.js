@@ -32,8 +32,8 @@ function holodUst1Mode_1() {
     rotateGroup3D(zaslonka1.children[0].children, -90, 'oZ');
     rotateGroup3D(zaslonka2.children[0].children, -90, 'oZ');
     //открытие заслонок рекуператора
-    rotateGroup3D(rekuperatorZaslon1.children[0].children, 0, 'oX');
-    rotateGroup3D(rekuperatorZaslon2.children[0].children, 0, 'oX');
+    // rotateGroup3D(rekuperatorZaslon1.children[0].children, 0, 'oX');
+    // rotateGroup3D(rekuperatorZaslon2.children[0].children, 0, 'oX');
     rotateGroup3D(rekuperatorZaslon3.children[0].children, 0, 'oX');
   }
   else {
@@ -46,8 +46,8 @@ function holodUst1Mode_1() {
     rotateGroup3D(diffuzorLopasti.children[0].children, 0, 'oX');
     rotateGroup3D(zaslonka1.children[0].children, 0, 'oZ');
     rotateGroup3D(zaslonka2.children[0].children, 0, 'oZ');
-    rotateGroup3D(rekuperatorZaslon1.children[0].children, -90, 'oX');
-    rotateGroup3D(rekuperatorZaslon2.children[0].children, -90, 'oX');
+    // rotateGroup3D(rekuperatorZaslon1.children[0].children, -90, 'oX');
+    // rotateGroup3D(rekuperatorZaslon2.children[0].children, -90, 'oX');
     rotateGroup3D(rekuperatorZaslon3.children[0].children, -90, 'oX');
   }
 }
