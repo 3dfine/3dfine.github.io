@@ -75,6 +75,7 @@
 }
 #btnSelectObject {
   background-image: url(../images/select.png);
+  display: none;
 }
 #btnSelectObject:hover {
   opacity: 0.8;
@@ -86,7 +87,10 @@
   background-image: url(../images/search-512.png);
 }
 #btnShowHowItWork {
-  background-image: url(../images/howItWork.png);
+  background-image: url(../images/howItWork1.png);
+}
+#btnShowHowItWork2 {
+  background-image: url(../images/howItWork2.png);
 }
 #btnShowHideBronya {
   background-image: url(../images/bronya.png);
@@ -116,10 +120,10 @@
   background-position-y : 50%;
   /* margin-left: 0.5vmax;
   margin-right: 0.5vmax; */
-  height: 2.0vmax;
-  width: 2.0vmax;
-  top: 75px;
-  left: 75px;
+  height: 4.0vmax;
+  width: 4.0vmax;
+  top: 80px;
+  left: 8px;
   opacity: 0.8;
   display: none;
 }

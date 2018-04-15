@@ -155,6 +155,7 @@ function animateCamera() {
         keyTrack.autoRotSpeed[0] = controls.autoRotateSpeed;
         //--Вывод текстовой информации в диве
         if(keyTrack.textIDResource != null ) {
+          $(keyTrack.divID).hide().empty();          
           $(keyTrack.divID).css('top', function(index, value) {
           let newTop = keyTrack.divTop[ 0 ] + "%";
           return newTop;
@@ -165,7 +166,6 @@ function animateCamera() {
           });
           $(keyTrack.divID).css('background-color', keyTrack.divColor);
           $(keyTrack.divID).css('font-size', keyTrack.divFontSize);
-          $(keyTrack.divID).hide().empty();
           $(keyTrack.divID).text( $( keyTrack.textIDResource[ currentKey ] ).text() );
           $(keyTrack.divID).delay(delayShowText).fadeIn(600).delay(keyTrack.pause[currentKey]*100/6 - delayShowText - 000).fadeOut(300);
         }

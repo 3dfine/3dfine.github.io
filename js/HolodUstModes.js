@@ -32,8 +32,8 @@ function holodUst1Mode_1() {
     rotateGroup3D(zaslonka1.children[0].children, -90, 'oZ');
     rotateGroup3D(zaslonka2.children[0].children, -90, 'oZ');
     //открытие заслонок рекуператора
-    // rotateGroup3D(rekuperatorZaslon1.children[0].children, 0, 'oX');
-    // rotateGroup3D(rekuperatorZaslon2.children[0].children, 0, 'oX');
+    rotateGroup3D(rekuperatorZaslon1.children[0].children, -90, 'oX');
+    rotateGroup3D(rekuperatorZaslon2.children[0].children, -90, 'oX');
     rotateGroup3D(rekuperatorZaslon3.children[0].children, 0, 'oX');
   }
   else {
@@ -46,9 +46,54 @@ function holodUst1Mode_1() {
     rotateGroup3D(diffuzorLopasti.children[0].children, 0, 'oX');
     rotateGroup3D(zaslonka1.children[0].children, 0, 'oZ');
     rotateGroup3D(zaslonka2.children[0].children, 0, 'oZ');
-    // rotateGroup3D(rekuperatorZaslon1.children[0].children, -90, 'oX');
-    // rotateGroup3D(rekuperatorZaslon2.children[0].children, -90, 'oX');
+    rotateGroup3D(rekuperatorZaslon1.children[0].children, 0, 'oX');
+    rotateGroup3D(rekuperatorZaslon2.children[0].children, 0, 'oX');
     rotateGroup3D(rekuperatorZaslon3.children[0].children, -90, 'oX');
+  }
+}
+//Установка 2 режима работы первой установки
+function holodUst1Mode_2() {
+  potok2.visible = !potok2.visible;
+  //сортировка групп объектов
+  potok2.children[0].children.sort(compareName);
+  rekuperatorKorp.children[0].children.sort(compareName);
+  //раскрашивание потока
+  for(let i=0; i<potok2.children[0].children.length; i++) {
+    if(i < 152 )
+      potok2.children[0].children[i].material = matPotokPink;
+    else
+      potok2.children[0].children[i].material = matPotokRed;
+  }
+  if(potok2.visible) {
+    rama.children[0].children[1].visible = false;
+    barashki.children[0].visible  = false;
+    rama.children[0].children[0].material = matGhost;
+    ventilatorOutSide.rotSpeed = 0.0;
+    ustVent1.rotSpeed = 0.1;
+    ustVent2.rotSpeed = 0.0;
+    // поворот лопастей диффузора на сопле
+    rotateGroup3D(diffuzorLopasti.children[0].children, 30, 'oX');
+    //открытие внешних заслонок
+    rotateGroup3D(zaslonka1.children[0].children, 0, 'oZ');
+    rotateGroup3D(zaslonka2.children[0].children, 0, 'oZ');
+    //открытие заслонок рекуператора
+    rotateGroup3D(rekuperatorZaslon1.children[0].children, 0, 'oX');
+    rotateGroup3D(rekuperatorZaslon2.children[0].children, -90, 'oX');
+    rotateGroup3D(rekuperatorZaslon3.children[0].children, -90, 'oX');
+  }
+  else {
+    rama.children[0].children[1].visible = true;
+    barashki.children[0].visible  = true;
+    rama.children[0].children[0].material = matUstRama;
+    ventilatorOutSide.rotSpeed = 0.0;
+    ustVent1.rotSpeed = 0;
+    ustVent2.rotSpeed = 0;
+    rotateGroup3D(diffuzorLopasti.children[0].children, 0, 'oX');
+    rotateGroup3D(zaslonka1.children[0].children, 0, 'oZ');
+    rotateGroup3D(zaslonka2.children[0].children, 0, 'oZ');
+    rotateGroup3D(rekuperatorZaslon1.children[0].children, -90, 'oX');
+    rotateGroup3D(rekuperatorZaslon2.children[0].children, 0, 'oX');
+    rotateGroup3D(rekuperatorZaslon3.children[0].children, 0, 'oX');
   }
 }
 //функция управления анимируемыми элементами первой холодильной установки
@@ -65,6 +110,11 @@ function animHolodUst1() {
   if( potok1.visible ) {
     for( let i=0; i<potok1.children[0].children.length; i++ ) {
       potok1.children[0].children[i].scale.y = potok1.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - tick) + 1.0);
+    }
+  }
+  if( potok2.visible ) {
+    for( let i=0; i<potok2.children[0].children.length; i++ ) {
+      potok2.children[0].children[i].scale.y = potok2.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - tick) + 1.0);
     }
   }
 }

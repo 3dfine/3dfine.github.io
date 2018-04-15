@@ -10,6 +10,10 @@ let potok1 = new THREE.Object3D();
 loadFBXModel( potok1, 0.5, matPotokDef, 'models/fbx/ustanovka/potok1.FBX' );
 potok1.rotation.y = THREE.Math.degToRad( -90 );
 potok1.visible = false;
+let potok2 = new THREE.Object3D();
+loadFBXModel( potok2, 0.5, matPotokDef, 'models/fbx/ustanovka/potok2.FBX' );
+potok2.rotation.y = THREE.Math.degToRad( -90 );
+potok2.visible = false;
 
 let rama = new THREE.Object3D();
 loadFBXModel( rama, 0.5, matUstRama, 'models/fbx/ustanovka/rama.FBX' );
@@ -35,11 +39,11 @@ let rekuperatorKorp = new THREE.Object3D();
 loadFBXModel( rekuperatorKorp, 0.5, matRekuperator, 'models/fbx/ustanovka/rekuperatorKorp.FBX' );
 
 let rekuperatorZaslon1 = new THREE.Object3D();
-loadFBXModel( rekuperatorZaslon1, 0.5, matUstVent2, 'models/fbx/ustanovka/rekuperatorZaslon1.FBX' );
+loadFBXModel( rekuperatorZaslon1, 0.5, matUstRama, 'models/fbx/ustanovka/rekuperatorZaslon1.FBX' );
 let rekuperatorZaslon2 = new THREE.Object3D();
-loadFBXModel( rekuperatorZaslon2, 0.5, matUstVent2, 'models/fbx/ustanovka/rekuperatorZaslon1.FBX' );
+loadFBXModel( rekuperatorZaslon2, 0.5, matUstRama, 'models/fbx/ustanovka/rekuperatorZaslon1.FBX' );
 let rekuperatorZaslon3 = new THREE.Object3D();
-loadFBXModel( rekuperatorZaslon3, 0.5, matUstVent2, 'models/fbx/ustanovka/rekuperatorZaslon3.FBX' );
+loadFBXModel( rekuperatorZaslon3, 0.5, matUstRama, 'models/fbx/ustanovka/rekuperatorZaslon3.FBX' );
 
 let filtrKorman1 = new THREE.Object3D();
 loadFBXModel( filtrKorman1, 0.5, matFiltrKorman, 'models/fbx/ustanovka/filtrKasetni.FBX' );

@@ -2,6 +2,7 @@
 // scene.add( stoikiGroup );
 scene.add( ustanovka );
 scene.add( potok1 );
+scene.add( potok2 );
 
 function compareName(a,b) {
   if (a.name < b.name)
@@ -36,13 +37,16 @@ function offCameraRotate() {
 }
 function stopCameraAnim() {
   offCameraRotate();
+  $("#textblock1").hide().empty();
   CameraKeyTrck.playOn = false;
   console.log('Anim stop');
   plyRed.style.display = "none";
   potok1.visible = false;
+  potok2.visible = false;
 }
 function startCameraAnim(keyFrTrack) {
   if(!CameraKeyTrck.playOn) {
+    // $(keyTrack.divID).hide().empty();
     offCameraRotate();
     CameraKeyTrck = keyFrTrack;
     CameraKeyTrck.playOn = true;
@@ -63,9 +67,9 @@ function selectObject() {
 function showGeneralInfo() {
   if( startCameraAnim( CameraKeyTrckAllPos ) ) {
     //показ красного треуголька - ознаачет, что воспроизводится анимация
-    let coord = btnShow1LevellInfo.getBoundingClientRect();
-    plyRed.style.left = ( coord.x + 1 * coord.width / 2 ) + "px";
-    plyRed.style.top = ( coord.y + 0 * coord.height / 2 ) + "px";
+    // let coord = btnShow1LevellInfo.getBoundingClientRect();
+    // plyRed.style.left = ( coord.x + 1 * coord.width / 2 ) + "px";
+    // plyRed.style.top = ( coord.y + 0 * coord.height / 2 ) + "px";
     plyRed.style.display = "block";
 
     if(!potok1.visible) { //если показывается режим работы - поток виден, материал рамы не меняем
@@ -76,9 +80,9 @@ function showGeneralInfo() {
 function showDetailInfo() {
   if( startCameraAnim( CameraKeyTrck1 ) ) {
     //показ красного треуголька - ознаачет, что воспроизводится анимация
-    let coord = btnShow2LevellInfo.getBoundingClientRect();
-    plyRed.style.left = ( coord.x + 1 * coord.width / 2 ) + "px";
-    plyRed.style.top = ( coord.y + 0 * coord.height / 2 ) + "px";
+    // let coord = btnShow2LevellInfo.getBoundingClientRect();
+    // plyRed.style.left = ( coord.x + 1 * coord.width / 2 ) + "px";
+    // plyRed.style.top = ( coord.y + 0 * coord.height / 2 ) + "px";
     plyRed.style.display = "block";
 
     barashki.children[0].visible = false;
@@ -89,9 +93,17 @@ function showDetailInfo() {
   }
 }
 function showHowItWork() {
+  potok2.visible = false;
   offCameraRotate();
   startCameraAnim(CameraKeyTrckFrontPos);
   setTimeout(holodUst1Mode_1, 400);
+  // holodUstMode_1();
+}
+function showHowItWork2() {
+  potok1.visible = false;
+  offCameraRotate();
+  startCameraAnim(CameraKeyTrckFrontPos);
+  setTimeout(holodUst1Mode_2, 400);
   // holodUstMode_1();
 }
 function showHideBronya() {
@@ -106,6 +118,7 @@ btnShow1LevellInfo.addEventListener( "click" , showGeneralInfo );
 btnShowHideBronya.addEventListener( "click" , showHideBronya );
 btnRotateCamera.addEventListener( "click" , toggleRotate );
 btnShowHowItWork.addEventListener( "click" , showHowItWork );
+btnShowHowItWork2.addEventListener( "click" , showHowItWork2 );
 btnResetCemera.addEventListener( "click" , setCamera );
 btnStopAnim.addEventListener( "click" , stopCameraAnim );
 //во весь экран

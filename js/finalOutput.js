@@ -65,8 +65,12 @@ window.onload = function () {
   $("#help1")
     .delay(3000)
     .fadeIn(600)
-    .delay(5000)
+    .delay(8000)
     .fadeOut(600);
+  rekuperatorKorp.children[0].children[0].material = matRekuperator;
+  rekuperatorKorp.children[0].children[1].material = matSteel;
+  rekuperatorKorp.children[0].children[2].material = matSteel;
+  rekuperatorKorp.children[0].children[3].material = matSteel;
 }
 
 let animateCamera1 = animateCamera();
