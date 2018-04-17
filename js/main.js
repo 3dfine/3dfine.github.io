@@ -116,6 +116,7 @@ function selectModels() {
   ustanovka.visible = !ustanovka.visible;
 
   if(ustanovka.visible) {
+    setCamera();
     $("#controlPanel").css("display", "flex")
       .hide()
       .fadeIn(100);
@@ -124,6 +125,11 @@ function selectModels() {
     controls.maxPolarAngle = Math.PI * 0.75;
   }
   if(stoikiGroup.visible) {
+    potok1.visible = false;
+    potok2.visible = false;
+    stopCameraAnim();
+    setCamera();
+    onCameraRotate();
     controlPanel.style.display='none';
     btnModelsSelect2.style.display='block';
     btnModelsSelect1.style.display='none';
