@@ -144,7 +144,7 @@
   background-image: url(../images/stoika.png);
   height: 16.0vmax;
   width: 8.0vmax;
-  display: block;
+  display: none;
 }
 #btnModelsSelect2 {
   background-image: url(../images/RoofTop1_perspec.png);

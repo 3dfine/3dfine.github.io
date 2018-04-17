@@ -53,23 +53,23 @@ window.onload = function () {
   onCameraRotate();
   $("#controlPanel").css("display", "flex")
     .hide()
-    .delay(2000)
+    .delay(4000)
     .fadeIn(600);
   $("#cameraControl").css("display", "flex")
     .hide()
-    .delay(2000)
+    .delay(4000)
     .fadeIn(600);
   $("#copyRight").css("display", "flex")
     .hide()
     .delay(4000)
     .fadeIn(600);
   $("#help1")
-    .delay(3000)
+    .delay(2000)
     .fadeIn(600)
     .delay(8000)
     .fadeOut(600);
-  $("#btnModelsSelect")
-    .delay(2000)
+  $("#btnModelsSelect1")
+    .delay(4000)
     .fadeIn(600);
   rekuperatorKorp.children[0].children[0].material = matRekuperator;
   rekuperatorKorp.children[0].children[1].material = matSteel;
