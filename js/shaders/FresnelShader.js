@@ -40,7 +40,7 @@ THREE.FresnelShader = {
 
 			"vReflect = reflect( I, worldNormal );",
 
-"viewNormal = 0.4 * dot( I, vReflect ) / (length(I)*length(vReflect))+ 0.1; ",
+"viewNormal = 0.4 * dot( I, vReflect ) / ( length(I)*length( vReflect ) ) + 0.1; ",
 
 			"vRefract[0] = refract( normalize( I ), worldNormal, mRefractionRatio );",
 			"vRefract[1] = refract( normalize( I ), worldNormal, mRefractionRatio * 0.99 );",
@@ -75,8 +75,8 @@ THREE.FresnelShader = {
 			"refractedColor.b = textureCube( tCube, vec3( -vRefract[2].x, vRefract[2].yz ) ).b;",
 			"refractedColor.a = viewNormal;",
 
-			//"gl_FragColor = mix( refractedColor, reflectedColor, clamp( vReflectionFactor, 0.0, 1.0 ) );",
-			"gl_FragColor = reflectedColor;",
+			"gl_FragColor = mix( refractedColor, reflectedColor, clamp( vReflectionFactor, 0.0, 1.0 ) );",
+			// "gl_FragColor = ;reflectedColor;",
 		"}"
 
 	].join( "\n" )

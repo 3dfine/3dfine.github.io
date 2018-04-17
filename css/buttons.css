@@ -127,3 +127,31 @@
   opacity: 0.8;
   display: none;
 }
+.modelsSelect {
+  position: absolute;
+  background-repeat     : no-repeat;
+  background-size       : cover;
+  background-position-x : 50%;
+  background-position-y : 50%;
+  margin-left: 0.5vmax;
+  margin-right: 0.5vmax;
+  bottom: 1.0vmax;
+  left: 1.0vmax;
+  opacity: 0.5;
+  cursor: pointer;
+}
+#btnModelsSelect1 {
+  background-image: url(../images/stoika.png);
+  height: 16.0vmax;
+  width: 8.0vmax;
+  display: block;
+}
+#btnModelsSelect2 {
+  background-image: url(../images/RoofTop1_perspec.png);
+  height: 16.0vmax;
+  width: 16.0vmax;
+  display: none;
+}
+.modelsSelect:hover {
+  opacity: 1.0;
+}

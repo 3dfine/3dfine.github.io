@@ -41,6 +41,9 @@
       <div><span id="param2"></span></div>
     </div>
 
+    <div class = "modelsSelect" id = "btnModelsSelect1"></div>
+    <div class = "modelsSelect" id = "btnModelsSelect2"></div>
+
     <div class = "cntrlPanel" id="cameraControl">
       <div class = "buttonB" title="Сбросить камеру" id="btnResetCemera"></div>
       <div class = "buttonB" title="Вращать камеру" id="btnRotateCamera"></div>
@@ -60,6 +63,7 @@
     </div>
 
     <div id = "textblock1"></div>
+
     <div id = "help1"></div>
 
     <div id="loading">
@@ -70,6 +74,7 @@
     </div>
 
     <div id = "copyRight" >&copy A.E. Zaripov, 2018</div>
+
   </div>
   <!-- <div class = "colorpicker1" id="overlaySteel"></div> -->
   <!-- <div id="container" class="testt"></div> -->
@@ -111,14 +116,36 @@
   <script src="js/GhostShader.js"></script>
   <script src="js/materials.js"></script>
   <script src="js/matHolodSetup.js"></script>
+  <script src="js/matStoikiSetup.js"></script>
   <script src="js/loadHolodUst.js"></script>
   <script src="js/loadStoiki.js"></script>
 
   <script src="js/controls/OrbitControls.js"></script>
 
-  <script src="js/main.min.js"></script>
+  <script src="js/GUIFunctions.js"></script>
+  <script src="js/easingFunc.js"></script>
+
+  <script src="js/animFunctions.js"></script>
+
+  <script src="js/SceneSetup.js"></script>
+  <script src="js/HolodUstModes.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/finalOutput.js"></script>
+
+  <!-- <script src="js/main.min.js"></script> -->
 
   <section style = "display: none">
+    <p>Современная экономичная климатическая установка.</p>
+    <p>Эргономичный дизайн вписывается в пространства с высокими эстетическими требованиями.</p>
+    <p>Надёжная и эффективная работа обеспечивает соответвующий уровень комфорта в помещениях.</p>
+    <p>Предназначено для обеспечения поддержания в помещении необходимой температуры воздуха.</p>
+    <p>Применяется для кондиционирования помещений, имеющих большую площадь, или же состоящих из нескольких комнат, соединенных общей вентиляционной системой.</p>
+    <p>Установить оборудование можно как на крыше, так и на специальных рамных конструкциях.</p>
+    <p>Высокая производительность, эффективно для оснащения торговых центров, кинотеатров, спортивных объектов.</p>
+    <p>Может быть оборудовано специальными приспособлениями для подогрева воздуха, поступающего с улицы.</p>
+    <p>Наиболее целесообразна установка на одно - и двухэтажных зданиях, имеющих большую площадь внутренних помещений.</p>
+    <p>Помогает сэкономить на покупке дополнительного отопительного оборудования.</p>
+    <p>Несомненным преимуществом является надежность и простота в эксплуатации, а также то, что они не портят дизайн своим внешним видом.</p>
     <p id = "ust1_1LevellInfo1">Эргономичный дизайн вписывается в пространства с высокими эстетическими требованиями</p>
     <p id = "ust1_1LevellInfo2">Надёжная и эффективная работа обеспечивает соответвующий уровень комфорта в помещениях</p>
     <p id = "ust1_1LevellInfo3">Предназначено для обеспечения поддержания в помещении необходимой температуры воздуха</p>
@@ -126,6 +153,7 @@
     <p id = "ust1_1LevellInfo5">Установить оборудование можно как на крыше, так и на специальных рамных конструкциях</p>
     <p id = "ust1_1LevellInfo6">Высокая производительность, эффективно для оснащения торговых центров, кинотеатров, спортивных объектов</p>
     <p id = "ust1_1LevellInfo7">Помогает сэкономить на покупке дополнительного отопительного оборудования</p>
+
     <p id = "ust1_component1">Осевые вентиляторы конденсатора</p>
     <p id = "ust1_component3">Воздушный конденсатор<br>и компрессорный блок</p>
     <p id = "ust1_component4">Воздушый фильтр<br>вытяжного воздуха</p>

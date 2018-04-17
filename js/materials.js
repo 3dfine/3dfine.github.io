@@ -14,6 +14,12 @@ let matSteel = new THREE.MeshStandardMaterial({
   roughness: 0.6,
   needsUpdate: true
 });
+let matSteelNerg = new THREE.MeshStandardMaterial({
+  color: 0xd50000,    //0x9698a0
+  metalness: 0.9,
+  roughness: 0.1,
+  needsUpdate: true
+});
 // matSteel.envMap = textureCube;
 // matSteel.needsUpdate = true;
 // // matSteel.map = matSteelTexture;
@@ -70,7 +76,7 @@ let stainlessGunMetal = new THREE.MeshStandardMaterial({
 let matGold = new THREE.MeshStandardMaterial({
   color: 0xffc355,    //Gold	(1.000, 0.766, 0.336) or [255, 195, 86]
   metalness: 0.9,
-  roughness: 0.22 ,
+  roughness: 0.12 ,
   // combine: THREE.MultiplyOperation,
 });
 let matSilver = new THREE.MeshStandardMaterial({
@@ -123,12 +129,17 @@ let matPlasticWhite = new THREE.MeshStandardMaterial({
   side: THREE.DoubleSide
 });
 let matEkran = new THREE.MeshLambertMaterial({
-  //  color: 0xffffff,
+   color: 0xffffff,
   // map: vert_fon
 });
 let matEkranGorizont = new THREE.MeshLambertMaterial({
-  //  color: 0xffffff,
+   color: 0xffffff,
   // map: vert_fonGor
+});
+let matWood1 = new THREE.MeshStandardMaterial({
+  color: 0xffffff,
+  metalness:0.6,
+  roughness: 1.0,
 });
 let matGlass2 = new THREE.MeshStandardMaterial({
   color: 0x000000,
@@ -173,8 +184,6 @@ transparent: true
 // matRAL7045.envMap = textureCube;
 // matRAL7045.needsUpdate = true;
 //
-// matGold.envMap = textureCube;
-// matGold.needsUpdate = true;
 // matPlastic.envMap = textureCube;
 // matPlastic.needsUpdate = true;
 // matSteelClear.envMap = textureCube;
@@ -192,20 +201,11 @@ let matStoikaGoriz = [
     color : 0x00ff00
   })
 ];
-matStoikaGoriz[0] = matGold;
-matStoikaGoriz[1] = matPlasticBlack;
-matStoikaGoriz[2] = matEkranGorizont;
-matStoikaGoriz[3] = matGlass;
-matStoikaGoriz[4] = matPlastic;
-matStoikaGoriz[5] = matSteelClear;
-
-matStoikaVert[0] = matGold;
-matStoikaVert[1] = matPlasticBlack;
-matStoikaVert[2] = matEkran;
-matStoikaVert[3] = matGlass;
-matStoikaVert[4] = matPlastic;
-matStoikaVert[5] = matSteelClear;
-
+let matStoikaGoriz2 = [
+  new THREE.MeshStandardMaterial({
+    color : 0x00ff00
+  })
+];
 
 
 // var myVertexShader, myFragmentShader;

@@ -40,9 +40,25 @@ let matSteelTexture = textureLoader.load( 'textures/metals/SteelNerg.jpg', funct
   texture.repeat.set( 1, 1 );
   globalLoad++;
 } );
-
-//let  vert_fon = textureLoader.load( 'textures/fon/surface-screen.jpg' );
-//let  vert_fonGor = textureLoader.load( 'textures/fon/surface-screen_TV.jpg' );
+let matSteelTexture2 = textureLoader.load( 'textures/metals/stainless-steel1.jpg', function ( texture ) {
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set( 6, 1 );
+} );
+// let  vert_fon = textureLoader.load( 'textures/fon/surface-screen.jpg' );
+let vert_fon = textureLoader.load( 'textures/fon/surface-screen.jpg' );
+let vert_fonGor = textureLoader.load( 'textures/fon/surface-screen_TV.jpg' );
+// let wood1 = textureLoader.load( 'textures/wood/wood1.jpg' );
+let wood1 = textureLoader.load( 'textures/wood/wood1.jpg', function ( texture ) {
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set( 7, 2 );
+} );
+let wood1rough = textureLoader.load( 'textures/wood/wood1rough.jpg', function ( texture ) {
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set( 7, 2 );
+} );
 
 let filtr1_hight = textureLoader.load( 'textures/filtr1_hight.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
