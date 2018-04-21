@@ -18,7 +18,6 @@ let selectedObject = {
   material: new THREE.MeshPhongMaterial(),
 }
 let raycaster = new THREE.Raycaster();
-renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
 function onDocumentMouseMove( event ) {
   if(selectedObjectMode) {
     let mouse = new THREE.Vector2();
@@ -50,6 +49,7 @@ function onDocumentMouseMove( event ) {
     }
   }
 }
+renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
 //------------------------------------------------------------
 
 window.onload = function () {
@@ -82,9 +82,6 @@ window.onload = function () {
   rekuperatorKorp.children[0].children[2].material = matSteel;
   rekuperatorKorp.children[0].children[3].material = matSteel;
 
-  filtrKorman1.children[0].children[0].selectYes = true;
-  filtrKorman2.children[0].children[0].selectYes = true;
-
   rekuperatorKorp.children[0].children[0].description = 'Рекуператор';
   filtrKorman1.children[0].children[0].description = 'Фильтр корманный';
   filtrKorman2.children[0].children[0].description = 'Воздушный фильтр приточного воздуха';
@@ -92,13 +89,13 @@ window.onload = function () {
   vent_nasos_ventil.children[0].children[0].description = 'Приточный вентилятор с ЕС-двигателем';
   vent_nasos_korp2.children[0].children[0].description = 'Вытяжной вентилятор с ЕС-двигателем';
   vent_nasos_ventil2.children[0].children[0].description = 'Вытяжной вентилятор с ЕС-двигателем';
-  ventilatorOutSide_korp.children[0].children[0].description = 'Осевые вентиляторы конденсатора';
-  kompressoLOW.children[0].children[0].description = 'Воздушный конденсатор и компрессорный блок';
-  pauk.children[0].children[0].description = 'Фреоновый испаритель с каплеуловителем';
-  nagretSoplya.children[0].children[0].description = 'Водяной нагреватель';
-  diffuzorKorp.children[0].children[0].description = 'Регулируемый воздухораспределитель';
-  zaslonka1_Rama.children[0].children[0].description = 'Клапан выбросного воздуха';
-  zaslonka2_Rama.children[0].children[0].description = 'Воздухозаборный клапан';
+  // ventilatorOutSide_korp.children[0].children[0].description = 'Осевые вентиляторы конденсатора';
+  // kompressoLOW.children[0].children[0].description = 'Воздушный конденсатор и компрессорный блок';
+  // pauk.children[0].children[0].description = 'Фреоновый испаритель с каплеуловителем';
+  // nagretSoplya.children[0].children[0].description = 'Водяной нагреватель';
+  // diffuzorKorp.children[0].children[0].description = 'Регулируемый воздухораспределитель';
+  // zaslonka1_Rama.children[0].children[0].description = 'Клапан выбросного воздуха';
+  // zaslonka2_Rama.children[0].children[0].description = 'Воздухозаборный клапан';
 }
 
 let animateCamera1 = animateCamera();
