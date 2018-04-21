@@ -3,8 +3,8 @@ body {
   overflow: hidden;
   background-color: #ffffff;
   font-family: 'Montserrat', sans-serif;
-cursor: -webkit-grab;
-cursor: grab;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 canvas {
   position: absolute;
