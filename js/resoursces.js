@@ -22,7 +22,8 @@ let loadTextResource = function( url ) {
       request.responseText;
   }
 }
-let managerFBXLoad = new THREE.LoadingManager();
+
+let managerFBXLoad = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
 managerFBXLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {
 	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
   blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';

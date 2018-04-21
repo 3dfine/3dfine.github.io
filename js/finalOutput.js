@@ -94,9 +94,9 @@ let animate = function () {
     controls.update();
     renderer.render( scene, camera );
   }
-  else {
-    // blockLoadProgress.style.width = 50 * ( globalLoad + 0.9 ) / 36 + 'vmax';
-    console.log(globalLoad);
-  }
+  // else {
+  //   // blockLoadProgress.style.width = 50 * ( globalLoad + 0.9 ) / 36 + 'vmax';
+  //   console.log(globalLoad);
+  // }
 };
 animate();
