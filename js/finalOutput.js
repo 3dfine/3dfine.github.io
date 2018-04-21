@@ -90,7 +90,7 @@ let animate = function () {
   if( globalLoad > 32 ) {
     blockLoad.style.display='none';
     animateCamera1( CameraKeyTrck );
-    animHolodUst1();
+    animHolodUst1(tick);
     controls.update();
     renderer.render( scene, camera );
   }

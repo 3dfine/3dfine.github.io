@@ -14,21 +14,20 @@
 //   });
 // }
 
-let loadTextResource = function( url ) {
-    let request = new XMLHttpRequest();
-    request.open( 'GET', url, true );
-    request.send();
-    request.onload = function() {
-      request.responseText;
-  }
-}
+// let loadTextResource = function( url ) {
+//     let request = new XMLHttpRequest();
+//     request.open( 'GET', url, true );
+//     request.send();
+//     request.onload = function() {
+//       request.responseText;
+//   }
+// }
 
 let managerFBXLoad = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
 managerFBXLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {
 	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
   blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
 };
-
 let globalLoad = 0;
 let loader = new THREE.FBXLoader(managerFBXLoad);
 let loadFBXModel = function( modelTarget, scaleImport, _material, url ) {

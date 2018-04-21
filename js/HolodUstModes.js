@@ -42,7 +42,7 @@ function holodUst1Mode_1() {
   else {
     selectedObjectMode = false;
     rama.children[0].visible = true;
-    barashki.children[0].visible  = true;
+    // barashki.children[0].visible  = true;
     krisha.children[0].visible  = true;
     replaceMaterial3DObj(ustanovka, false, matGhost);
 
@@ -96,7 +96,7 @@ function holodUst1Mode_2() {
     selectedObjectMode = false;
     replaceMaterial3DObj(ustanovka, false, matGhost);
     rama.children[0].visible = true;
-    barashki.children[0].visible  = true;
+    // barashki.children[0].visible  = true;
     krisha.children[0].visible  = true;
     ventilatorOutSide.rotSpeed = 0.0;
     ustVent1.rotSpeed = 0;
@@ -110,7 +110,7 @@ function holodUst1Mode_2() {
   }
 }
 //функция управления анимируемыми элементами первой холодильной установки
-function animHolodUst1() {
+function animHolodUst1(timeTick) {
   //управление внутренними вентиляторами
   vent_nasos_ventil.rotation.z += ustVent1.rotSpeed;
   vent_nasos_ventil2.rotation.z += ustVent2.rotSpeed;
@@ -122,12 +122,12 @@ function animHolodUst1() {
   //управление потоком визуализации воздуха
   if( potok1.visible ) {
     for( let i=0; i<potok1.children[0].children.length; i++ ) {
-      potok1.children[0].children[i].scale.y = potok1.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - tick) + 1.0);
+      potok1.children[0].children[i].scale.y = potok1.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - timeTick) + 1.0);
     }
   }
   if( potok2.visible ) {
     for( let i=0; i<potok2.children[0].children.length; i++ ) {
-      potok2.children[0].children[i].scale.y = potok2.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - tick) + 1.0);
+      potok2.children[0].children[i].scale.y = potok2.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - timeTick) + 1.0);
     }
   }
 }
