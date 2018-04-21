@@ -106,7 +106,7 @@ let animate = function () {
   requestAnimationFrame( animate );
   tick += 0.075;
   //здесь выполняется после загрузки 3д моделей
-  if( globalLoad > 35 ) {
+  if( globalLoad > 32 ) {
     blockLoad.style.display='none';
     animateCamera1( CameraKeyTrck );
     animHolodUst1();
@@ -115,6 +115,7 @@ let animate = function () {
   }
   else {
     blockLoadProgress.style.width = 50 * ( globalLoad + 0.9 ) / 36 + 'vmax';
+    console.log(globalLoad);
   }
 };
 animate();
