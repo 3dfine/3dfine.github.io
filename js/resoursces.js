@@ -29,6 +29,8 @@ let loadFBXModel = function( modelTarget, scaleImport, _material, url ) {
 loader.load( url, function( object ) {
     for(let i=0; i<object.children.length; i++) {
     object.children[i].material = _material;
+    //пользовательское свойство materialDefult - сохраняем материал для режима выбора подобъектов!
+    object.children[i].materialDefult = _material;
     object.children[i].castShadow = true;
     object.children[i].receiveShadow = true;
     }

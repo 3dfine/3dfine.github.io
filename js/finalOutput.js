@@ -27,18 +27,24 @@ function onDocumentMouseMove( event ) {
   	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
   	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
   	raycaster.setFromCamera( mouse, camera );
-    intersects = raycaster.intersectObjects( [ scene ], true );
-    if( (intersects.length > 0) && mouseDownState ) {
-      if( intersects[ 0 ].object.material != matGhost ) {
-        selectedObject.object.material = selectedObject.material;
+    intersects = raycaster.intersectObjects( [ ustanovka ], true );
+    if( ( intersects.length > 0 ) && intersects[ 0 ].object.description ) {
+        document.body.style.cursor = 'pointer';
+        // if(intersects[ 0 ].object.description) {
+          $('#descriptionblock').fadeIn(200);
+          $('#descriptionblock').text( intersects[ 0 ].object.description );
+        // }
+      // if( ( intersects[ 0 ].object.material == matGhost ) && ( intersects[ 0 ].object.selectYes ) ) {
+      if(  intersects[ 0 ].object.material == matGhost ) {
+        selectedObject.object.material = matGhost;
         selectedObject.object = intersects[ 0 ].object;
-        selectedObject.material = intersects[ 0 ].object.material;
-        intersects[ 0 ].object.material = matGhost;
-        console.log( intersects[ 0 ].object.name );
+        intersects[ 0 ].object.material = intersects[ 0 ].object.materialDefult;
       }
     } else {
       if( intersects ) {
-        selectedObject.object.material = selectedObject.material;
+        $('#descriptionblock').hide().empty();
+        selectedObject.object.material = matGhost;
+        setCursorGrab();
         intersects = null;
       }
     }
@@ -75,6 +81,24 @@ window.onload = function () {
   rekuperatorKorp.children[0].children[1].material = matSteel;
   rekuperatorKorp.children[0].children[2].material = matSteel;
   rekuperatorKorp.children[0].children[3].material = matSteel;
+
+  filtrKorman1.children[0].children[0].selectYes = true;
+  filtrKorman2.children[0].children[0].selectYes = true;
+
+  rekuperatorKorp.children[0].children[0].description = 'Рекуператор';
+  filtrKorman1.children[0].children[0].description = 'Фильтр корманный';
+  filtrKorman2.children[0].children[0].description = 'Воздушный фильтр приточного воздуха';
+  vent_nasos_korp.children[0].children[0].description = 'Приточный вентилятор с ЕС-двигателем';
+  vent_nasos_ventil.children[0].children[0].description = 'Приточный вентилятор с ЕС-двигателем';
+  vent_nasos_korp2.children[0].children[0].description = 'Вытяжной вентилятор с ЕС-двигателем';
+  vent_nasos_ventil2.children[0].children[0].description = 'Вытяжной вентилятор с ЕС-двигателем';
+  ventilatorOutSide_korp.children[0].children[0].description = 'Осевые вентиляторы конденсатора';
+  kompressoLOW.children[0].children[0].description = 'Воздушный конденсатор и компрессорный блок';
+  pauk.children[0].children[0].description = 'Фреоновый испаритель с каплеуловителем';
+  nagretSoplya.children[0].children[0].description = 'Водяной нагреватель';
+  diffuzorKorp.children[0].children[0].description = 'Регулируемый воздухораспределитель';
+  zaslonka1_Rama.children[0].children[0].description = 'Клапан выбросного воздуха';
+  zaslonka2_Rama.children[0].children[0].description = 'Воздухозаборный клапан';
 }
 
 let animateCamera1 = animateCamera();

@@ -13,7 +13,7 @@ function compareName(a,b) {
 }
 
 function setCamera() {
-  rama.children[0].children[0].material = matUstRama;
+  // rama.children[0].children[0].material = matUstRama;
   startCameraAnim(CameraKeyTrckDefPos);
 }
 btnRotateCamera.style.opacity = 1.0;
@@ -36,6 +36,14 @@ function offCameraRotate() {
   btnRotateCamera.style.removeProperty( 'opacity');
 }
 function stopCameraAnim() {
+  selectedObjectMode = false;
+  replaceMaterial3DObj(ustanovka, false, matGhost);
+  rama.children[0].visible = true;
+  rama.children[0].children[0].visible = true;
+  rama.children[0].children[1].visible = false;
+  barashki.children[0].visible = false;
+  krisha.children[0].visible = true;
+
   offCameraRotate();
   $("#textblock1").hide().empty();
   CameraKeyTrck.playOn = false;
@@ -43,7 +51,12 @@ function stopCameraAnim() {
   plyRed.style.display = "none";
   potok1.visible = false;
   potok2.visible = false;
+
+  $("#help1")
+    .hide();
+  setCursorGrab();
 }
+
 function startCameraAnim(keyFrTrack) {
   if(!CameraKeyTrck.playOn) {
     // $(keyTrack.divID).hide().empty();
@@ -53,17 +66,57 @@ function startCameraAnim(keyFrTrack) {
     return true;
     }
 }
+//функция заменяет материалы группы 3д объектов при 'replaceReset == true' на materailReplace
+//при 'replaceReset == false' сбрасываеи маиериалы на дефолтные
+function replaceMaterial3DObj(group3DObj, replaceReset, materailReplace) {
+  for( let i = 0; i < group3DObj.children.length; i++ ) {
+    if( group3DObj.children[0].children.length == 1 ) {
+      if(replaceReset) {
+        group3DObj.children[0].children[0].material = materailReplace;
+      } else {
+        group3DObj.children[0].children[0].material = group3DObj.children[0].children[0].materialDefult;
+      }
+      // return ;
+    }
+    if( group3DObj.children[i].children.length == 1 ) {
+      for( let ii = 0; ii < group3DObj.children[i].children[0].children.length; ii++ ) {
+        if(replaceReset) {
+          group3DObj.children[i].children[0].children[ii].material = materailReplace;
+        } else {
+          group3DObj.children[i].children[0].children[ii].material = group3DObj.children[i].children[0].children[ii].materialDefult;
+        }
+      }
+    } else {
+      for( let ii = 0; ii < group3DObj.children[i].children.length; ii++ ) {
+        for( let iii = 0; iii < group3DObj.children[i].children[ii].children[0].children.length; iii++ ) {
+          if(replaceReset) {
+            group3DObj.children[i].children[ii].children[0].children[iii].material = materailReplace;
+          } else {
+            group3DObj.children[i].children[ii].children[0].children[iii].material = group3DObj.children[i].children[ii].children[0].children[iii].materialDefult;
+          }
+        }
+      }
+    }
+  }
+}
 let selectedObjectMode = false;
 function selectObject() {
   selectedObjectMode = !selectedObjectMode;
   if( selectedObjectMode ) {
     rama.children[0].children[1].visible = false;
+    barashki.children[0].visible = false;
+    // krisha.children[0].visible = false;
     btnSelectObject.style.opacity = 1.0;
+    replaceMaterial3DObj(ustanovka, true, matGhost);
   } else {
-    rama.children[0].children[1].visible = true;
+    replaceMaterial3DObj(ustanovka, false, matGhost);
+    // rama.children[0].visible = true;
+    // krisha.children[0].visible = true;
     btnSelectObject.style.removeProperty( 'opacity');
+    setCursorGrab();
   }
 }
+
 function showGeneralInfo() {
   if( startCameraAnim( CameraKeyTrckAllPos ) ) {
     //показ красного треуголька - ознаачет, что воспроизводится анимация
@@ -109,7 +162,12 @@ function showHowItWork2() {
 function showHideBronya() {
   // rama.children[0].children[0].material = matUstRama;
   rama.children[0].children[1].visible = !rama.children[0].children[1].visible;
-  barashki.children[0].visible = !barashki.children[0].visible;
+  if( rama.children[0].children[1].visible ) {
+    barashki.children[0].visible = true;
+  }
+  else {
+    barashki.children[0].visible = false;
+  }
 }
 function selectModels() {
   stoikiGroup.visible = !stoikiGroup.visible;

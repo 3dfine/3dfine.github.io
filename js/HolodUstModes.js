@@ -20,9 +20,12 @@ function holodUst1Mode_1() {
       potok1.children[0].children[i].material = matPotokRed;
   }
   if(potok1.visible) {
-    rama.children[0].children[1].visible = false;
+    selectedObjectMode = true;
+    rama.children[0].visible = false;
     barashki.children[0].visible  = false;
-    rama.children[0].children[0].material = matGhost;
+    krisha.children[0].visible  = false;
+    replaceMaterial3DObj(ustanovka, false, matGhost);
+
     ventilatorOutSide.rotSpeed = 0.1;
     ustVent1.rotSpeed = 0.1;
     ustVent2.rotSpeed = 0.1;
@@ -37,9 +40,12 @@ function holodUst1Mode_1() {
     rotateGroup3D(rekuperatorZaslon3.children[0].children, 0, 'oX');
   }
   else {
-    rama.children[0].children[1].visible = true;
+    selectedObjectMode = false;
+    rama.children[0].visible = true;
     barashki.children[0].visible  = true;
-    rama.children[0].children[0].material = matUstRama;
+    krisha.children[0].visible  = true;
+    replaceMaterial3DObj(ustanovka, false, matGhost);
+
     ventilatorOutSide.rotSpeed = 0.0;
     ustVent1.rotSpeed = 0;
     ustVent2.rotSpeed = 0;
@@ -65,9 +71,14 @@ function holodUst1Mode_2() {
       potok2.children[0].children[i].material = matPotokRed;
   }
   if(potok2.visible) {
-    rama.children[0].children[1].visible = false;
+    selectedObjectMode = true;
+    replaceMaterial3DObj(ustanovka, true, matGhost);
+    replaceMaterial3DObj(ustVent1, false, matGhost);
+    replaceMaterial3DObj(nagretSoplya, false, matGhost);
+    replaceMaterial3DObj(filtrKorman1, false, matGhost);
+    rama.children[0].visible = false;
     barashki.children[0].visible  = false;
-    rama.children[0].children[0].material = matGhost;
+    krisha.children[0].visible  = false;
     ventilatorOutSide.rotSpeed = 0.0;
     ustVent1.rotSpeed = 0.1;
     ustVent2.rotSpeed = 0.0;
@@ -82,9 +93,11 @@ function holodUst1Mode_2() {
     rotateGroup3D(rekuperatorZaslon3.children[0].children, -90, 'oX');
   }
   else {
-    rama.children[0].children[1].visible = true;
+    selectedObjectMode = false;
+    replaceMaterial3DObj(ustanovka, false, matGhost);
+    rama.children[0].visible = true;
     barashki.children[0].visible  = true;
-    rama.children[0].children[0].material = matUstRama;
+    krisha.children[0].visible  = true;
     ventilatorOutSide.rotSpeed = 0.0;
     ustVent1.rotSpeed = 0;
     ustVent2.rotSpeed = 0;

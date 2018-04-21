@@ -26,3 +26,12 @@ function toggleFullScreen() {
     }
   }
 }
+
+function setCursorGrab() {
+  document.body.style.cursor = 'grab';
+  document.body.style.cursor = '-webkit-grab';
+}
+function setCursorGrabbing() {
+  document.body.style.cursor = 'grabbing';
+  document.body.style.cursor = '-webkit-grabbing';
+}

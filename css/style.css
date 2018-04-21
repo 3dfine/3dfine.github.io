@@ -3,6 +3,8 @@ body {
   overflow: hidden;
   background-color: #ffffff;
   font-family: 'Montserrat', sans-serif;
+cursor: -webkit-grab;
+cursor: grab;
 }
 canvas {
   position: absolute;
@@ -73,6 +75,23 @@ canvas {
   right: 55%;
   top: 30%;
   background-color: #BF360C;
+  color: white;
+  padding: 0.7vmax;
+  padding-right:1.0vmax;
+  border-radius: 0.25em;
+  /* border: 1px solid #FAFAD2; */
+  /* text-shadow: 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white; */
+  width: 35.0vmax;
+  display: none;
+}
+#descriptionblock {
+  cursor: default;
+  position: absolute;
+  text-align: left ;
+  font-size: 1.7vmax;
+  left: 10px;
+  top: 90px;
+  background-color: #00838F;
   color: white;
   padding: 0.7vmax;
   padding-right:1.0vmax;

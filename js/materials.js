@@ -151,11 +151,17 @@ let matGlass2 = new THREE.MeshStandardMaterial({
 let matGhost = new THREE.MeshPhongMaterial({
   color: 0xaaaaaa,
   needsUpdate: true,
-  // side: THREE.DoubleSide,
+  transparent: true,
+  side: THREE.DoubleSide,
+  combine: THREE.MultiplyOperation,
+  opacity: 0.5
+});
+let matWireframe = new THREE.MeshPhongMaterial({
+  color: 0xaaaaaa,
+  needsUpdate: true,
   transparent: true,
   wireframe: true,
-  //combine: THREE.MultiplyOperation,
-  opacity: 0.4
+  opacity: 0.5
 });
 let shader = THREE.FresnelShader;
 let uniforms = THREE.UniformsUtils.clone( shader.uniforms );

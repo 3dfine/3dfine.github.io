@@ -75,7 +75,7 @@
 }
 #btnSelectObject {
   background-image: url(../images/select.png);
-  display: none;
+  /* display: none; */
 }
 #btnSelectObject:hover {
   opacity: 0.8;

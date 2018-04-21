@@ -39,32 +39,32 @@ let matPotokRed = new THREE.MeshPhongMaterial( {
   color: 0xff0000,
   specular: 0x222222,
   shininess: 35,
-  transparent: true,
-  opacity: 0.6,
+  // transparent: true,
+  // opacity: 0.6,
   side: THREE.DoubleSide
 } );
 let matPotokPink = new THREE.MeshPhongMaterial( {
   color: 0xF77FBE,
   specular: 0x222222,
   shininess: 35,
-  transparent: true,
-  opacity: 0.7,
+  // transparent: true,
+  // opacity: 0.7,
   side: THREE.DoubleSide
 } );
 let matPotokDarkBlue = new THREE.MeshPhongMaterial( {
   color: 0x0000ff,
   specular: 0x222222,
   shininess: 35,
-  transparent: true,
-  opacity: 0.6,
+  // transparent: true,
+  // opacity: 0.6,
   side: THREE.DoubleSide
 } );
 let matPotokBlue = new THREE.MeshPhongMaterial( {
   color: 0x3c9eff,
   specular: 0x222222,
   shininess: 35,
-  transparent: true,
-  opacity: 0.7,
+  // transparent: true,
+  // opacity: 0.7,
   side: THREE.DoubleSide
 } );
 
