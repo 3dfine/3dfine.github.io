@@ -1,4 +1,11 @@
-let textureLoader = new THREE.TextureLoader();
+let managerLoadTextures = new THREE.LoadingManager();
+managerLoadTextures.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+};
+managerLoadTextures.onLoad = function ( ) {
+	console.log( 'Textures loading complete!');
+}
+let textureLoader = new THREE.TextureLoader(managerLoadTextures);
 
 let onepix = textureLoader.load( 'textures/Onepix.jpg' );
 // loadTexture(StainlessGunMetal_albedo, 'textures/metals/StainlessGunMetal_albedo.png');

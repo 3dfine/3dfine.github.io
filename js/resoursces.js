@@ -22,9 +22,14 @@ let loadTextResource = function( url ) {
       request.responseText;
   }
 }
+let managerFBXLoad = new THREE.LoadingManager();
+managerFBXLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+  blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
+};
 
 let globalLoad = 0;
-let loader = new THREE.FBXLoader();
+let loader = new THREE.FBXLoader(managerFBXLoad);
 let loadFBXModel = function( modelTarget, scaleImport, _material, url ) {
 loader.load( url, function( object ) {
     for(let i=0; i<object.children.length; i++) {

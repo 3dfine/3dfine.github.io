@@ -139,7 +139,7 @@ canvas {
 #blockloading {
   position: absolute;
   left: 25vmax;
-  border: 1px solid #000000;
+  /* border: 1px solid #000000; */
   height: 6px;
   width: 50vmax;
 }

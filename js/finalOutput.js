@@ -77,25 +77,6 @@ window.onload = function () {
   $("#btnModelsSelect1")
     .delay(4000)
     .fadeIn(600);
-  rekuperatorKorp.children[0].children[0].material = matRekuperator;
-  rekuperatorKorp.children[0].children[1].material = matSteel;
-  rekuperatorKorp.children[0].children[2].material = matSteel;
-  rekuperatorKorp.children[0].children[3].material = matSteel;
-
-  rekuperatorKorp.children[0].children[0].description = 'Рекуператор';
-  filtrKorman1.children[0].children[0].description = 'Фильтр корманный';
-  filtrKorman2.children[0].children[0].description = 'Воздушный фильтр приточного воздуха';
-  vent_nasos_korp.children[0].children[0].description = 'Приточный вентилятор с ЕС-двигателем';
-  vent_nasos_ventil.children[0].children[0].description = 'Приточный вентилятор с ЕС-двигателем';
-  vent_nasos_korp2.children[0].children[0].description = 'Вытяжной вентилятор с ЕС-двигателем';
-  vent_nasos_ventil2.children[0].children[0].description = 'Вытяжной вентилятор с ЕС-двигателем';
-  ventilatorOutSide_korp.children[0].children[0].description = 'Осевые вентиляторы конденсатора';
-  kompressoLOW.children[0].children[0].description = 'Воздушный конденсатор и компрессорный блок';
-  pauk.children[0].children[0].description = 'Фреоновый испаритель с каплеуловителем';
-  nagretSoplya.children[0].children[0].description = 'Водяной нагреватель';
-  diffuzorKorp.children[0].children[0].description = 'Регулируемый воздухораспределитель';
-  zaslonka1_Rama.children[0].children[0].description = 'Клапан выбросного воздуха';
-  zaslonka2_Rama.children[0].children[0].description = 'Воздухозаборный клапан';
 }
 
 let animateCamera1 = animateCamera();
@@ -114,7 +95,7 @@ let animate = function () {
     renderer.render( scene, camera );
   }
   else {
-    blockLoadProgress.style.width = 50 * ( globalLoad + 0.9 ) / 36 + 'vmax';
+    // blockLoadProgress.style.width = 50 * ( globalLoad + 0.9 ) / 36 + 'vmax';
     console.log(globalLoad);
   }
 };
