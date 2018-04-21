@@ -116,9 +116,10 @@ function selectObject() {
     setCursorGrab();
   }
 }
-
 function showGeneralInfo() {
   if( startCameraAnim( CameraKeyTrckAllPos ) ) {
+    selectedObjectMode = false;
+    replaceMaterial3DObj(ustanovka, false, matGhost);
     //показ красного треуголька - ознаачет, что воспроизводится анимация
     // let coord = btnShow1LevellInfo.getBoundingClientRect();
     // plyRed.style.left = ( coord.x + 1 * coord.width / 2 ) + "px";
@@ -132,6 +133,8 @@ function showGeneralInfo() {
 }
 function showDetailInfo() {
   if( startCameraAnim( CameraKeyTrck1 ) ) {
+    selectedObjectMode = false;
+    replaceMaterial3DObj(ustanovka, false, matGhost);
     //показ красного треуголька - ознаачет, что воспроизводится анимация
     // let coord = btnShow2LevellInfo.getBoundingClientRect();
     // plyRed.style.left = ( coord.x + 1 * coord.width / 2 ) + "px";

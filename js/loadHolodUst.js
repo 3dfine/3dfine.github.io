@@ -147,6 +147,10 @@ ustanovka.rotation.y = THREE.Math.degToRad( -90 );
 // console.log( 'ventilatorOutSide', ventilatorOutSide.children );
 
 managerFBXLoad.onLoad = function ( ) {
+  ventilatorOutSide.rotSpeed = 0.1;
+  ustVent1.rotSpeed = 0.1;
+  ustVent2.rotSpeed = 0.1;
+
   rekuperatorKorp.children[0].children[0].material = matRekuperator;
   rekuperatorKorp.children[0].children[1].material = matSteel;
   rekuperatorKorp.children[0].children[2].material = matSteel;

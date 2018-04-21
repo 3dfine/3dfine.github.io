@@ -28,13 +28,11 @@ function onDocumentMouseMove( event ) {
   	raycaster.setFromCamera( mouse, camera );
     intersects = raycaster.intersectObjects( [ ustanovka ], true );
     if( ( intersects.length > 0 ) && intersects[ 0 ].object.description ) {
-        document.body.style.cursor = 'pointer';
-        // if(intersects[ 0 ].object.description) {
-          $('#descriptionblock').fadeIn(200);
-          $('#descriptionblock').text( intersects[ 0 ].object.description );
-        // }
-      // if( ( intersects[ 0 ].object.material == matGhost ) && ( intersects[ 0 ].object.selectYes ) ) {
-      if(  intersects[ 0 ].object.material == matGhost ) {
+      document.body.style.cursor = 'pointer';
+      if( ( intersects[ 0 ].object.material == matGhost ) && ( intersects[ 0 ].object.description ) ) {
+      // if(  intersects[ 0 ].object.material == matGhost ) {
+        $('#descriptionblock').fadeIn(600);
+        $('#descriptionblock').text( intersects[ 0 ].object.description );
         selectedObject.object.material = matGhost;
         selectedObject.object = intersects[ 0 ].object;
         intersects[ 0 ].object.material = intersects[ 0 ].object.materialDefult;
