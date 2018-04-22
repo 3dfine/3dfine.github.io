@@ -15,13 +15,13 @@ let onepix = textureLoader.load( 'textures/Onepix.jpg' );
 // StainlessGunMetal_albedo.wrapT = THREE.RepeatWrapping;
 // StainlessGunMetal_albedo.repeat.set( 1, 1 );
 //
-let StainlessGunMetal_albedo = textureLoader.load( 'textures/metals/StainlessGunMetal_albedo.png', function ( texture ) {
+let StainlessGunMetal_albedo = textureLoader.load( 'textures/metals/StainlessGunMetal_albedo.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set( 1, 1 );
   // globalLoad++;
 } );
-let StainlessGunMetal_roughness = textureLoader.load( 'textures/metals/StainlessGunMetal_roughness.png', function ( texture ) {
+let StainlessGunMetal_roughness = textureLoader.load( 'textures/metals/StainlessGunMetal_roughness.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set( 1, 1 );
