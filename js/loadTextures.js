@@ -1,7 +1,7 @@
 let managerLoadTextures = new THREE.LoadingManager();
-managerLoadTextures.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-};
+// managerLoadTextures.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+// 	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+// };
 managerLoadTextures.onLoad = function ( ) {
 	console.log( 'Textures loading complete!');
 }
@@ -27,7 +27,6 @@ let StainlessGunMetal_roughness = textureLoader.load( 'textures/metals/Stainless
   texture.repeat.set( 1, 1 );
   globalLoad++;
 } );
-
 let RepolishedCopper_albedo = textureLoader.load( 'textures/metals/RepolishedCopper_albedo.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
@@ -40,7 +39,6 @@ let RepolishedCopper_roughness = textureLoader.load( 'textures/metals/Repolished
   texture.repeat.set( 1, 1 );
   globalLoad++;
 } );
-
 let matSteelTexture = textureLoader.load( 'textures/metals/SteelNerg.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
@@ -94,8 +92,8 @@ let filtr2_hight = textureLoader.load( 'textures/filtr2_hight.jpg', function ( t
 // .load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] );
 
 let textureCube = new THREE.CubeTextureLoader()
-.setPath( 'textures/cube/test/' )
-.load( [ 'as_0000.png', 'as_0001.png', 'as_0002.png', 'as_0003.png', 'as_0004.png', 'as_0005.png' ] );
+.setPath( 'textures/cube/station/' )
+.load( [ 'as_0000.jpg', 'as_0001.jpg', 'as_0002.jpg', 'as_0003.jpg', 'as_0004.jpg', 'as_0005.jpg' ] );
 
 // var textureCube = new THREE.CubeTextureLoader()
 // .setPath( 'textures/cube/test/' )
