@@ -7,7 +7,7 @@ managerLoadTextures.onLoad = function ( ) {
 }
 let textureLoader = new THREE.TextureLoader(managerLoadTextures);
 
-let onepix = textureLoader.load( 'textures/Onepix.jpg' );
+// let onepix = textureLoader.load( 'textures/Onepix.jpg' );
 // loadTexture(StainlessGunMetal_albedo, 'textures/metals/StainlessGunMetal_albedo.png');
 // loadTexture(StainlessGunMetal_roughness, 'textures/metals/StainlessGunMetal_roughness.png');
 // StainlessGunMetal_albedo = textureLoader.load( 'textures/metals/StainlessGunMetal_albedo.png' );
