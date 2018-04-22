@@ -19,31 +19,31 @@ let StainlessGunMetal_albedo = textureLoader.load( 'textures/metals/StainlessGun
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set( 1, 1 );
-  globalLoad++;
+  // globalLoad++;
 } );
 let StainlessGunMetal_roughness = textureLoader.load( 'textures/metals/StainlessGunMetal_roughness.png', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set( 1, 1 );
-  globalLoad++;
+  // globalLoad++;
 } );
 let RepolishedCopper_albedo = textureLoader.load( 'textures/metals/RepolishedCopper_albedo.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set( 1, 1 );
-  globalLoad++;
+  // globalLoad++;
 } );
 let RepolishedCopper_roughness = textureLoader.load( 'textures/metals/RepolishedCopper_roughness.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set( 1, 1 );
-  globalLoad++;
+  // globalLoad++;
 } );
 let matSteelTexture = textureLoader.load( 'textures/metals/SteelNerg.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set( 1, 1 );
-  globalLoad++;
+  // globalLoad++;
 } );
 let matSteelTexture2 = textureLoader.load( 'textures/metals/stainless-steel1.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
@@ -69,13 +69,13 @@ let filtr1_hight = textureLoader.load( 'textures/filtr1_hight.jpg', function ( t
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set( 1, 1 );
-  globalLoad++;
+  // globalLoad++;
 } );
 let filtr2_hight = textureLoader.load( 'textures/filtr2_hight.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set( 1, 1 );
-  globalLoad++;
+  // globalLoad++;
 } );
 
 //cubemap

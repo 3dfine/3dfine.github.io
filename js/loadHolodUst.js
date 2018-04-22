@@ -6,15 +6,6 @@ let zaslonkaSborka2 = new THREE.Group();
 let rekuperator = new THREE.Group();
 let ventilatorOutSide = new THREE.Group();
 
-let potok1 = new THREE.Object3D();
-loadFBXModel( potok1, 0.5, matPotokDef, 'models/fbx/ustanovka/potok1.FBX' );
-potok1.rotation.y = THREE.Math.degToRad( -90 );
-potok1.visible = false;
-let potok2 = new THREE.Object3D();
-loadFBXModel( potok2, 0.5, matPotokDef, 'models/fbx/ustanovka/potok2.FBX' );
-potok2.rotation.y = THREE.Math.degToRad( -90 );
-potok2.visible = false;
-
 let rama = new THREE.Object3D();
 loadFBXModel( rama, 0.5, matUstRama, 'models/fbx/ustanovka/rama.FBX' );
 // loadFBXModel( rama, 0.5, matGhost, 'models/fbx/ustanovka/rama.FBX' );
@@ -82,6 +73,15 @@ let zaslonka2 = new THREE.Object3D();
 loadFBXModel( zaslonka2, 0.5, matUstRama, 'models/fbx/ustanovka/Zaslonka2Close.FBX' );
 zaslonka2.position.set( 0/2, 0/2, 0/2);
 zaslonka2.rotation.y = THREE.Math.degToRad( -90 );
+
+let potok1 = new THREE.Object3D();
+loadFBXModel( potok1, 0.5, matPotokDef, 'models/fbx/ustanovka/potok1.FBX' );
+potok1.rotation.y = THREE.Math.degToRad( -90 );
+potok1.visible = false;
+let potok2 = new THREE.Object3D();
+loadFBXModel( potok2, 0.5, matPotokDef, 'models/fbx/ustanovka/potok2.FBX' );
+potok2.rotation.y = THREE.Math.degToRad( -90 );
+potok2.visible = false;
 
 ustVent1.add( vent_nasos_korp );
 ustVent1.add( vent_nasos_ventil );
@@ -172,4 +172,6 @@ managerFBXLoad.onLoad = function ( ) {
   zaslonka2_Rama.children[0].children[0].description = 'Воздухозаборный клапан';
 
 	console.log( '3d models loading complete!');
+
+  blockLoad.style.display='none';
 };
