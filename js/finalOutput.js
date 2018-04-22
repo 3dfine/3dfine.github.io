@@ -85,7 +85,7 @@ let animate = function () {
   requestAnimationFrame( animate );
   tick += 0.075;
   //здесь выполняется после загрузки 3д моделей
-  if( globalLoad > 25 ) {
+  if( globalLoad > 30 ) {
     animateCamera1( CameraKeyTrck );
     animHolodUst1(tick);
     controls.update();
