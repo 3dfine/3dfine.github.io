@@ -42,7 +42,7 @@ loader.load( url, function( object ) {
     object.scale.multiplyScalar( scaleImport );
     modelTarget.add( object );
     globalLoad++;
-    // console.log(object);
+    console.log(globalLoad);
 });
 }
 
