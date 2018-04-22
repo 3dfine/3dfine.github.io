@@ -1,3 +1,5 @@
+console.log( '3d models loading start...');
+
 let ustanovka = new THREE.Group();
 let ustVent1 = new THREE.Group();
 let ustVent2 = new THREE.Group();
