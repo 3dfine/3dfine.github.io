@@ -26,6 +26,7 @@
 let managerFBXLoad = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
 managerFBXLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {
 	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+  blockLoad.style.display='block';
   blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
 };
 let globalLoad = 0;

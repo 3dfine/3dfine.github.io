@@ -172,32 +172,39 @@ function showHideBronya() {
     barashki.children[0].visible = false;
   }
 }
-function selectModels() {
-  stoikiGroup.visible = !stoikiGroup.visible;
-  ustanovka.visible = !ustanovka.visible;
+function showHolodUst() {
+  profil_rehau.visible = false;
+  stoikiGroup.visible = false;
+  ustanovka.visible = true;
+  setCamera();
+  $("#controlPanel").css("display", "flex")
+    .hide()
+    .fadeIn(100);
+  controls.maxPolarAngle = Math.PI * 0.75;
 
-  if(ustanovka.visible) {
-    setCamera();
-    $("#controlPanel").css("display", "flex")
-      .hide()
-      .fadeIn(100);
-    btnModelsSelect2.style.display='none';
-    btnModelsSelect1.style.display='block';
-    controls.maxPolarAngle = Math.PI * 0.75;
-  }
-  if(stoikiGroup.visible) {
-    potok1.visible = false;
-    potok2.visible = false;
-    stopCameraAnim();
-    setCamera();
-    onCameraRotate();
-    controlPanel.style.display='none';
-    btnModelsSelect2.style.display='block';
-    btnModelsSelect1.style.display='none';
-    controls.maxPolarAngle = Math.PI * 0.5;
-  }
 }
-
+function showStoiki() {
+  profil_rehau.visible = false;
+  ustanovka.visible = false;
+  potok1.visible = false;
+  potok2.visible = false;
+  stopCameraAnim();
+  setCamera();
+  onCameraRotate();
+  controlPanel.style.display='none';
+  controls.maxPolarAngle = Math.PI * 0.5;
+  stoikiGroup.visible = true;
+}
+function showProfilRehau() {
+  stoikiGroup.visible = false;
+  ustanovka.visible = false;
+  potok1.visible = false;
+  potok2.visible = false;
+  loadProfil();
+  controls.maxPolarAngle = Math.PI * 0.8;
+  profil_rehau.visible = true;
+    setCamera();
+}
 btnSelectObject.addEventListener( "click" , selectObject );
 btnShow2LevellInfo.addEventListener( "click" , showDetailInfo );
 btnShow1LevellInfo.addEventListener( "click" , showGeneralInfo );
@@ -214,9 +221,9 @@ document.addEventListener("keydown", function(e) {
     toggleFullScreen();
   }
 }, false);
-btnModelsSelect1.addEventListener( "click" , selectModels );
-btnModelsSelect2.addEventListener( "click" , selectModels );
-
+btnModelsSelect1.addEventListener( "click" , showHolodUst );
+btnModelsSelect2.addEventListener( "click" , showStoiki );
+btnModelsSelect3.addEventListener( "click" , showProfilRehau );
 // overlayStl.style.left = 100 + 'px';
 
 //Add models in scene

@@ -15,6 +15,8 @@ let textureLoader = new THREE.TextureLoader(managerLoadTextures);
 // StainlessGunMetal_albedo.wrapT = THREE.RepeatWrapping;
 // StainlessGunMetal_albedo.repeat.set( 1, 1 );
 //
+
+
 let StainlessGunMetal_albedo = textureLoader.load( 'textures/metals/StainlessGunMetal_albedo.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
