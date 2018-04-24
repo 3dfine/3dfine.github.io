@@ -23,19 +23,19 @@ let profil_rehau = new THREE.Object3D();
 profil_rehau.visible = false;
 profil_rehau.onLoaded = false;
 
-let loadProfil =  function() {
+function loadProfil() {
   if(!profil_rehau.onLoaded) {
     let managerPrifilLoad = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
     managerPrifilLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+      blockLoad.style.display='block';
       blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
     };
     managerPrifilLoad.onLoad = function ( ) {
       blockLoad.style.display='none';
     }
+    let texLoader = new THREE.TextureLoader(managerPrifilLoad);
     let loader3 = new THREE.FBXLoader(managerPrifilLoad);
-    blockLoad.style.display='block';
-
-    profil_rehauGI = textureLoader.load( 'textures/profil_rehauGI.jpg' );
+    profil_rehauGI = texLoader.load( 'textures/profil_rehauGI.jpg' );
 
     loader3.load( 'models/fbx/profil_rehau.FBX', function( object ) {
         for(let i=0; i<object.children.length; i++) {
@@ -47,11 +47,46 @@ let loadProfil =  function() {
         }
         object.scale.multiplyScalar( 4.5 );
         profil_rehau.add( object );
-        console.log(profil_rehau);
         profil_rehau.onLoaded = true;
     });
     matProfilSetup();
     profil_rehau.position.set( 0, -600, 0 );
     scene.add( profil_rehau );
   }
+}
+
+let matProfilSetup =  function() {
+  matProfil[0].envMap = textureCube;
+  matProfil[0].envMapIntensity = 1.0
+  matProfil[0].needsUpdate = true;
+  matProfil[0].metalness = 0.2;
+  matProfil[0].roughness = 0.2;
+
+  matProfil[0].map = profil_rehauGI;
+  matProfil[0].aoMap = profil_rehauGI;
+  matProfil[0].aoMapIntensity = 1;
+  matProfil[0].lightMap = profil_rehauGI;
+  matProfil[0].lightMapIntensity = 1;
+
+  matProfil[1].map = profil_rehauGI;
+  matProfil[1].aoMap = profil_rehauGI;
+  matProfil[1].aoMapIntensity = 1;
+  matProfil[1].lightMap = profil_rehauGI;
+  matProfil[1].lightMapIntensity = 1;
+
+  matProfil[2].map = profil_rehauGI;
+  matProfil[2].aoMap = profil_rehauGI;
+  matProfil[2].aoMapIntensity = 1;
+
+  matProfil[3].map = profil_rehauGI;
+  matProfil[3].aoMap = profil_rehauGI;
+  matProfil[3].aoMapIntensity = 1;
+
+  matProfil[5].map = profil_rehauGI;
+  matProfil[5].aoMap = profil_rehauGI;
+  matProfil[5].aoMapIntensity = 1;
+
+  matProfil[6] = matGlass ;
+  matProfil[6].aoMap = profil_rehauGI;
+  matProfil[6].aoMapIntensity = 1;
 }

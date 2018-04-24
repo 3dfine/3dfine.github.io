@@ -52,9 +52,6 @@ let matSteelTexture2 = textureLoader.load( 'textures/metals/stainless-steel1.jpg
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set( 6, 1 );
 } );
-// let  vert_fon = textureLoader.load( 'textures/fon/surface-screen.jpg' );
-let vert_fon = textureLoader.load( 'textures/fon/surface-screen.jpg' );
-let vert_fonGor = textureLoader.load( 'textures/fon/surface-screen_TV.jpg' );
 // let wood1 = textureLoader.load( 'textures/wood/wood1.jpg' );
 let wood1 = textureLoader.load( 'textures/wood/wood1.jpg', function ( texture ) {
   texture.wrapS = THREE.RepeatWrapping;

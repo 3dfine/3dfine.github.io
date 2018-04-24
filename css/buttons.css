@@ -135,30 +135,30 @@
   background-position-y : 50%;
   margin-left: 0.5vmax;
   margin-right: 0.5vmax;
-  bottom: 1.0vmax;
+  bottom: 4.0vmin;
   left: 1.0vmax;
   opacity: 0.5;
   cursor: pointer;
 }
 #btnModelsSelect1 {
-  bottom: 33.0vmax;
+  bottom: 40.0vmin;
   background-image: url(../images/RoofTop1_perspec.png);
-  height: 16.0vmax;
-  width: 8.0vmax;
+  height: 16.0vmin;
+  width: 16.0vmin;
   /* display: none; */
 }
 #btnModelsSelect2 {
-  bottom: 17.0vmax;
+  bottom: 22.0vmin;
   background-image: url(../images/stoika.png);
-  height: 16.0vmax;
-  width: 16.0vmax;
+  height: 16.0vmin;
+  width: 16.0vmin;
   /* display: none; */
 }
 #btnModelsSelect3 {
-  bottom: 1.0vmax;
+  bottom: 4.0vmin;
   background-image: url(../images/profil.png);
-  height: 16.0vmax;
-  width: 16.0vmax;
+  height: 16.0vmin;
+  width: 16.0vmin;
   /* display: none; */
 }
 .modelsSelect:hover {

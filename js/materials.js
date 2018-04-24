@@ -197,21 +197,6 @@ transparent: true
 // matPlasticWhite.envMap = textureCube;
 // matPlasticWhite.needsUpdate = true;
 
-let matStoikaVert = [
-  new THREE.MeshStandardMaterial({
-    color : 0xff0000
-  })
-];
-let matStoikaGoriz = [
-  new THREE.MeshStandardMaterial({
-    color : 0x00ff00
-  })
-];
-let matStoikaGoriz2 = [
-  new THREE.MeshStandardMaterial({
-    color : 0x00ff00
-  })
-];
 
 
 // var myVertexShader, myFragmentShader;

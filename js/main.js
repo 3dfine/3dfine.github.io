@@ -1,5 +1,4 @@
 // stoikiGroup.position.x = 2600;
-scene.add( stoikiGroup );
 scene.add( ustanovka );
 scene.add( potok1 );
 scene.add( potok2 );
@@ -184,6 +183,7 @@ function showHolodUst() {
 
 }
 function showStoiki() {
+  loadStoiki();
   profil_rehau.visible = false;
   ustanovka.visible = false;
   potok1.visible = false;

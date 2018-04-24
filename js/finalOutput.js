@@ -52,7 +52,6 @@ renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
 window.onload = function () {
   matHolodSetup();
-  matStoikiSetup();
   startCameraAnim(CameraKeyTrckDefPos);
   onCameraRotate();
   $("#controlPanel").css("display", "flex")
