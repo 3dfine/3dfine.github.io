@@ -202,7 +202,7 @@ function showProfilRehau() {
   potok1.visible = false;
   potok2.visible = false;
   controlPanel.style.display='none';
-  controls.maxPolarAngle = Math.PI * 0.8;
+  controls.maxPolarAngle = Math.PI * 0.9;
   profil_rehau.visible = true;
   stopCameraAnim();
   setCamera();

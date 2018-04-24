@@ -71,8 +71,13 @@ function matProfilSetup() {
   matProfil[4].aoMap = profil_rehauGI;
   matProfil[4].aoMapIntensity = 1;
 
-  matProfil.push( new THREE.MeshStandardMaterial( { color : 0x111111 } ) );
-  matProfil[5].map = profil_rehauGI;
+  matProfil.push( new THREE.MeshStandardMaterial( { color : 0xaaaaaa } ) );
+  matProfil[5].envMap = textureCube;
+  matProfil[5].envMapIntensity = 1.0
+  matProfil[5].needsUpdate = true;
+  matProfil[5].metalness = 1.0;
+  matProfil[5].roughness = 0.25;
+  // matProfil[5].map = profil_rehauGI;
   matProfil[5].aoMap = profil_rehauGI;
   matProfil[5].aoMapIntensity = 1;
 

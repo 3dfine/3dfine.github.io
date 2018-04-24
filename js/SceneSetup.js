@@ -35,14 +35,14 @@ controls.keyPanSpeed = 5.0;	// pixels moved per arrow key push
 // controls.minDistance = 100;
 // controls.maxDistance = 9000;
 
-dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
+dirLight = new THREE.DirectionalLight( 0xffffff, 0.2 );
 dirLight.position.set( 2, 1.5, 1.4 );
 dirLight.position.multiplyScalar( 1000 );
 // var helper = new THREE.DirectionalLightHelper( dirLight, 500 );
 // scene.add( helper );
 scene.add( dirLight );
 //HemisphereLight( skyColor : Integer, groundColor : Integer, intensity : Float )
-hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.9 );
+hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.8 );
 hemiLight.color.setHSL( 0.6, 1, 0.4 );
 hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
 hemiLight.position.set( 0, 10, 0 );
@@ -51,22 +51,22 @@ scene.add( hemiLight );
 // scene.add( hemiLightHelper );
 //scene.add( new THREE.AmbientLight( 0xffffff ) );
 //PointLight( color : Integer, intensity : Float, distance : Number, decay : Float )
-var light = new THREE.PointLight( 0xffffff, 1.4, 20000, 1 );
+let light = new THREE.PointLight( 0xffffff, 1.0, 20000, 1 );
 light.position.set( 1500, 1600, 1000 );
-var sphereSize = 100;
-var pointLightHelper = new THREE.PointLightHelper( light, sphereSize );
+let sphereSize = 100;
+let pointLightHelper = new THREE.PointLightHelper( light, sphereSize );
 // scene.add( pointLightHelper );
-// scene.add( light );
-var light2 = new THREE.PointLight( 0xffffff, 0.4, 20000, 1 );
+scene.add( light );
+let light2 = new THREE.PointLight( 0xffffff, 0.4, 20000, 1 );
 light2.position.set( -1500, 1800, -1000 );
 // var pointLightHelper2 = new THREE.PointLightHelper( light2, sphereSize );
 // scene.add( pointLightHelper2 );
 scene.add( light2 );
 
-var canvas = document.getElementById( 'canvas-exemple' );
+let canvas = document.getElementById( 'canvas-exemple' );
 // canvas.setAttribute('width', 600);
 // canvas.setAttribute('Height', 600);
-var renderer = new THREE.WebGLRenderer( { canvas: canvas, antialias: true } );
+let renderer = new THREE.WebGLRenderer( { canvas: canvas, antialias: true } );
 //renderer.setClearColor(0x000000);
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setSize( width, height );
