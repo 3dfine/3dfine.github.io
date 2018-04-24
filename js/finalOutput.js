@@ -74,6 +74,12 @@ window.onload = function () {
   $("#btnModelsSelect1")
     .delay(4000)
     .fadeIn(600);
+  $("#btnModelsSelect2")
+    .delay(4000)
+    .fadeIn(600);
+  $("#btnModelsSelect3")
+    .delay(4000)
+    .fadeIn(600);
 }
 
 let animateCamera1 = animateCamera();

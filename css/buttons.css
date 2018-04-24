@@ -145,21 +145,21 @@
   background-image: url(../images/RoofTop1_perspec.png);
   height: 16.0vmin;
   width: 16.0vmin;
-  /* display: none; */
+  display: none;
 }
 #btnModelsSelect2 {
   bottom: 22.0vmin;
-  background-image: url(../images/stoika.png);
-  height: 16.0vmin;
-  width: 16.0vmin;
-  /* display: none; */
-}
-#btnModelsSelect3 {
-  bottom: 4.0vmin;
   background-image: url(../images/profil.png);
   height: 16.0vmin;
   width: 16.0vmin;
-  /* display: none; */
+  display: none;
+}
+#btnModelsSelect3 {
+  bottom: 4.0vmin;
+  background-image: url(../images/stoika.png);
+  height: 16.0vmin;
+  width: 16.0vmin;
+  display: none;
 }
 .modelsSelect:hover {
   opacity: 1.0;

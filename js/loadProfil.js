@@ -1,22 +1,23 @@
 let matProfil = [
   new THREE.MeshStandardMaterial({
     color : 0x999999
-  }),
-  new THREE.MeshStandardMaterial({
-    color : 0x111111
-  }),
-  new THREE.MeshStandardMaterial({
-    color : 0xff0000
-  }),
-  new THREE.MeshStandardMaterial({
-    color : 0xA7FFEB
-  }),
-  new THREE.MeshStandardMaterial({
-    color : 0x111111
-  }),
-  new THREE.MeshStandardMaterial({
-    color : 0xaaaaaa
-  }),
+  })
+  // ,
+  // new THREE.MeshStandardMaterial({
+  //   color : 0x111111
+  // }),
+  // new THREE.MeshStandardMaterial({
+  //   color : 0xff0000
+  // }),
+  // new THREE.MeshStandardMaterial({
+  //   color : 0xA7FFEB
+  // }),
+  // new THREE.MeshStandardMaterial({
+  //   color : 0x111111
+  // }),
+  // new THREE.MeshStandardMaterial({
+  //   color : 0xaaaaaa
+  // }),
 ];
 let profil_rehauGI;
 let profil_rehau = new THREE.Object3D();
@@ -68,24 +69,34 @@ let matProfilSetup =  function() {
   matProfil[0].lightMap = profil_rehauGI;
   matProfil[0].lightMapIntensity = 1;
 
+  matProfil.push( new THREE.MeshStandardMaterial( { color : 0x111111 } ) );
   matProfil[1].map = profil_rehauGI;
   matProfil[1].aoMap = profil_rehauGI;
   matProfil[1].aoMapIntensity = 1;
   matProfil[1].lightMap = profil_rehauGI;
   matProfil[1].lightMapIntensity = 1;
 
+  matProfil.push( new THREE.MeshStandardMaterial( { color : 0xff0000 } ) );
   matProfil[2].map = profil_rehauGI;
   matProfil[2].aoMap = profil_rehauGI;
   matProfil[2].aoMapIntensity = 1;
 
+  matProfil.push( new THREE.MeshStandardMaterial( { color : 0xA7FFEB } ) );
   matProfil[3].map = profil_rehauGI;
   matProfil[3].aoMap = profil_rehauGI;
   matProfil[3].aoMapIntensity = 1;
 
+  matProfil.push( new THREE.MeshStandardMaterial( { color : 0x111111 } ) );
+  matProfil[4].map = profil_rehauGI;
+  matProfil[4].aoMap = profil_rehauGI;
+  matProfil[4].aoMapIntensity = 1;
+
+  matProfil.push( new THREE.MeshStandardMaterial( { color : 0x111111 } ) );
   matProfil[5].map = profil_rehauGI;
   matProfil[5].aoMap = profil_rehauGI;
   matProfil[5].aoMapIntensity = 1;
 
+  matProfil.push( matGlass );
   matProfil[6] = matGlass ;
   matProfil[6].aoMap = profil_rehauGI;
   matProfil[6].aoMapIntensity = 1;

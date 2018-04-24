@@ -188,22 +188,24 @@ function showStoiki() {
   ustanovka.visible = false;
   potok1.visible = false;
   potok2.visible = false;
-  stopCameraAnim();
-  setCamera();
-  onCameraRotate();
   controlPanel.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.5;
   stoikiGroup.visible = true;
+  stopCameraAnim();
+  setCamera();
+  onCameraRotate();
 }
 function showProfilRehau() {
+  loadProfil();
   stoikiGroup.visible = false;
   ustanovka.visible = false;
   potok1.visible = false;
   potok2.visible = false;
-  loadProfil();
   controls.maxPolarAngle = Math.PI * 0.8;
   profil_rehau.visible = true;
-    setCamera();
+  stopCameraAnim();
+  setCamera();
+  onCameraRotate();
 }
 btnSelectObject.addEventListener( "click" , selectObject );
 btnShow2LevellInfo.addEventListener( "click" , showDetailInfo );
@@ -222,8 +224,8 @@ document.addEventListener("keydown", function(e) {
   }
 }, false);
 btnModelsSelect1.addEventListener( "click" , showHolodUst );
-btnModelsSelect2.addEventListener( "click" , showStoiki );
-btnModelsSelect3.addEventListener( "click" , showProfilRehau );
+btnModelsSelect2.addEventListener( "click" , showProfilRehau );
+btnModelsSelect3.addEventListener( "click" , showStoiki );
 // overlayStl.style.left = 100 + 'px';
 
 //Add models in scene
