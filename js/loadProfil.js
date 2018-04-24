@@ -1,24 +1,4 @@
-let matProfil = [
-  new THREE.MeshStandardMaterial({
-    color : 0x999999
-  })
-  // ,
-  // new THREE.MeshStandardMaterial({
-  //   color : 0x111111
-  // }),
-  // new THREE.MeshStandardMaterial({
-  //   color : 0xff0000
-  // }),
-  // new THREE.MeshStandardMaterial({
-  //   color : 0xA7FFEB
-  // }),
-  // new THREE.MeshStandardMaterial({
-  //   color : 0x111111
-  // }),
-  // new THREE.MeshStandardMaterial({
-  //   color : 0xaaaaaa
-  // }),
-];
+let matProfil = [ new THREE.MeshStandardMaterial( { color : 0x999999 } ) ];
 let profil_rehauGI;
 let profil_rehau = new THREE.Object3D();
 profil_rehau.visible = false;
@@ -56,7 +36,7 @@ function loadProfil() {
   }
 }
 
-let matProfilSetup =  function() {
+function matProfilSetup() {
   matProfil[0].envMap = textureCube;
   matProfil[0].envMapIntensity = 1.0
   matProfil[0].needsUpdate = true;

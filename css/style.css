@@ -53,6 +53,23 @@ canvas {
   font-size: 27px;
   margin: 0;
 }
+#WebGLInfo {
+  position: absolute;
+  background-color: rgba(0,172,193 ,0.8);
+  color: white;
+  width: 40%;
+  height: auto;
+  top: 80px;
+  left: 10px;
+  text-align: left;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 0.25em;
+  margin: 0px;
+  display: none;
+}
+#header1:hover {cursor: pointer;}
+
 #header2 {
   padding-right: 10px;
   font-size: 17px;

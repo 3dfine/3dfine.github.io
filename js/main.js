@@ -201,7 +201,7 @@ function showProfilRehau() {
   ustanovka.visible = false;
   potok1.visible = false;
   potok2.visible = false;
-  controlPanel.style.display='none';  
+  controlPanel.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.8;
   profil_rehau.visible = true;
   stopCameraAnim();
@@ -227,6 +227,15 @@ document.addEventListener("keydown", function(e) {
 btnModelsSelect1.addEventListener( "click" , showHolodUst );
 btnModelsSelect2.addEventListener( "click" , showProfilRehau );
 btnModelsSelect3.addEventListener( "click" , showStoiki );
+
+function showWebGLInfo() {
+  $("#WebGLInfo")
+    .hide()
+    .fadeIn(600)
+    .delay(7000)
+    .fadeOut(300);
+}
+header1.addEventListener( "click" , showWebGLInfo );
 // overlayStl.style.left = 100 + 'px';
 
 //Add models in scene
