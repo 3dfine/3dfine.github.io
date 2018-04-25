@@ -26,12 +26,12 @@ function loadProfil() {
           object.children[i].castShadow = true;
           object.children[i].receiveShadow = true;
         }
-        object.scale.multiplyScalar( 4.5 );
+        object.scale.multiplyScalar( 4.7 );
         profil_rehau.add( object );
         profil_rehau.onLoaded = true;
     });
     matProfilSetup();
-    profil_rehau.position.set( 0, -600, 0 );
+    profil_rehau.position.set( 0, -650, 0 );
     scene.add( profil_rehau );
   }
 }

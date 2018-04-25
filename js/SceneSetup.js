@@ -42,7 +42,7 @@ dirLight.position.multiplyScalar( 1000 );
 // scene.add( helper );
 scene.add( dirLight );
 //HemisphereLight( skyColor : Integer, groundColor : Integer, intensity : Float )
-hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.8 );
+hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 1.0 );
 hemiLight.color.setHSL( 0.6, 1, 0.4 );
 hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
 hemiLight.position.set( 0, 10, 0 );
