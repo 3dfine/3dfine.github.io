@@ -17,7 +17,7 @@
   opacity: 0.3;
 }
 .buttonA:hover {
-  opacity: 0.6;
+  opacity: 1.0;
 }
 .buttonB {
   background-repeat     : no-repeat;
@@ -53,11 +53,10 @@
           align-items: flex-start;
   display: none;
 }
-#controlPanel {
+.cntrlPanel {
+/* #controlPanel { */
   width: 100%;
   position: absolute;
-  bottom: 1.0vmax;
-  /* margin-bottom: 0.5vmax; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -71,6 +70,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+
+}
+#controlPanel {
+  bottom: 1.0vmax;
   display: none;
 }
 #btnSelectObject {
@@ -163,4 +166,23 @@
 }
 .modelsSelect:hover {
   opacity: 1.0;
+}
+#controlColor {
+  bottom: 1.0vmax;
+  display: none;
+}
+#btnColor1 {
+  border-radius: 0.3em;
+  border: 1px solid #111111;
+  background-color: #ffffff;
+}
+#btnColor2 {
+  border-radius: 0.3em;
+  border: 1px solid #111111;
+  background-color: #3E2723;
+}
+#btnColor3 {
+  border-radius: 0.3em;
+  border: 1px solid #111111;
+  background-color: #b71c1c;
 }

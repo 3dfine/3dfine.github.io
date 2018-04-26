@@ -179,34 +179,53 @@ function showHolodUst() {
   $("#controlPanel").css("display", "flex")
     .hide()
     .fadeIn(100);
+  controlColor.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.75;
 
 }
 function showStoiki() {
+  if(!stoikiGroup.onLoaded) {
+    stopCameraAnim();
+    setCamera();
+    onCameraRotate();
+  } else {
+      stopCameraAnim();
+      setCamera();
+      offCameraRotate();
+    }
   loadStoiki();
   profil_rehau.visible = false;
   ustanovka.visible = false;
   potok1.visible = false;
   potok2.visible = false;
   controlPanel.style.display='none';
+  controlColor.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.5;
   stoikiGroup.visible = true;
-  stopCameraAnim();
-  setCamera();
-  onCameraRotate();
 }
 function showProfilRehau() {
+  if(!profil_rehau.onLoaded) {
+    stopCameraAnim();
+    setCamera();
+    onCameraRotate();
+  } else {
+      stopCameraAnim();
+      setCamera();
+      offCameraRotate();
+    }
   loadProfil();
   stoikiGroup.visible = false;
   ustanovka.visible = false;
   potok1.visible = false;
   potok2.visible = false;
+  $("#controlColor").css("display", "flex")
+    .hide()
+    .fadeIn(100);
   controlPanel.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.9;
   profil_rehau.visible = true;
-  stopCameraAnim();
+  // stopCameraAnim();
   setCamera();
-  onCameraRotate();
 }
 btnSelectObject.addEventListener( "click" , selectObject );
 btnShow2LevellInfo.addEventListener( "click" , showDetailInfo );
@@ -228,6 +247,9 @@ btnModelsSelect1.addEventListener( "click" , showHolodUst );
 btnModelsSelect2.addEventListener( "click" , showProfilRehau );
 btnModelsSelect3.addEventListener( "click" , showStoiki );
 
+btnColor1.addEventListener( "click" , profilColor1 );
+btnColor2.addEventListener( "click" , profilColor2 );
+btnColor3.addEventListener( "click" , profilColor3 );
 function showWebGLInfo() {
   $("#WebGLInfo")
     .hide()

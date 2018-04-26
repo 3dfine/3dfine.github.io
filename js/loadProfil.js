@@ -86,3 +86,12 @@ function matProfilSetup() {
   matProfil[6].aoMap = profil_rehauGI;
   matProfil[6].aoMapIntensity = 1;
 }
+function profilColor1() {
+  matProfil[0].color = {r: 0.6, g: 0.6, b: 0.6};
+}
+function profilColor2() {
+  matProfil[0].color = {r: 62/2000, g: 39/2000, b: 35/2000};
+}
+function profilColor3() {
+  matProfil[0].color = {r: 100/255, g: 1/255, b: 1/255};
+}
