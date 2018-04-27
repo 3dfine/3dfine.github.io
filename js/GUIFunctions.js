@@ -50,3 +50,35 @@ document.body.onmouseup = function(e) {
     if(tt > 300) offCameraRotate();
   }
 }
+//----------------------------------------Отображение интерфейса
+function showGUI() {
+  let guiNotLoaded = true;
+  return function() {
+    if(guiNotLoaded) {
+      $("#cameraControl").css("display", "flex")
+        .hide()
+        .delay(4000)
+        .fadeIn(600);
+      $("#copyRight").css("display", "flex")
+        .hide()
+        .delay(4000)
+        .fadeIn(600);
+      $("#help1")
+        .delay(2000)
+        .fadeIn(600)
+        .delay(8000)
+        .fadeOut(600);
+      $("#btnModelsSelect1")
+        .delay(4000)
+        .fadeIn(600);
+      $("#btnModelsSelect2")
+        .delay(4000)
+        .fadeIn(600);
+      $("#btnModelsSelect3")
+        .delay(4000)
+        .fadeIn(600);
+      guiNotLoaded = false;
+    }
+  }
+}
+let showGUI1 = showGUI();

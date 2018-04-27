@@ -58,39 +58,17 @@ let windLoaded = false;
 window.onload = function () {
   startCameraAnim(CameraKeyTrckDefPos);
   onCameraRotate();
-  $("#cameraControl").css("display", "flex")
-    .hide()
-    .delay(4000)
-    .fadeIn(600);
-  $("#copyRight").css("display", "flex")
-    .hide()
-    .delay(4000)
-    .fadeIn(600);
-  $("#help1")
-    .delay(2000)
-    .fadeIn(600)
-    .delay(8000)
-    .fadeOut(600);
-  $("#btnModelsSelect1")
-    .delay(4000)
-    .fadeIn(600);
-  $("#btnModelsSelect2")
-    .delay(4000)
-    .fadeIn(600);
-  $("#btnModelsSelect3")
-    .delay(4000)
-    .fadeIn(600);
-
+  showGUI();
   windLoaded = true;
 }
-
 let animate = function () {
   requestAnimationFrame( animate );
   tick += 0.075;
   //здесь выполняется после загрузки 3д моделей
   if( globalToTuLoaded ) {
+    showGUI1();
     animateCamera1( CameraKeyTrck );
-    animHolodUst1(tick);
+    animHolodUst1( tick );
     controls.update();
     renderer.render( scene, camera );
   }
