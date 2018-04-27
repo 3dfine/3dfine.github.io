@@ -1,3 +1,8 @@
+let animateCamera1 = animateCamera();
+// let clock = new THREE.Clock();
+let tick = 0;
+let CameraKeyTrck = { playOn: false };
+
 let globalCameraPos = function (cameraPosSetup ) {
   let vectorCam = new THREE.Vector3( 0, 0, 1 );
   let axisY = new THREE.Vector3( 0, 1, 0 );  //вектор направление вверх - ось Y

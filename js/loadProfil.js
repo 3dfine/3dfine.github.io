@@ -1,7 +1,7 @@
 let matProfil = [ new THREE.MeshStandardMaterial( { color : 0x999999 } ) ];
 let profil_rehauGI;
 let profil_rehau = new THREE.Object3D();
-profil_rehau.visible = false;
+profil_rehau.visible = true;
 profil_rehau.onLoaded = false;
 
 function loadProfil() {
@@ -23,12 +23,11 @@ function loadProfil() {
           object.children[i].material = matProfil;
           //пользовательское свойство materialDefult - сохраняем материал для режима выбора подобъектов!
           object.children[i].materialDefult = matProfil;
-          object.children[i].castShadow = true;
-          object.children[i].receiveShadow = true;
         }
         object.scale.multiplyScalar( 4.7 );
         profil_rehau.add( object );
         profil_rehau.onLoaded = true;
+        profil_rehau.visible = true;        
     });
     matProfilSetup();
     profil_rehau.position.set( 0, -650, 0 );

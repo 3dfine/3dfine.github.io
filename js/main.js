@@ -1,8 +1,3 @@
-let urlHash = window.location.hash.substring(1);
-let urlSearch = window.location.search.substring(1);
-// console.log('urlHash# =', urlHash);
-// console.log('urlSearch? =', urlSearch);
-
 scene.add( ustanovka );
 scene.add( potok1 );
 scene.add( potok2 );
@@ -38,6 +33,7 @@ function offCameraRotate() {
   //убираем свойство 'opacity' кнопки, чтобы востановить возможность изменения прозрачности при наведене мыши
   btnRotateCamera.style.removeProperty( 'opacity');
 }
+
 function stopCameraAnim() {
   selectedObjectMode = false;
   replaceMaterial3DObj(ustanovka, false, matGhost);
@@ -176,9 +172,10 @@ function showHideBronya() {
   }
 }
 function showHolodUst() {
+  loadHolod();
   profil_rehau.visible = false;
   stoikiGroup.visible = false;
-  ustanovka.visible = true;
+  // ustanovka.visible = true;
   setCamera();
   $("#controlPanel").css("display", "flex")
     .hide()
@@ -189,11 +186,9 @@ function showHolodUst() {
 }
 function showStoiki() {
   if(!stoikiGroup.onLoaded) {
-    stopCameraAnim();
     setCamera();
     onCameraRotate();
   } else {
-      stopCameraAnim();
       setCamera();
       offCameraRotate();
     }
@@ -209,11 +204,9 @@ function showStoiki() {
 }
 function showProfilRehau() {
   if(!profil_rehau.onLoaded) {
-    stopCameraAnim();
     setCamera();
     onCameraRotate();
   } else {
-      stopCameraAnim();
       setCamera();
       offCameraRotate();
     }
@@ -228,9 +221,12 @@ function showProfilRehau() {
   controlPanel.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.9;
   profil_rehau.visible = true;
-  // stopCameraAnim();
   setCamera();
 }
+
+// if( ( urlHash === '1' ) || ( !urlHash ) ) showHolodUst();
+// showHolodUst();
+
 btnSelectObject.addEventListener( "click" , selectObject );
 btnShow2LevellInfo.addEventListener( "click" , showDetailInfo );
 btnShow1LevellInfo.addEventListener( "click" , showGeneralInfo );

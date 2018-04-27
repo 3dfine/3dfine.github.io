@@ -64,3 +64,8 @@ loader.load( url, function( object ) {
     // scene.add( object );
 });
 }
+
+let urlHash = window.location.hash.substring(1);
+let urlSearch = window.location.search.substring(1);
+if(urlHash) console.log('urlHash# =', urlHash);
+if(urlSearch)  console.log('urlSearch? =', urlSearch);

@@ -24,6 +24,7 @@ function loadStoiki() {
       matStoikiSetup();
       scene.add( stoikiGroup );
       stoikiGroup.onLoaded = true;
+      stoikiGroup.visible = true;
     }
     let loader3 = new THREE.FBXLoader(managerLoad);
     let texLoader = new THREE.TextureLoader(managerLoad);

@@ -35,3 +35,18 @@ function setCursorGrabbing() {
   document.body.style.cursor = 'grabbing';
   document.body.style.cursor = '-webkit-grabbing';
 }
+//--------------------------------------продолжительность нажатия ПКМ для отмены вращения
+let strtm;
+document.body.onmousedown = function(e) {
+  // which указывает на клавишу (1 - левая)
+  if (e.which === 1) {
+    strtm = +new Date();
+  }
+}
+document.body.onmouseup = function(e) {
+  if (e.which === 1) {
+    let et = +new Date();
+    let tt = et - strtm;
+    if(tt > 300) offCameraRotate();
+  }
+}

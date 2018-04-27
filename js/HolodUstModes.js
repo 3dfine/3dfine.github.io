@@ -111,23 +111,25 @@ function holodUst1Mode_2() {
 }
 //функция управления анимируемыми элементами первой холодильной установки
 function animHolodUst1(timeTick) {
-  //управление внутренними вентиляторами
-  vent_nasos_ventil.rotation.z += ustVent1.rotSpeed;
-  vent_nasos_ventil2.rotation.z += ustVent2.rotSpeed;
-  //управление вшешними вентиляторами
-  ventilatorOutSide_lopasti.children[0].children[0].rotation.x += ventilatorOutSide.rotSpeed;
-  ventilatorOutSide_lopasti.children[0].children[1].rotation.x += ventilatorOutSide.rotSpeed * 1.02;
-  ventilatorOutSide_lopasti.children[0].children[2].rotation.x -= ventilatorOutSide.rotSpeed * 0.8;
-  ventilatorOutSide_lopasti.children[0].children[3].rotation.x -= ventilatorOutSide.rotSpeed * 1.03;
-  //управление потоком визуализации воздуха
-  if( potok1.visible ) {
-    for( let i=0; i<potok1.children[0].children.length; i++ ) {
-      potok1.children[0].children[i].scale.y = potok1.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - timeTick) + 1.0);
+  if( ustanovka.onLoaded ) {
+    //управление внутренними вентиляторами
+    vent_nasos_ventil.rotation.z += ustVent1.rotSpeed;
+    vent_nasos_ventil2.rotation.z += ustVent2.rotSpeed;
+    //управление вшешними вентиляторами
+    ventilatorOutSide_lopasti.children[0].children[0].rotation.x += ventilatorOutSide.rotSpeed;
+    ventilatorOutSide_lopasti.children[0].children[1].rotation.x += ventilatorOutSide.rotSpeed * 1.02;
+    ventilatorOutSide_lopasti.children[0].children[2].rotation.x -= ventilatorOutSide.rotSpeed * 0.8;
+    ventilatorOutSide_lopasti.children[0].children[3].rotation.x -= ventilatorOutSide.rotSpeed * 1.03;
+    //управление потоком визуализации воздуха
+    if( potok1.visible ) {
+      for( let i=0; i<potok1.children[0].children.length; i++ ) {
+        potok1.children[0].children[i].scale.y = potok1.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - timeTick) + 1.0);
+      }
     }
-  }
-  if( potok2.visible ) {
-    for( let i=0; i<potok2.children[0].children.length; i++ ) {
-      potok2.children[0].children[i].scale.y = potok2.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - timeTick) + 1.0);
+    if( potok2.visible ) {
+      for( let i=0; i<potok2.children[0].children.length; i++ ) {
+        potok2.children[0].children[i].scale.y = potok2.children[0].children[i].scale.z = 1.0 - 0.99 * (Math.sin(i/5 - timeTick) + 1.0);
+      }
     }
   }
 }

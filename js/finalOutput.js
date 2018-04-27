@@ -9,21 +9,6 @@ function onWindowResize( event ) {
   controls.rotateSpeed = width / 1920;
 }
 
-//--------------------------------------продолжительность нажатия ПКМ для отмены вращения
-let startMouseDown; // начальное время
-document.body.onmousedown = function(e) {
-  // which указывает на клавишу (1 - левая)
-  if (e.which === 1) {
-    startMouseDown = +new Date();
-  }
-}
-document.body.onmouseup = function(e) {
-  if (e.which === 1) {
-    let endTime = +new Date();
-    let time = endTime - startMouseDown;
-    if(time > 300) offCameraRotate();
-  }
-}
 //---------------------Выбор объектов-------------------
 let mouseDownState = true;  //если нажата кнопка выбора объекта не происходит
 renderer.domElement.addEventListener( 'mousedown', function () {mouseDownState = false;}, false );
@@ -65,15 +50,14 @@ function onDocumentMouseMove( event ) {
 }
 renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
 //------------------------------------------------------------
+if( ( urlHash === '1' ) || ( !urlHash ) ) showHolodUst();
+if( urlHash === '2' ) showProfilRehau();
+if( urlHash === '3' ) showStoiki();
 
+let windLoaded = false;
 window.onload = function () {
-  matHolodSetup();
   startCameraAnim(CameraKeyTrckDefPos);
   onCameraRotate();
-  $("#controlPanel").css("display", "flex")
-    .hide()
-    .delay(4000)
-    .fadeIn(600);
   $("#cameraControl").css("display", "flex")
     .hide()
     .delay(4000)
@@ -96,17 +80,15 @@ window.onload = function () {
   $("#btnModelsSelect3")
     .delay(4000)
     .fadeIn(600);
+
+  windLoaded = true;
 }
 
-let animateCamera1 = animateCamera();
-// let clock = new THREE.Clock();
-let tick = 0;
-let CameraKeyTrck = { playOn: false };
 let animate = function () {
   requestAnimationFrame( animate );
   tick += 0.075;
   //здесь выполняется после загрузки 3д моделей
-  if( globalLoad > 20 ) {
+  if( windLoaded ) {
     animateCamera1( CameraKeyTrck );
     animHolodUst1(tick);
     controls.update();
