@@ -37,7 +37,7 @@ function setCursorGrabbing() {
 }
 //--------------------------------------продолжительность нажатия ПКМ для отмены вращения
 let strtm;
-document.body.onmousedown = function(e) {
+document.onmousedown = function(e) {
   // which указывает на клавишу (1 - левая)
   if (e.which === 1) {
     strtm = +new Date();
@@ -47,11 +47,15 @@ document.body.onmousedown = function(e) {
     event.preventDefault();
   }
 }
-document.body.onmouseup = function(e) {
+document.onmouseup = function(e) {
   if (e.which === 1) {
     let et = +new Date();
     let tt = et - strtm;
     if(tt > 300) offCameraRotate();
+  }
+  if (e.which === 3) {
+    console.log('Отжата правая клавиша')
+    event.returnValue= false;
   }
 }
 //----------------------------------------Отображение интерфейса
