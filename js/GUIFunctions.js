@@ -42,20 +42,13 @@ document.onmousedown = function(e) {
   if (e.which === 1) {
     strtm = +new Date();
   }
-  if (e.which === 3) {
-    console.log('Нажата правая клавиша')
-    event.preventDefault();
-  }
 }
+// document.body.onmouseup = function(e) {
 document.onmouseup = function(e) {
   if (e.which === 1) {
     let et = +new Date();
     let tt = et - strtm;
     if(tt > 300) offCameraRotate();
-  }
-  if (e.which === 3) {
-    console.log('Отжата правая клавиша')
-    event.returnValue= false;
   }
 }
 //----------------------------------------Отображение интерфейса
