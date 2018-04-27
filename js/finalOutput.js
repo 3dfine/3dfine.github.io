@@ -9,10 +9,26 @@ function onWindowResize( event ) {
   controls.rotateSpeed = width / 1920;
 }
 
+//--------------------------------------продолжительность нажатия ПКМ для отмены вращения
+let startMouseDown; // начальное время
+document.body.onmousedown = function(e) {
+  // which указывает на клавишу (1 - левая)
+  if (e.which === 1) {
+    startMouseDown = +new Date();
+  }
+}
+document.body.onmouseup = function(e) {
+  if (e.which === 1) {
+    let endTime = +new Date();
+    let time = endTime - startMouseDown;
+    if(time > 300) offCameraRotate();
+  }
+}
 //---------------------Выбор объектов-------------------
 let mouseDownState = true;  //если нажата кнопка выбора объекта не происходит
 renderer.domElement.addEventListener( 'mousedown', function () {mouseDownState = false;}, false );
 renderer.domElement.addEventListener( 'mouseup', function () {mouseDownState = true;}, false );
+
 let selectedObject = {
   object: new THREE.Object3D( ),
   material: new THREE.MeshPhongMaterial(),

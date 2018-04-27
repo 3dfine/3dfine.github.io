@@ -9,7 +9,7 @@ function compareName(a,b) {
   if (a.name > b.name)
     return 1;
   return 0;
-}
+} 
 
 function setCamera() {
   // rama.children[0].children[0].material = matUstRama;
