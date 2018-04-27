@@ -47,6 +47,8 @@ loader.load( url, function( object ) {
 });
 }
 
+let globalToTuLoaded = false;
+
 var loadAnimFBXModel = function( animationGroup, modelTarget, position, rotation, scaleImport, _material, url ) {
 loader.load( url, function( object ) {
     for(let i=0; i<object.children.length; i++) {

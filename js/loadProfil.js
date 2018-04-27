@@ -27,7 +27,8 @@ function loadProfil() {
         object.scale.multiplyScalar( 4.7 );
         profil_rehau.add( object );
         profil_rehau.onLoaded = true;
-        profil_rehau.visible = true;        
+        profil_rehau.visible = true;
+        globalToTuLoaded = true;  
     });
     matProfilSetup();
     profil_rehau.position.set( 0, -650, 0 );

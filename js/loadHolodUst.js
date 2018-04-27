@@ -170,4 +170,5 @@ managerFBXLoad.onLoad = function ( ) {
   blockLoad.style.display='none';
 
     matHolodSetup();
+  globalToTuLoaded = true;  
 };
