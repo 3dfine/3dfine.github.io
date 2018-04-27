@@ -1,4 +1,8 @@
-// stoikiGroup.position.x = 2600;
+let urlHash = window.location.hash.substring(1);
+let urlSearch = window.location.search.substring(1);
+// console.log('urlHash# =', urlHash);
+// console.log('urlSearch? =', urlSearch);
+
 scene.add( ustanovka );
 scene.add( potok1 );
 scene.add( potok2 );
@@ -9,7 +13,7 @@ function compareName(a,b) {
   if (a.name > b.name)
     return 1;
   return 0;
-} 
+}
 
 function setCamera() {
   // rama.children[0].children[0].material = matUstRama;
