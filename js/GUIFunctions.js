@@ -42,6 +42,10 @@ document.body.onmousedown = function(e) {
   if (e.which === 1) {
     strtm = +new Date();
   }
+  if (e.which === 3) {
+    console.log('Нажата правая клавиша')
+    event.preventDefault();
+  }
 }
 document.body.onmouseup = function(e) {
   if (e.which === 1) {
