@@ -71,6 +71,7 @@ canvas {
 #header1:hover {cursor: pointer;}
 
 #header2 {
+  text-align: right;
   padding-right: 10px;
   font-size: 17px;
   margin: 0;
