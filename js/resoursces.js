@@ -69,5 +69,5 @@ loader.load( url, function( object ) {
 
 let urlHash = window.location.hash.substring(1);
 let urlSearch = window.location.search.substring(1);
-if(urlHash) console.log('urlHash# =', urlHash);
-if(urlSearch)  console.log('urlSearch? =', urlSearch);
+// if(urlHash) console.log('urlHash# =', urlHash);
+// if(urlSearch)  console.log('urlSearch? =', urlSearch);

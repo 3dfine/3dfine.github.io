@@ -26,7 +26,7 @@ function loadUsadba() {
       usadba.visible = true;
       blockLoad.style.display='none';
       globalToTuLoaded = true;
-      usadba.scale.multiplyScalar( 1.5 );
+      usadba.scale.multiplyScalar( 1.7 );
     }
     let texLoader = new THREE.TextureLoader(managerUsadba);
     let loader3 = new THREE.FBXLoader(managerUsadba);

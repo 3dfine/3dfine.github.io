@@ -183,6 +183,7 @@ function showHolodUst() {
     .hide()
     .fadeIn(100);
   controlColor.style.display='none';
+  controlUsadba.style.display='none';  
   controls.maxPolarAngle = Math.PI * 0.75;
 
 }
@@ -202,6 +203,7 @@ function showStoiki() {
   usadba.visible = false;
   controlPanel.style.display='none';
   controlColor.style.display='none';
+  controlUsadba.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.5;
   stoikiGroup.visible = true;
 }
@@ -223,6 +225,7 @@ function showProfilRehau() {
     .hide()
     .fadeIn(100);
   controlPanel.style.display='none';
+  controlUsadba.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.9;
   profil_rehau.visible = true;
   setCamera();
