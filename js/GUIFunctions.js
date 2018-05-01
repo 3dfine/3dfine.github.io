@@ -80,6 +80,10 @@ function showGUI() {
         .fadeIn(600);
       guiNotLoaded = false;
     }
+    $("#btnModelsSelect4")
+      .delay(4000)
+      .fadeIn(600);
+    guiNotLoaded = false;
   }
 }
 let showGUI1 = showGUI();

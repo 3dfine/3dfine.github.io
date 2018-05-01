@@ -51,8 +51,9 @@ function onDocumentMouseMove( event ) {
 renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
 //------------------------------------------------------------
 if( ( urlHash === '1' ) || ( !urlHash ) ) showHolodUst();
-if( urlHash === '2' ) showProfilRehau();
-if( urlHash === '3' ) showStoiki();
+if( urlHash === '2' ) showUsadba();
+if( urlHash === '3' ) showProfilRehau();
+if( urlHash === '4' ) showStoiki();
 
 let windLoaded = false;
 window.onload = function () {

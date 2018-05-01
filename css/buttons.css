@@ -144,7 +144,7 @@
   cursor: pointer;
 }
 #btnModelsSelect1 {
-  bottom: 40.0vmin;
+  bottom: 58.0vmin;
   background-image: url(../images/RoofTop1_perspec.png);
   height: 16.0vmin;
   width: 16.0vmin;
@@ -160,6 +160,13 @@
 #btnModelsSelect3 {
   bottom: 4.0vmin;
   background-image: url(../images/stoika.png);
+  height: 16.0vmin;
+  width: 16.0vmin;
+  display: none;
+}
+#btnModelsSelect4 {
+  bottom: 40.0vmin;
+  background-image: url(../images/usadba.png);
   height: 16.0vmin;
   width: 16.0vmin;
   display: none;

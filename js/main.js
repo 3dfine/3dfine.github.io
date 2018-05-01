@@ -1,6 +1,7 @@
 scene.add( ustanovka );
 scene.add( potok1 );
 scene.add( potok2 );
+scene.add( usadba );
 
 function compareName(a,b) {
   if (a.name < b.name)
@@ -175,6 +176,7 @@ function showHolodUst() {
   loadHolod();
   profil_rehau.visible = false;
   stoikiGroup.visible = false;
+  usadba.visible = false;
   // ustanovka.visible = true;
   setCamera();
   $("#controlPanel").css("display", "flex")
@@ -197,6 +199,7 @@ function showStoiki() {
   ustanovka.visible = false;
   potok1.visible = false;
   potok2.visible = false;
+  usadba.visible = false;
   controlPanel.style.display='none';
   controlColor.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.5;
@@ -215,6 +218,7 @@ function showProfilRehau() {
   ustanovka.visible = false;
   potok1.visible = false;
   potok2.visible = false;
+  usadba.visible = false;
   $("#controlColor").css("display", "flex")
     .hide()
     .fadeIn(100);
@@ -223,7 +227,27 @@ function showProfilRehau() {
   profil_rehau.visible = true;
   setCamera();
 }
-
+function showUsadba() {
+  if(!usadba.onLoaded) {
+    setCamera();
+    onCameraRotate();
+  } else {
+      setCamera();
+      offCameraRotate();
+    }
+  loadUsadba();
+  profil_rehau.visible = false;
+  stoikiGroup.visible = false;
+  ustanovka.visible = false;
+  potok1.visible = false;
+  potok2.visible = false;
+  setCamera();
+  $("#controlPanel").css("display", "flex")
+    .hide()
+    .fadeIn(100);
+  controlColor.style.display='none';
+  controls.maxPolarAngle = Math.PI * 0.52;
+}
 // if( ( urlHash === '1' ) || ( !urlHash ) ) showHolodUst();
 // showHolodUst();
 
@@ -246,6 +270,7 @@ document.addEventListener("keydown", function(e) {
 btnModelsSelect1.addEventListener( "click" , showHolodUst );
 btnModelsSelect2.addEventListener( "click" , showProfilRehau );
 btnModelsSelect3.addEventListener( "click" , showStoiki );
+btnModelsSelect4.addEventListener( "click" , showUsadba );
 
 btnColor1.addEventListener( "click" , profilColor1 );
 btnColor2.addEventListener( "click" , profilColor2 );

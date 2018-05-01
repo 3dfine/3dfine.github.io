@@ -172,6 +172,7 @@ vertexShader: shader.vertexShader,
 fragmentShader: shader.fragmentShader,
 transparent: true
 } );
+
 // let shader2 = THREE.GhostShader;
 // let matGhost = new THREE.ShaderMaterial( {
 // uniforms: uniforms,
