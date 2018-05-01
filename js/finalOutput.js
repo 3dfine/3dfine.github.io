@@ -50,8 +50,8 @@ function onDocumentMouseMove( event ) {
 }
 renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
 //------------------------------------------------------------
-if( ( urlHash === '1' ) || ( !urlHash ) ) showHolodUst();
-if( urlHash === '2' ) showUsadba();
+if( urlHash === '1' ) showHolodUst();
+if( ( urlHash === '2' ) || ( !urlHash ) ) showUsadba();
 if( urlHash === '3' ) showProfilRehau();
 if( urlHash === '4' ) showStoiki();
 

@@ -114,7 +114,7 @@ function matUsadbaSetup() {
   matUsadbaWalls[1].map = wood2_2;
   wood2_2.wrapS = THREE.RepeatWrapping;
   wood2_2.wrapT = THREE.RepeatWrapping;
-  wood2_2.repeat.set( 1, 1 );
+  wood2_2.repeat.set( 1, 3 );
   matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
   matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
 
@@ -136,7 +136,7 @@ function matUsadbaSetup() {
   matUsadbawalls2floor[2].map = wood2;
   wood2.wrapS = THREE.RepeatWrapping;
   wood2.wrapT = THREE.RepeatWrapping;
-  wood2.repeat.set( 8, 8 );
+  wood2.repeat.set( 8, 16 );
   matUsadbawalls2floor.forEach( function( item ) {
     item.lightMap = walls2floor_GI;
     item.lightMapIntensity = 0.1;
