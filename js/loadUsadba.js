@@ -139,7 +139,7 @@ function matUsadbaSetup() {
   wood2.repeat.set( 8, 8 );
   matUsadbawalls2floor.forEach( function( item ) {
     item.lightMap = walls2floor_GI;
-    item.lightMapIntensity = 0.2;
+    item.lightMapIntensity = 0.1;
   } );
 
   matUsadbawalls1floor[0].map = vagonka3;
@@ -153,8 +153,8 @@ function matUsadbaSetup() {
   } );
 }
 function usadbaFull() {
-  matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 0.2; });
-  matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 0.2; });
+  matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
+  matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
   walls2floor.visible = true;
   krishaUsadba.visible = true;
 }

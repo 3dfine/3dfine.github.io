@@ -10,7 +10,7 @@ let scene = new THREE.Scene();
 // scene.background = new THREE.Color(0x0c151b);
 scene.background = new THREE.Color( 0xffffff );
 // Fog( color : Integer, near : Float, far : Float )
-//scene.fog = new THREE.Fog( scene.background, 5000, 9000 );
+scene.fog = new THREE.Fog( scene.background, 5000, 9000 );
 
 //Camera and camera control
 let camera = new THREE.PerspectiveCamera(35, aspect, 100, 9000);
