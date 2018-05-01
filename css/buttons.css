@@ -178,6 +178,28 @@
   bottom: 1.0vmax;
   display: none;
 }
+#controlUsadba {
+  line-height:4.0vmax;
+  text-align: center;
+  font-size: 2.5vmax;
+  bottom: 1.0vmax;
+  display: none;
+}
+#btnUsadbaFull {
+  border-radius: 0.1em;
+  border: 1px solid #111111;
+  background-color: #ffffff;
+}
+#btn2Floor {
+  border-radius: 0.1em;
+  border: 1px solid #111111;
+  background-color: #ffffff;
+}
+#btn1Floor {
+  border-radius: 0.1em;
+  border: 1px solid #111111;
+  background-color: #ffffff;
+}
 #btnColor1 {
   border-radius: 0.3em;
   border: 1px solid #111111;

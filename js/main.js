@@ -244,6 +244,9 @@ function showUsadba() {
   setCamera();
   controlPanel.style.display='none';
   controlColor.style.display='none';
+  $("#controlUsadba").css("display", "flex")
+    .hide()
+    .fadeIn(100);
   controls.maxPolarAngle = Math.PI * 0.52;
 }
 // if( ( urlHash === '1' ) || ( !urlHash ) ) showHolodUst();

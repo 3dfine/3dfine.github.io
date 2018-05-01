@@ -3,7 +3,7 @@ let matUsadbaWalls = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matUsadbawalls2floor = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matUsadbawalls1floor = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matGlass01 = [ matGlass ];
-let krisha_GI, walls_GI, walls2floor_GI, walls1floor_GI, cherepica, vagonka, vagonka2;
+let krisha_GI, walls_GI, walls2floor_GI, walls1floor_GI, cherepica, vagonka, vagonka2, vagonka3, wood2, wood3;
 let usadba = new THREE.Group();
 usadba.visible = true;
 usadba.onLoaded = false;
@@ -27,7 +27,6 @@ function loadUsadba() {
       blockLoad.style.display='none';
       globalToTuLoaded = true;
       usadba.scale.multiplyScalar( 1.5 );
-      console.log(usadba);
     }
     let texLoader = new THREE.TextureLoader(managerUsadba);
     let loader3 = new THREE.FBXLoader(managerUsadba);
@@ -39,6 +38,9 @@ function loadUsadba() {
     cherepica = texLoader.load( 'textures/cherepica2.jpeg' );
     vagonka = texLoader.load( 'textures/wood/vagonka.jpg' );
     vagonka2 = texLoader.load( 'textures/wood/vagonka2.jpg' );
+    vagonka3 = texLoader.load( 'textures/wood/vagonka3.jpg' );
+    wood2 = texLoader.load( 'textures/wood/wood2.jpg' );
+    wood3 = texLoader.load( 'textures/wood/wood4.jpg' );
     loader3.load( 'models/fbx/usadba/krisha.FBX', function( object ) {
         for(let i=0; i<object.children.length; i++) {
           object.children[i].material = matUsadbaKrisha;
@@ -112,18 +114,69 @@ function matUsadbaSetup() {
   // matUsadbaWalls[0].metalness = 0.35;
   // matUsadbaWalls[0].roughness = 0.2;
   matUsadbaWalls[0].aoMap = walls_GI;
-  matUsadbaWalls[0].aoMapIntensity = 0.7;
+  matUsadbaWalls[0].aoMapIntensity = 1.0;
   matUsadbaWalls[0].lightMap = walls_GI;
   matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
+  // matUsadbaWalls[1].map = wood1;
   matUsadbaWalls[1].aoMap = walls_GI;
   matUsadbaWalls[1].aoMapIntensity = 0.0;
   matUsadbaWalls[1].lightMap = walls_GI;
 
+  matUsadbawalls2floor[0].map = vagonka3;
+  vagonka3.wrapS = THREE.RepeatWrapping;
+  vagonka3.wrapT = THREE.RepeatWrapping;
+  vagonka3.repeat.set( 1, 5 );
   matUsadbawalls2floor[0].lightMap = walls2floor_GI;
-  matUsadbawalls2floor[0].lightMapIntensity = 0.25;
-  matUsadbawalls2floor.push( new THREE.MeshBasicMaterial( { color : 0x111111 } ) );
+  matUsadbawalls2floor[0].lightMapIntensity = 0.2;
+  matUsadbawalls2floor.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
+  matUsadbawalls2floor[1].map = wood3;
+  wood3.wrapS = THREE.RepeatWrapping;
+  wood3.wrapT = THREE.RepeatWrapping;
+  wood3.repeat.set( 1, 1 );
+  matUsadbawalls2floor[1].lightMap = walls2floor_GI;
+  matUsadbawalls2floor[1].lightMapIntensity = 0.2;
+  matUsadbawalls2floor.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
+  matUsadbawalls2floor[2].map = wood2;
+  wood2.wrapS = THREE.RepeatWrapping;
+  wood2.wrapT = THREE.RepeatWrapping;
+  wood2.repeat.set( 8, 8 );
+  matUsadbawalls2floor[2].lightMap = walls2floor_GI;
+  matUsadbawalls2floor[2].lightMapIntensity = 1.0;
+
+  matUsadbawalls1floor[0].map = vagonka3;
 
   matUsadbawalls1floor[0].lightMap = walls1floor_GI;
-  matUsadbawalls1floor[0].lightMapIntensity = 0.25;
-  matUsadbawalls1floor.push( new THREE.MeshBasicMaterial( { color : 0x111111 } ) );
+  matUsadbawalls1floor[0].lightMapIntensity = 1.0;
+  matUsadbawalls1floor.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
+  matUsadbawalls1floor[1].map = wood3;
+  matUsadbawalls1floor[1].lightMap = walls1floor_GI;
+  matUsadbawalls1floor[1].lightMapIntensity = 1.0;
+  matUsadbawalls1floor.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
+  matUsadbawalls1floor[2].map = wood2;
+  matUsadbawalls1floor[2].lightMap = walls1floor_GI;
+  matUsadbawalls1floor[2].lightMapIntensity = 1.0;
 }
+function usadbaFull() {
+  matUsadbawalls1floor[0].lightMapIntensity = 0.2;
+  matUsadbawalls2floor[0].lightMapIntensity = 0.2;
+  matUsadbawalls2floor[1].lightMapIntensity = 0.2;
+  walls2floor.visible = true;
+  krishaUsadba.visible = true;
+}
+function usadba2Floor() {
+    matUsadbawalls2floor[0].lightMapIntensity = 1.0;
+    matUsadbawalls1floor[0].lightMapIntensity = 1.0;
+    matUsadbawalls2floor[1].lightMapIntensity = 1.0;
+    walls2floor.visible = true;
+    krishaUsadba.visible = false;
+}
+function usadba1Floor() {
+    matUsadbawalls2floor[0].lightMapIntensity = 1.0;
+    matUsadbawalls1floor[0].lightMapIntensity = 1.0;
+    matUsadbawalls2floor[1].lightMapIntensity = 1.0;
+    walls2floor.visible = false;
+    krishaUsadba.visible = false;
+}
+btnUsadbaFull.addEventListener( "click" , usadbaFull );
+btn2Floor.addEventListener( "click" , usadba2Floor );
+btn1Floor.addEventListener( "click" , usadba1Floor );
