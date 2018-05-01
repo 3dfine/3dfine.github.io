@@ -242,9 +242,7 @@ function showUsadba() {
   potok1.visible = false;
   potok2.visible = false;
   setCamera();
-  $("#controlPanel").css("display", "flex")
-    .hide()
-    .fadeIn(100);
+  controlPanel.style.display='none';
   controlColor.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.52;
 }
