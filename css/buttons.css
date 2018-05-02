@@ -190,6 +190,11 @@
   border: 1px solid #111111;
   background-color: #ffffff;
 }
+#btn1UsadbaInfo {
+  border-radius: 0.1em;
+  border: 1px solid #111111;
+  background-color: #ffffff;
+}
 #btn2Floor {
   border-radius: 0.1em;
   border: 1px solid #111111;

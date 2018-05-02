@@ -2,6 +2,8 @@ window.addEventListener( 'resize', onWindowResize, false );
 function onWindowResize( event ) {
   width = window.innerWidth - 00;
   height =  window.innerHeight - 00;
+  widthHalf = width / 2;
+  heightHalf = height / 2;
   aspect = width/height;
   renderer.setSize( width, height );
   camera.aspect = aspect;
@@ -64,6 +66,9 @@ window.onload = function () {
 }
 let animate = function () {
   requestAnimationFrame( animate );
+
+  showUsadbaDescr();
+
   tick += 0.075;
   //здесь выполняется после загрузки 3д моделей
   if( globalToTuLoaded ) {
