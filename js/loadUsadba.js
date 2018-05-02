@@ -113,12 +113,14 @@ function matUsadbaSetup() {
   matUsadbaKrisha[1].aoMap = krisha_GI;
   matUsadbaKrisha[1].aoMapIntensity = 0.5;
   matUsadbaKrisha.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
-  matUsadbaKrisha[2].aoMap = krisha_GI;
-  matUsadbaKrisha[2].aoMapIntensity = 0.5;
+  matUsadbaKrisha[2].map = wood3;
+  // matUsadbaKrisha[2].aoMap = krisha_GI;
+  // matUsadbaKrisha[2].aoMapIntensity = 0.5;
   matUsadbaKrisha.forEach( function( item ) {
     item.lightMap = krisha_GI;
     item.lightMapIntensity = 1.4;
   } );
+  matUsadbaKrisha[2].lightMapIntensity = 0.4;
 
   matUsadbaWalls[0].map = vagonka2;
   vagonka2.wrapS = THREE.RepeatWrapping;

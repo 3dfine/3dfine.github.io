@@ -256,7 +256,7 @@ function showUsadba() {
   $("#controlUsadba").css("display", "flex")
     .hide()
     .fadeIn(100);
-  controls.maxPolarAngle = Math.PI * 0.52;
+  controls.maxPolarAngle = Math.PI * 0.92;
 }
 // if( ( urlHash === '1' ) || ( !urlHash ) ) showHolodUst();
 // showHolodUst();
