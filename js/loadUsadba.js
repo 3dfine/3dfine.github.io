@@ -2,8 +2,9 @@ let matUsadbaKrisha = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matUsadbaWalls = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matUsadbawalls2floor = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matUsadbawalls1floor = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
+let matUsadbaGround = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matGlass01 = [ matGlass];
-let krisha_GI, walls_GI, walls2floor_GI, walls1floor_GI, cherepica, vagonka, vagonka2, vagonka3, wood2, wood2_2, wood3;
+let krisha_GI, walls_GI, walls2floor_GI, walls1floor_GI, cherepica, vagonka, vagonka2, vagonka3, wood2, wood2_2, wood3, groundGI, trava;
 let usadba = new THREE.Group();
 usadba.visible = true;
 usadba.onLoaded = false;
@@ -12,6 +13,7 @@ let wallsUsadba = new THREE.Object3D();
 let walls2floor = new THREE.Object3D();
 let walls1floor = new THREE.Object3D();
 let glass01 = new THREE.Object3D();
+let ground01 = new THREE.Object3D();
 
 function loadUsadba() {
   if(!usadba.onLoaded) {
@@ -45,6 +47,8 @@ function loadUsadba() {
     wood2 = texLoader.load( 'textures/wood/wood2.jpg' );
     wood2_2 = texLoader.load( 'textures/wood/wood2_2.jpg' );
     wood3 = texLoader.load( 'textures/wood/wood3.jpg' );
+    groundGI = texLoader.load( 'textures/GroundGI.jpg' );
+    trava = texLoader.load( 'textures/trava.jpg' );
     loader3.load( 'models/fbx/usadba/krisha.FBX', function( object ) {
         for(let i=0; i<object.children.length; i++) {
           object.children[i].material = matUsadbaKrisha;
@@ -80,11 +84,19 @@ function loadUsadba() {
         }
         glass01.add( object );
     });
+    loader3.load( 'models/fbx/usadba/ground01.FBX', function( object ) {
+        for(let i=0; i<object.children.length; i++) {
+          object.children[i].material = matUsadbaGround;
+          object.children[i].materialDefult = matUsadbaGround;
+        }
+        ground01.add( object );
+    });
     usadba.add( krishaUsadba );
     usadba.add( wallsUsadba );
     usadba.add( walls2floor );
     usadba.add( walls1floor );
     usadba.add( glass01 );
+    usadba.add( ground01 );
     usadba.position.set( 0, -550, 0 );
   } else {
     usadba.visible = true;
@@ -161,13 +173,23 @@ function matUsadbaSetup() {
     item.lightMap = walls1floor_GI;
     item.lightMapIntensity = 0.2;
   } );
+
+  matUsadbaGround.push( new THREE.MeshBasicMaterial( { color : 0xaaaaaa } ) );
+  matUsadbaGround[0].map = trava;
+  trava.wrapS = THREE.RepeatWrapping;
+  trava.wrapT = THREE.RepeatWrapping;
+  trava.repeat.set( 4, 8 );
+  matUsadbaGround.forEach( function( item ) {
+    item.lightMap = groundGI;
+    item.lightMapIntensity = 1.0;
+  } );
 }
 function usadbaFull() {
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
   walls2floor.visible = true;
   krishaUsadba.visible = true;
-  glass01.children[0].children[1].visible = true;  
+  glass01.children[0].children[1].visible = true;
   matUsadbaWalls[4].opacity = 1.0;
   matUsadbaWalls[5].opacity = 1.0;
 }
