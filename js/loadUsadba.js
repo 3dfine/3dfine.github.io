@@ -4,7 +4,7 @@ let matUsadbawalls2floor = [ new THREE.MeshBasicMaterial( { color : 0xffffff } )
 let matUsadbawalls1floor = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matUsadbaGround = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matGlass01 = [ matGlass];
-let krisha_GI, walls_GI, walls2floor_GI, walls1floor_GI, cherepica, vagonka, vagonka2, vagonka3, wood2, wood2_2, wood3, groundGI, trava;
+let krisha_GI, walls_GI, walls2floor_GI, walls1floor_GI, cherepica, vagonka, vagonka2, vagonka3, wood2, wood2_2, wood3, groundGI, trava, BrownBricks;
 let usadba = new THREE.Group();
 usadba.visible = true;
 usadba.onLoaded = false;
@@ -47,6 +47,7 @@ function loadUsadba() {
     wood3 = texLoader.load( 'textures/wood/wood3.jpg' );
     groundGI = texLoader.load( 'textures/GroundGI.jpg' );
     trava = texLoader.load( 'textures/trava.jpg' );
+    BrownBricks = texLoader.load( 'textures/bricks/BrownBricks.jpg' );
     loader3.load( 'models/fbx/usadba/krisha.FBX', function( object ) {
         for(let i=0; i<object.children.length; i++) {
           object.children[i].material = matUsadbaKrisha;
@@ -135,6 +136,10 @@ function matUsadbaSetup() {
   matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );//3
   matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );//4
   matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );//4
+  matUsadbaWalls[2].map = BrownBricks;
+  BrownBricks.wrapS = THREE.RepeatWrapping;
+  BrownBricks.wrapT = THREE.RepeatWrapping;
+  BrownBricks.repeat.set( 14, 4 );
   matUsadbaWalls[4].map = vagonka2;
   matUsadbaWalls[4].transparent = true;
   matUsadbaWalls[4].opacity = 1.0;
