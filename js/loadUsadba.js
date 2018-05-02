@@ -84,7 +84,7 @@ function loadUsadba() {
         }
         glass01.add( object );
     });
-    loader3.load( 'models/fbx/usadba/ground01.FBX', function( object ) {
+    loader3.load( 'models/fbx/usadba/Ground01.FBX', function( object ) {
         for(let i=0; i<object.children.length; i++) {
           object.children[i].material = matUsadbaGround;
           object.children[i].materialDefult = matUsadbaGround;
