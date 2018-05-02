@@ -5,6 +5,7 @@ let btnPlay = document.getElementById("btnPlay"); // Получаем основ
 let btnfullscrn = document.getElementById("btnfullscrn"); // Получаем основной блок
 let rotateObj = document.getElementById("rotateObj");
 let cameraReset = document.getElementById("cameraReset"); // Получаем основной блок
+let textblockUsadba0 = document.getElementById("textblockUsadba0"); // Получаем основной блок
 
 function toggleFullScreen() {
   if (!document.fullscreenElement &&    // alternative standard method

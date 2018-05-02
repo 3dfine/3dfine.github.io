@@ -67,11 +67,12 @@ window.onload = function () {
 let animate = function () {
   requestAnimationFrame( animate );
 
-  showUsadbaDescr();
-
   tick += 0.075;
   //здесь выполняется после загрузки 3д моделей
   if( globalToTuLoaded ) {
+
+    showUsadbaDescr();
+
     showGUI1();
     animateCamera1( CameraKeyTrck );
     animHolodUst1( tick );

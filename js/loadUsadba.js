@@ -14,6 +14,35 @@ let walls2floor = new THREE.Object3D();
 let walls1floor = new THREE.Object3D();
 let glass01 = new THREE.Object3D();
 let ground01 = new THREE.Object3D();
+// let usadbaDescrop = { position: [], id: [] };
+// usadbaDescrop.position[0] = new THREE.Vector3(200 * 1.7 - 500, -50,  -250 * 1.7 );
+// usadbaDescrop.id[0] = textblockUsadba0;
+// usadbaDescrop.position[1] = new THREE.Vector3(400 * 1.7 , -50,  -250 * 1.7 );
+// usadbaDescrop.id[1] = textblockUsadba1;
+// usadbaDescrop.position[2] = new THREE.Vector3(50 * 1.7 - 100, -50,  300 * 1.7  );
+// usadbaDescrop.id[2] = textblockUsadba2;
+// usadbaDescrop.position.push( new THREE.Vector3(160 * 1.7 + 100, -50,  40 * 1.7  ));
+// usadbaDescrop.id[3] = textblockUsadba3;
+// usadbaDescrop.position.push( new THREE.Vector3(220 * 1.7 + 100, -50,  300 * 1.7  ));
+// usadbaDescrop.id[4] = textblockUsadba4;
+// usadbaDescrop.position.push( new THREE.Vector3(420 * 1.7 + 100, -50,  300 * 1.7  ));
+// usadbaDescrop.id[5] = textblockUsadba5;
+// usadbaDescrop.position.push( new THREE.Vector3(420 * 1.7 + 100, -50,  40 * 1.7  ));
+// usadbaDescrop.id[6] = textblockUsadba6;
+// usadbaDescrop.position[7] = new THREE.Vector3(400 * 1.7, 400,  -190 * 1.7 );
+// usadbaDescrop.id[7] = textblockUsadba10;
+// usadbaDescrop.position[8] = new THREE.Vector3(-280 * 1.7 , 400,  -190 * 1.7 );
+// usadbaDescrop.id[8] = textblockUsadba11;
+// usadbaDescrop.position[9] = new THREE.Vector3(130 * 1.7 - 100, 400,  300 * 1.7  );
+// usadbaDescrop.id[9] = textblockUsadba12;
+// usadbaDescrop.position.push( new THREE.Vector3(50 * 1.7 + 100, 400,  -150 * 1.7  ));
+// usadbaDescrop.id[10] = textblockUsadba13;
+// usadbaDescrop.position.push( new THREE.Vector3(360 * 1.7 + 100, 400,  250 * 1.7  ));
+// usadbaDescrop.id[11] = textblockUsadba14;
+// usadbaDescrop.position.push( new THREE.Vector3(70 * 1.7 + 100, 400,  -330 * 1.7  ));
+// usadbaDescrop.id[12] = textblockUsadba15;
+// usadbaDescrop.position.push( new THREE.Vector3(-80 * 1.7 + 100, 400,  -330 * 1.7  ));
+// usadbaDescrop.id[13] = textblockUsadba16;
 
 function loadUsadba() {
   if(!usadba.onLoaded) {
@@ -98,6 +127,7 @@ function loadUsadba() {
     usadba.add( ground01 );
     usadba.position.set( 100, -550, 0 );
     usadba.rotation.y = THREE.Math.degToRad(90);
+
   } else {
     usadba.visible = true;
   }
@@ -191,10 +221,7 @@ function matUsadbaSetup() {
   } );
 }
 function showUsadbaDescr() {
-  let usadbaDescrop = {
-    position: [],
-    id: []
-  };
+  let usadbaDescrop = { position: [], id: [] };
   usadbaDescrop.position[0] = new THREE.Vector3(200 * 1.7 - 500, -50,  -250 * 1.7 );
   usadbaDescrop.id[0] = textblockUsadba0;
   usadbaDescrop.position[1] = new THREE.Vector3(400 * 1.7 , -50,  -250 * 1.7 );
@@ -209,7 +236,6 @@ function showUsadbaDescr() {
   usadbaDescrop.id[5] = textblockUsadba5;
   usadbaDescrop.position.push( new THREE.Vector3(420 * 1.7 + 100, -50,  40 * 1.7  ));
   usadbaDescrop.id[6] = textblockUsadba6;
-
   usadbaDescrop.position[7] = new THREE.Vector3(400 * 1.7, 400,  -190 * 1.7 );
   usadbaDescrop.id[7] = textblockUsadba10;
   usadbaDescrop.position[8] = new THREE.Vector3(-280 * 1.7 , 400,  -190 * 1.7 );
@@ -224,17 +250,21 @@ function showUsadbaDescr() {
   usadbaDescrop.id[12] = textblockUsadba15;
   usadbaDescrop.position.push( new THREE.Vector3(-80 * 1.7 + 100, 400,  -330 * 1.7  ));
   usadbaDescrop.id[13] = textblockUsadba16;
-
   let style;
-  for(let i=0; i<usadbaDescrop.position.length; i++) {
+  for(let i = 0; i < usadbaDescrop.position.length; i++) {
     usadbaDescrop.position[i].project( camera );
     usadbaDescrop.position[i].x = ( usadbaDescrop.position[i].x * widthHalf ) + widthHalf;
     usadbaDescrop.position[i].y = - ( usadbaDescrop.position[i].y * heightHalf ) + heightHalf;
     style = getComputedStyle(usadbaDescrop.id[i]);
-    usadbaDescrop.id[i].style.left = (usadbaDescrop.position[i].x - parseInt(style.width)/2.0 - parseInt(style.padding)) + "px";
-    usadbaDescrop.id[i].style.top  = (usadbaDescrop.position[i].y - parseInt(style.height)/2.0 - parseInt(style.padding)) + "px";
+    if(style.width !== 'auto') {
+      usadbaDescrop.id[i].style.left = ( usadbaDescrop.position[ i ].x - parseInt( style.width, 10 ) /2.0 ) + "px";
+      usadbaDescrop.id[i].style.top  = ( usadbaDescrop.position[ i ].y - parseInt( style.height, 10 ) /2.0 ) + "px";
+      // usadbaDescrop.id[i].style.left = (usadbaDescrop.position[i].x - parseInt(style.width, 10)/2.0 - parseInt(style.padding, 10)) + "px";
+      // usadbaDescrop.id[i].style.top  = (usadbaDescrop.position[i].y - parseInt(style.height, 10)/2.0 - parseInt(style.padding, 10)) + "px";
+    }
   }
 }
+
 function usadbaFull() {
   textblockUsadbaFloor1.style.display = 'none';
   textblockUsadbaFloor2.style.display = 'none';
