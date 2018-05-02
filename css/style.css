@@ -143,18 +143,28 @@ canvas {
   background-color: rgba(0,77,64 ,0.8)
 }
 #textblockUsadba1 {
+  left: 100px;
+  top: 100px;
   background-color: rgba(13,71,161 ,0.8);
 }
 #textblockUsadba2 {
+  left: 100px;
+  top: 100px;
   background-color: rgba(255,111,0 ,0.8);
 }
 #textblockUsadba4, #textblockUsadba14 {
+  left: 100px;
+  top: 100px;
   background-color: rgba(136,14,79 ,0.8);
 }
 #textblockUsadba10, #textblockUsadba11, #textblockUsadba12 {
+  left: 100px;
+  top: 100px;
   background-color: rgba(13,71,161 ,0.8);
 }
 #textblockUsadba15, #textblockUsadba16 {
+  left: 100px;
+  top: 100px;
   background-color: rgba(25,118,210 ,0.8);
 }
 

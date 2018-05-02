@@ -231,8 +231,8 @@ function showUsadbaDescr() {
     usadbaDescrop.position[i].x = ( usadbaDescrop.position[i].x * widthHalf ) + widthHalf;
     usadbaDescrop.position[i].y = - ( usadbaDescrop.position[i].y * heightHalf ) + heightHalf;
     style = getComputedStyle(usadbaDescrop.id[i]);
-    // usadbaDescrop.id[i].style.left = (usadbaDescrop.position[i].x - parseInt(style.width)/2.0 - parseInt(style.padding)) + "px";
-    // usadbaDescrop.id[i].style.top  = (usadbaDescrop.position[i].y - parseInt(style.height)/2.0 - parseInt(style.padding)) + "px";
+    usadbaDescrop.id[i].style.left = (usadbaDescrop.position[i].x - parseInt(style.width)/2.0 - parseInt(style.padding)) + "px";
+    usadbaDescrop.id[i].style.top  = (usadbaDescrop.position[i].y - parseInt(style.height)/2.0 - parseInt(style.padding)) + "px";
   }
 }
 function usadbaFull() {
