@@ -209,7 +209,7 @@ function showUsadbaDescr() {
   usadbaDescrop.id[8] = textblockUsadba11;
   usadbaDescrop.position[9] = new THREE.Vector3(130 * 1.7 - 100, 400,  300 * 1.7  );
   usadbaDescrop.id[9] = textblockUsadba12;
-  usadbaDescrop.position.push( new THREE.Vector3(0 * 1.7 + 100, 400,  -50 * 1.7  ));
+  usadbaDescrop.position.push( new THREE.Vector3(70 * 1.7 + 100, 400,  -140 * 1.7  ));
   usadbaDescrop.id[10] = textblockUsadba13;
   usadbaDescrop.position.push( new THREE.Vector3(360 * 1.7 + 100, 400,  250 * 1.7  ));
   usadbaDescrop.id[11] = textblockUsadba14;
