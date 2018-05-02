@@ -2,7 +2,7 @@ let matUsadbaKrisha = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matUsadbaWalls = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matUsadbawalls2floor = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matUsadbawalls1floor = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
-let matGlass01 = [ matGlass ];
+let matGlass01 = [ matGlass];
 let krisha_GI, walls_GI, walls2floor_GI, walls1floor_GI, cherepica, vagonka, vagonka2, vagonka3, wood2, wood2_2, wood3;
 let usadba = new THREE.Group();
 usadba.visible = true;
@@ -27,6 +27,9 @@ function loadUsadba() {
       blockLoad.style.display='none';
       globalToTuLoaded = true;
       usadba.scale.multiplyScalar( 1.7 );
+      glass01.children[0].children.sort(compareName);
+
+      console.log(glass01);
     }
     let texLoader = new THREE.TextureLoader(managerUsadba);
     let loader3 = new THREE.FBXLoader(managerUsadba);
@@ -110,14 +113,21 @@ function matUsadbaSetup() {
   vagonka2.wrapS = THREE.RepeatWrapping;
   vagonka2.wrapT = THREE.RepeatWrapping;
   vagonka2.repeat.set( 1, 5 );
-  matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
+  matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );//1
   matUsadbaWalls[1].map = wood2_2;
   wood2_2.wrapS = THREE.RepeatWrapping;
   wood2_2.wrapT = THREE.RepeatWrapping;
   wood2_2.repeat.set( 1, 3 );
-  matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
-  matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );
-
+  matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );//2
+  matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );//3
+  matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );//4
+  matUsadbaWalls.push( new THREE.MeshBasicMaterial( { color : 0xffffff } ) );//4
+  matUsadbaWalls[4].map = vagonka2;
+  matUsadbaWalls[4].transparent = true;
+  matUsadbaWalls[4].opacity = 1.0;
+  matUsadbaWalls[5].map = wood2_2;
+  matUsadbaWalls[5].transparent = true;
+  matUsadbaWalls[5].opacity = 1.0;
   matUsadbaWalls.forEach( function( item ) {
     item.lightMap = walls_GI;
     item.lightMapIntensity = 1.5;
@@ -157,18 +167,27 @@ function usadbaFull() {
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
   walls2floor.visible = true;
   krishaUsadba.visible = true;
+  glass01.children[0].children[1].visible = true;  
+  matUsadbaWalls[4].opacity = 1.0;
+  matUsadbaWalls[5].opacity = 1.0;
 }
 function usadba2Floor() {
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
-    walls2floor.visible = true;
-    krishaUsadba.visible = false;
+  walls2floor.visible = true;
+  krishaUsadba.visible = false;
+  glass01.children[0].children[1].visible = true;
+  matUsadbaWalls[4].opacity = 1.0;
+  matUsadbaWalls[5].opacity = 1.0;
 }
 function usadba1Floor() {
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   walls2floor.visible = false;
   krishaUsadba.visible = false;
+  glass01.children[0].children[1].visible = false;
+  matUsadbaWalls[4].opacity = 0.0;
+  matUsadbaWalls[5].opacity = 0.0;
 }
 btnUsadbaFull.addEventListener( "click" , usadbaFull );
 btn2Floor.addEventListener( "click" , usadba2Floor );

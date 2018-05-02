@@ -13,7 +13,6 @@ THREE.FresnelShader = {
 		"mFresnelPower": { value: 2.0 },
 		"mFresnelScale": { value: 1.0 },
 		"tCube": { value: null }
-
 	},
 
 	vertexShader: [
@@ -56,6 +55,7 @@ THREE.FresnelShader = {
 	fragmentShader: [
 
 		"uniform samplerCube tCube;",
+		"uniform float opacity;",
 
 		"varying vec3 vReflect;",
 		"varying vec3 vRefract[3];",

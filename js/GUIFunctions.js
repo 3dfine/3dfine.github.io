@@ -79,10 +79,10 @@ function showGUI() {
         .delay(4000)
         .fadeIn(600);
       guiNotLoaded = false;
+      $("#btnModelsSelect4")
+        .delay(4000)
+        .fadeIn(600);
     }
-    $("#btnModelsSelect4")
-      .delay(4000)
-      .fadeIn(600);
     guiNotLoaded = false;
   }
 }
