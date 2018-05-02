@@ -173,6 +173,8 @@ function showHideBronya() {
   }
 }
 function showHolodUst() {
+  textblockUsadbaFloor1.style.display = 'none';
+  textblockUsadbaFloor2.style.display = 'none';
   loadHolod();
   profil_rehau.visible = false;
   stoikiGroup.visible = false;
@@ -183,11 +185,13 @@ function showHolodUst() {
     .hide()
     .fadeIn(100);
   controlColor.style.display='none';
-  controlUsadba.style.display='none';  
+  controlUsadba.style.display='none';
   controls.maxPolarAngle = Math.PI * 0.75;
 
 }
 function showStoiki() {
+  textblockUsadbaFloor1.style.display = 'none';
+  textblockUsadbaFloor2.style.display = 'none';
   if(!stoikiGroup.onLoaded) {
     setCamera();
     onCameraRotate();
@@ -208,6 +212,8 @@ function showStoiki() {
   stoikiGroup.visible = true;
 }
 function showProfilRehau() {
+  textblockUsadbaFloor1.style.display = 'none';
+  textblockUsadbaFloor2.style.display = 'none';
   if(!profil_rehau.onLoaded) {
     setCamera();
     onCameraRotate();

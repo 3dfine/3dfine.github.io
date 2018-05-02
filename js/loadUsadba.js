@@ -209,7 +209,7 @@ function showUsadbaDescr() {
   usadbaDescrop.id[8] = textblockUsadba11;
   usadbaDescrop.position[9] = new THREE.Vector3(130 * 1.7 - 100, 400,  300 * 1.7  );
   usadbaDescrop.id[9] = textblockUsadba12;
-  usadbaDescrop.position.push( new THREE.Vector3(70 * 1.7 + 100, 400,  -140 * 1.7  ));
+  usadbaDescrop.position.push( new THREE.Vector3(50 * 1.7 + 100, 400,  -150 * 1.7  ));
   usadbaDescrop.id[10] = textblockUsadba13;
   usadbaDescrop.position.push( new THREE.Vector3(360 * 1.7 + 100, 400,  250 * 1.7  ));
   usadbaDescrop.id[11] = textblockUsadba14;
@@ -229,8 +229,8 @@ function showUsadbaDescr() {
   }
 }
 function usadbaFull() {
-  textblockUsadbaFloor1.style.display = 'none'
-  textblockUsadbaFloor2.style.display = 'none'
+  textblockUsadbaFloor1.style.display = 'none';
+  textblockUsadbaFloor2.style.display = 'none';
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
   walls2floor.visible = true;
@@ -240,8 +240,8 @@ function usadbaFull() {
   matUsadbaWalls[5].opacity = 1.0;
 }
 function usadba2Floor() {
-  textblockUsadbaFloor1.style.display = 'none'
-  textblockUsadbaFloor2.style.display = 'block'
+  textblockUsadbaFloor1.style.display = 'none';
+  textblockUsadbaFloor2.style.display = 'block';
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   walls2floor.visible = true;
@@ -251,8 +251,8 @@ function usadba2Floor() {
   matUsadbaWalls[5].opacity = 1.0;
 }
 function usadba1Floor() {
-  textblockUsadbaFloor1.style.display = 'block'
-  textblockUsadbaFloor2.style.display = 'none'
+  textblockUsadbaFloor1.style.display = 'block';
+  textblockUsadbaFloor2.style.display = 'none';
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   walls2floor.visible = false;
