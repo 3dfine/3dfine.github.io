@@ -190,6 +190,9 @@ function showHolodUst() {
 
 }
 function showStoiki() {
+  if(ustanovka.onLoaded) {
+    stopCameraAnim();
+  }
   textblockUsadbaFloor1.style.display = 'none';
   textblockUsadbaFloor2.style.display = 'none';
   if(!stoikiGroup.onLoaded) {
@@ -212,6 +215,9 @@ function showStoiki() {
   stoikiGroup.visible = true;
 }
 function showProfilRehau() {
+  if(ustanovka.onLoaded) {
+    stopCameraAnim();
+  }
   textblockUsadbaFloor1.style.display = 'none';
   textblockUsadbaFloor2.style.display = 'none';
   if(!profil_rehau.onLoaded) {
@@ -237,6 +243,9 @@ function showProfilRehau() {
   setCamera();
 }
 function showUsadba() {
+  if(ustanovka.onLoaded) {
+    stopCameraAnim();
+  }  
   if(!usadba.onLoaded) {
     setCamera();
     onCameraRotate();
