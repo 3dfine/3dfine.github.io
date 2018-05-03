@@ -190,7 +190,6 @@ function showHolodUst() {
 
 }
 function showStoiki() {
-  stopCameraAnim();
   textblockUsadbaFloor1.style.display = 'none';
   textblockUsadbaFloor2.style.display = 'none';
   if(!stoikiGroup.onLoaded) {
