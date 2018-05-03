@@ -212,6 +212,7 @@ function showStoiki() {
   stoikiGroup.visible = true;
 }
 function showProfilRehau() {
+  stopCameraAnim();
   textblockUsadbaFloor1.style.display = 'none';
   textblockUsadbaFloor2.style.display = 'none';
   if(!profil_rehau.onLoaded) {
