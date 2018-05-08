@@ -6,6 +6,7 @@ profil_rehau.onLoaded = false;
 
 function loadProfil() {
   scene.background = new THREE.Color( 0xffffff );
+  scene.fog.color = scene.background;
   dirLight.intensity = 0.2;
   hemiLight.intensity = 1.0;
   light.intensity = 1.0;

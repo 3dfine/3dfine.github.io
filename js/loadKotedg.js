@@ -18,6 +18,7 @@ const water = new THREE.Object3D();
 
 function loadKotedgP() {
   scene.background = new THREE.Color(0x0c151b);
+  scene.fog.color = scene.background;
   dirLight.intensity = 0.0;
   hemiLight.intensity = 0.0;
   light.intensity = 0.0;

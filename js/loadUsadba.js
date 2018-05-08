@@ -46,6 +46,7 @@ let ground01 = new THREE.Object3D();
 
 function loadUsadba() {
   scene.background = new THREE.Color( 0xffffff );
+  scene.fog.color = scene.background;
   dirLight.intensity = 0.2;
   hemiLight.intensity = 1.0;
   light.intensity = 1.0;
