@@ -274,6 +274,9 @@ function showUsadba() {
   controls.maxPolarAngle = Math.PI * 0.52;
 }
 function showKottedg() {
+  if(ustanovka.onLoaded) {
+    stopCameraAnim();
+  }
   if(!kotedgP.onLoaded) {
     setCamera();
     onCameraRotate();
