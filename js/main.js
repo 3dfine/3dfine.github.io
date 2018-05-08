@@ -290,6 +290,8 @@ function showKottedg() {
   potok1.visible = false;
   potok2.visible = false;
   setCamera();
+  textblockUsadbaFloor1.style.display = 'none';
+  textblockUsadbaFloor2.style.display = 'none';
   controlPanel.style.display='none';
   controlColor.style.display='none';
   controlUsadba.style.display='none';
