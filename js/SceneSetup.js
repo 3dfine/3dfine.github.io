@@ -82,4 +82,5 @@ renderer.sortObjects = true;
 // renderer.shadowMap.type = THREE.BasicShadowMap;
 // renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
 //document.body.appendChild( renderer.domElement );
+const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
 renderer.render( scene, camera );

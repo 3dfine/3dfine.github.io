@@ -39,7 +39,7 @@ THREE.FresnelShader = {
 
 			"vReflect = reflect( I, worldNormal );",
 
-"viewNormal = 0.4 * dot( I, vReflect ) / ( length(I)*length( vReflect ) ) + 0.25; ",
+"viewNormal = 0.6 * dot( I, vReflect ) / ( length(I)*length( vReflect ) ) + 0.4; ",
 
 			"vRefract[0] = refract( normalize( I ), worldNormal, mRefractionRatio );",
 			"vRefract[1] = refract( normalize( I ), worldNormal, mRefractionRatio * 0.99 );",

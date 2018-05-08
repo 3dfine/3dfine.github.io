@@ -2,6 +2,7 @@ scene.add( ustanovka );
 scene.add( potok1 );
 scene.add( potok2 );
 scene.add( usadba );
+scene.add( kotedgP );
 
 function compareName(a,b) {
   if (a.name < b.name)
@@ -176,6 +177,7 @@ function showHolodUst() {
   textblockUsadbaFloor1.style.display = 'none';
   textblockUsadbaFloor2.style.display = 'none';
   loadHolod();
+  kotedgP.visible = false;
   profil_rehau.visible = false;
   stoikiGroup.visible = false;
   usadba.visible = false;
@@ -203,6 +205,7 @@ function showStoiki() {
       offCameraRotate();
     }
   loadStoiki();
+  kotedgP.visible = false;
   profil_rehau.visible = false;
   ustanovka.visible = false;
   potok1.visible = false;
@@ -228,6 +231,7 @@ function showProfilRehau() {
       offCameraRotate();
     }
   loadProfil();
+  kotedgP.visible = false;
   stoikiGroup.visible = false;
   ustanovka.visible = false;
   potok1.visible = false;
@@ -245,7 +249,7 @@ function showProfilRehau() {
 function showUsadba() {
   if(ustanovka.onLoaded) {
     stopCameraAnim();
-  }  
+  }
   if(!usadba.onLoaded) {
     setCamera();
     onCameraRotate();
@@ -254,6 +258,8 @@ function showUsadba() {
       offCameraRotate();
     }
   loadUsadba();
+  // loadKotedgP();
+  kotedgP.visible = false;
   profil_rehau.visible = false;
   stoikiGroup.visible = false;
   ustanovka.visible = false;
@@ -267,8 +273,28 @@ function showUsadba() {
     .fadeIn(100);
   controls.maxPolarAngle = Math.PI * 0.52;
 }
-// if( ( urlHash === '1' ) || ( !urlHash ) ) showHolodUst();
-// showHolodUst();
+function showKottedg() {
+  if(!kotedgP.onLoaded) {
+    setCamera();
+    onCameraRotate();
+  } else {
+      setCamera();
+      offCameraRotate();
+    }
+  // loadUsadba();
+  loadKotedgP();
+  usadba.visible = false;
+  profil_rehau.visible = false;
+  stoikiGroup.visible = false;
+  ustanovka.visible = false;
+  potok1.visible = false;
+  potok2.visible = false;
+  setCamera();
+  controlPanel.style.display='none';
+  controlColor.style.display='none';
+  controlUsadba.style.display='none';
+  controls.maxPolarAngle = Math.PI * 0.52;
+}
 
 btnSelectObject.addEventListener( "click" , selectObject );
 btnShow2LevellInfo.addEventListener( "click" , showDetailInfo );
@@ -290,7 +316,7 @@ btnModelsSelect1.addEventListener( "click" , showHolodUst );
 btnModelsSelect2.addEventListener( "click" , showProfilRehau );
 btnModelsSelect3.addEventListener( "click" , showStoiki );
 btnModelsSelect4.addEventListener( "click" , showUsadba );
-
+btnModelsSelect5.addEventListener( "click" , showKottedg );
 btnColor1.addEventListener( "click" , profilColor1 );
 btnColor2.addEventListener( "click" , profilColor2 );
 btnColor3.addEventListener( "click" , profilColor3 );
@@ -306,8 +332,8 @@ header1.addEventListener( "click" , showWebGLInfo );
 
 //Add models in scene
 // SphereGeometry(radius : Float, widthSegments : Integer, heightSegments : Integer, phiStart : Float, phiLength : Float, thetaStart : Float, thetaLength : Float);
-// let geometry24 = new THREE.SphereGeometry( 500, 32, 32 );
-// let sphereG = new THREE.Mesh( geometry24, matSteelClear );
+let geometry24 = new THREE.SphereGeometry( 500, 32, 32 );
+let sphereG = new THREE.Mesh( geometry24, matChrome );
 // scene.add(sphereG);
 
 // var matLine = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 1 } );

@@ -5,6 +5,11 @@ profil_rehau.visible = true;
 profil_rehau.onLoaded = false;
 
 function loadProfil() {
+  scene.background = new THREE.Color( 0xffffff );
+  dirLight.intensity = 0.2;
+  hemiLight.intensity = 1.0;
+  light.intensity = 1.0;
+  light2.intensity = 0.4;
   if(!profil_rehau.onLoaded) {
     let managerPrifilLoad = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
     managerPrifilLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {

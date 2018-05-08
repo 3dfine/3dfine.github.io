@@ -70,17 +70,7 @@ function showGUI() {
         .fadeIn(600)
         .delay(8000)
         .fadeOut(600);
-      $("#btnModelsSelect1")
-        .delay(4000)
-        .fadeIn(600);
-      $("#btnModelsSelect2")
-        .delay(4000)
-        .fadeIn(600);
-      $("#btnModelsSelect3")
-        .delay(4000)
-        .fadeIn(600);
-      guiNotLoaded = false;
-      $("#btnModelsSelect4")
+      $("#clModelsSelect")
         .delay(4000)
         .fadeIn(600);
     }

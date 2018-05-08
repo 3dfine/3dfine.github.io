@@ -13,6 +13,11 @@ stoikiGroup.onLoaded = false;
 stoikiGroup.visible = false;
 
 function loadStoiki() {
+  scene.background = new THREE.Color( 0xffffff );
+  dirLight.intensity = 0.2;
+  hemiLight.intensity = 1.0;
+  light.intensity = 1.0;
+  light2.intensity = 0.4;
   if(!stoikiGroup.onLoaded) {
     let managerLoad = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
     managerLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {
@@ -25,7 +30,7 @@ function loadStoiki() {
       scene.add( stoikiGroup );
       stoikiGroup.onLoaded = true;
       stoikiGroup.visible = true;
-      globalToTuLoaded = true;  
+      globalToTuLoaded = true;
     }
     let loader3 = new THREE.FBXLoader(managerLoad);
     let texLoader = new THREE.TextureLoader(managerLoad);

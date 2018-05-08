@@ -37,6 +37,11 @@ let potok2 = new THREE.Object3D();
 potok2.onLoaded = false;
 
 function loadHolod() {
+  scene.background = new THREE.Color( 0xffffff );
+  dirLight.intensity = 0.2;
+  hemiLight.intensity = 1.0;
+  light.intensity = 1.0;
+  light2.intensity = 0.4;
   if(!ustanovka.onLoaded) {
     ustanovka.visible = false;
     loadFBXModel( rama, 0.5, matUstRama, 'models/fbx/ustanovka/rama.FBX' );
@@ -170,5 +175,5 @@ managerFBXLoad.onLoad = function ( ) {
   blockLoad.style.display='none';
 
     matHolodSetup();
-  globalToTuLoaded = true;  
+  globalToTuLoaded = true;
 };

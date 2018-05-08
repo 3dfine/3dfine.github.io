@@ -1,4 +1,5 @@
 .buttonA {
+  background-color: #ffffff;
   background-repeat     : no-repeat;
   background-size       : cover;
   background-position-x : 50%;
@@ -20,6 +21,7 @@
   opacity: 1.0;
 }
 .buttonB {
+  background-color: #ffffff;
   background-repeat     : no-repeat;
   background-size       : cover;
   background-position-x : 50%;
@@ -130,46 +132,51 @@
   opacity: 0.8;
   display: none;
 }
-.modelsSelect {
+#clModelsSelect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
+  left: 0.0vmax;
+  top: 70px;
+  height: 100.0vmin;
+  display: none;
+}
+.modelsSelect {
+  height: 16.0vmin;
+  width: 16.0vmin;
   background-repeat     : no-repeat;
   background-size       : cover;
   background-position-x : 50%;
   background-position-y : 50%;
-  margin-left: 0.5vmax;
-  margin-right: 0.5vmax;
-  bottom: 4.0vmin;
-  left: 1.0vmax;
+  margin: 0.5vmax;
   opacity: 0.5;
   cursor: pointer;
 }
 #btnModelsSelect1 {
-  bottom: 40.0vmin;
   background-image: url(../images/RoofTop1_perspec.png);
-  height: 16.0vmin;
-  width: 16.0vmin;
-  display: none;
 }
 #btnModelsSelect2 {
-  bottom: 22.0vmin;
   background-image: url(../images/profil.png);
-  height: 16.0vmin;
-  width: 16.0vmin;
-  display: none;
 }
 #btnModelsSelect3 {
-  bottom: 4.0vmin;
   background-image: url(../images/stoika.png);
-  height: 16.0vmin;
-  width: 16.0vmin;
-  display: none;
 }
 #btnModelsSelect4 {
-  bottom: 58.0vmin;
   background-image: url(../images/usadba.png);
-  height: 16.0vmin;
-  width: 16.0vmin;
-  display: none;
+}
+#btnModelsSelect5 {
+  background-image: url(../images/kottedg.jpg);
 }
 .modelsSelect:hover {
   opacity: 1.0;

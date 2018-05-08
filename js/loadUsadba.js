@@ -45,6 +45,11 @@ let ground01 = new THREE.Object3D();
 // usadbaDescrop.id[13] = textblockUsadba16;
 
 function loadUsadba() {
+  scene.background = new THREE.Color( 0xffffff );
+  dirLight.intensity = 0.2;
+  hemiLight.intensity = 1.0;
+  light.intensity = 1.0;
+  light2.intensity = 0.4;
   if(!usadba.onLoaded) {
     let managerUsadba = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
     managerUsadba.onProgress = function ( url, itemsLoaded, itemsTotal ) {

@@ -2,6 +2,12 @@
 // matSteelTexture.anisotropy = maxAnisotropy;
 // vert_fon.anisotropy = maxAnisotropy;
 // vert_fonGor.anisotropy = maxAnisotropy;
+let matChrome = new THREE.MeshStandardMaterial({
+  color: 0x28343b,
+  metalness: 1.0,
+  roughness: 0.0,
+  needsUpdate: true
+});
 let matAluminuim = new THREE.MeshStandardMaterial({
   color: 0x333333,
   metalness: 0.8,
@@ -165,7 +171,7 @@ let matWireframe = new THREE.MeshPhongMaterial({
 });
 let shader = THREE.FresnelShader;
 let uniforms = THREE.UniformsUtils.clone( shader.uniforms );
-uniforms[ "tCube" ].value = textureCube;
+uniforms[ "tCube" ].value = textureCubeSky;
 let matGlass = new THREE.ShaderMaterial( {
 uniforms: uniforms,
 vertexShader: shader.vertexShader,

@@ -4,6 +4,9 @@ let managerLoadTextures = new THREE.LoadingManager();
 // };
 managerLoadTextures.onLoad = function ( ) {
 	console.log( 'Textures loading complete!');
+	matChrome.envMap = textureCubeSky;
+  matChrome.envMapIntensity = 1.0
+  matChrome.needsUpdate = true;
 }
 let textureLoader = new THREE.TextureLoader(managerLoadTextures);
 
@@ -90,10 +93,12 @@ let filtr2_hight = textureLoader.load( 'textures/filtr2_hight.jpg', function ( t
 // .setPath( 'textures/cube/Vasa/' )
 // .load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] );
 
-let textureCube = new THREE.CubeTextureLoader()
+let textureCube = new THREE.CubeTextureLoader(managerLoadTextures)
 .setPath( 'textures/cube/station/' )
 .load( [ 'as_0000.jpg', 'as_0001.jpg', 'as_0002.jpg', 'as_0003.jpg', 'as_0004.jpg', 'as_0005.jpg' ] );
-
+let textureCubeSky = new THREE.CubeTextureLoader(managerLoadTextures)
+.setPath( 'textures/cube/skybox/' )
+.load( [ 'bs_0000.jpg', 'bs_0001.jpg', 'bs_0002.jpg', 'bs_0003.jpg', 'bs_0004.jpg', 'bs_0005.jpg' ] );
 // var textureCube = new THREE.CubeTextureLoader()
 // .setPath( 'textures/cube/test/' )
 // .load( [ 'bs_0000.png', 'bs_0001.png', 'bs_0002.png', 'bs_0003.png', 'bs_0004.png', 'bs_0005.png' ] );
