@@ -284,7 +284,6 @@ function showKottedg() {
       setCamera();
       offCameraRotate();
     }
-  // loadUsadba();
   loadKotedgP();
   usadba.visible = false;
   profil_rehau.visible = false;

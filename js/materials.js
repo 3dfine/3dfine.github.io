@@ -171,9 +171,18 @@ let matWireframe = new THREE.MeshPhongMaterial({
 });
 let shader = THREE.FresnelShader;
 let uniforms = THREE.UniformsUtils.clone( shader.uniforms );
-uniforms[ "tCube" ].value = textureCubeSky;
+uniforms[ "tCube" ].value = textureCube;
 let matGlass = new THREE.ShaderMaterial( {
 uniforms: uniforms,
+vertexShader: shader.vertexShader,
+fragmentShader: shader.fragmentShader,
+transparent: true
+} );
+
+let uniforms22 = THREE.UniformsUtils.clone( shader.uniforms );
+uniforms22[ "tCube" ].value = textureCube;
+let matGlass22 = new THREE.ShaderMaterial( {
+uniforms: uniforms22,
 vertexShader: shader.vertexShader,
 fragmentShader: shader.fragmentShader,
 transparent: true
