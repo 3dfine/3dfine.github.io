@@ -70,14 +70,14 @@ function loadStoiki() {
       object.scale.multiplyScalar( 1.0 );
       sx_32_vert.add( object );
     });
-    loader3.load( 'models/fbx/holodVetrina.fbx', function( object ) {
+    loader3.load( 'models/fbx/holodVetrina.FBX', function( object ) {
       object.children[0].material = matHolodVetrina;
       //пользовательское свойство materialDefult - сохраняем материал для режима выбора подобъектов!
       object.children[0].materialDefult = matHolodVetrina;
       object.scale.multiplyScalar( 1.0 );
       holodVetrina.add( object );
     });
-    loader3.load( 'models/fbx/holodVetrinaGlass.fbx', function( object ) {
+    loader3.load( 'models/fbx/holodVetrinaGlass.FBX', function( object ) {
       object.children[0].material = matHolodVetrinaGlass;
       //пользовательское свойство materialDefult - сохраняем материал для режима выбора подобъектов!
       object.children[0].materialDefult = matHolodVetrinaGlass;
