@@ -54,10 +54,14 @@ function loadUsadba() {
   if(!usadba.onLoaded) {
     let managerUsadba = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
     managerUsadba.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+      globalAnyLoading = true;
+      console.log(globalAnyLoading);
       blockLoad.style.display='block';
       blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
     };
     managerUsadba.onLoad = function ( ) {
+      globalAnyLoading = false;
+      console.log(globalAnyLoading);
       matUsadbaSetup();
       usadba.onLoaded = true;
       usadba.visible = true;

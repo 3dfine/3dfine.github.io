@@ -27,6 +27,8 @@ function loadKotedgP() {
   if(!kotedgP.onLoaded) {
     let manager = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
     manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+      globalAnyLoading = true;
+      console.log(globalAnyLoading);
       blockLoad.style.display='block';
       blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
     };
@@ -37,6 +39,8 @@ function loadKotedgP() {
       blockLoad.style.display='none';
       globalToTuLoaded = true;
       kotedgP.scale.multiplyScalar( 1.0 );
+      globalAnyLoading = false;
+      console.log(globalAnyLoading);
     }
     let texLoader = new THREE.TextureLoader(manager);
     let loader3 = new THREE.FBXLoader(manager);

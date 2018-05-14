@@ -146,6 +146,9 @@ function loadHolod() {
 }
 
 managerFBXLoad.onLoad = function ( ) {
+  globalAnyLoading = false;
+  console.log(globalAnyLoading);
+
   ventilatorOutSide.rotSpeed = 0.1;
   ustVent1.rotSpeed = 0.1;
   ustVent2.rotSpeed = 0.1;

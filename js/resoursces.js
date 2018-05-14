@@ -22,9 +22,13 @@
 //       request.responseText;
 //   }
 // }
+let globalToTuLoaded = false;
+let globalAnyLoading = false;
 
 let managerFBXLoad = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
 managerFBXLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+  globalAnyLoading = true;
+  console.log(globalAnyLoading);
 	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
   blockLoad.style.display='block';
   blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
@@ -46,8 +50,6 @@ loader.load( url, function( object ) {
     // console.log(globalLoad);
 });
 }
-
-let globalToTuLoaded = false;
 
 var loadAnimFBXModel = function( animationGroup, modelTarget, position, rotation, scaleImport, _material, url ) {
 loader.load( url, function( object ) {

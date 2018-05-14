@@ -29,6 +29,8 @@ function loadStoiki() {
   if(!stoikiGroup.onLoaded) {
     let managerLoad = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
     managerLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+      globalAnyLoading = true;
+      console.log(globalAnyLoading);
       blockLoad.style.display='block';
       blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
     };
@@ -39,6 +41,8 @@ function loadStoiki() {
       stoikiGroup.onLoaded = true;
       stoikiGroup.visible = true;
       globalToTuLoaded = true;
+      globalAnyLoading = false;
+      console.log(globalAnyLoading);
     }
     let loader3 = new THREE.FBXLoader(managerLoad);
     let texLoader = new THREE.TextureLoader(managerLoad);

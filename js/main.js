@@ -174,130 +174,139 @@ function showHideBronya() {
   }
 }
 function showHolodUst() {
-  textblockUsadbaFloor1.style.display = 'none';
-  textblockUsadbaFloor2.style.display = 'none';
-  loadHolod();
-  kotedgP.visible = false;
-  profil_rehau.visible = false;
-  stoikiGroup.visible = false;
-  usadba.visible = false;
-  // ustanovka.visible = true;
-  setCamera();
-  $("#controlPanel").css("display", "flex")
-    .hide()
-    .fadeIn(100);
-  controlColor.style.display='none';
-  controlUsadba.style.display='none';
-  controls.maxPolarAngle = Math.PI * 0.75;
-
+  if(!globalAnyLoading) {
+    textblockUsadbaFloor1.style.display = 'none';
+    textblockUsadbaFloor2.style.display = 'none';
+    loadHolod();
+    kotedgP.visible = false;
+    profil_rehau.visible = false;
+    stoikiGroup.visible = false;
+    usadba.visible = false;
+    // ustanovka.visible = true;
+    setCamera();
+    $("#controlPanel").css("display", "flex")
+      .hide()
+      .fadeIn(100);
+    controlColor.style.display='none';
+    controlUsadba.style.display='none';
+    controls.maxPolarAngle = Math.PI * 0.75;
+  }
 }
 function showStoiki() {
-  if(ustanovka.onLoaded) {
-    stopCameraAnim();
-  }
-  textblockUsadbaFloor1.style.display = 'none';
-  textblockUsadbaFloor2.style.display = 'none';
-  if(!stoikiGroup.onLoaded) {
-    setCamera();
-    onCameraRotate();
-  } else {
-      setCamera();
-      offCameraRotate();
+  if(!globalAnyLoading) {
+    if(ustanovka.onLoaded) {
+      stopCameraAnim();
     }
-  loadStoiki();
-  kotedgP.visible = false;
-  profil_rehau.visible = false;
-  ustanovka.visible = false;
-  potok1.visible = false;
-  potok2.visible = false;
-  usadba.visible = false;
-  controlPanel.style.display='none';
-  controlColor.style.display='none';
-  controlUsadba.style.display='none';
-  controls.maxPolarAngle = Math.PI * 0.5;
-  stoikiGroup.visible = true;
+    textblockUsadbaFloor1.style.display = 'none';
+    textblockUsadbaFloor2.style.display = 'none';
+    if(!stoikiGroup.onLoaded) {
+      setCamera();
+      onCameraRotate();
+    } else {
+        setCamera();
+        offCameraRotate();
+      }
+    loadStoiki();
+    kotedgP.visible = false;
+    profil_rehau.visible = false;
+    ustanovka.visible = false;
+    potok1.visible = false;
+    potok2.visible = false;
+    usadba.visible = false;
+    controlPanel.style.display='none';
+    controlColor.style.display='none';
+    controlUsadba.style.display='none';
+    controls.maxPolarAngle = Math.PI * 0.5;
+    stoikiGroup.visible = true;
+  }
 }
 function showProfilRehau() {
-  if(ustanovka.onLoaded) {
-    stopCameraAnim();
-  }
-  textblockUsadbaFloor1.style.display = 'none';
-  textblockUsadbaFloor2.style.display = 'none';
-  if(!profil_rehau.onLoaded) {
-    setCamera();
-    onCameraRotate();
-  } else {
-      setCamera();
-      offCameraRotate();
+  if(!globalAnyLoading) {
+    if(ustanovka.onLoaded) {
+      stopCameraAnim();
     }
-  loadProfil();
-  kotedgP.visible = false;
-  stoikiGroup.visible = false;
-  ustanovka.visible = false;
-  potok1.visible = false;
-  potok2.visible = false;
-  usadba.visible = false;
-  $("#controlColor").css("display", "flex")
-    .hide()
-    .fadeIn(100);
-  controlPanel.style.display='none';
-  controlUsadba.style.display='none';
-  controls.maxPolarAngle = Math.PI * 0.9;
-  profil_rehau.visible = true;
-  setCamera();
+    textblockUsadbaFloor1.style.display = 'none';
+    textblockUsadbaFloor2.style.display = 'none';
+    if(!profil_rehau.onLoaded) {
+      setCamera();
+      onCameraRotate();
+    } else {
+        setCamera();
+        offCameraRotate();
+      }
+    loadProfil();
+    kotedgP.visible = false;
+    stoikiGroup.visible = false;
+    ustanovka.visible = false;
+    potok1.visible = false;
+    potok2.visible = false;
+    usadba.visible = false;
+    $("#controlColor").css("display", "flex")
+      .hide()
+      .fadeIn(100);
+    controlPanel.style.display='none';
+    controlUsadba.style.display='none';
+    controls.maxPolarAngle = Math.PI * 0.9;
+    profil_rehau.visible = true;
+    setCamera();
+  }
 }
 function showUsadba() {
-  if(ustanovka.onLoaded) {
-    stopCameraAnim();
-  }
-  if(!usadba.onLoaded) {
-    setCamera();
-    onCameraRotate();
-  } else {
-      setCamera();
-      offCameraRotate();
+  if(!globalAnyLoading) {
+    if(ustanovka.onLoaded) {
+      stopCameraAnim();
     }
-  loadUsadba();
-  // loadKotedgP();
-  kotedgP.visible = false;
-  profil_rehau.visible = false;
-  stoikiGroup.visible = false;
-  ustanovka.visible = false;
-  potok1.visible = false;
-  potok2.visible = false;
-  setCamera();
-  controlPanel.style.display='none';
-  controlColor.style.display='none';
-  $("#controlUsadba").css("display", "flex")
-    .hide()
-    .fadeIn(100);
-  controls.maxPolarAngle = Math.PI * 0.52;
+    if(!usadba.onLoaded) {
+      setCamera();
+      onCameraRotate();
+    } else {
+        setCamera();
+        offCameraRotate();
+      }
+    loadUsadba();
+    // loadKotedgP();
+    kotedgP.visible = false;
+    profil_rehau.visible = false;
+    stoikiGroup.visible = false;
+    ustanovka.visible = false;
+    potok1.visible = false;
+    potok2.visible = false;
+    setCamera();
+    controlPanel.style.display='none';
+    controlColor.style.display='none';
+    $("#controlUsadba").css("display", "flex")
+      .hide()
+      .fadeIn(100);
+    controls.maxPolarAngle = Math.PI * 0.52;
+  }
 }
 function showKottedg() {
-  if(ustanovka.onLoaded) {
-    stopCameraAnim();
-  }
-  if(!kotedgP.onLoaded) {
-    setCamera();
-    onCameraRotate();
-  } else {
-      setCamera();
-      offCameraRotate();
+  if(!globalAnyLoading) {
+    if(ustanovka.onLoaded) {
+      stopCameraAnim();
     }
-  loadKotedgP();
-  usadba.visible = false;
-  profil_rehau.visible = false;
-  stoikiGroup.visible = false;
-  ustanovka.visible = false;
-  potok1.visible = false;
-  potok2.visible = false;
-  setCamera();
-  textblockUsadbaFloor1.style.display = 'none';
-  textblockUsadbaFloor2.style.display = 'none';
-  controlPanel.style.display='none';
-  controlColor.style.display='none';
-  controlUsadba.style.display='none';
-  controls.maxPolarAngle = Math.PI * 0.52;
+    if(!kotedgP.onLoaded) {
+      setCamera();
+      onCameraRotate();
+    } else {
+        setCamera();
+        offCameraRotate();
+      }
+    loadKotedgP();
+    usadba.visible = false;
+    profil_rehau.visible = false;
+    stoikiGroup.visible = false;
+    ustanovka.visible = false;
+    potok1.visible = false;
+    potok2.visible = false;
+    setCamera();
+    textblockUsadbaFloor1.style.display = 'none';
+    textblockUsadbaFloor2.style.display = 'none';
+    controlPanel.style.display='none';
+    controlColor.style.display='none';
+    controlUsadba.style.display='none';
+    controls.maxPolarAngle = Math.PI * 0.52;
+  }
 }
 
 btnSelectObject.addEventListener( "click" , selectObject );

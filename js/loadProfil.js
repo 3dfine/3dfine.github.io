@@ -14,11 +14,15 @@ function loadProfil() {
   if(!profil_rehau.onLoaded) {
     let managerPrifilLoad = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
     managerPrifilLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+      globalAnyLoading = true;
+      console.log(globalAnyLoading);
       blockLoad.style.display='block';
       blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
     };
     managerPrifilLoad.onLoad = function ( ) {
       blockLoad.style.display='none';
+      globalAnyLoading = false;
+      console.log(globalAnyLoading);
     }
     let texLoader = new THREE.TextureLoader(managerPrifilLoad);
     let loader3 = new THREE.FBXLoader(managerPrifilLoad);
