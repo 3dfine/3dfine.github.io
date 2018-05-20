@@ -276,9 +276,11 @@ function showUsadba() {
     setCamera();
     controlPanel.style.display='none';
     controlColor.style.display='none';
-    $("#controlUsadba").css("display", "flex")
-      .hide()
-      .fadeIn(100);
+    if(usadba.onLoaded) {
+      $("#controlUsadba").css("display", "flex")
+        .hide()
+        .fadeIn(100);
+    }
     controls.maxPolarAngle = Math.PI * 0.52;
   }
 }

@@ -35,6 +35,9 @@ function loadUsadba() {
       globalToTuLoaded = true;
       usadba.scale.multiplyScalar( 1.7 );
       usadba.children[1].children.sort(compareName);
+      $("#controlUsadba").css("display", "flex")
+        .hide()
+        .fadeIn(100);
     }
     let texLoader = new THREE.TextureLoader(managerUsadba);
     let loader3 = new THREE.FBXLoader(managerUsadba);
@@ -52,8 +55,7 @@ function loadUsadba() {
     groundGI = texLoader.load( 'textures/GroundGI.jpg' );
     trava = texLoader.load( 'textures/trava.jpg' );
     BrownBricks = texLoader.load( 'textures/bricks/BrownBricks.jpg' );
-    let path = 'models/fbx/usadba/';
-    let fbxFiles = [
+    const fbxFiles = [
       'krisha.FBX',
       'walls.FBX',
       'walls2floor.FBX',
@@ -70,7 +72,7 @@ function loadUsadba() {
       matUsadbaGround
     ];
     for(let i=0; i < fbxFiles.length; i++) {
-      loader3.load( path + fbxFiles[i], function( object ) {
+      loader3.load( 'models/fbx/usadba/' + fbxFiles[i], function( object ) {
           for(let ii=0; ii<object.children.length; ii++) {
             object.children[ii].material = mats[i];
           }
@@ -243,7 +245,6 @@ function usadba1Floor() {
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   usadba.children[0].visible = false;
   usadba.children[3].visible = false;
-  console.log(usadba);
   usadba.children[1].children[1].visible = false;
   matUsadbaWalls[4].opacity = 0.0;
   matUsadbaWalls[5].opacity = 0.0;
