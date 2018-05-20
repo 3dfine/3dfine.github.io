@@ -8,7 +8,13 @@ function onWindowResize( event ) {
   renderer.setSize( width, height );
   camera.aspect = aspect;
   camera.updateProjectionMatrix();
-  controls.rotateSpeed = width / 1920;
+  if(height > width) {
+    controls.rotateSpeed = height / 1920;
+    camera.zoom = 0.5;
+  } else {
+    controls.rotateSpeed = width / 1920;
+    camera.zoom = 1.0;
+  }
 }
 
 //---------------------Выбор объектов-------------------
@@ -63,6 +69,7 @@ window.onload = function () {
   onCameraRotate();
   showGUI();
   windLoaded = true;
+
 }
 let animate = function () {
   requestAnimationFrame( animate );
