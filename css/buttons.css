@@ -39,7 +39,7 @@
 #cameraControl {
   width: 100%;
   position: absolute;
-  top: 75px;
+  top: 7.7vmin;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
