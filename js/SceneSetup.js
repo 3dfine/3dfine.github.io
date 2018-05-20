@@ -24,6 +24,15 @@ let cameraPosSetupDef = {
   angelOy: 0,
   autoRotSpeed: -3
 };
+if(height > width) {
+  controls.rotateSpeed = height / 1920;
+  camera.zoom = 0.5;
+} else {
+  controls.rotateSpeed = width / 1920;
+  camera.zoom = 1.0;
+}
+camera.updateProjectionMatrix();
+
 globalCameraPos(cameraPosSetupDef);
 controls.maxPolarAngle = Math.PI * 0.75;
 controls.noZoom = false;
@@ -85,14 +94,3 @@ renderer.sortObjects = true;
 //document.body.appendChild( renderer.domElement );
 const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
 renderer.render( scene, camera );
-
-if(height > width) {
-  controls.rotateSpeed = height / 1920;
-  camera.zoom = 0.5;
-  camera.updateProjectionMatrix();
-} else {
-  controls.rotateSpeed = width / 1920;
-  camera.zoom = 1.0;
-  camera.updateProjectionMatrix();  
-}
-console.log(width, height, camera.zoom);

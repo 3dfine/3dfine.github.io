@@ -15,6 +15,7 @@ function onWindowResize( event ) {
     controls.rotateSpeed = width / 1920;
     camera.zoom = 1.0;
   }
+  camera.updateProjectionMatrix();
 }
 
 //---------------------Выбор объектов-------------------
