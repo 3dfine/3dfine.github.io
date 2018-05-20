@@ -6,43 +6,10 @@ let matUsadbaGround = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matGlass01 = [ matGlass];
 let krisha_GI, walls_GI, walls2floor_GI, walls1floor_GI, cherepica, vagonka, vagonka2, vagonka3, wood2, wood2_2, wood3, groundGI, trava, BrownBricks;
 let usadba = new THREE.Group();
+usadba.position.set( 100, -550, 0 );
+usadba.rotation.y = THREE.Math.degToRad(90);
 usadba.visible = true;
 usadba.onLoaded = false;
-let krishaUsadba = new THREE.Object3D();
-let wallsUsadba = new THREE.Object3D();
-let walls2floor = new THREE.Object3D();
-let walls1floor = new THREE.Object3D();
-let glass01 = new THREE.Object3D();
-let ground01 = new THREE.Object3D();
-// let usadbaDescrop = { position: [], id: [] };
-// usadbaDescrop.position[0] = new THREE.Vector3(200 * 1.7 - 500, -50,  -250 * 1.7 );
-// usadbaDescrop.id[0] = textblockUsadba0;
-// usadbaDescrop.position[1] = new THREE.Vector3(400 * 1.7 , -50,  -250 * 1.7 );
-// usadbaDescrop.id[1] = textblockUsadba1;
-// usadbaDescrop.position[2] = new THREE.Vector3(50 * 1.7 - 100, -50,  300 * 1.7  );
-// usadbaDescrop.id[2] = textblockUsadba2;
-// usadbaDescrop.position.push( new THREE.Vector3(160 * 1.7 + 100, -50,  40 * 1.7  ));
-// usadbaDescrop.id[3] = textblockUsadba3;
-// usadbaDescrop.position.push( new THREE.Vector3(220 * 1.7 + 100, -50,  300 * 1.7  ));
-// usadbaDescrop.id[4] = textblockUsadba4;
-// usadbaDescrop.position.push( new THREE.Vector3(420 * 1.7 + 100, -50,  300 * 1.7  ));
-// usadbaDescrop.id[5] = textblockUsadba5;
-// usadbaDescrop.position.push( new THREE.Vector3(420 * 1.7 + 100, -50,  40 * 1.7  ));
-// usadbaDescrop.id[6] = textblockUsadba6;
-// usadbaDescrop.position[7] = new THREE.Vector3(400 * 1.7, 400,  -190 * 1.7 );
-// usadbaDescrop.id[7] = textblockUsadba10;
-// usadbaDescrop.position[8] = new THREE.Vector3(-280 * 1.7 , 400,  -190 * 1.7 );
-// usadbaDescrop.id[8] = textblockUsadba11;
-// usadbaDescrop.position[9] = new THREE.Vector3(130 * 1.7 - 100, 400,  300 * 1.7  );
-// usadbaDescrop.id[9] = textblockUsadba12;
-// usadbaDescrop.position.push( new THREE.Vector3(50 * 1.7 + 100, 400,  -150 * 1.7  ));
-// usadbaDescrop.id[10] = textblockUsadba13;
-// usadbaDescrop.position.push( new THREE.Vector3(360 * 1.7 + 100, 400,  250 * 1.7  ));
-// usadbaDescrop.id[11] = textblockUsadba14;
-// usadbaDescrop.position.push( new THREE.Vector3(70 * 1.7 + 100, 400,  -330 * 1.7  ));
-// usadbaDescrop.id[12] = textblockUsadba15;
-// usadbaDescrop.position.push( new THREE.Vector3(-80 * 1.7 + 100, 400,  -330 * 1.7  ));
-// usadbaDescrop.id[13] = textblockUsadba16;
 
 function loadUsadba() {
   scene.background = new THREE.Color( 0xffffff );
@@ -55,7 +22,6 @@ function loadUsadba() {
     let managerUsadba = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
     managerUsadba.onProgress = function ( url, itemsLoaded, itemsTotal ) {
       globalAnyLoading = true;
-      console.log(globalAnyLoading);
       blockLoad.style.display='block';
       blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
     };
@@ -68,7 +34,7 @@ function loadUsadba() {
       blockLoad.style.display='none';
       globalToTuLoaded = true;
       usadba.scale.multiplyScalar( 1.7 );
-      glass01.children[0].children.sort(compareName);
+      usadba.children[1].children.sort(compareName);
     }
     let texLoader = new THREE.TextureLoader(managerUsadba);
     let loader3 = new THREE.FBXLoader(managerUsadba);
@@ -76,7 +42,6 @@ function loadUsadba() {
     walls_GI = texLoader.load( 'textures/wall_main_outsideGI.jpg' );
     walls2floor_GI = texLoader.load( 'textures/walls2floorGI.jpg' );
     walls1floor_GI = texLoader.load( 'textures/walls1floorGI.jpg' );
-    // cherepica = texLoader.load( 'textures/biskuid.jpg' );
     cherepica = texLoader.load( 'textures/cherepica2.jpeg' );
     vagonka = texLoader.load( 'textures/wood/vagonka.jpg' );
     vagonka2 = texLoader.load( 'textures/wood/vagonka2.jpg' );
@@ -87,57 +52,31 @@ function loadUsadba() {
     groundGI = texLoader.load( 'textures/GroundGI.jpg' );
     trava = texLoader.load( 'textures/trava.jpg' );
     BrownBricks = texLoader.load( 'textures/bricks/BrownBricks.jpg' );
-    loader3.load( 'models/fbx/usadba/krisha.FBX', function( object ) {
-        for(let i=0; i<object.children.length; i++) {
-          object.children[i].material = matUsadbaKrisha;
-          object.children[i].materialDefult = matUsadbaKrisha;
-        }
-        krishaUsadba.add( object );
-    });
-    loader3.load( 'models/fbx/usadba/walls.FBX', function( object ) {
-        for(let i=0; i<object.children.length; i++) {
-          object.children[i].material = matUsadbaWalls;
-          object.children[i].materialDefult = matUsadbaWalls;
-        }
-        wallsUsadba.add( object );
-    });
-    loader3.load( 'models/fbx/usadba/walls2floor.FBX', function( object ) {
-        for(let i=0; i<object.children.length; i++) {
-          object.children[i].material = matUsadbawalls2floor;
-          object.children[i].materialDefult = matUsadbawalls2floor;
-        }
-        walls2floor.add( object );
-    });
-    loader3.load( 'models/fbx/usadba/walls1floor.FBX', function( object ) {
-        for(let i=0; i<object.children.length; i++) {
-          object.children[i].material = matUsadbawalls1floor;
-          object.children[i].materialDefult = matUsadbawalls1floor;
-        }
-        walls1floor.add( object );
-    });
-    loader3.load( 'models/fbx/usadba/glass01.FBX', function( object ) {
-        for(let i=0; i<object.children.length; i++) {
-          object.children[i].material = matGlass01;
-          object.children[i].materialDefult = matGlass01;
-        }
-        glass01.add( object );
-    });
-    loader3.load( 'models/fbx/usadba/Ground01.FBX', function( object ) {
-        for(let i=0; i<object.children.length; i++) {
-          object.children[i].material = matUsadbaGround;
-          object.children[i].materialDefult = matUsadbaGround;
-        }
-        ground01.add( object );
-    });
-    usadba.add( krishaUsadba );
-    usadba.add( wallsUsadba );
-    usadba.add( walls2floor );
-    usadba.add( walls1floor );
-    usadba.add( glass01 );
-    usadba.add( ground01 );
-    usadba.position.set( 100, -550, 0 );
-    usadba.rotation.y = THREE.Math.degToRad(90);
-
+    let path = 'models/fbx/usadba/';
+    let fbxFiles = [
+      'krisha.FBX',
+      'walls.FBX',
+      'walls2floor.FBX',
+      'walls1floor.FBX',
+      'glass01.FBX',
+      'Ground01.FBX'
+    ];
+    let mats = [
+      matUsadbaKrisha,
+      matUsadbaWalls,
+      matUsadbawalls2floor,
+      matUsadbawalls1floor,
+      matGlass01,
+      matUsadbaGround
+    ];
+    for(let i=0; i < fbxFiles.length; i++) {
+      loader3.load( path + fbxFiles[i], function( object ) {
+          for(let ii=0; ii<object.children.length; ii++) {
+            object.children[ii].material = mats[i];
+          }
+          usadba.add( object );
+      });
+    }
   } else {
     usadba.visible = true;
   }
@@ -280,9 +219,9 @@ function usadbaFull() {
   textblockUsadbaFloor2.style.display = 'none';
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
-  walls2floor.visible = true;
-  krishaUsadba.visible = true;
-  glass01.children[0].children[1].visible = true;
+  usadba.children[0].visible = true;
+  usadba.children[3].visible = true;
+  usadba.children[1].children[1].visible = true;
   matUsadbaWalls[4].opacity = 1.0;
   matUsadbaWalls[5].opacity = 1.0;
 }
@@ -291,9 +230,9 @@ function usadba2Floor() {
   textblockUsadbaFloor2.style.display = 'block';
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
-  walls2floor.visible = true;
-  krishaUsadba.visible = false;
-  glass01.children[0].children[1].visible = true;
+  usadba.children[0].visible = false;
+  usadba.children[3].visible = true;
+  usadba.children[1].children[1].visible = true;
   matUsadbaWalls[4].opacity = 1.0;
   matUsadbaWalls[5].opacity = 1.0;
 }
@@ -302,20 +241,21 @@ function usadba1Floor() {
   textblockUsadbaFloor2.style.display = 'none';
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
-  walls2floor.visible = false;
-  krishaUsadba.visible = false;
-  glass01.children[0].children[1].visible = false;
+  usadba.children[0].visible = false;
+  usadba.children[3].visible = false;
+  console.log(usadba);
+  usadba.children[1].children[1].visible = false;
   matUsadbaWalls[4].opacity = 0.0;
   matUsadbaWalls[5].opacity = 0.0;
 }
 function usadbaFloorInfo() {
-  if(!walls2floor.visible) {
+  if(!usadba.children[3].visible) {
     if(textblockUsadbaFloor1.style.display === 'block')
       textblockUsadbaFloor1.style.display = 'none';
     else
       textblockUsadbaFloor1.style.display = 'block';
   }
-  if(!krishaUsadba.visible && walls2floor.visible) {
+  if(!usadba.children[0].visible && usadba.children[3].visible) {
     if(textblockUsadbaFloor2.style.display === 'block')
       textblockUsadbaFloor2.style.display = 'none';
     else

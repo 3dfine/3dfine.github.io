@@ -184,9 +184,11 @@ function showHolodUst() {
     usadba.visible = false;
     // ustanovka.visible = true;
     setCamera();
-    $("#controlPanel").css("display", "flex")
-      .hide()
-      .fadeIn(100);
+    if(ustanovka.onLoaded) {
+      $("#controlPanel").css("display", "flex")
+        .hide()
+        .fadeIn(100);
+    }
     controlColor.style.display='none';
     controlUsadba.style.display='none';
     controls.maxPolarAngle = Math.PI * 0.75;

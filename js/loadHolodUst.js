@@ -140,6 +140,7 @@ function loadHolod() {
     ustanovka.rotation.y = THREE.Math.degToRad( -90 );
     // console.log( 'ustanovka', ustanovka.children );
     // console.log( 'ventilatorOutSide', ventilatorOutSide.children );
+
   } else {
     ustanovka.visible = true;
   }
@@ -148,6 +149,8 @@ function loadHolod() {
 managerFBXLoad.onLoad = function ( ) {
   globalAnyLoading = false;
   console.log(globalAnyLoading);
+  barashki.children[0].visible = false;
+  rama.children[0].children[1].visible = false;
 
   ventilatorOutSide.rotSpeed = 0.1;
   ustVent1.rotSpeed = 0.1;
@@ -173,11 +176,15 @@ managerFBXLoad.onLoad = function ( ) {
   zaslonka1_Rama.children[0].children[0].description = 'Клапан выбросного воздуха';
   zaslonka2_Rama.children[0].children[0].description = 'Воздухозаборный клапан';
 
-	console.log( '3d models loading complete!');
   ustanovka.onLoaded = true;
   ustanovka.visible = true;
   blockLoad.style.display='none';
 
     matHolodSetup();
   globalToTuLoaded = true;
+
+
+  $("#controlPanel").css("display", "flex")
+    .hide()
+    .fadeIn(200);
 };
