@@ -10,7 +10,7 @@ function onWindowResize( event ) {
   camera.updateProjectionMatrix();
   if(height > width) {
     controls.rotateSpeed = height / 1920;
-    camera.zoom = 0.5;
+    camera.zoom = 0.6;
   } else {
     controls.rotateSpeed = width / 1920;
     camera.zoom = 1.0;
