@@ -71,6 +71,19 @@ window.onload = function () {
   showGUI();
   windLoaded = true;
 
+  let testFetch = fetch('/json/data1.json');
+  let testhttpGet = httpGet('/json/data1.json');
+  // testhttpGet.then(response => {
+  //   let phones = JSON.parse(response);
+  //   header3.innerHTML = phones[0].name;
+  // });
+  testFetch
+  .then(function(response) {
+    return response.json();
+   })
+  .then(function(phones) {
+    header3.innerHTML = phones[0].name;
+  });
 }
 let animate = function () {
   requestAnimationFrame( animate );

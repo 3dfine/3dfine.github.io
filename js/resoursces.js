@@ -1,29 +1,25 @@
-// var loadTextResource = function(url) {
-//   return new Promise(function(resolve, reject) {
-//       var request = new XMLHttpRequest();
-//       request.open('GET', url, true);
-//       request.onload = function () {
-//         if(request.status >= 200 && request.status < 300) {
-//           resolve(request.responseText);
-//         }
-//         else {
-//           reject('Error: HTTP status - ' + request.status + ' on resource ' + url);
-//         }
-//       }
-//       request.send();
-//   });
-// }
-
-// let loadTextResource = function( url ) {
-//     let request = new XMLHttpRequest();
-//     request.open( 'GET', url, true );
-//     request.send();
-//     request.onload = function() {
-//       request.responseText;
-//   }
-// }
 let globalToTuLoaded = false;
 let globalAnyLoading = false;
+
+function httpGet(url) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onload = function() {
+      if (this.status == 200) {
+        resolve(this.response);
+      } else {
+        var error = new Error(this.statusText);
+        error.code = this.status;
+        reject(error);
+      }
+    };
+    xhr.onerror = function() {
+      reject(new Error("Network Error"));
+    };
+    xhr.send();
+  });
+}
 
 let managerFBXLoad = new THREE.LoadingManager();  //менеджер загрузки фбх моделей
 managerFBXLoad.onProgress = function ( url, itemsLoaded, itemsTotal ) {
