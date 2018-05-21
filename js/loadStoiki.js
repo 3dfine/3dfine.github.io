@@ -4,10 +4,7 @@ let matStoikaGoriz2 = [ new THREE.MeshStandardMaterial( { color : 0x00ff00 } ) ]
 let matHolodVetrina = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 let matHolodVetrinaGlass = [ new THREE.MeshBasicMaterial( { color : 0xffffff } ) ];
 // models
-let sx_43 = new THREE.Object3D();
 let sx_32_vert = new THREE.Object3D();
-let sx_32 = new THREE.Object3D();
-let sx_19_vert = new THREE.Object3D();
 let holodVetrina = new THREE.Object3D();
 let holodVetrinaGlass = new THREE.Object3D();
 let vert_fon;
@@ -74,6 +71,7 @@ function loadStoiki() {
       object.scale.multiplyScalar( 1.0 );
       sx_32_vert.add( object );
     });
+
     loader3.load( 'models/fbx/holodVetrina.FBX', function( object ) {
       object.children[0].material = matHolodVetrina;
       //пользовательское свойство materialDefult - сохраняем материал для режима выбора подобъектов!

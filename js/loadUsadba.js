@@ -26,8 +26,9 @@ function loadUsadba() {
       blockLoadProgress.style.width = (50.0 * itemsLoaded  / itemsTotal) + 'vmax';
     };
     managerUsadba.onLoad = function ( ) {
+      usadba.children.sort(compareName);
       globalAnyLoading = false;
-      console.log(globalAnyLoading);
+      console.log(usadba);
       matUsadbaSetup();
       usadba.onLoaded = true;
       usadba.visible = true;
@@ -76,6 +77,7 @@ function loadUsadba() {
           for(let ii=0; ii<object.children.length; ii++) {
             object.children[ii].material = mats[i];
           }
+          object.name = i;
           usadba.add( object );
       });
     }
@@ -222,8 +224,8 @@ function usadbaFull() {
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 0.1; });
   usadba.children[0].visible = true;
-  usadba.children[3].visible = true;
-  usadba.children[1].children[1].visible = true;
+  usadba.children[2].visible = true;
+  usadba.children[4].children[1].visible = true;
   matUsadbaWalls[4].opacity = 1.0;
   matUsadbaWalls[5].opacity = 1.0;
 }
@@ -233,8 +235,8 @@ function usadba2Floor() {
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   usadba.children[0].visible = false;
-  usadba.children[3].visible = true;
-  usadba.children[1].children[1].visible = true;
+  usadba.children[2].visible = true;
+  usadba.children[4].children[1].visible = true;
   matUsadbaWalls[4].opacity = 1.0;
   matUsadbaWalls[5].opacity = 1.0;
 }
@@ -244,19 +246,19 @@ function usadba1Floor() {
   matUsadbawalls1floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   matUsadbawalls2floor.forEach(function(item) { item.lightMapIntensity = 1.8; });
   usadba.children[0].visible = false;
-  usadba.children[3].visible = false;
-  usadba.children[1].children[1].visible = false;
+  usadba.children[2].visible = false;
+  usadba.children[4].children[1].visible = false;
   matUsadbaWalls[4].opacity = 0.0;
   matUsadbaWalls[5].opacity = 0.0;
 }
 function usadbaFloorInfo() {
-  if(!usadba.children[3].visible) {
+  if(!usadba.children[2].visible) {
     if(textblockUsadbaFloor1.style.display === 'block')
       textblockUsadbaFloor1.style.display = 'none';
     else
       textblockUsadbaFloor1.style.display = 'block';
   }
-  if(!usadba.children[0].visible && usadba.children[3].visible) {
+  if(!usadba.children[0].visible && usadba.children[2].visible) {
     if(textblockUsadbaFloor2.style.display === 'block')
       textblockUsadbaFloor2.style.display = 'none';
     else

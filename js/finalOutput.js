@@ -71,38 +71,26 @@ window.onload = function () {
   showGUI();
   windLoaded = true;
 
-  let testFetch = fetch('/json/data1.json');
-  let testhttpGet = httpGet('/json/data1.json');
-  // testhttpGet.then(response => {
-  //   let phones = JSON.parse(response);
-  //   header3.innerHTML = phones[0].name;
-  // });
-  testFetch
-  .then(function(response) {
-    return response.json();
-   })
-  .then(function(phones) {
-    header3.innerHTML = phones[0].name;
-  });
+  fetch('/json/data1.json')
+    .then(function(response) {
+      return response.json();
+     })
+    .then(function(data) {
+      header3.innerHTML = data[0].name;
+    });
 }
+
 let animate = function () {
   requestAnimationFrame( animate );
-
   tick += 0.075;
   //здесь выполняется после загрузки 3д моделей
   if( globalToTuLoaded ) {
-
     showUsadbaDescr();
-
     showGUI1();
     animateCamera1( CameraKeyTrck );
     animHolodUst1( tick );
     controls.update();
     renderer.render( scene, camera );
   }
-  // else {
-  //   // blockLoadProgress.style.width = 50 * ( globalLoad + 0.9 ) / 36 + 'vmax';
-  //   console.log(globalLoad);
-  // }
 };
 animate();
