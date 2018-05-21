@@ -28,7 +28,7 @@ function loadUsadba() {
     managerUsadba.onLoad = function ( ) {
       usadba.children.sort(compareName);
       globalAnyLoading = false;
-      console.log(usadba);
+    //  console.log(usadba);
       matUsadbaSetup();
       usadba.onLoaded = true;
       usadba.visible = true;
